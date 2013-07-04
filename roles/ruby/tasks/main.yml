@@ -5,9 +5,13 @@
     - ruby1.9.3
     - ruby
 
-- command: 'ruby -e "puts RUBY_VERSION"'
+# wow, these are some ridiculous hacks, better find a better way
+- command: 'ruby -e "puts [:ruby,:-,RUBY_VERSION,:-,:p,RUBY_PATCHLEVEL].join"'
   register: installed_ruby
   ignore_errors: True
 
+- name: debug
+  debug: msg={{ installed_ruby }}
+
 - include: install.yml
-  when: ("failed" in installed_ruby) or (installed_ruby.stdout != "2.0.0")
+  when: ("failed" in installed_ruby) or (installed_ruby.stdout != ruby_version )
