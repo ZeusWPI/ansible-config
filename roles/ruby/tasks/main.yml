@@ -5,9 +5,9 @@
     - ruby1.9.3
     - ruby
 
-- command: ruby -e "puts RUBY_VERSION"
+- command: 'ruby -e "puts RUBY_VERSION"'
   register: installed_ruby
   ignore_errors: True
 
 - include: install.yml
-  when: installed_ruby != "2.0.0"
+  when: ("failed" in installed_ruby) or (installed_ruby.stdout != "2.0.0")
