@@ -1,0 +1,13 @@
+---
+- name: Remove packaged versions of ruby
+  apt: name={{ item }} state=absent
+  with_items:
+    - ruby1.9.3
+    - ruby
+
+- command: ruby -e "puts RUBY_VERSION"
+  register: installed_ruby
+  ignore_errors: True
+
+- include: install.yml
+  when: installed_ruby != "2.0.0"
