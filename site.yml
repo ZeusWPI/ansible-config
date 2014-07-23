@@ -1,13 +1,12 @@
 ---
 - name: Set-up the entire zeus-infrastructure
-  hosts: all
+  hosts: king
   user: root
-  sudo: yes
 
   roles:
     - common
     - mysql
     - nginx
-    - ruby
-
-
+    - php
+    - fastcgi
+    - passenger

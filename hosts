@@ -1,0 +1,13 @@
+# This is king's ansible 'hosts' file.
+#
+# It should live in /etc/ansible/hosts
+#
+#   - Comments begin with the '#' character
+#   - Blank lines are ignored
+#   - Groups of hosts are delimited by [header] elements
+#   - You can enter hostnames or ip addresses
+#   - A hostname/ip can be a member of multiple groups
+
+[webservers]
+# For this to work your SSH-key needs to be added to king already
+king ansible_ssh_host=king.ugent.be ansible_ssh_port=2222 ansible_ssh_user=root

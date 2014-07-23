@@ -1,0 +1,14 @@
+---
+- name: Install php
+  apt: name={{ item }} state=present
+  with_items:
+  - php5-fpm
+  - php5-mysql
+
+- name: Create php fpm ini file
+  copy: src=php.ini dest=/etc/php5/fpm/php.ini
+
+- name: Create php5-fpm configuration file
+  copy: src=www.conf dest=/etc/php5/fpm/pool.d/www.conf
+  notify:
+  - restart nginx

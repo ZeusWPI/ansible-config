@@ -1,0 +1,9 @@
+---
+- name: Install passenger
+  apt: name=libapache2-mod-passenger state=present
+
+- name: Enable Phusion Passenger Apache module
+  action: name=a2enmod mod=passenger
+
+- name: Restart apache
+  service: name=apache2 state=restarted

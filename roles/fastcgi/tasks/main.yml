@@ -1,0 +1,3 @@
+---
+- name: Instal fastcgi
+  apt: name=libapache2-mod-fastcgi state=present
