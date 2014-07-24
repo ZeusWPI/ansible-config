@@ -8,5 +8,4 @@
     - mysql
     - nginx
     - php
-    - fastcgi
     - passenger
