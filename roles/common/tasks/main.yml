@@ -2,5 +2,9 @@
 - name: update apt
   apt: update_cache=yes
 
-- name: install htop
-  apt: name=htop state=present
+- name: install some essential packages
+  apt: name={{ item }} state=present
+  with_items:
+    - htop
+    - vim
+    - curl
