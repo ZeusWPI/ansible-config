@@ -1,5 +1,5 @@
 ---
-- name: Set-up the entire zeus-infrastructure
+- name: Set-up the entire Zeus infrastructure
   hosts: king
   user: root
 
@@ -9,3 +9,4 @@
     - nginx
     - php
     - passenger
+    - ruby_and_rails
