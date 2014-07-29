@@ -3,4 +3,4 @@
   shell: curl -sSL https://get.rvm.io | bash -s stable --rails
 
 - name: Run RVM install script
-  shell: source /usr/local/rvm/scripts/rvm
+  shell: bash /usr/local/rvm/scripts/rvm

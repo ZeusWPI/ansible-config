@@ -6,16 +6,13 @@
   apt: pkg=apt-transport-https state=present
 
 - name: Ensure the passenger apt repository is added
-  apt_repository: state=present repo='deb https://oss-binaries.phusionpassenger.com/apt/passenger raring main'
+  apt_repository: state=present repo='deb https://oss-binaries.phusionpassenger.com/apt/passenger wheezy main'
 
 - name: Install nginx-extras
   apt: name=nginx-extras state=present
 
 - name: Install passenger
   apt: name=passenger state=present
-
-- name: Enable passenger_root and ruby
-  copy: src=nginx.conf dest=/etc/nginx/nginx.conf
 
 - name: Restart nginx
   service: name=nginx state=restarted

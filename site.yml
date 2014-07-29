@@ -11,3 +11,4 @@
     - passenger
     - ruby_and_rails
     - python
+    - nginx_configs  # Install nginx configs after fcgi and passenger are installed
