@@ -2,5 +2,8 @@
 - name: Install nginx package
   apt: name=nginx state=present
 
+- name: Copy website configs
+  copy: src=sites-enabled dest=/etc/nginx/sites-enabled state=directory
+
 - name: Ensure nginx is running
   service: name=nginx state=started enabled=yes
