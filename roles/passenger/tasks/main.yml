@@ -10,9 +10,8 @@
 
 - name: Install nginx-extras
   apt: name=nginx-extras state=present
+  notify: Restart nginx
 
 - name: Install passenger
   apt: name=passenger state=present
-
-- name: Restart nginx
-  service: name=nginx state=restarted
+  notify: Restart nginx
