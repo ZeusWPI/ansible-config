@@ -5,10 +5,12 @@
 
   roles:
     - common
+    - users
     - mysql
     - nginx
     - php
     - passenger
     - ruby_and_rails
     - python
-    - nginx_configs  # Install nginx configs after fcgi and passenger are installed
+    # Install nginx configs after fcgi and passenger are installed
+    - nginx_configs
