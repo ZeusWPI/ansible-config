@@ -1,12 +1,15 @@
 ---
 - name: Enable passenger_root and ruby
   copy: src=nginx.conf dest=/etc/nginx/nginx.conf
+  notify:
+    - Restart nginx
 
 - name: Copy ssl certificate stuff
   copy: src=ssl/ dest=/etc/nginx/ssl/
+  notify:
+    - Restart nginx
 
 - name: Copy website configs
   copy: src=sites-enabled/ dest=/etc/nginx/sites-enabled/
-
-- name: Restart nginx
-  service: name=nginx state=restarted
+  notify:
+    - Restart nginx
