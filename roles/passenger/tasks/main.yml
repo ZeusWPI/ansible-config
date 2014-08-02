@@ -12,6 +12,6 @@
   apt: name=nginx-extras state=present
   notify: Restart nginx
 
-- name: Install passenger
+- name: Install Passenger
   apt: name=passenger state=present
   notify: Restart nginx
