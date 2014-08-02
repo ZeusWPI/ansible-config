@@ -5,6 +5,7 @@
 - name: install some essential packages
   apt: name={{ item }} state=present
   with_items:
-    - htop
     - vim
+    - zsh
+    - htop
     - curl
