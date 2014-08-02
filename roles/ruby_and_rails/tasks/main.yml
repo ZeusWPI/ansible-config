@@ -1,5 +1,5 @@
 ---
-- name: Install rvm and install rails
+- name: Install RVM and Rails
   shell: curl -sSL https://get.rvm.io | bash -s stable --rails
 
 - name: Run RVM install script

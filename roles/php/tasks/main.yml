@@ -1,5 +1,5 @@
 ---
-- name: Install php
+- name: Install PHP
   apt: name={{ item }} state=present
   with_items:
   - php5-fpm
@@ -10,7 +10,7 @@
 - name: Remove default files
   file: path=/etc/nginx/sites-enabled/default state=absent
 
-# This will set up fastcgi with php
+# This will set up FastCGI with PHP
 - name: Copy the custom configuration
   copy: src=my-default dest=/etc/nginx/sites-available/my-default
 
@@ -20,4 +20,4 @@
 - name: Create php5-fpm configuration file
   copy: src=www.conf dest=/etc/php5/fpm/pool.d/www.conf
   notify:
-  - restart nginx
+  - Restart nginx
