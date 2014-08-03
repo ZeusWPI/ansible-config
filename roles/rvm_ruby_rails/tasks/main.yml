@@ -1,6 +1,9 @@
 ---
-- name: Install RVM and Rails
+- name: Install RVM, Ruby and Rails
   shell: curl -sSL https://get.rvm.io | bash -s stable --rails
+         creates=/usr/local/rvm
+  register: rvm_install
 
 - name: Run RVM install script
   shell: bash /usr/local/rvm/scripts/rvm
+  when: rvm_install.changed
