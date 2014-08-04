@@ -1,6 +1,5 @@
 ---
 users:
-  #- bijzitter
   - ceneka
   - cultour
   - cursuscruisen-biologie
@@ -12,14 +11,11 @@ users:
   - errbit
   - fk-enrolment
   - gandalf
-  #- gitlabhq
   - hydra
   - latex
   - macht
-  #- overheid
   - pharma
   - saruman
-  #- stembus
   - stuw
   - tientien
   - urenloop
