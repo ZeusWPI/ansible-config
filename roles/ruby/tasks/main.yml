@@ -15,3 +15,6 @@
 
 - include: install.yml
   when: ("failed" in installed_ruby) or (installed_ruby.stdout != ruby_version )
+
+- name: Install Bundle gem
+  gem: name=bundle
