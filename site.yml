@@ -11,4 +11,5 @@
     - php
     - passenger
     - python
+    - postfix
     - nginx_configs
