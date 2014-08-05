@@ -1,12 +1,12 @@
-- name: Ensure the passenger APT-repository is added
-  apt_repository:
-    repo: 'deb https://apt.newrelic.com/debian/ newrelic non-free'
-
 - name: Ensure PGP key is installed
   apt_key:
     url: https://download.newrelic.com/548C16BF.gpg
     id: 548C16BF
     state: present
+
+- name: Ensure the New Relic APT-repository is added
+  apt_repository:
+    repo: 'deb http://apt.newrelic.com/debian/ newrelic non-free'
   notify: Update apt
 
 - name: Install New Relic
