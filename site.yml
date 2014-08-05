@@ -10,7 +10,6 @@
     - nginx
     - php
     - passenger
-    - rvm_ruby_rails
     - python
     - postfix
     - nginx_configs
