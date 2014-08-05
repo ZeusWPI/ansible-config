@@ -1,13 +1,8 @@
 ---
-- name: Set-up the entire zeus-infrastructure
-  hosts: all
+- name: Set up NAS
+  hosts: abyss
   user: root
   sudo: yes
 
   roles:
-    - common
-    - mysql
-    - nginx
-    - ruby
-
-
+    - rsnapshot
