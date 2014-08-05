@@ -10,3 +10,4 @@
     - htop
     - curl
     - etckeeper
+    - python-pip
