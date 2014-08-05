@@ -1,6 +1,8 @@
 ---
 - name: Install postfix
   apt: name=postfix state=present
+  register: postfix_install
 
 - name: Copy the configuration file
   copy: src=main.cf dest=/etc/postfix/main.cf
+  when: postfix_install.changed
