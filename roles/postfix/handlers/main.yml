@@ -1,0 +1,6 @@
+---
+- name: Reload aliases
+  command: newaliases
+
+- name: Reload Postfix
+  command: postfix reload
