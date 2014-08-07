@@ -10,4 +10,10 @@
     - nginx
     - ruby
 
+- name: Set up NAS
+  hosts: abyss
+  user: root
+  sudo: yes
 
+  roles:
+    - rsnapshot
