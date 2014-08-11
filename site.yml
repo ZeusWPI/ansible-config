@@ -13,3 +13,4 @@
     - python
     - postfix
     - nginx_configs
+    - new_relic
