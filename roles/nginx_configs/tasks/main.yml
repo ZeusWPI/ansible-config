@@ -2,6 +2,7 @@
 - name: Enable passenger_root and ruby
   copy: src=nginx.conf dest=/etc/nginx/nginx.conf
   notify:
+    - Restart FastCGI
     - Restart nginx
 
 - name: Copy ssl certificate stuff
@@ -12,4 +13,5 @@
 - name: Copy website configs
   copy: src=sites-enabled/ dest=/etc/nginx/sites-enabled/
   notify:
+    - Restart FastCGI
     - Restart nginx

@@ -1,6 +1,3 @@
 ---
 - name: Restart FastCGI
   service: name=fcgiwrap state=restarted
-
-- name: Restart nginx
-  service: name=nginx state=restarted

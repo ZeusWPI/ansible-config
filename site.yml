@@ -12,7 +12,13 @@
     - passenger
     - python
     - postfix
+    - mailman
     - nginx_configs
     - new_relic
     - fail2ban
     - django
+
+  vars_prompt:
+    - name: "mailman_password"
+      prompt: "Enter mailman admin password"
+      private: yes
