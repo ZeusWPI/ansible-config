@@ -11,6 +11,7 @@
     cp /usr/share/doc/fcgiwrap/examples/nginx.conf /etc/nginx/fcgiwrap.conf
     creates=/etc/nginx/fcgiwrap.conf
   when: fastcgi_install.changed
+  notify: Restart FastCGI
 
 - name: Ensure nginx is running
   service: name=nginx state=started enabled=yes
