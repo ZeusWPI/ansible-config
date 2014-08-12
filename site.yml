@@ -12,5 +12,11 @@
     - passenger
     - python
     - postfix
+    - mailman
     - nginx_configs
     - new_relic
+
+  vars_prompt:
+    - name: "mailman_password"
+      prompt: "Enter mailman admin password"
+      private: yes
