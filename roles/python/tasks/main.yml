@@ -1,7 +1,4 @@
 ---
-- name: Install virtualenv
-  pip: name=virtualenv state=present
-
 - name: Install Python 2.x
   apt: name=python state=present
 
