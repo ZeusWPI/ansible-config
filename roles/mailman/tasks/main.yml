@@ -1,6 +1,7 @@
 ---
 - name: Install mailman package
   apt: name=mailman
+  notify: Start mailman for the first time
 
 - name: Check if mailman admin list is already created
   shell: list_lists | grep -i '\bmailman\b'
@@ -14,3 +15,6 @@
 - name: Copy config file
   copy: src=mm_cfg.py dest=/etc/mailman/mm_cfg.py
   notify: Restart mailman
+
+# The nginx configuration file for the mailman web access is installed in
+# the role 'nginx_configs'.

@@ -1,3 +1,6 @@
 ---
+- name: Start mailman for the first time
+  service: name=mailman state=started
+
 - name: Restart mailman
   service: name=mailman state=restarted
