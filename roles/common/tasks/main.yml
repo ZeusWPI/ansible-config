@@ -11,3 +11,11 @@
     - curl
     - etckeeper
     - python-pip
+
+- name: Install ack
+  apt: name=ack-grep state=present
+  register: ack_installed
+
+- name: Rename ack-grep to ack
+  command: dpkg-divert --local --divert /usr/bin/ack --rename --add /usr/bin/ack-grep
+  when: ack_installed.changed
