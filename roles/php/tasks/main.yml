@@ -17,6 +17,9 @@
 - name: Link default file
   file: src=/etc/nginx/sites-available/my-default dest=/etc/nginx/sites-enabled/default state=link
 
+- name: Create /var/run/php/
+  file: path=/var/run/php/ state=directory
+
 - name: Create php5-fpm configuration file
   copy: src=www.conf dest=/etc/php5/fpm/pool.d/www.conf
   notify:
