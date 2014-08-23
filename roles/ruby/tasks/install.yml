@@ -1,0 +1,17 @@
+- name: Install build-essentials
+  apt: name=build-essential state=present
+
+- name: Download ruby ({{ ruby_version }})
+  get_url: url=ftp://ftp.ruby-lang.org/pub/ruby/2.1/{{ ruby_version }}.tar.gz dest=/tmp/
+
+- name: extract archive
+  command: tar xzf /tmp/{{ ruby_version }}.tar.gz chdir=/tmp/ creates={{ ruby_version }}
+
+- name: configure
+  command: ./configure chdir=/tmp/{{ ruby_version }}
+
+- name: make
+  command: make chdir=/tmp/{{ ruby_version }}
+
+- name: make install
+  command: make install chdir=/tmp/{{ ruby_version }}
