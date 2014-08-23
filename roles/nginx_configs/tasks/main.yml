@@ -1,9 +1,6 @@
 ---
 - name: Enable passenger_root, ruby and mediawiki
-  copy: src={{ item}} dest=/etc/nginx/{{ item }}
-  with_items:
-    - nginx.conf
-    - mediawiki.conf
+  copy: src=nginx.conf dest=/etc/nginx/nginx.conf
   notify:
     - Restart FastCGI
     - Restart nginx
