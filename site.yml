@@ -17,6 +17,7 @@
     - new_relic
     - fail2ban
     - django
+    - mediawiki
 
   vars_prompt:
     - name: "mailman_password"
