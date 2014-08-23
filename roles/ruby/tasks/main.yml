@@ -5,8 +5,8 @@
     - ruby1.9.3
     - ruby
 
-# wow, these are some ridiculous hacks, better find a better way
-- command: 'ruby -e "puts [:ruby,:-,RUBY_VERSION,:-,:p,RUBY_PATCHLEVEL].join"'
+- name: Check current ruby version
+  command: 'ruby -e "puts [:ruby,:-,RUBY_VERSION].join"'
   register: installed_ruby
   ignore_errors: True
 
