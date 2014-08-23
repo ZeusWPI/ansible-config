@@ -1,0 +1,20 @@
+---
+- name: Remove packaged versions of ruby
+  apt: name={{ item }} state=absent
+  with_items:
+    - ruby1.9.3
+    - ruby
+
+# wow, these are some ridiculous hacks, better find a better way
+- command: 'ruby -e "puts [:ruby,:-,RUBY_VERSION,:-,:p,RUBY_PATCHLEVEL].join"'
+  register: installed_ruby
+  ignore_errors: True
+
+- name: debug
+  debug: msg={{ installed_ruby }}
+
+- include: install.yml
+  when: ("failed" in installed_ruby) or (installed_ruby.stdout != ruby_version )
+
+- name: Install Bundle gem
+  gem: name=bundle
