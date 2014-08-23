@@ -15,6 +15,7 @@
     - python
     - postfix
     - mailman
+    - mediawiki
     - nginx_configs
     - new_relic
     - fail2ban
