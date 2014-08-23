@@ -6,6 +6,7 @@
   roles:
     - common
     - users
+    - ruby
     - mysql
     - nginx
     - php
