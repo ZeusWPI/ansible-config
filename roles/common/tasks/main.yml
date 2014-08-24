@@ -9,6 +9,8 @@
     - zsh
     - htop
     - curl
+    - unrar
+    - unzip
     - etckeeper
     - python-pip
     - git-core
