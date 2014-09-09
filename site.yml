@@ -9,6 +9,7 @@
     - logrotate
     - ruby
     - mysql
+    - iptables
     - nginx
     - php
     - passenger
