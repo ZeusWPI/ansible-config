@@ -1,0 +1,16 @@
+---
+- name: Install iptables and arno-iptables
+  apt: name={{ item }} state=present
+  with_items:
+    - iptables
+    - arno-iptables-firewall
+  notify:
+    - Restart arno-iptables
+
+- name: Copy config files
+  copy: src={{ item }} dest=/etc/arno-iptables-firewall/{{ item }}
+  with_items:
+    - blocked_hosts
+    - firewall.conf
+  notify:
+    - Restart arno-iptables

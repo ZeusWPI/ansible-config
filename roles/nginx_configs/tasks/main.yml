@@ -1,0 +1,17 @@
+---
+- name: Enable passenger_root, ruby and mediawiki
+  copy: src=nginx.conf dest=/etc/nginx/nginx.conf
+  notify:
+    - Restart FastCGI
+    - Restart nginx
+
+- name: Copy ssl certificate stuff
+  copy: src=ssl/ dest=/etc/nginx/ssl/
+  notify:
+    - Restart nginx
+
+- name: Copy website configs
+  copy: src=sites-enabled/ dest=/etc/nginx/sites-enabled/
+  notify:
+    - Restart FastCGI
+    - Restart nginx

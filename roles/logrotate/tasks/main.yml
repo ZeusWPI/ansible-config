@@ -1,0 +1,6 @@
+---
+- name: Install logrotate package
+  apt: name=logrotate
+
+- name: Copy config file
+  copy: src=logrotate.conf dest=/etc/logrotate.conf

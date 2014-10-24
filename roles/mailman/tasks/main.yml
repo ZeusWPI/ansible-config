@@ -1,0 +1,20 @@
+---
+- name: Install mailman package
+  apt: name=mailman
+  notify: Start mailman for the first time
+
+- name: Check if mailman admin list is already created
+  shell: list_lists | grep -i '\bmailman\b'
+  register: mailman_list_exists
+  ignore_errors: yes
+
+- name: Make admin list
+  shell: echo | newlist mailman admin@zeus.ugent.be '{{ mailman_password }}'
+  when: mailman_list_exists|failed
+
+- name: Copy config file
+  copy: src=mm_cfg.py dest=/etc/mailman/mm_cfg.py
+  notify: Restart mailman
+
+# The nginx configuration file for the mailman web access is installed in
+# the role 'nginx_configs'.
