@@ -1,0 +1,12 @@
+---
+- name: Add users
+  user: name={{ item }}
+        shell=/bin/bash
+  with_items: users
+
+- name: Add default folders in home dirs
+  file: path=/home/{{ item[0] }}/{{ item[1] }}
+        state=directory
+  with_nested:
+    - users
+    - ['log', 'public']

@@ -1,0 +1,30 @@
+---
+- name: Install mediawiki
+  apt: name=mediawiki state=present
+
+- name: Run the install script
+  shell: php /var/lib/mediawiki/maintenance/install.php "Zeus Wiki" "mediawiki"
+  register: mediawiki_install
+
+- name: Add LdapAuthentication
+  copy: src=ldapauth/ dest=/usr/share/mediawiki-extensions/
+  when: mediawiki_install.changed
+
+- name: Add links
+  file: src=/usr/share/mediawiki-extensions/{{ item }} dest=/etc/mediawiki-extensions/extensions-available/{{ item }} state=link
+  when: mediawiki_install.changed
+  with_items:
+    - LdapAuthentication.php
+    - LdapAutoAuthentication.php
+
+- name: Enable extensions
+  file: src=/etc/mediawiki-extensions/extensions-available/{{ item }}  dest=/etc/mediawiki-extensions/extensions-enabled/{{ item }} state=link
+  when: mediawiki_install.changed
+  with_items:
+    - Cite.php
+    - Footnote.php
+    - LdapAuthentication.php
+    - LdapAutoAuthentication.php
+    - NewestPages.php
+    - NewUserNotif.php
+    - RSSReader.php

@@ -1,16 +1,37 @@
 ---
-- name: Set-up the entire zeus-infrastructure
-  hosts: all
+- name: Set-up the entire Zeus infrastructure
+  hosts: king
   user: root
-  sudo: yes
 
   roles:
     - common
+    - users
+    - logrotate
+    - ruby
     - mysql
+    - iptables
     - nginx
+<<<<<<< HEAD
     - ruby
 
 - name: Set up NAS
   hosts: abyss
   user: root
   sudo: yes
+=======
+    - php
+    - passenger
+    - python
+    - postfix
+    - mailman
+    - mediawiki
+    - nginx_configs
+    - new_relic
+    - fail2ban
+    - django
+
+  vars_prompt:
+    - name: "mailman_password"
+      prompt: "Enter mailman admin password"
+      private: yes
+>>>>>>> 073b2303332050917182b20d6b8c67723e057d11

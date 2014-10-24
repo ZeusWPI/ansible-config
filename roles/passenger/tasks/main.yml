@@ -1,0 +1,21 @@
+---
+- name: Ensure PGP key is installed
+  apt_key: keyserver=keyserver.ubuntu.com
+           id=561F9B9CAC40B2F7
+
+- name: Ensure HTTPS support for APT is installed
+  apt: pkg={{ item }}
+  with_items:
+    - apt-transport-https
+    - ca-certificates
+
+- name: Ensure the Passenger APT-repository is added
+  apt_repository:
+    repo: 'deb https://oss-binaries.phusionpassenger.com/apt/passenger wheezy main'
+
+- name: Install nginx-extras and Passenger
+  apt: name={{ item }} state=present
+  with_items:
+    - nginx-extras
+    - passenger
+  notify: Restart nginx

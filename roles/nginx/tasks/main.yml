@@ -2,10 +2,16 @@
 - name: Install nginx package
   apt: name=nginx state=present
 
-# - name: Create nginx configuration file
-#   copy: src=default.conf dest=/etc/nginx/sites-available/default.conf
-#   notify:
-#     - reload nginx
+- name: Install FastCGI package for nginx
+  apt: name=fcgiwrap state=present
+  register: fastcgi_install
+
+- name: Copy default FastCGI config file
+  command: >
+    cp /usr/share/doc/fcgiwrap/examples/nginx.conf /etc/nginx/fcgiwrap.conf
+    creates=/etc/nginx/fcgiwrap.conf
+  when: fastcgi_install.changed
+  notify: Restart FastCGI
 
 - name: Ensure nginx is running
   service: name=nginx state=started enabled=yes
