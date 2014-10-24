@@ -11,14 +11,7 @@
     - mysql
     - iptables
     - nginx
-<<<<<<< HEAD
     - ruby
-
-- name: Set up NAS
-  hosts: abyss
-  user: root
-  sudo: yes
-=======
     - php
     - passenger
     - python
@@ -34,4 +27,3 @@
     - name: "mailman_password"
       prompt: "Enter mailman admin password"
       private: yes
->>>>>>> 073b2303332050917182b20d6b8c67723e057d11
