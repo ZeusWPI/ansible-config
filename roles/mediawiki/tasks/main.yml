@@ -3,7 +3,7 @@
   apt: name=mediawiki state=present
 
 - name: Run the install script
-  shell: php /var/lib/mediawiki/maintenance/install.php "Zeus Wiki" "mediawiki"
+  shell: php /var/lib/mediawiki/maintenance/install.php "Zeus Wiki" "wikiuser"
   register: mediawiki_install
 
 - name: Add LdapAuthentication
