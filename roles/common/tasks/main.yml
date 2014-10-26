@@ -1,4 +1,7 @@
 ---
+- name: Adjust /etc/apt/sources.list
+  copy: src=apt/sources.list dest=/etc/apt/sources.list
+
 - name: Update apt
   apt: update_cache=yes
 
