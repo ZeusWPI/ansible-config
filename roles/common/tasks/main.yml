@@ -19,6 +19,7 @@
     - etckeeper
     - python-pip
     - git-core
+    - drush
 
 - name: Install ack
   apt: name=ack-grep state=present
