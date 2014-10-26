@@ -5,7 +5,7 @@
 - name: Update apt
   apt: update_cache=yes
 
-- name: Install some essential packages
+- name: Install packages that don't need configuration
   apt: name={{ item }} state=present
   with_items:
     - vim
@@ -20,6 +20,7 @@
     - python-pip
     - git-core
     - drush
+    - nodejs
 
 - name: Install ack
   apt: name=ack-grep state=present
