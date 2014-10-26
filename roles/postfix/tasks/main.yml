@@ -8,7 +8,11 @@
   notify: Reload Postfix
 
 - name: Copy the configuration file
-  copy: src=main.cf dest=/etc/postfix/main.cf
+  copy: src=postfix/main.cf dest=/etc/postfix/main.cf
+  notify: Reload Postfix
+
+- name: Copy the master file
+  copy: src=postfix/master.cf dest=/etc/postfix/master.cf
   notify: Reload Postfix
 
 - name: Set aliases
