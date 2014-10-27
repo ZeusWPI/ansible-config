@@ -1,0 +1,10 @@
+---
+- name: Install spamassassin packages
+  apt: name={{ item }} state=present
+  with_items:
+    - spamassassin
+    - spamc
+
+- name: Install default config
+  copy: src=default/spamassassin dest=/etc/default/spamassassin
+  notify: Restart spamassassin
