@@ -27,3 +27,11 @@
     - name: "mailman_password"
       prompt: "Enter mailman admin password"
       private: yes
+
+    - name: "mysql_root_password"
+      prompt: "Enter the MySQL root password"
+      private: yes
+
+    - name: "mediawiki_password"
+      prompt: "Enter mediawiki password"
+      private: yes

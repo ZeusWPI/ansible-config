@@ -6,6 +6,7 @@
     - mysql-client
     - libmysqlclient-dev
     - python-mysqldb
+  register: mysql_install
 
 - name: Create MySQL configuration file
   copy: src=my.cnf dest=/etc/mysql/my.cnf
@@ -14,3 +15,7 @@
 
 - name: Ensure MySQL is running
   service: name=mysql state=started enabled=yes
+
+- name: Set a password for the root account
+  shell: mysqladmin -u root password {{ mysql_root_password }}
+  when: mysql_install.changed
