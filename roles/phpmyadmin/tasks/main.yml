@@ -1,6 +1,4 @@
 ---
-- include_vars: ../../../host_variables/passwords.yml
-
 - name: Update apt
   apt: update_cache=yes
 
