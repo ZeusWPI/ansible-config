@@ -6,6 +6,8 @@
 
 - name: Add default folders in home dirs
   file: path=/home/{{ item[0] }}/{{ item[1] }}
+        owner={{ item[0] }}
+        group={{ item[0] }}
         state=directory
   with_nested:
     - users
