@@ -25,3 +25,5 @@
     - fail2ban
     - django
     - phpmyadmin
+  vars_files:
+    - /vars/passwords.yml

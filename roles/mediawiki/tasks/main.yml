@@ -1,6 +1,4 @@
 ---
-- include_vars: ../../../host_variables/passwords.yml
-
 - name: Install mediawiki
   apt: name=mediawiki state=present
   register: mediawiki_install

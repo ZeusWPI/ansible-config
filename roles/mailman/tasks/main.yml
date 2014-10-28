@@ -1,6 +1,4 @@
 ---
-- include_vars: ../../../host_variables/passwords.yml
-
 - name: Install mailman package
   apt: name=mailman
   notify: Start mailman for the first time
