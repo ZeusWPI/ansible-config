@@ -1,4 +1,6 @@
 ---
+- include_vars: ../../../host_variables/passwords.yml
+
 - name: Install MySQL package
   apt: name={{ item }} state=present
   with_items:
