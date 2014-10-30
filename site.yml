@@ -4,26 +4,26 @@
   user: root
 
   roles:
-    #- common
+    - common
     - users
-    #- logrotate
-    #- kerberos
-    #- ruby
-    #- mysql
-    #- iptables
-    #- nginx
-    #- ruby
-    #- php
-    #- passenger
-    #- python
-    #- spamassassin
-    #- postfix
-    #- mailman
-    #- mediawiki
-    #- nginx_configs
-    #- new_relic
-    #- fail2ban
-    #- django
-    #- phpmyadmin
+    - logrotate
+    - kerberos
+    - ruby
+    - mysql
+    - iptables
+    - nginx
+    - ruby
+    - php
+    - passenger
+    - python
+    - spamassassin
+    - postfix
+    - mailman
+    - mediawiki
+    - nginx_configs
+    - new_relic
+    - fail2ban
+    - django
+    - phpmyadmin
   vars_files:
     - vars/passwords.yml
