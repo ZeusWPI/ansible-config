@@ -26,4 +26,4 @@
     - django
     - phpmyadmin
   vars_files:
-    - /vars/passwords.yml
+    - vars/passwords.yml
