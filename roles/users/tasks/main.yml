@@ -2,7 +2,7 @@
 - name: Add users
   user: name={{ item.name }}
         shell=/bin/bash
-        password='{{ item.crypted_password }}'
+        password="{{ item.crypted_password }}"
   with_items: users
 
 - name: Add default folders in home dirs
@@ -13,3 +13,12 @@
   with_nested:
     - users
     - ['log', 'public']
+
+- name: Add default .my.cnf for certain users
+  copy:
+    content: "{{ item.my_cnf }}"
+    dest: /home/{{ item.name }}/.my.cnf
+    owner: "{{ item.name }}"
+    group: "{{ item.name }}"
+  when: item.my_cnf is defined
+  with_items: users
