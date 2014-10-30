@@ -1,13 +1,14 @@
 ---
 - name: Add users
-  user: name={{ item }}
+  user: name={{ item.name }}
         shell=/bin/bash
+        password='{{ item.crypted_password }}'
   with_items: users
 
 - name: Add default folders in home dirs
-  file: path=/home/{{ item[0] }}/{{ item[1] }}
-        owner={{ item[0] }}
-        group={{ item[0] }}
+  file: path=/home/{{ item[0].name }}/{{ item[1] }}
+        owner={{ item[0].name }}
+        group={{ item[0].name }}
         state=directory
   with_nested:
     - users
