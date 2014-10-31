@@ -21,9 +21,11 @@
     - mailman
     - mediawiki
     - nginx_configs
+    - mysql_configs
     - new_relic
     - fail2ban
     - django
     - phpmyadmin
+
   vars_files:
     - vars/passwords.yml
