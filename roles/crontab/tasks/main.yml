@@ -1,0 +1,10 @@
+---
+- name: Install cron
+  apt: name=cron state=present
+
+- name: Copy cronjobs
+  copy: src={{ item }} dest=/etc/{{ item }}
+  with_items:
+      - cron.d/
+      - cron.daily/
+      - cron.weekly/

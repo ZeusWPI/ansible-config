@@ -9,7 +9,7 @@
   register: mysql_install
 
 - name: Create MySQL configuration file
-  copy: src=my.cnf dest=/etc/mysql/my.cnf
+  copy: src=etc/my.cnf dest=/etc/mysql/my.cnf
   notify:
     - Restart MySQL
 
