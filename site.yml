@@ -26,5 +26,6 @@
     - fail2ban
     - django
     - phpmyadmin
+    - crontab
   vars_files:
     - vars/passwords.yml
