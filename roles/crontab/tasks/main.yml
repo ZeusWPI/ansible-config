@@ -7,4 +7,4 @@
 - cron: name="hydra-resto-scraper" hour="0" minute="10" user="hydra" job="cd ~/app/scraper && ./resto.sh >> ~/log/resto-scraper.log"
 - cron: name="hydra-schamper-scraper" minute="5" user="hydra" job="cd ~/app/scraper && ./schamper.sh >> ~/log/schamper-scraper.log"
 - cron: name="latex" minute="39" hour="*/12" user="latex" job="cd /home/latex/public/ && php cron.php 2> /dev/null"
-- cron: name="stuw" minute="0" hour="5" user="stuw" job="wget -O - -q -t 1 http://stuw.ugent.be/cron.php?cron_key=Md5f5YLWGENy--_H7EsTrvflA_ycty9ggHFR6MTtGB"
+- cron: name="stuw" minute="0" hour="5" user="stuw" job="wget -O - -q -t 1 http://stuw.ugent.be/cron.php?cron_key=Md5f5YLWGENy--_H7EsTrvflA_ycty9ggHFR6MTtGBE"
