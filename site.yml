@@ -28,5 +28,6 @@
     - phpmyadmin
     - crontab
     - ntp
+    - rvm
   vars_files:
     - vars/passwords.yml
