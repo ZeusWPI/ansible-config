@@ -1,0 +1,16 @@
+---
+galaxy_info:
+  author: Pablo Castillo
+  company: Crush & Lovely
+  description: Installs ImageMagick and Dependencies
+  license: MIT
+  min_ansible_version: 1.2
+  platforms:
+    - name: Ubuntu
+      versions:
+        - precise
+  categories:
+    - development
+    - packaging
+    - system
+dependencies: []
