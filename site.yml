@@ -22,7 +22,7 @@
     - mysql_configs
     - new_relic
     - fail2ban
-    - django
+    - django_configs
     - phpmyadmin
     - crontab
     - ntp
