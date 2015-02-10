@@ -27,5 +27,6 @@
     - django
     - phpmyadmin
     - crontab
+    - ntp
   vars_files:
     - vars/passwords.yml
