@@ -1,0 +1,20 @@
+---
+- name: Install Postfix
+  apt: name=postfix state=present
+  notify: Reload Postfix
+
+- name: Set mail hostname
+  copy: src=mailname dest=/etc/mailname
+  notify: Reload Postfix
+
+- name: Copy the configuration file
+  copy: src=postfix/main.cf dest=/etc/postfix/main.cf
+  notify: Reload Postfix
+
+- name: Copy the master file
+  copy: src=postfix/master.cf dest=/etc/postfix/master.cf
+  notify: Reload Postfix
+
+- name: Set aliases
+  copy: src=aliases dest=/etc/aliases
+  notify: Reload aliases

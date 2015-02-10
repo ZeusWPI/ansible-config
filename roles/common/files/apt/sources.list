@@ -1,0 +1,11 @@
+deb http://ftp.belnet.be/debian/ wheezy main contrib non-free
+deb-src http://ftp.belnet.be/debian/ wheezy main contrib non-free
+
+deb http://ftp.belnet.be/debian/ wheezy-updates main
+deb-src http://ftp.belnet.be/debian/ wheezy-updates main
+
+deb http://security.debian.org/ wheezy/updates main contrib non-free
+deb-src http://security.debian.org/ wheezy/updates main contrib non-free
+
+deb http://ftp.be.debian.org/debian wheezy-backports main
+deb-src http://ftp.be.debian.org/debian wheezy-backports main

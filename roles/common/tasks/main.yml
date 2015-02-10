@@ -1,6 +1,30 @@
 ---
-- name: update apt
+- name: Adjust /etc/apt/sources.list
+  copy: src=apt/sources.list dest=/etc/apt/sources.list
+
+- name: Update apt
   apt: update_cache=yes
 
-- name: install htop
-  apt: name=htop state=present
+- name: Install packages that don't need configuration
+  apt: name={{ item }} state=present
+  with_items:
+    - vim
+    - zsh
+    - tmux
+    - htop
+    - tree
+    - curl
+    - unrar
+    - unzip
+    - etckeeper
+    - git-core
+    - drush
+    - nodejs
+
+- name: Install ack
+  apt: name=ack-grep state=present
+  register: ack_installed
+
+- name: Rename ack-grep to ack
+  command: dpkg-divert --local --divert /usr/bin/ack --rename --add /usr/bin/ack-grep
+  when: ack_installed.changed
