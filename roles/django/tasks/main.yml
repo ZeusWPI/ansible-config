@@ -3,9 +3,5 @@
   pip: name=django state=present
   register: django_install
 
-- name: Install gunicorn (WSGI Server)
-  pip: name=gunicorn state=present
-
 - name: Copy Django configs
   copy: src=configs/ dest=/etc/django/
-  when: django_install.changed
