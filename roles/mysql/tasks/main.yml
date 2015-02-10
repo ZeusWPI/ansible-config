@@ -1,15 +1,25 @@
 ---
-- name: Install Mysql package
+- name: Install MySQL package
   apt: name={{ item }} state=present
   with_items:
     - mysql-server
+    - mysql-client
     - libmysqlclient-dev
     - python-mysqldb
+  register: mysql_install
 
-- name: Create Mysql configuration file
-  copy: src=my.cnf dest=/etc/mysql/my.cnf
+- name: Create MySQL configuration file
+  copy: src=etc/my.cnf dest=/etc/mysql/my.cnf
   notify:
-    - restart mysql
+    - Restart MySQL
 
-- name: Ensure Mysql is running
+- name: Ensure MySQL is running
   service: name=mysql state=started enabled=yes
+
+- name: Set a password for the root account
+  shell: mysqladmin -u root password {{ mysql_root_password }}
+  when: mysql_install.changed
+
+- name: Create .my.cnf for root
+  template: src=root/my.cnf.j2 dest=/root/.my.cnf
+            owner=root group=root mode=600

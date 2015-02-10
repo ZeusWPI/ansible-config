@@ -1,0 +1,9 @@
+---
+- name: Install ntp
+  apt: name=ntp state=present
+
+- name: Copy config file
+  copy: src=ntp.conf dest=/etc/ntp.conf
+
+- name: Update time
+  service: name=ntp state=started enabled=yes

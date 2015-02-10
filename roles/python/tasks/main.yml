@@ -1,0 +1,18 @@
+---
+- name: Install Python 2.x
+  apt: name=python state=present
+
+- name: Install Python 2.x development version
+  apt: name=python-dev state=present
+
+- name: Install Python 3.x
+  apt: name=python3 state=present
+
+- name: Install pip
+  apt: name=python-pip state=present
+
+- name: Install some python modules
+  pip: name={{ item }} state=present
+  with_items:
+    - Pillow
+    - flup

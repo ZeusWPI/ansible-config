@@ -1,2 +1,0 @@
-[web-servers]
-10.1.2.3 ansible_ssh_user=vagrant

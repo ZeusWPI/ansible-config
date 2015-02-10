@@ -1,0 +1,10 @@
+---
+- cron: name="cultour" hour="4" minute="30" user="cultour" job="/bin/bash -l -c 'cd /home/cultour/app/releases/20140305182838 && bin/rails runner -e production '\''User.daily_update'\'' >> /home/cultour/app/releases/20140305182838/log/cron.log 2>&1'"
+- cron: name="cursuscruisen-biologie" hour="20" minute="0" user="cursuscruisen-biologie" job="wget -O - -q -t 1 http://cursuscruisen.ugent.be/biologie/fae0b27c451c728867a567e8c1bb4e53"
+- cron: name="cursuscruisen-fysica" hour="20" minute="0" user="cursuscruisen-fysica" job="http://cursuscruisen.ugent.be/fysica/9deec806378500b0e2fac2a344618217"
+- cron: name="fk_enrolment" hour="3" minute="0" user="fk-enrolment" job="/usr/local/rvm/environments/ruby-2.1.1@global; cd ~/app && RAILS_ENV=production bundle exec rake db:sessions:expire"
+- cron: name="gandalf" hour="4" minute="30" user="gandalf" job="/bin/bash -l -c 'cd /home/gandalf/production/releases/20140904132307 && bin/rails runner -e production '\''User.daily_update'\'' >> /home/gandalf/production/releases/20140904132307/log/cron.log 2>&1'"
+- cron: name="hydra-resto-scraper" hour="0" minute="10" user="hydra" job="cd ~/app/scraper && ./resto.sh >> ~/log/resto-scraper.log"
+- cron: name="hydra-schamper-scraper" minute="5" user="hydra" job="cd ~/app/scraper && ./schamper.sh >> ~/log/schamper-scraper.log"
+- cron: name="latex" minute="39" hour="*/12" user="latex" job="cd /home/latex/public/ && php cron.php 2> /dev/null"
+- cron: name="stuw" minute="0" hour="5" user="stuw" job="wget -O - -q -t 1 http://stuw.ugent.be/cron.php?cron_key=Md5f5YLWGENy--_H7EsTrvflA_ycty9ggHFR6MTtGBE"
