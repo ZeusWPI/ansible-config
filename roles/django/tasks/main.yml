@@ -3,5 +3,8 @@
   pip: name=django state=present
   register: django_install
 
+- name: Ensure 777 permissions on /var/run/django/
+  file: path=/var/run/django/ mode=777
+
 - name: Copy Django configs
   copy: src=configs/ dest=/etc/django/
