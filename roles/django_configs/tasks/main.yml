@@ -1,0 +1,3 @@
+---
+- name: Copy Django configs
+  copy: src=configs/ dest=/etc/django/

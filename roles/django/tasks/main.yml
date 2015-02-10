@@ -1,7 +1,0 @@
----
-- name: Install Django
-  pip: name=django state=present
-  register: django_install
-
-- name: Copy Django configs
-  copy: src=configs/ dest=/etc/django/
