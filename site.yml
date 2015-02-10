@@ -8,13 +8,12 @@
     - users
     - logrotate
     - kerberos
-    - ruby
     - mysql
     - iptables
     - nginx
     - php
-    - passenger
     - python
+    # Email stuff
     - spamassassin
     - postfix
     - mailman
@@ -27,7 +26,9 @@
     - phpmyadmin
     - crontab
     - ntp
+    # Ruby, rails, passenger stuff
     - { role: rvm, tags: ruby, sudo: True }
+    - passenger
     - imagemagick
   vars_files:
     - vars/passwords.yml

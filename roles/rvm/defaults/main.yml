@@ -2,6 +2,7 @@
 
 # Install 1 or more versions of ruby
 rvm1_rubies:
+  - 'ruby-2.1.5'
   - 'ruby-2.2.0'
 
 # Delete a specific version of ruby (ie. ruby-2.1.0)
