@@ -4,30 +4,29 @@
   user: root
 
   roles:
-    - common
-    - users
-    - logrotate
-    - kerberos
-    - ruby
-    - mysql
-    - iptables
-    - nginx
-    - ruby
-    - php
-    - passenger
-    - python
-    - spamassassin
-    - postfix
-    - mailman
-    - mediawiki
-    - nginx_configs
-    - mysql_configs
-    - new_relic
-    - fail2ban
-    - django
-    - phpmyadmin
-    - crontab
-    - ntp
-    - rvm
+#   - common
+#   - users
+#   - logrotate
+#   - kerberos
+#   - ruby
+#   - mysql
+#   - iptables
+#   - nginx
+#   - php
+#   - passenger
+#   - python
+#   - spamassassin
+#   - postfix
+#   - mailman
+#   - mediawiki
+#   - nginx_configs
+#   - mysql_configs
+#   - new_relic
+#   - fail2ban
+#   - django
+#   - phpmyadmin
+#   - crontab
+#   - ntp
+    - { role: rvm, tags: ruby, sudo: True }
   vars_files:
     - vars/passwords.yml
