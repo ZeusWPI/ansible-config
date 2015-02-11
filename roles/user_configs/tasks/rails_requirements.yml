@@ -1,0 +1,21 @@
+---
+- name: Install some default folder for Capistrano
+  file:
+    path: /home/{{ item.name }}/production/shared/config/
+    state: directory
+    owner: "{{ item.name }}"
+    group: "{{ item.name }}"
+  with_items: users
+  when: item.rails is defined
+
+- name: Install some default files for Capistrano
+  copy:
+    src: "{{ item.1 }}"
+    dest: /home/{{ item.0.name }}/{{ item.1 }}
+    force: no
+  with_nested:
+    - users
+    -
+      - production/shared/config/database.yml
+      - production/shared/config/secrets.yml
+  when: item.0.rails is defined
