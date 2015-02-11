@@ -10,6 +10,9 @@
   notify:
     - Restart nginx
 
+- name: Copy socket configs
+  copy: src=pools/ dest=/etc/php5/fpm/pool.d/
+
 - name: Copy website configs
   copy: src=sites-enabled/ dest=/etc/nginx/sites-enabled/
   notify:
