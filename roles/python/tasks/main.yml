@@ -11,8 +11,5 @@
 - name: Install pip
   apt: name=python-pip state=present
 
-- name: Install some python modules
-  pip: name={{ item }} state=present
-  with_items:
-    - Pillow
-    - flup
+- name: Install virtualenv
+  pip: name=virtualenv state=present

@@ -1,0 +1,3 @@
+---
+- name: Install Django requirements for Django users
+  include: django_requirements.yml
