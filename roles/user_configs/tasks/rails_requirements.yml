@@ -8,14 +8,10 @@
   with_items: users
   when: item.rails is defined
 
-- name: Install shared database.yml for Capistrano
-  template: force=no src=database.yml.j2 dest=/home/{{ item.name }}/production/shared/config/database.yml
-            owner={{ item.name }} group={{ item.name }} mode=644
-  when: item.rails is defined
-  with_items: users
-
-- name: Install shared secrets.yml for Capistrano
-  template: force=no src=secrets.yml.j2 dest=/home/{{ item.name }}/production/shared/config/secrets.yml
-            owner={{ item.name }} group={{ item.name }} mode=644
-  when: item.rails is defined
-  with_items: users
+- name: Install shared files for Capistrano
+  template: force=no src={{ item[1] }}.j2 dest=/home/{{ item[0].name }}/production/shared/config/{{ item[1] }}
+            owner={{ item[0].name }} group={{ item[0].name }} mode=644
+  when: item[0].rails is defined
+  with_nested:
+    -  users
+    - ['database.yml', 'secrets.yml']
