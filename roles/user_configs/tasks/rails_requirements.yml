@@ -8,14 +8,22 @@
   with_items: users
   when: item.rails is defined
 
-- name: Install some default files for Capistrano
-  copy:
-    src: "{{ item.1 }}"
-    dest: /home/{{ item.0.name }}/{{ item.1 }}
-    force: no
-  with_nested:
-    - users
-    -
-      - production/shared/config/database.yml
-      - production/shared/config/secrets.yml
-  when: item.0.rails is defined
+- stat: path=/home/{{ item.name }}/production/shared/config/database.yml
+  register: database_exists
+  with_items: users
+
+- name: Install shared database.yml for Capistrano
+  template: src=database.yml.j2 dest=/home/{{ item.item.name }}/production/shared/config/database.yml
+            owner={{ item.item.name }} group={{ item.item.name }} mode=644
+  when: item.item.rails is defined and not item.stat.exists
+  with_items: database_exists.results
+
+- stat: path=/home/{{ item.name }}/production/shared/config/secrets.yml
+  register: secrets_exists
+  with_items: users
+
+- name: Install shared secrets.yml for Capistrano
+  template: src=secrets.yml.j2 dest=/home/{{ item.item.name }}/production/shared/config/secrets.yml
+            owner={{ item.item.name }} group={{ item.item.name }} mode=644
+  when: item.item.rails is defined and not item.stat.exists
+  with_items: secrets_exists.results
