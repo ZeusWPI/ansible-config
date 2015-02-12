@@ -21,8 +21,8 @@ test:
 
 production:
   adapter: mysql2
-  database: {{ item.item.db_name }}
-  username: {{ item.item.db_name }}
-  password: {{ item.item.db_password }}
+  database: {{ item.db_name }}
+  username: {{ item.db_name }}
+  password: {{ item.db_password }}
   host: 127.0.0.1
   port: 3306
