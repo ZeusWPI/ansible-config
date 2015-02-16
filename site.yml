@@ -18,17 +18,20 @@
     - postfix
     - mailman
     - mediawiki
-    - nginx_configs
-    - mysql_configs
     - new_relic
     - fail2ban
-    - django_configs
     - phpmyadmin
     - crontab
     - ntp
     # Ruby, rails, passenger stuff
-    - { role: rvm, tags: ruby, sudo: True }
+    - rvm
     - passenger
-    - imagemagick
+    - imagemagick  # Dependency for Rails
+    # User configs and stuff
+    - mysql_configs
+    - nginx_configs
+    - django_configs
+    - user_configs
+
   vars_files:
     - vars/passwords.yml
