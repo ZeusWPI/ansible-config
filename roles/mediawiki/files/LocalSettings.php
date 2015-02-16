@@ -30,15 +30,16 @@ $wgScriptExtension  = ".php";
 $wgArticlePath      = "{$wgScriptPath}?title=$1";
 $wgUsePathInfo      = false;
 
+$wgServer           = "//king.ugent.be";
 ## The protocol and server name to use in fully-qualified URLs
-$wgServer           = "http://king.ugent.be";
+$wgCanonicalServer  = "https://king.ugent.be";
 
 ## The relative URL path to the skins directory
 $wgStylePath        = "$wgScriptPath/skins";
 
 ## The relative URL path to the logo.  Make sure you change this from the default,
 ## or else you'll overwrite your logo when you upgrade!
-$wgLogo             = "$wgStylePath/common/images/wiki.png";
+$wgLogo             = "$wgScriptPath/images/wiki.png";
 
 ## UPO means: this is also a user preference option
 
@@ -158,6 +159,13 @@ if (isset($_SERVER["REDIRECT_REMOTE_USER"])) {
   AutoAuthSetup();
 }
 
+// After we set all configuration options, we want to tell the extension to enable auto-authentication.
+// This will create an instance of LdapAuthentication as $wgAuth.
+
+//require_once( "$IP/extensions/LdapAuthentication/LdapAuthentication.php" );
+$wgAuth = new LdapAuthenticationPlugin();
+
+$wgDebugLogGroups['ldap'] = '/var/log/krb5/mediawiki.log';
 
 # Query string length limit for ResourceLoader. You should only set this if
 # your web server has a query string length limit (then set it to that limit),
