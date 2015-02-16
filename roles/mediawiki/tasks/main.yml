@@ -24,7 +24,7 @@
   when: mediawiki_install.changed
 
 - name: Fill in the MySQL password
-  shell: sed -i "s/password = \"\"/password = \"{{ mediawiki_password  }}\"/" /usr/share/mediawiki/LocalSettings.php
+  shell: sed -i 's,password = ,&"{{ mediawiki_password  }}",' /usr/share/mediawiki/LocalSettings.php
   when: mediawiki_install.changed
 
 - name: Add LdapAuthentication
