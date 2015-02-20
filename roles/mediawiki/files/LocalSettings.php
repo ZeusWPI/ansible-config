@@ -162,7 +162,7 @@ if (isset($_SERVER["REDIRECT_REMOTE_USER"])) {
 // After we set all configuration options, we want to tell the extension to enable auto-authentication.
 // This will create an instance of LdapAuthentication as $wgAuth.
 
-//require_once( "$IP/extensions/LdapAuthentication/LdapAuthentication.php" );
+require_once( "$IP/extensions/LdapAuthentication/LdapAuthentication.php" );
 $wgAuth = new LdapAuthenticationPlugin();
 
 $wgDebugLogGroups['ldap'] = '/var/log/krb5/mediawiki.log';
