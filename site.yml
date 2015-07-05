@@ -4,34 +4,35 @@
   user: root
 
   roles:
-    - common
-    - users
-    - logrotate
-    - kerberos
-    - mysql
-    - iptables
-    - nginx
-    - php
-    - python
-    # Email stuff
-    - spamassassin
-    - postfix
-    - mailman
-    - mediawiki
-    - new_relic
-    - fail2ban
-    - phpmyadmin
-    - crontab
-    - ntp
-    # Ruby, rails, passenger stuff
-    - rvm
-    - passenger
-    - imagemagick  # Dependency for Rails
-    # User configs and stuff
-    - mysql_configs
-    - nginx_configs
-    - django_configs
-    - user_configs
+#    - common
+     - sudo
+#    - users
+#    - logrotate
+#    - kerberos
+#    - mysql
+#    - iptables
+#    - nginx
+#    - php
+#    - python
+#    # Email stuff
+#    - spamassassin
+#    - postfix
+#    - mailman
+#    - mediawiki
+#    - new_relic
+#    - fail2ban
+#    - phpmyadmin
+#    - crontab
+#    - ntp
+#    # Ruby, rails, passenger stuff
+     - zzet.rbenv
+#    - passenger
+#    - imagemagick  # Dependency for Rails
+#    # User configs and stuff
+#    - mysql_configs
+#    - nginx_configs
+#    - django_configs
+#    - user_configs
 
   vars_files:
     - vars/passwords.yml
