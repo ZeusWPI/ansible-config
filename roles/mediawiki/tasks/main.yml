@@ -28,15 +28,19 @@
   when: mediawiki_install.changed
 
 - name: Add LdapAuthentication
-  copy: src=ldapauth/ dest=/usr/share/mediawiki-extensions/
+  copy: src=ldapauth/ dest=/usr/share/mediawiki-extensions/ldapauth/ directory_mode
   when: mediawiki_install.changed
 
 - name: Add links
-  file: src=/usr/share/mediawiki-extensions/{{ item }} dest=/etc/mediawiki-extensions/extensions-available/{{ item }} state=link
+  file: src=/usr/share/mediawiki-extensions/ldapauth/{{ item }} dest=/etc/mediawiki-extensions/extensions-available/{{ item }} state=link
   when: mediawiki_install.changed
   with_items:
     - LdapAuthentication.php
     - LdapAutoAuthentication.php
+
+- name: Add links to lib
+  file: src=/usr/share/mediawiki-extensions/ldapauth dest=/var/lib/mediawiki/extensions/LdapAuthentication state=link
+  when: mediawiki_install.changed
 
 - name: Enable extensions
   file: src=/etc/mediawiki-extensions/extensions-available/{{ item }}  dest=/etc/mediawiki-extensions/extensions-enabled/{{ item }} state=link
