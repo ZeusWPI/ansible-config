@@ -5,7 +5,7 @@
 
   roles:
 #    - common
-     - franklinkim.sudo
+#    - franklinkim.sudo
 #    - users
 #    - logrotate
 #    - kerberos
@@ -25,7 +25,7 @@
 #    - crontab
 #    - ntp
 #    # Ruby, rails, passenger stuff
-     - zzet.rbenv
+#    - zzet.rbenv
 #    - passenger
 #    - imagemagick  # Dependency for Rails
 #    # User configs and stuff
