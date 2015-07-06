@@ -1,6 +1,13 @@
 destemail = admin@zeus.ugent.be
 action = %(action_mwl)s
 
+[ssh]
+enabled  = true
+port     = ssh,2222
+filter   = sshd
+logpath  = /var/log/auth.log
+maxretry = 6
+
 # Block anyone failing to authenticate using nginx basic authentication
 [nginx-auth]
 enabled = true
