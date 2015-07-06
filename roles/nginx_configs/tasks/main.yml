@@ -16,6 +16,11 @@
 - name: Copy website configs
   copy: src=sites-enabled/ dest=/etc/nginx/sites-available/
 
+- name: Copy conf.d configs
+  copy: src=conf.d/ dest=/etc/nginx/conf.d/
+  notify:
+    - Restart nginx
+
 - name: Link the configs
   shell: ln -sfn /etc/nginx/sites-available/*conf /etc/nginx/sites-enabled/
   notify:
