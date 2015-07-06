@@ -1,0 +1,33 @@
+---
+ - name: Check if already installed
+   stat: path=/srv/dokuwiki
+   register: st
+
+ - name: Download latest stable dokuwiki tarball
+   get_url: url=http://download.dokuwiki.org/src/dokuwiki/dokuwiki-stable.tgz dest=/var/tmp/dokuwiki-stable.tgz
+   when: not st.stat.exists
+
+ - name: Unpack tarball
+   command: tar -xvf dokuwiki-stable.tgz chdir=/var/tmp
+   when: not st.stat.exists
+
+ - name: Prepare target directory
+   command: mkdir /srv/dokuwiki
+   when: not st.stat.exists
+
+ - name: Move dokuwiki
+   shell: mv /var/tmp/dokuwiki*/* /srv/dokuwiki/
+   when: not st.stat.exists
+
+ - name: Fix permissions for conf
+   shell: chown -R zeusweb:www-data /srv/dokuwiki/conf
+   when: not st.stat.exists
+
+ - name: Fix permissions for data
+   shell: chown -R zeusweb:www-data /srv/dokuwiki/data
+   when: not st.stat.exists
+
+ - name: Fix permissions for data
+   shell: chown -R zeusweb:www-data /srv/dokuwiki/lib/plugins
+   notify: restart nginx
+   when: not st.stat.exists
