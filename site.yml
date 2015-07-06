@@ -18,7 +18,6 @@
 #    - spamassassin
 #    - postfix
 #    - mailman
-#    - mediawiki
 #    - new_relic
 #    - fail2ban
 #    - phpmyadmin
@@ -33,6 +32,6 @@
 #    - nginx_configs
 #    - django_configs
 #    - user_configs
-
+#    - dokuwiki
   vars_files:
     - vars/passwords.yml
