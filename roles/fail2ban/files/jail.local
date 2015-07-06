@@ -1,3 +1,4 @@
+[DEFAULT]
 destemail = admin@zeus.ugent.be
 action = %(action_mwl)s
 
