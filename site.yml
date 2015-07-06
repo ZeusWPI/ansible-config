@@ -24,7 +24,7 @@
 #    - crontab
 #    - ntp
 #    # Ruby, rails, passenger stuff
-#    - zzet.rbenv
+#    - { role: zzet.rbenv, rbenv.ruby-version: 2.2.0 }
 #    - passenger
 #    - imagemagick  # Dependency for Rails
 #    # User configs and stuff
