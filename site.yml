@@ -31,6 +31,7 @@
 #    - ntp
 #    # Ruby, rails, passenger stuff
 #    - zzet.rbenv
+#    - common-rails
 #    - passenger
 #    - imagemagick  # Dependency for Rails
 #    # User configs and stuff
