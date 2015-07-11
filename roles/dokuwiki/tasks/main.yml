@@ -1,6 +1,6 @@
 ---
  - name: Check if already installed
-   stat: path=/srv/dokuwiki
+   stat: path=/home/dokuwiki/dokuwiki
    register: st
 
  - name: Download latest stable dokuwiki tarball
@@ -12,14 +12,14 @@
    when: not st.stat.exists
 
  - name: Prepare target directory
-   command: mkdir /srv/dokuwiki
+   command: mkdir /home/dokuwiki/dokuwiki
    when: not st.stat.exists
 
  - name: Move dokuwiki
-   shell: mv /var/tmp/dokuwiki*/* /srv/dokuwiki/
+   shell: mv /var/tmp/dokuwiki*/* /home/dokuwiki/dokuwiki/
    when: not st.stat.exists
 
  - name: Fix permissions
-   shell: chown -R zeusweb:www-data /srv/dokuwiki/{conf,data,lib/{plugins,tpl}}
+   shell: chown -R dokuwiki:dokuwiki /home/dokuwiki/dokuwiki/{conf,data,lib/{plugins,tpl}}
    notify: restart nginx
    when: not st.stat.exists
