@@ -1,18 +1,18 @@
 ---
 - name: Initialize databases for certain users
   mysql_db: name={{ item.db_name }}
-  when: item.db_name is defined
+  when: item.mysql is defined
   with_items: users
 
 - name: Create user for databases
   mysql_user: name={{ item.db_name }}
               password="{{ item.db_password }}"
               priv={{ item.db_name }}.*:ALL
-  when: item.db_name is defined
+  when: item.mysql is defined
   with_items: users
 
 - name: Add .my.cnf's
   template: src=my.cnf.j2 dest=/home/{{ item.name }}/.my.cnf
             owner={{ item.name }} group={{ item.name }} mode=600
-  when: item.db_name is defined
+  when: item.mysql is defined
   with_items: users
