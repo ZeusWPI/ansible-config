@@ -11,6 +11,10 @@
   copy: src={{ item }} dest=/etc/arno-iptables-firewall/{{ item }}
   with_items:
     - blocked_hosts
-    - firewall.conf
+  notify:
+    - Restart arno-iptables
+
+- name: Copy conf.d
+  copy: src=conf.d/ dest=/etc/arno-iptables-firewall/conf.d/
   notify:
     - Restart arno-iptables

@@ -6,7 +6,7 @@
   apt: update_cache=yes
 
 - name: Install packages that don't need configuration
-  apt: name={{ item }} state=present
+  apt: name={{ item }} state=latest
   with_items:
     - vim
     - zsh
@@ -22,8 +22,13 @@
     - nodejs
     - cmake
 
+- name: Remove packages we don't want
+  apt: name={{ item }} state=absent purge=yes
+  with_items:
+    - apache2
+
 - name: Install ack
-  apt: name=ack-grep state=present
+  apt: name=ack-grep state=latest
   register: ack_installed
 
 - name: Rename ack-grep to ack
