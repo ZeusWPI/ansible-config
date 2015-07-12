@@ -10,18 +10,18 @@
       ruby_version: 2.2.2
 
   roles:
-#    - common
+    - common
 #    - franklinkim.sudo
-#    - users
+    - users
 #    - logrotate
 #    - kerberos
 #    - mysql
-#    - iptables
-#    - nginx
-#    - php
-#    - python
+    - iptables
+    - nginx
+    - php
+    - python
 #    # Email stuff
-#    - spamassassin
+    - spamassassin
 #    - postfix
 #    - mailman
 #    - new_relic
@@ -32,13 +32,13 @@
 #    # Ruby, rails, passenger stuff
 #    - zzet.rbenv
 #    - common-rails
-#    - passenger
+    - passenger
 #    - imagemagick  # Dependency for Rails
 #    # User configs and stuff
 #    - mysql_configs
-#    - nginx_configs
+    - nginx_configs
 #    - django_configs
-#    - user_configs
+    - user_configs
 #    - dokuwiki
   vars_files:
     - vars/passwords.yml
