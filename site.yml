@@ -34,6 +34,8 @@
 #    - common-rails
 #    - passenger
 #    - imagemagick  # Dependency for Rails
+#    # Python stuff
+#    - common-python
 #    # User configs and stuff
 #    - mysql_configs
 #    - nginx_configs
