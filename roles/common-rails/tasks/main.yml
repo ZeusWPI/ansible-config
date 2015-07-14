@@ -1,0 +1,11 @@
+---
+- name: Update apt
+  apt: update_cache=yes
+
+- name: Install packages that don't need configuration
+  apt: name={{ item }} state=latest
+  with_items:
+    - zlib1g-dev
+    - libxml2-dev
+    - libxslt-dev
+    - mongodb

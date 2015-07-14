@@ -3,35 +3,46 @@
   hosts: king
   user: root
 
-  roles:
-    - common
-    - users
-    - logrotate
-    - kerberos
-    - mysql
-    - iptables
-    - nginx
-    - php
-    - python
-    # Email stuff
-    - spamassassin
-    - postfix
-    - mailman
-    - mediawiki
-    - new_relic
-    - fail2ban
-    - phpmyadmin
-    - crontab
-    - ntp
-    # Ruby, rails, passenger stuff
-    - rvm
-    - passenger
-    - imagemagick  # Dependency for Rails
-    # User configs and stuff
-    - mysql_configs
-    - nginx_configs
-    - django_configs
-    - user_configs
+  vars:
+    rbenv:
+      env: system
+      version: v0.4.0
+      ruby_version: 2.2.2
 
+  roles:
+#    - common
+#    - franklinkim.sudo
+#    - users
+#    - logrotate
+#    - kerberos
+#    - mysql
+#    - iptables
+#    - nginx
+#    - php
+#    - python
+#    # Email stuff
+#    - spamassassin
+#    - postfix
+#    - mailman
+#    - new_relic
+#    - fail2ban
+#    - phpmyadmin
+#    - crontab
+#    - ntp
+#    # Ruby, rails, passenger stuff
+#    - zzet.rbenv
+#    - common-rails
+#    - passenger
+#    - imagemagick  # Dependency for Rails
+#    # Python stuff
+#    - common-python
+#    # Nodejs
+#    - common-nodejs
+#    # User configs and stuff
+#    - mysql_configs
+#    - nginx_configs
+#    - django_configs
+#    - user_configs
+#    - dokuwiki
   vars_files:
     - vars/passwords.yml

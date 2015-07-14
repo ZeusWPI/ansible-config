@@ -8,6 +8,9 @@
 - name: Install Python 3.x
   apt: name=python3 state=present
 
+- name: Install Python 3.x-dev
+  apt: name=python3-dev state=present
+
 - name: Install pip
   apt: name=python-pip state=present
 

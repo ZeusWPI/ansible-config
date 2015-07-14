@@ -1,0 +1,8 @@
+---
+- name: Update apt
+  apt: update_cache=yes
+
+- name: Install packages that don't need configuration
+  apt: name={{ item }} state=latest
+  with_items:
+    - python3-lxml

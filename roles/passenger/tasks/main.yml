@@ -11,7 +11,7 @@
 
 - name: Ensure the Passenger APT-repository is added
   apt_repository:
-    repo: 'deb https://oss-binaries.phusionpassenger.com/apt/passenger wheezy main'
+    repo: 'deb https://oss-binaries.phusionpassenger.com/apt/passenger jessie main'
 
 - name: Install nginx-extras and Passenger
   apt: name={{ item }} state=present
