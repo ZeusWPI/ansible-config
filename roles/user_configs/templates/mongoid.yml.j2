@@ -1,0 +1,25 @@
+development:
+  sessions:
+    default:
+      database: errbit_development
+      hosts:
+        - localhost:27017
+  options:
+    use_utc: true
+
+test:
+  sessions:
+    default:
+      hosts:
+        - localhost:27017
+      database: errbit_test
+  options:
+    use_utc: true
+
+# set these environment variables on your prod server
+production:
+  sessions:
+    default:
+      database: item.db_name
+      hosts:
+        - 'localhost:27017'

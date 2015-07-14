@@ -5,17 +5,21 @@
 
 - name: Copy jail.local
   copy: src=jail.local dest=/etc/fail2ban/jail.local
-  when: fail2ban_install.changed
+  notify:
+    - Restart fail2ban
 
 - name: Copy fail2ban.conf
   copy: src=fail2ban.conf dest=/etc/fail2ban/fail2ban.conf
-  when: fail2ban_install.changed
+  notify:
+    - Restart fail2ban
 
 - name: Copy action.d
   copy: src=action.d/ dest=/etc/fail2ban/action.d/
-  when: fail2ban_install.changed
+  notify:
+    - Restart fail2ban
 
 - name: Copy filter.d
   copy: src=filter.d/ dest=/etc/fail2ban/filter.d/
-  when: fail2ban_install.changed
+  notify:
+    - Restart fail2ban
 
