@@ -23,4 +23,5 @@
 - name: Create php5-fpm configuration file
   copy: src=www.conf dest=/etc/php5/fpm/pool.d/www.conf
   notify:
+  - Restart php5-fpm
   - Restart nginx
