@@ -36,6 +36,8 @@
 #    - imagemagick  # Dependency for Rails
 #    # Python stuff
 #    - common-python
+#    # Nodejs
+#    - common-nodejs
 #    # User configs and stuff
 #    - mysql_configs
 #    - nginx_configs
