@@ -23,6 +23,10 @@ biologie: cursuscruisen-biologie
 geologie: cursuscruisen-geologie
 fysica: cursuscruisen-fysica
 
+# common app renames to match their users
+tap: tab
+enrolment: fk-enrolment
+
 ## mailman mailing list
 mailman:              "|/var/lib/mailman/mail/mailman post mailman"
 mailman-admin:        "|/var/lib/mailman/mail/mailman admin mailman"
