@@ -8,6 +8,7 @@
 - name: Install packages that don't need configuration
   apt: name={{ item }} state=latest
   with_items:
+    - ack-grep
     - vim
     - zsh
     - tmux
@@ -27,11 +28,3 @@
   apt: name={{ item }} state=absent purge=yes
   with_items:
     - apache2
-
-- name: Install ack
-  apt: name=ack-grep state=latest
-  register: ack_installed
-
-- name: Rename ack-grep to ack
-  command: dpkg-divert --local --divert /usr/bin/ack --rename --add /usr/bin/ack-grep
-  when: ack_installed.changed
