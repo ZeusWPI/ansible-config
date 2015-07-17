@@ -47,4 +47,5 @@ transport_maps = hash:/etc/postfix/transport.cf
 local_recipient_maps =
 fallback_transport = smtp:kelder.zeus.ugent.be
 
-
+# Allow bigger messages
+message_size_limit = 20480000
