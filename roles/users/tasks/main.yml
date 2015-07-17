@@ -7,7 +7,7 @@
   with_items: users
 
 - name: Add email forward file (for sendmail)
-  copy: content={{ item.email }}
+  copy: content='{{ item.email }}'
         dest=/home/{{ item.name }}/.forward
         owner={{ item.name }}
         group={{ item.name }}
