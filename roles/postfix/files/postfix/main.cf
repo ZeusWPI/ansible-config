@@ -39,9 +39,8 @@ mailbox_size_limit = 0
 recipient_delimiter = +
 inet_interfaces = all
 
-# amavisd-new
-content_filter = amavisfeed:[127.0.0.1]:10024
-transport_maps = hash:/etc/postfix/transport.cf
+# Filter spam and virusses with Amavis
+content_filter = smtp-amavis:[127.0.0.1]:10024
 
 # Fallback to mailing kelder.zeus.ugent.be
 local_recipient_maps =

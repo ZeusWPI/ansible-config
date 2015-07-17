@@ -1,0 +1,3 @@
+---
+- name: Restart amavis
+  service: name=amavis state=restarted
