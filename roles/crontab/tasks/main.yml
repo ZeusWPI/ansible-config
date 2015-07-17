@@ -1,8 +1,6 @@
 ---
 - cron: name="cursuscruisen-biologie" hour="20" minute="0" user="cursuscruisen-biologie" job="wget -O - -q -t 1 http://cursuscruisen.ugent.be/biologie/fae0b27c451c728867a567e8c1bb4e53"
 - cron: name="cursuscruisen-fysica" hour="20" minute="0" user="cursuscruisen-fysica" job="http://cursuscruisen.ugent.be/fysica/9deec806378500b0e2fac2a344618217"
-- cron: name="fk_enrolment" hour="3" minute="0" user="fk-enrolment" job="/usr/local/rvm/environments/ruby-2.1.1@global; cd ~/app && RAILS_ENV=production bundle exec rake db:sessions:expire"
-- cron: name="gandalf" hour="4" minute="30" user="gandalf" job="/bin/bash -l -c 'cd /home/gandalf/production/releases/20140904132307 && bin/rails runner -e production '\''User.daily_update'\'' >> /home/gandalf/production/releases/20140904132307/log/cron.log 2>&1'"
 - cron: name="hydra-resto-scraper" hour="0" minute="10" user="hydra" job="source ~/env/bin/activate && cd ~/app/scraper && source ./resto.sh >> ~/log/resto-scraper.log"
 - cron: name="hydra-schamper-scraper" minute="5" user="hydra" job="source ~/env/bin/activate && cd ~/app/scraper && source ./schamper.sh >> ~/log/schamper-scraper.log"
 - cron: name="latex" minute="39" hour="*/12" user="latex" job="cd /home/latex/public/ && php cron.php 2> /dev/null"
