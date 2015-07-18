@@ -16,5 +16,8 @@
   copy: src=mm_cfg.py dest=/etc/mailman/mm_cfg.py
   notify: Restart mailman
 
+- name: Make sure the archives are accessable to the webserver
+  file: path=/var/lib/mailman/archives owner=www-data state=directory recurse=yes
+
 # The nginx configuration file for the mailman web access is installed in
 # the role 'nginx_configs'.
