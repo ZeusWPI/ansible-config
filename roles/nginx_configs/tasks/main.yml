@@ -21,6 +21,18 @@
     - Restart FastCGI
     - Restart nginx
 
+- name: Copy FastCGI configs (1)
+  copy: src=fastcgi_params dest=/etc/nginx/fastcgi_params
+  notify:
+    - Restart FastCGI
+    - Restart nginx
+
+- name: Copy FastCGI configs (2)
+  copy: src=fcgiwrap.conf dest=/etc/nginx/fcgiwrap.conf
+  notify:
+    - Restart FastCGI
+    - Restart nginx
+
 - name: Link the configs
   shell: ln -sfn /etc/nginx/sites-available/*conf /etc/nginx/sites-enabled/
   notify:
