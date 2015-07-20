@@ -17,8 +17,7 @@
   service: name=mysql state=started enabled=yes
 
 - name: Set a password for the root account
-  shell: mysqladmin -u root password {{ mysql_root_password }}
-  when: mysql_install.changed
+  mysql_user: name=root password='{{ mysql_root_password }}'
 
 - name: Create .my.cnf for root
   template: src=root/my.cnf.j2 dest=/root/.my.cnf
