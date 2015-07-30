@@ -12,15 +12,15 @@
 - name: Remove default files
   file: path=/etc/nginx/sites-enabled/default state=absent
 
-# Creates /var/run/php5-fpm
-- name: Copy custom initscript
-  copy: src=init.d/php5-fpm dest=/etc/init.d/php5-fpm
+# Creates /var/run/php5-fpm on boot
+- name: Copy custom systemd service file
+  copy: src=lib/systemd/system/php5-fpm.service dest=/lib/systemd/system/php5-fpm.service
   notify:
     - Restart php5-fpm
 
 # This will set up FastCGI with PHP
 - name: Copy the custom configuration
-  copy: src=nginx/sites-available/my-default dest=/etc/nginx/sites-available/my-default
+  copy: src=etc/nginx/sites-available/my-default dest=/etc/nginx/sites-available/my-default
   notify:
     - Restart php5-fpm
     - Restart nginx
@@ -29,7 +29,7 @@
   file: src=/etc/nginx/sites-available/my-default dest=/etc/nginx/sites-enabled/default state=link
 
 - name: Create php5-fpm configuration file
-  copy: src=php5/pool.d/www.conf dest=/etc/php5/fpm/pool.d/www.conf
+  copy: src=etc/php5/fpm/pool.d/www.conf dest=/etc/php5/fpm/pool.d/www.conf
   notify:
     - Restart php5-fpm
     - Restart nginx
