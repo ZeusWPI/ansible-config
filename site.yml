@@ -1,6 +1,6 @@
 ---
 - name: Set-up the entire Zeus infrastructure
-  hosts: king
+  hosts: prince
   user: root
 
   vars:
