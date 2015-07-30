@@ -1,0 +1,6 @@
+---
+- name: Copy Django configs
+  copy: src=django/ dest=/etc/django/
+
+- name: Copy Django initscript
+  copy: src=init.d/django dest=/etc/init.d/django
