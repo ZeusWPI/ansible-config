@@ -34,7 +34,6 @@
 #    - zzet.rbenv
 #    - common-rails
 #    - passenger
-#    - imagemagick  # Dependency for Rails
 #    # Python stuff
 #    - common-python
 #    # Nodejs
