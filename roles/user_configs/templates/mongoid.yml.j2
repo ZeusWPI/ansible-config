@@ -20,6 +20,6 @@ test:
 production:
   sessions:
     default:
-      database: item.db_name
+      database: {{ item.db_name }}
       hosts:
         - 'localhost:27017'
