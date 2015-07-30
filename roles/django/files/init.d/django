@@ -1,0 +1,75 @@
+#!/bin/bash
+### BEGIN INIT INFO
+# Provides:          django
+# Required-Start:    $local_fs $remote_fs $network $syslog
+# Required-Stop:     $local_fs $remote_fs $network $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Start/stop django servers
+### END INIT INFO
+
+setup() {
+  mkdir -p /var/run/django/
+
+  # Load the properties
+  source $1
+
+  export SOCKET="/var/run/django/$APP_NAME.socket"
+  export PID="/var/run/django/$APP_NAME.pid"
+}
+
+start() {
+  cd $APP_ROOT
+  if [[ `whoami` == $APP_USER ]]; then
+    [[ -f ./venv/bin/activate ]] && source ./venv/bin/activate
+    python $APP_NAME/manage.py runfcgi daemonize=true socket=$SOCKET pidfile=$PID errlog=$APP_ROOT/error.log
+  else
+    su $APP_USER -c "[[ -f ./venv/bin/activate ]] && source ./venv/bin/activate; \
+      python $APP_NAME/manage.py runfcgi daemonize=true socket=$SOCKET pidfile=$PID errlog=$APP_ROOT/error.log"
+  fi
+  chmod 777 $SOCKET
+}
+
+stop() {
+  sig QUIT && rm "$SOCKET" && rm "$PID"
+}
+
+sig() {
+  test -s "$PID" && kill -$1 `cat "$PID"`
+}
+
+cmd() {
+  setup $2
+  case "$1" in
+    start)
+      sig 0 && echo >&2 "$APP_NAME is already running" && return 0
+      echo "Starting $APP_NAME"
+      start
+      ;;
+    stop)
+      stop && echo "Stopping $APP_NAME" && return 0
+      echo >&2 "$APP_NAME is not running"
+      ;;
+    restart)
+      echo "Stopping $APP_NAME" && stop
+      echo "Starting $APP_NAME" && start && return 0
+      echo >&2 "$APP_NAME is not running"
+      ;;
+    *)
+      echo "Usage: $0 {start|stop|restart|force-stop} [app]"
+      return 1
+      ;;
+    esac
+}
+
+if [ $2 ]; then
+  cmd $1 "/etc/django/$2.conf"
+elif [ $1 ]; then
+  for CONFIG in `ls /etc/django/*.conf`; do
+    cmd $1 $CONFIG
+  done
+else
+  echo "Usage: $0 {start|stop|restart|upgrade|rotate|force-stop} [app]"
+  exit 1
+fi
+
