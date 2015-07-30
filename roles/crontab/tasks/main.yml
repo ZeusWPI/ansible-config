@@ -1,6 +1,6 @@
 ---
 - cron: name="cursuscruisen-biologie" hour="20" minute="0" user="cursuscruisen-biologie" job="wget -O - -q -t 1 http://cursuscruisen.ugent.be/biologie/fae0b27c451c728867a567e8c1bb4e53"
-- cron: name="cursuscruisen-fysica" hour="20" minute="0" user="cursuscruisen-fysica" job="http://cursuscruisen.ugent.be/fysica/9deec806378500b0e2fac2a344618217"
+- cron: name="cursuscruisen-fysica" hour="20" minute="0" user="cursuscruisen-fysica" job="wget -O - -q -t 1 http://cursuscruisen.ugent.be/fysica/9deec806378500b0e2fac2a344618217"
 - cron: name="hydra-resto-scraper" hour="0" minute="10" user="hydra" job=". ~/env/bin/activate && cd ~/app/scraper && . ./resto.sh >> ~/log/resto-scraper.log"
 - cron: name="hydra-schamper-scraper" minute="5" user="hydra" job=". ~/env/bin/activate && cd ~/app/scraper && . ./schamper.sh >> ~/log/schamper-scraper.log"
 - cron: name="latex" minute="39" hour="*/12" user="latex" job="cd /home/latex/public/ && php cron.php 2> /dev/null"
