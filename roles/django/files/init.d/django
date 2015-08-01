@@ -9,7 +9,7 @@
 ### END INIT INFO
 
 setup() {
-  mkdir -p /var/run/django/
+  mkdir -p -m 777 /var/run/django/
 
   # Load the properties
   source $1
@@ -27,7 +27,6 @@ start() {
     su $APP_USER -c "[[ -f ./venv/bin/activate ]] && source ./venv/bin/activate; \
       python $APP_NAME/manage.py runfcgi daemonize=true socket=$SOCKET pidfile=$PID errlog=$APP_ROOT/error.log"
   fi
-  chmod 777 $SOCKET
 }
 
 stop() {
