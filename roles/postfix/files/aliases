@@ -26,6 +26,7 @@ fysica: cursuscruisen-fysica
 # common app renames to match their users
 tap: tab
 enrolment: fk-enrolment
+blokmap: bloklocaties
 
 ## mailman mailing list
 mailman:              "|/var/lib/mailman/mail/mailman post mailman"
