@@ -1,6 +1,3 @@
 ---
 - name: Install Django requirements for Django users
   include: django_requirements.yml
-
-- name: Install Rails requirements for Rails users
-  include: rails_requirements.yml

@@ -28,7 +28,6 @@
 #    - new_relic
 #    - fail2ban
 #    - phpmyadmin
-#    - crontab
 #    - ntp
 #    # Ruby, rails, passenger stuff
 #    - zzet.rbenv
