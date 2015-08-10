@@ -6,4 +6,4 @@ To run ansible install ansible and run the following command: `ansible-playbook 
 
 The passwords are saved in vars/passwords.yml. This file can be edited
 by issuing the command `ansible-vault edit passwords.yml` when in the same
-directory. The password used to encrypt this is the root password.
+directory. The password used to encrypt this is the general zeus root password that is used for everyting.
