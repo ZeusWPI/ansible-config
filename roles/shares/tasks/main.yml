@@ -1,0 +1,16 @@
+---
+- name: Copy smbcredentials
+  template:
+    src: smbcredentials.yml.j2
+    dest: /root/.smbcredentials-{{ item.name }}
+    mode: 0600
+  with_items: shares
+
+- name: Set zeus-fkenrolment-data share
+  mount:
+    name: "{{ item.dest }}"
+    src: //files.ugent.be/{{ item.username }}/shares/{{ item.name }}
+    fstype: cifs
+    opts: credentials=/root/.smbcredentials-{{ item.name }},iocharset=utf8,sec=ntlm,uid={{ item.owner}},gid={{ item.owner }}
+    state: mounted
+  with_items: shares
