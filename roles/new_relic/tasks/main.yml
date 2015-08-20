@@ -14,7 +14,7 @@
   register: new_relic_install
 
 - name: Copy the configuration file
-  copy: src=nrsysmond.cfg dest=/etc/newrelic/nrsysmond.cfg
+  template: src=nrsysmond.cfg.j2 dest=/etc/newrelic/nrsysmond.cfg
   when: new_relic_install.changed
 
 - name: Ensure New Relic is running
