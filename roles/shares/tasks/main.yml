@@ -6,7 +6,7 @@
     mode: 0600
   with_items: shares
 
-- name: Set zeus-fkenrolment-data share
+- name: Mount defined shares
   mount:
     name: "{{ item.dest }}"
     src: //files.ugent.be/{{ item.username }}/shares/{{ item.name }}
