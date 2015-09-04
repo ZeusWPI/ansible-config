@@ -8,18 +8,25 @@
    when: not st.stat.exists
 
  - name: Unpack tarball
-   command: tar -xvf dokuwiki-stable.tgz chdir=/var/tmp
+   unarchive: copy=no src=/var/tmp/dokuwiki-stable.tgz dest=/var/tmp
    when: not st.stat.exists
 
  - name: Prepare target directory
-   command: mkdir /home/dokuwiki/dokuwiki
+   file: path=/home/dokuwiki/dokuwiki state=directory mode=0755
    when: not st.stat.exists
 
  - name: Move dokuwiki
-   shell: mv /var/tmp/dokuwiki*/* /home/dokuwiki/dokuwiki/
+   command: mv "{{item}}" /home/dokuwiki/dokuwiki/
    when: not st.stat.exists
+   with_fileglob:
+     - /var/tmp/dokuwiki*/*
 
  - name: Fix permissions
-   shell: chown -R dokuwiki:dokuwiki /home/dokuwiki/dokuwiki/{conf,data,lib/{plugins,tpl}}
+   file: path={{item}} recursive=yes owner=dokuwiki:dokuwiki
    notify: restart nginx
    when: not st.stat.exists
+   with_items:
+     - /home/dokuwiki/dokuwiki/conf
+     - /home/dokuwiki/dokuwiki/data
+     - /home/dokuwiki/dokuwiki/lib/plugin
+     - /home/dokuwiki/dokuwiki/lib/tpl

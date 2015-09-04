@@ -54,6 +54,10 @@
 
 - name: Link the configs
   shell: ln -sfn /etc/nginx/sites-available/*conf /etc/nginx/sites-enabled/
+  file: src="{{item}}" dest=/etc/nginx/sites-enabled/ state=link
+  with_fileglob:
+    - /etc/nginx/sites-available/*conf
   notify:
     - Restart FastCGI
     - Restart nginx
+
