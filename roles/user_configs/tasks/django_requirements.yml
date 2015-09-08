@@ -1,7 +1,7 @@
 ---
 - name: Install virtualenv for Django users
   shell: virtualenv /home/{{ item.name }}/.venv
-  remote_user: {{ item.name }}
+  remote_user: "{{ item.name }}"
   args:
     creates: /home/{{ item.name }}/.venv
   with_items: users
