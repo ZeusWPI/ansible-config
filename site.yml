@@ -12,7 +12,7 @@
   roles:
 #    - common
 #    - franklinkim.sudo
-#    - users
+    - users
 #    - logrotate
 #    - kerberos
 #    - mysql
@@ -24,7 +24,7 @@
 #    # Email stuff
 #    - spamassassin
 #    - mail_antivirus
-#    - postfix
+    - postfix
 #    - mailman
 #    - new_relic
 #    - fail2ban
@@ -39,10 +39,10 @@
 #    # Nodejs
 #    - common-nodejs
 #    # User configs and stuff
-#    - mysql_configs
-#    - nginx_configs
+    - mysql_configs
+    - nginx_configs
 #    - django
-#    - user_configs
+    - user_configs
 #    - dokuwiki
   vars_files:
     - vars/passwords.yml

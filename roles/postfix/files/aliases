@@ -24,7 +24,6 @@ geologie: cursuscruisen-geologie
 fysica: cursuscruisen-fysica
 
 # common app renames to match their users
-tap: tab
 enrolment: fk-enrolment
 blokmap: bloklocaties
 
