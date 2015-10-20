@@ -7,10 +7,10 @@
 tls_certificate_path: "/home/matrix/synapse/zeus.ugent.be.tls.crt"
 
 # PEM encoded private key for TLS
-tls_private_key_path: "/home/matrix/synapse/zeus.ugent.be.tls.key"
+tls_private_key_path: "/home/matrix/synapse/zeus.ugent.be-matrix.tls.key"
 
 # PEM dh parameters for ephemeral keys
-tls_dh_params_path: "/home/matrix/synapse/zeus.ugent.be.tls.dh"
+tls_dh_params_path: "/home/matrix/synapse/zeus.ugent.be-matrix.tls.dh"
 
 # Don't bind to the https port
 no_tls: False
@@ -21,7 +21,7 @@ no_tls: False
 # The domain name of the server, with optional explicit port.
 # This is used by remote servers to connect to this server,
 # e.g. matrix.org, localhost:8080, etc.
-server_name: "zeus.ugent.be"
+server_name: "zeus.ugent.be/matrix"
 
 # When running as a daemon, the file to store the pid in
 pid_file: /home/matrix/synapse/homeserver.pid
@@ -41,7 +41,7 @@ listeners:
   # For when matrix traffic is sent directly to synapse.
   -
     # The port to listen for HTTPS requests on.
-    port: 8080
+    port: 8448
 
     # Local interface to listen on.
     # The empty string will cause synapse to listen on all interfaces.
@@ -74,7 +74,7 @@ listeners:
 
   # Unsecure HTTP listener,
   # For when matrix traffic passes through loadbalancer that unwraps TLS.
-  - port: 7680
+  - port: 8008
     tls: false
     bind_address: ''
     type: http
@@ -115,7 +115,7 @@ verbose: 0
 log_file: "/home/matrix/synapse/homeserver.log"
 
 # A yaml python logging config file
-log_config: "/home/matrix/synapse/zeus.ugent.be.log.config"
+log_config: "/home/matrix/synapse/zeus.ugent.be-matrix.log.config"
 
 
 ## Ratelimiting ##
@@ -237,7 +237,7 @@ app_service_config_files: []
 ## Signing Keys ##
 
 # Path to the signing key to sign messages with
-signing_key_path: "/home/matrix/synapse/zeus.ugent.be.signing.key"
+signing_key_path: "/home/matrix/synapse/zeus.ugent.be-matrix.signing.key"
 
 # The keys that the server used to sign messages with but won't use
 # to sign new messages. E.g. it has lost its private key
@@ -271,4 +271,4 @@ perspectives:
 # See pysaml2 docs for format of config.
 #saml2_config:
 #   config_path: "/home/matrix/synapse/sp_conf.py"
-#   idp_redirect_url: "http://zeus.ugent.be/idp"
+#   idp_redirect_url: "http://zeus.ugent.be/matrix/idp"
