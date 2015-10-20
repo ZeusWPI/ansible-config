@@ -1,0 +1,20 @@
+
+# installing prerequisites
+- apt: name=build-essential state=present
+- apt: name=python2.7-dev   state=present
+- apt: name=libffi-dev      state=present
+- apt: name=libssl-dev      state=present
+- apt: name=libjpeg-dev     state=present
+
+# installing pip
+- file: path=/home/matrix/matrix state=directory mode=0755
+- pip: state=latest name=setuptools virtualenv=/home/matrix/matrix
+- pip: state=present extra_args="--process-dependency-links" name=https://github.com/matrix-org/synapse/tarball/master
+
+# generate config
+- command: ./bin/python -m synapse.app.homeserver --server-name zeus.ugent.be --config-path homeserver.yaml --generate-config
+  notify: Start Synapse
+  args:
+    chdir: /home/matrix/matrix
+    creates: /home/matrix/matrix/homeserver.yaml
+
