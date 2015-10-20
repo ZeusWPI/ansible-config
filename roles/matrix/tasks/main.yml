@@ -7,14 +7,17 @@
 - apt: name=libjpeg-dev     state=present
 
 # installing pip
-- file: path=/home/matrix/matrix state=directory mode=0755
-- pip: state=latest name=setuptools virtualenv=/home/matrix/matrix
+- file: path=/home/matrix/synapse state=directory mode=0755
+- pip: state=latest name=setuptools virtualenv=/home/matrix/synapse
 - pip: state=present extra_args="--process-dependency-links" name=https://github.com/matrix-org/synapse/tarball/master
 
-# generate config
+# generate config and certificates
 - command: ./bin/python -m synapse.app.homeserver --server-name zeus.ugent.be --config-path homeserver.yaml --generate-config
   notify: Start Synapse
   args:
     chdir: /home/matrix/matrix
     creates: /home/matrix/matrix/homeserver.yaml
+
+# overwrite config
+- copy: src=homeserver.yaml dest=/home/matrix/synapse/homeserver.yaml
 
