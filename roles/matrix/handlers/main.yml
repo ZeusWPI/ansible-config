@@ -1,0 +1,4 @@
+
+- command: ./bin/synctl start
+  args:
+    chdir: /home/matrix/matrix

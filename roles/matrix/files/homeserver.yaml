@@ -1,0 +1,274 @@
+# vim:ft=yaml
+# PEM encoded X509 certificate for TLS.
+# You can replace the self-signed certificate that synapse
+# autogenerates on launch with your own SSL certificate + key pair
+# if you like.  Any required intermediary certificates can be
+# appended after the primary certificate in hierarchical order.
+tls_certificate_path: "/home/matrix/synapse/zeus.ugent.be.tls.crt"
+
+# PEM encoded private key for TLS
+tls_private_key_path: "/home/matrix/synapse/zeus.ugent.be-matrix.tls.key"
+
+# PEM dh parameters for ephemeral keys
+tls_dh_params_path: "/home/matrix/synapse/zeus.ugent.be-matrix.tls.dh"
+
+# Don't bind to the https port
+no_tls: False
+
+
+## Server ##
+
+# The domain name of the server, with optional explicit port.
+# This is used by remote servers to connect to this server,
+# e.g. matrix.org, localhost:8080, etc.
+server_name: "zeus.ugent.be/matrix"
+
+# When running as a daemon, the file to store the pid in
+pid_file: /home/matrix/synapse/homeserver.pid
+
+# Whether to serve a web client from the HTTP/HTTPS root resource.
+web_client: True
+
+# Set the soft limit on the number of file descriptors synapse can use
+# Zero is used to indicate synapse should set the soft limit to the
+# hard limit.
+soft_file_limit: 0
+
+# List of ports that Synapse should listen on, their purpose and their
+# configuration.
+listeners:
+  # Main HTTPS listener
+  # For when matrix traffic is sent directly to synapse.
+  -
+    # The port to listen for HTTPS requests on.
+    port: 8448
+
+    # Local interface to listen on.
+    # The empty string will cause synapse to listen on all interfaces.
+    bind_address: ''
+
+    # This is a 'http' listener, allows us to specify 'resources'.
+    type: http
+
+    tls: true
+
+    # Use the X-Forwarded-For (XFF) header as the client IP and not the
+    # actual client IP.
+    x_forwarded: false
+
+    # List of HTTP resources to serve on this listener.
+    resources:
+      -
+        # List of resources to host on this listener.
+        names:
+          - client     # The client-server APIs, both v1 and v2
+          - webclient  # The bundled webclient.
+
+        # Should synapse compress HTTP responses to clients that support it?
+        # This should be disabled if running synapse behind a load balancer
+        # that can do automatic compression.
+        compress: true
+
+      - names: [federation]  # Federation APIs
+        compress: false
+
+  # Unsecure HTTP listener,
+  # For when matrix traffic passes through loadbalancer that unwraps TLS.
+  - port: 8008
+    tls: false
+    bind_address: ''
+    type: http
+
+    x_forwarded: false
+
+    resources:
+      - names: [client, webclient]
+        compress: true
+      - names: [federation]
+        compress: false
+
+  # Turn on the twisted telnet manhole service on localhost on the given
+  # port.
+  # - port: 9000
+  #   bind_address: 127.0.0.1
+  #   type: manhole
+
+
+# Database configuration
+database:
+  # The database engine name
+  name: "sqlite3"
+  # Arguments to pass to the engine
+  args:
+    # Path to the database
+    database: "/home/matrix/synapse/homeserver.db"
+
+# Number of events to cache in memory.
+event_cache_size: "10K"
+
+
+
+# Logging verbosity level.
+verbose: 0
+
+# File to write logging to
+log_file: "/home/matrix/synapse/homeserver.log"
+
+# A yaml python logging config file
+log_config: "/home/matrix/synapse/zeus.ugent.be-matrix.log.config"
+
+
+## Ratelimiting ##
+
+# Number of messages a client can send per second
+rc_messages_per_second: 0.2
+
+# Number of message a client can send before being throttled
+rc_message_burst_count: 10.0
+
+# The federation window size in milliseconds
+federation_rc_window_size: 1000
+
+# The number of federation requests from a single server in a window
+# before the server will delay processing the request.
+federation_rc_sleep_limit: 10
+
+# The duration in milliseconds to delay processing events from
+# remote servers by if they go over the sleep limit.
+federation_rc_sleep_delay: 500
+
+# The maximum number of concurrent federation requests allowed
+# from a single server
+federation_rc_reject_limit: 50
+
+# The number of federation requests to concurrently process from a
+# single server
+federation_rc_concurrent: 3
+
+
+
+# Directory where uploaded images and attachments are stored.
+media_store_path: "/home/matrix/synapse/media_store"
+
+# Directory where in-progress uploads are stored.
+uploads_path: "/home/matrix/synapse/uploads"
+
+# The largest allowed upload size in bytes
+max_upload_size: "10M"
+
+# Maximum number of pixels that will be thumbnailed
+max_image_pixels: "32M"
+
+# Whether to generate new thumbnails on the fly to precisely match
+# the resolution requested by the client. If true then whenever
+# a new resolution is requested by the client the server will
+# generate a new thumbnail. If false the server will pick a thumbnail
+# from a precalcualted list.
+dynamic_thumbnails: false
+
+# List of thumbnail to precalculate when an image is uploaded.
+thumbnail_sizes:
+- width: 32
+  height: 32
+  method: crop
+- width: 96
+  height: 96
+  method: crop
+- width: 320
+  height: 240
+  method: scale
+- width: 640
+  height: 480
+  method: scale
+
+
+## Captcha ##
+
+# This Home Server's ReCAPTCHA public key.
+recaptcha_private_key: "YOUR_PRIVATE_KEY"
+
+# This Home Server's ReCAPTCHA private key.
+recaptcha_public_key: "YOUR_PUBLIC_KEY"
+
+# Enables ReCaptcha checks when registering, preventing signup
+# unless a captcha is answered. Requires a valid ReCaptcha
+# public/private key.
+enable_registration_captcha: False
+
+# A secret key used to bypass the captcha test entirely.
+#captcha_bypass_secret: "YOUR_SECRET_HERE"
+
+# The API endpoint to use for verifying m.login.recaptcha responses.
+recaptcha_siteverify_api: "https://www.google.com/recaptcha/api/siteverify"
+
+
+## Turn ##
+
+# The public URIs of the TURN server to give to clients
+turn_uris: []
+
+# The shared secret used to compute passwords for the TURN server
+turn_shared_secret: "YOUR_SHARED_SECRET"
+
+# How long generated TURN credentials last
+turn_user_lifetime: "1h"
+
+
+## Registration ##
+
+# Enable registration for new users.
+enable_registration: False
+
+# If set, allows registration by anyone who also has the shared
+# secret, even if registration is otherwise disabled.
+registration_shared_secret: "matrix.is-beter_dan~slack"
+
+
+## Metrics ###
+
+# Enable collection and rendering of performance metrics
+enable_metrics: False
+
+
+# A list of application service config file to use
+app_service_config_files: []
+
+
+## Signing Keys ##
+
+# Path to the signing key to sign messages with
+signing_key_path: "/home/matrix/synapse/zeus.ugent.be-matrix.signing.key"
+
+# The keys that the server used to sign messages with but won't use
+# to sign new messages. E.g. it has lost its private key
+old_signing_keys: {}
+#  "ed25519:auto":
+#    # Base64 encoded public key
+#    key: "The public part of your old signing key."
+#    # Millisecond POSIX timestamp when the key expired.
+#    expired_ts: 123456789123
+
+# How long key response published by this server is valid for.
+# Used to set the valid_until_ts in /key/v2 APIs.
+# Determines how quickly servers will query to check which keys
+# are still valid.
+key_refresh_interval: "1d" # 1 Day.
+
+# The trusted servers to download signing keys from.
+perspectives:
+  servers:
+    "matrix.org":
+      verify_keys:
+        "ed25519:auto":
+          key: "Noi6WqcDj0QmPxCNQqgezwTlBKrfqehY1u2FyWP9uYw"
+
+
+
+# Enable SAML2 for registration and login. Uses pysaml2
+# config_path:      Path to the sp_conf.py configuration file
+# idp_redirect_url: Identity provider URL which will redirect
+#                   the user back to /login/saml2 with proper info.
+# See pysaml2 docs for format of config.
+#saml2_config:
+#   config_path: "/home/matrix/synapse/sp_conf.py"
+#   idp_redirect_url: "http://zeus.ugent.be/matrix/idp"
