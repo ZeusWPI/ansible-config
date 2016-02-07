@@ -1,0 +1,80 @@
+- name: Create virtualenv
+  command: virtualenv -p python2.7 ~/.synapse
+  args:
+    chdir: /home/{{ matrix_username }}
+
+- name: PIP to upgrade setup tools
+  pip: name=setuptools virtualenv=/home/{{ matrix_username }}/.synapse extra_args='--upgrade'
+
+- name: PIP to install needed dependencies into virtualenv
+  action: pip name={{ item }} virtualenv=/home/{{ matrix_username }}/.synapse
+  with_items:
+   - cryptography
+   - pyasn1_modules
+   - characteristic
+   - simplejson
+   - canonicaljson
+
+- name: PIP to install synapase from Git Repo into virtualenv
+  pip: name={{ git_repo }} virtualenv=/home/{{ matrix_username }}/.synapse
+
+- name: Generate homeserver.yaml config file
+  shell: ". bin/activate && python -m synapse.app.homeserver --server-name {{ hostname }} --config-path homeserver.yaml --generate-config --report-stats=yes"
+  args:
+    chdir: /home/{{ matrix_username }}/.synapse/
+    creates: /home/{{ matrix_username }}/.synapse/homeserver.yaml
+
+- name: Configure if registrations are enabled by default or not
+  lineinfile: dest=/home/{{ matrix_username }}/.synapse/homeserver.yaml
+  args:
+    regexp: "^enable_registration:"
+    line: "enable_registration: {{ enable_registration }}"
+
+- name: Configure if captchas are enabled by default or not
+  lineinfile: dest=/home/{{ matrix_username }}/.synapse/homeserver.yaml
+  args:
+    regexp: "^enable_registration_captcha:"
+    line: "enable_registration_captcha: {{ enable_registration_captcha }}"
+
+- name: Configure private-key recaptcha key
+  lineinfile: dest=/home/{{ matrix_username }}/.synapse/homeserver.yaml
+  args:
+    regexp: "^recaptcha_private_key:"
+    line: "recaptcha_private_key: {{ recaptcha_private_key }}"
+
+- name: Configure public-key recaptcha key
+  lineinfile: dest=/home/{{ matrix_username }}/.synapse/homeserver.yaml
+  args:
+    regexp: "^recaptcha_public_key:"
+    line: "recaptcha_public_key: {{ recaptcha_public_key }}"
+
+- name: Configure turn_uris
+  lineinfile: dest=/home/{{ matrix_username }}/.synapse/homeserver.yaml
+  args:
+    line: "turn_uris: [ \"turn:{{ hostname }}:3478?transport=udp\", \"turn:{{ hostname }}:3478?transport=tcp\" ]"
+
+- name: Configure turn_user_lifetime
+  lineinfile: dest=/home/{{ matrix_username }}/.synapse/homeserver.yaml
+  args:
+    line: "turn_shared_secret: {{ turn_shared_secret }}"
+
+- name: Configure turn_user_lifetime
+  lineinfile: dest=/home/{{ matrix_username }}/.synapse/homeserver.yaml
+  args:
+    line: "turn_user_lifetime: 86400000"
+
+- name: Set permissions
+  file:
+    path='/home/{{ matrix_username }}/.synapse'
+    state=directory
+    owner={{ matrix_username }}
+    group={{ matrix_username }}
+    recurse=yes
+
+- name: Install upstart script
+  template:
+    src=etc/init/synapse.conf
+    dest=/etc/init/synapse.conf
+
+- name: Start synapse server
+  service: name=synapse state=started
