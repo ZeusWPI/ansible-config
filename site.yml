@@ -6,8 +6,8 @@
   vars:
     rbenv:
       env: system
-      version: v0.4.0
-      ruby_version: 2.2.2
+      version: v1.0.0
+      ruby_version: 2.3.0-dev
 
   roles:
 #    - common
@@ -32,6 +32,7 @@
 #    - ntp
 #    # Ruby, rails, passenger stuff
 #    - zzet.rbenv
+#    - bundler # enable this when installing a new rbenv version using zzet.rbenv
 #    - common-rails
 #    - passenger
 #    # Python stuff

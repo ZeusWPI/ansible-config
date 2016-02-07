@@ -1,0 +1,2 @@
+---
+- gem: name=bundler state=latest user_install=no
