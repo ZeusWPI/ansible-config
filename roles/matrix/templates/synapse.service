@@ -1,0 +1,12 @@
+[Unit]
+Description=Synapse Matrix homeserver
+
+[Service]
+Type=simple
+WorkingDirectory=/home/matrix/.synapse
+Environment=VIRTUAL_ENV="/home/matrix/.synapse"
+Environment=PATH="$VIRTUAL_ENV/bin:$PATH"
+ExecStart=/home/matrix/.synapse/bin/python2.7 -m synapse.app.homeserver --config-path=/home/matrix/.synapse/homeserver.yaml
+
+[Install]
+WantedBy=multi-user.target
