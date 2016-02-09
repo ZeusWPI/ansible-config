@@ -71,23 +71,14 @@
     group={{ matrix_username }}
     recurse=yes
 
-- name: Create service directory
-  file:
-    path=/home/{{ matrix_username }}/.config/systemd/user
-    state=directory
-    owner={{ matrix_username }}
-    group={{ matrix_username }}
-
 - name: Install service script
   template:
     src=synapse.service
-    dest=/home/{{ matrix_username }}/.config/systemd/user/synapse.service
+    dest=/etc/systemd/system/synapse.service
     owner={{ matrix_username }}
     group={{ matrix_username }}
 
 - name: Start and enable synapse server
-  remote_user: matrix
-  sudo: yes
   service:
     name=synapse
     state=started
