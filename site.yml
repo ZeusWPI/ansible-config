@@ -40,7 +40,10 @@
 #    - django
 #    - user_configs
 #    - dokuwiki
+#    # Matrix
+#    - matrix
 
   vars_files:
     - vars/passwords.yml
     - vars/ruby.yml
+    - vars/matrix.yml
