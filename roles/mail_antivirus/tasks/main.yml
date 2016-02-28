@@ -55,6 +55,15 @@
   notify:
     - Restart amavis
 
+- name: Copy the clamav config
+  copy: src=clamd.conf dest=/etc/clamd.conf
+  
+- name: Copy the amavisd config
+  copy: src=amavisd.conf dest=/etc/amavisd.conf
+  notify:
+    - Restart amavis
+	- Restart clamav
+	
 - name: Ensure all daemons are running
   service: name={{ item }} state=started
   with_items:

@@ -1,3 +1,6 @@
 ---
 - name: Restart amavis
   service: name=amavis state=restarted
+  
+- name: Restart clamav
+  service: name=clamav-freshclam state=restarted 
