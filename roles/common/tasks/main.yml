@@ -23,6 +23,7 @@
     - nodejs
     - cmake
     - cifs-utils  # share stuff
+    - speedtest-cli
 
 - name: Remove packages we don't want
   apt: name={{ item }} state=absent purge=yes
