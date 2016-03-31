@@ -1,2 +1,3 @@
 - src: zzet.rbenv
 - src: franklinkim.sudo
+- src: https://github.com/thefinn93/ansible-letsencrypt

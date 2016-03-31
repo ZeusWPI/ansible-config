@@ -40,6 +40,8 @@
 #    - django
 #    - user_configs
 #    - dokuwiki
+#    # Letsencrypt thingies
+#    - ansible-letsencrypt
 #    # Matrix
 #    - matrix
 
@@ -47,3 +49,4 @@
     - vars/passwords.yml
     - vars/ruby.yml
     - vars/matrix.yml
+    - vars/letsencrypt.yml

@@ -12,5 +12,8 @@
     creates=/etc/nginx/fcgiwrap.conf
   notify: Restart FastCGI
 
+- name: Install a strong DH group
+  command: openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048 creates=/etc/ssl/certs/dhparam.pem
+
 - name: Ensure nginx is running
   service: name=nginx state=started enabled=yes
