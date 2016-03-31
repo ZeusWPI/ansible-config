@@ -36,7 +36,7 @@
 #    - common-nodejs
 #    # User configs and stuff
 #    - mysql_configs
-    - nginx_configs
+#    - nginx_configs
 #    - django
 #    - user_configs
 #    - dokuwiki

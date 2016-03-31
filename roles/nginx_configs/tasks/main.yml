@@ -53,10 +53,9 @@
     - Restart nginx
 
 - name: Link the configs
-  file: src="{{item}}" dest=/etc/nginx/sites-enabled/ state=link
+  file: src=/etc/nginx/sites-available/{{item | basename}} dest=/etc/nginx/sites-enabled/{{ item | basename }} state=link
   with_fileglob:
-    - /etc/nginx/sites-available/*conf
+    - sites-enabled/*conf
   notify:
     - Restart FastCGI
     - Restart nginx
-
