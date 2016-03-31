@@ -34,13 +34,6 @@
   notify:
     - Restart nginx
 
-- name: Copy templates website configs
-  template: src={{ item }} dest=/etc/nginx/sites-available/{{ item | basename | regex_replace('.j2','') }}
-  with_fileglob:
-    - ../templates/sites-enabled/*.j2
-  notify:
-    - Restart nginx
-
 - name: Copy conf.d configs
   copy: src=conf.d/ dest=/etc/nginx/conf.d/
   notify:

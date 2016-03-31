@@ -5,3 +5,4 @@ dependencies:
   - { role: passenger }
   - { role: php }
   - { role: mailman }
+  - { role: ansible-letsencrypt }
