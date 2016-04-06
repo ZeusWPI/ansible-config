@@ -42,10 +42,8 @@
 #    - dokuwiki
 #    # Matrix
 #    - matrix
-    - oracle-java
 
   vars_files:
     - vars/passwords.yml
     - vars/ruby.yml
     - vars/matrix.yml
-    - vars/java.yml
