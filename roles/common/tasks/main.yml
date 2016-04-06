@@ -24,6 +24,7 @@
     - cmake
     - cifs-utils  # share stuff
     - speedtest-cli
+    - openjdk-8-jdk
 
 - name: Remove packages we don't want
   apt: name={{ item }} state=absent purge=yes
