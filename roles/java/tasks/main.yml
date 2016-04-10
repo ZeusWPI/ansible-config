@@ -1,6 +1,0 @@
----
-- name: Install JRE (Java Runtime Environment)
-  apt: name=default-jre state=present
-
-- name: Install JDK (Java Development Kit)
-  apt: name=default-jdk state=present
