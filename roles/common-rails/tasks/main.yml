@@ -12,3 +12,9 @@
     - libxslt-dev
     - mongodb
     - zlib1g-dev
+
+- name: Install wkhtmltopdf (+ dependencies) for Saruman
+  apt: name={{ item }} state=latest
+  with_items:
+    - xvfb  # Fake X server
+    - wkhtmltopdf
