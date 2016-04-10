@@ -1,5 +1,6 @@
 letsencrypt_webroot_path: /var/www/letsencrypt
 letsencrypt_email: admin@zeus.ugent.be
 letsencrypt_cert_domains:
-  - live.12urenloop.be
-  - 12urenloop.be
+  #- materiaal.12urenloop.be
+  #- live.12urenloop.be
+  #- 12urenloop.be
