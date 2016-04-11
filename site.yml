@@ -44,9 +44,12 @@
 #    - ansible-letsencrypt
 #    # Matrix
 #    - matrix
+#    # Monitoring goodies
+#    - ansible-playbook-monit
 
   vars_files:
     - vars/passwords.yml
     - vars/ruby.yml
     - vars/matrix.yml
+    - vars/monit.yml
     - vars/letsencrypt.yml

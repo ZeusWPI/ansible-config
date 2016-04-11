@@ -1,0 +1,23 @@
+monit_cycle: 60
+monit_webinterface_enabled: false
+monit_mail_enabled: true
+monit_alert_address: admin@zeus.ugent.be
+monit_services:
+  - name: fk-enrolment-delayed_job
+    type: process
+    user: fk-enrolment
+    target: /home/fk-enrolment/production/current/tmp/pids/delayed_job.pid
+    start: "/bin/sh -c 'cd /home/fk-enrolment/production/current; RAILS_ENV=production PATH=bin:/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH delayed_job start'"
+    stop:  "/bin/sh -c 'cd /home/fk-enrolment/production/current; RAILS_ENV=production PATH=bin:/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH delayed_job stop'"
+  - name: gandalf-delayed_job
+    type: process
+    user: gandalf
+    target: /home/gandalf/production/current/tmp/pids/delayed_job.pid
+    start: "/bin/sh -c 'cd /home/gandalf/production/current; RAILS_ENV=production PATH=bin:/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH delayed_job start'"
+    stop:  "/bin/sh -c 'cd /home/gandalf/production/current; RAILS_ENV=production PATH=bin:/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH delayed_job stop'"
+  - name: tap-delayed_job
+    type: process
+    user: tap
+    target: /home/tap/production/current/tmp/pids/delayed_job.pid
+    start: "/bin/sh -c 'cd /home/tap/production/current; RAILS_ENV=production PATH=bin:/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH delayed_job start'"
+    stop:  "/bin/sh -c 'cd /home/tap/production/current; RAILS_ENV=production PATH=bin:/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH delayed_job stop'"
