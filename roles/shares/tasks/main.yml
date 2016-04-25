@@ -11,6 +11,6 @@
     name: "{{ item.dest }}"
     src: //files.ugent.be/{{ item.username }}/shares/{{ item.name }}
     fstype: cifs
-    opts: credentials=/root/.smbcredentials-{{ item.name }},iocharset=utf8,sec=ntlm,uid={{ item.owner}},gid={{ item.owner }}
+    opts: credentials=/root/.smbcredentials-{{ item.name }},iocharset=utf8,sec=ntlm,uid={{ item.owner }},gid={{ item.owner }}
     state: mounted
   with_items: shares
