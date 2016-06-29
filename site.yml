@@ -39,6 +39,7 @@
 #    - nginx_configs
 #    - django
 #    - user_configs
+#    - uwsgi
 #    - dokuwiki
 #    # Letsencrypt thingies
 #    - ansible-letsencrypt

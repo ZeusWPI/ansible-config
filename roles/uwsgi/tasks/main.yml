@@ -1,0 +1,11 @@
+---
+- name: Install uwsgi package
+  pip: name=uwsgi
+
+- name: Create socket directory
+  file: path=/etc/uwsgi/pools.d/ state=directory
+
+- name: Copy socket configs
+  copy: src=pools/ dest=/etc/uwsgi/pools.d/
+  notify:
+    - Restart nginx

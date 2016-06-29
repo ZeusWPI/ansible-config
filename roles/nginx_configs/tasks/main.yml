@@ -52,6 +52,11 @@
     - Restart FastCGI
     - Restart nginx
 
+- name: Copy uWSGI configs
+  copy: src=uwsgi_params dest=/etc/nginx/uwsgi_params
+  notify:
+    - Restart nginx
+
 - name: Link the configs
   file: src=/etc/nginx/sites-available/{{item | basename}} dest=/etc/nginx/sites-enabled/{{ item | basename }} state=link
   with_fileglob:
