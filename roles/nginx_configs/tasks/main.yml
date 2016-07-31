@@ -66,4 +66,4 @@
     - Restart nginx
 
 - name: Check the configuration file syntax
-  command: /bin/nginx -t
+  command: /usr/sbin/nginx -t
