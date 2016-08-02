@@ -8,5 +8,6 @@
 #   - You can enter hostnames or ip addresses
 #   - A hostname/ip can be a member of multiple groups
 [servers]
-# For this to work your SSH-key needs to be added to king already
+# For this to work your SSH-key needs to be added to the hosy already
 king ansible_ssh_host=zeus.ugent.be ansible_ssh_port=2222 ansible_ssh_user=root
+abyss ansible_ssh_host=abyss ansible ansible_ssh_port=2222 ansible_ssh_user=root

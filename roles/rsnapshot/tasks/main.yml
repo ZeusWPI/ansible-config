@@ -1,0 +1,6 @@
+---
+
+- name: Copy rsnapshot.conf
+  copy: src=rsnapshot.conf dest=/opt/etc/rsnapshot.conf backup=yes
+
+  # Todo handle restart?
