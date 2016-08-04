@@ -10,4 +10,4 @@
 [servers]
 # For this to work your SSH-key needs to be added to the hosy already
 king ansible_ssh_host=zeus.ugent.be ansible_ssh_port=2222 ansible_ssh_user=root
-abyss ansible_ssh_host=abyss ansible ansible_ssh_port=2222 ansible_ssh_user=root
+abyss ansible_ssh_host=abyss.kelder.zeus.ugent.be ansible_ssh_port=2222 ansible_ssh_user=root
