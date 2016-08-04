@@ -1,9 +1,0 @@
----
-- name: Set up NAS
-  hosts: abyss
-  user: root
-  sudo: yes
-
-  roles:
-    - rsnapshot
-    - backup_scripts
