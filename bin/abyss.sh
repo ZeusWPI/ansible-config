@@ -16,6 +16,7 @@ then
         mv $FILE $FILE.$NOW || true
         mv $FILE.new $FILE
     fi
+    /opt/bin/rsnapshot configtest
 HERE
 else
     echo 'File abyss/rsnapshot.conf not found!'
