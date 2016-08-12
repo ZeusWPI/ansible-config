@@ -40,6 +40,11 @@
     - Restart FastCGI
     - Restart nginx
 
+- name: Copy snippets
+  copy: src=snippets/ dest=/etc/nginx/snippets/
+  notify:
+    - Restart nginx
+
 - name: Copy FastCGI configs (1)
   copy: src=fastcgi_params dest=/etc/nginx/fastcgi_params
   notify:

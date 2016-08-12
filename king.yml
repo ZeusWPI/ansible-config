@@ -42,7 +42,7 @@
 #    - uwsgi
 #    - dokuwiki
 #    # Letsencrypt thingies
-#    - ansible-letsencrypt
+#    - ansible-letsencrypt # Walktrough: https://github.com/ZeusWPI/ansible-config/wiki/Steps-for-LetsEncrypt
 #    # Matrix
 #    - matrix
 #    # Monitoring goodies
