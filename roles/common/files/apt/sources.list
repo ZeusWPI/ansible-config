@@ -9,3 +9,5 @@ deb-src http://security.debian.org/ jessie/updates main contrib non-free
 
 deb http://ftp.be.debian.org/debian jessie-backports main
 deb-src http://ftp.be.debian.org/debian jessie-backports main
+
+deb [arch=amd64,i386] http://mariadb.cu.be/repo/10.1/debian jessie main

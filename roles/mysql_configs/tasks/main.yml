@@ -1,4 +1,6 @@
 ---
+# These configs actually are for mariadb 
+
 - name: Initialize databases for certain users
   mysql_db: name={{ item.db_name }}
   when: item.mysql is defined

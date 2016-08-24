@@ -10,7 +10,7 @@
 #    - users
 #    - logrotate
 #    - kerberos
-#    - mysql
+#    - mariadb
 #    - iptables
 #    - nginx
 #    - php

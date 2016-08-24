@@ -1,0 +1,25 @@
+---
+- name: Install MariaDB package
+  apt: name={{ item }} state=present
+  with_items:
+    - mariadb-server-10.1
+    - mariadb-client
+    - libmariadbclient-dev
+  register: mysql_install
+
+- name: Create MariaDB configuration file
+  copy: src=etc/my.cnf dest=/etc/mysql/my.cnf
+  notify:
+    - Restart MariaDB
+
+- name: Ensure MariaDB is running
+  service: name=mariadb state=started enabled=yes
+
+- name: Set a password for the root account
+  mysql_user: 
+    name: root 
+    password: '{{ mysql_root_password }}'
+
+- name: Create .my.cnf for root
+  template: src=root/my.cnf.j2 dest=/root/.my.cnf
+            owner=root group=root mode=0600
