@@ -1,0 +1,7 @@
+---
+
+- name: Ensure backup script directory exists
+  file: path=/root/abyss state=directory
+
+- name: Copy backup scripts to target.
+  file: src={{ ansible_hostname }}/ dest=/root/abyss/ backup=yes
