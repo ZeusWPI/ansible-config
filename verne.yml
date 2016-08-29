@@ -7,3 +7,6 @@
   roles:
     - common
     - sshkeys
+    - dnsmasq
+    #- ufw
+
