@@ -1,0 +1,20 @@
+---
+- name: Install  dnsmasq
+  pacman:
+    name: dnsmasq
+    state: latest
+
+- name: Copy dnsmasq configuration
+  copy:
+    src: files/zeusnet.conf
+    dest: /etc/dnsmasq.d/zeusnet.conf
+  notify: Restart dnsmasq
+
+- name: Enable and start dnsmasq
+  service:
+    name: dnsmasq
+    enabled: yes
+    state: started
+
+- name: Verify dnsmasq configuration
+  command: /usr/bin/dnsmasq --test
