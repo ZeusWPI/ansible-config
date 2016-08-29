@@ -1,4 +1,10 @@
 ---
+
+- name: Import MariaDB Keys
+  apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: 0xcbcb082a1bb943db
+
 - name: Install MariaDB package
   apt: name={{ item }} state=present
   with_items:

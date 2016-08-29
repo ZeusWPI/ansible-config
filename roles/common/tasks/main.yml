@@ -2,11 +2,6 @@
 - name: Adjust /etc/apt/sources.list
   copy: src=apt/sources.list dest=/etc/apt/sources.list
 
-- name: Import MariaDB Keys
-  apt_key:
-    keyserver: keyserver.ubuntu.com
-    id: 0xcbcb082a1bb943db
-
 - name: Update apt
   apt: update_cache=yes
 
