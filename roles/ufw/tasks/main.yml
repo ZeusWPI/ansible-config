@@ -25,7 +25,6 @@
 - name: Allow all internal traffic
   ufw:
     rule: allow
-    interface: enp2s1
     src: 10.1.1.0/24
 
 - name: Allow SSH traffic

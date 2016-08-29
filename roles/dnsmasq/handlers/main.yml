@@ -1,5 +1,8 @@
 ---
 - name: Restart dnsmasq
-  systemd:
+  service:
     name: dnsmasq
     state: restarted
+
+- name: Restart netctl
+  shell: /usr/bin/netctl restart external

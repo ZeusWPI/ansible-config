@@ -1,0 +1,6 @@
+cription='External networking interface'
+Interface=enp4s0
+Connection=ethernet
+IP='dhcp'
+#IP='static'
+#Address=('157.193.55.1/24')
