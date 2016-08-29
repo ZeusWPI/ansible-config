@@ -1,0 +1,43 @@
+---
+- name: System update & upgrade
+  pacman: 
+    update_cache: yes
+    upgrade: yes
+
+- name: Install packages that don't need confirutation
+  pacman: 
+    name: '{{ item }}'
+    state: present
+  with_items:
+    - base-devel
+    - bc
+    - dos2unix
+    - git
+    - hdparm
+    - htop
+    - httpie
+    - lsof
+    - neovim
+    - nmap
+    - python
+    - python2
+    - ranger
+    - rsync
+    - openssh
+    - openssl
+    - screenfetch
+    - smartmontools
+    - speedtest-cli
+    - thefuck
+    - tmux
+    - tree
+    - unzip
+    - wget
+    - zsh
+  
+- name: Symlink neovim to vim
+  file:
+    src: /usr/bin/nvim
+    dest: /usr/bin/vim
+    state: link
+

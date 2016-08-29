@@ -9,6 +9,14 @@
 #   - A hostname/ip can be a member of multiple groups
 #
 # For this to work your SSH-key needs to be added to the host already
-king ansible_ssh_host=zeus.ugent.be ansible_ssh_port=2222 ansible_ssh_user=root
+king ansible_ssh_host=zeus.ugent.be ansible_ssh_port=2222 
 
-verne ansible_ssh_host=verne-beta.kelder.zeus.ugent.be ansible_ssh_user=root ansible_python_interpreter=/bin/python2
+[arch]
+verne ansible_ssh_host=verne-beta.kelder.zeus.ugent.be
+gygax ansible_ssh_host=gygax.kelder.zeus.ugent.be
+
+[all:vars]
+ansible_ssh_user=root
+[arch:vars]
+ansible_python_interpreter=/bin/python2
+
