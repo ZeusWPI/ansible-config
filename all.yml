@@ -1,0 +1,5 @@
+---
+- name: Configure all the servers!
+  hosts: all
+  roles:
+    - sshkeys
