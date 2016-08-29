@@ -1,0 +1,8 @@
+---
+- name: Set-up verne, a glorified router in our dungeon.
+  hosts: verne
+  user: root
+
+
+  roles:
+    - sshkeys

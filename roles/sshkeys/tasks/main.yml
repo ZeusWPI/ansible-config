@@ -1,0 +1,6 @@
+---
+- name: Copy authorized_keys file
+  copy:
+    src: files/authorized_keys
+    dest: /root/.ssh/authorized_keys
+    mode: 0600
