@@ -4,7 +4,7 @@
     update_cache: yes
     upgrade: yes
 
-- name: Install packages that don't need confirutation
+- name: Install packages that don't need configuration
   pacman: 
     name: '{{ item }}'
     state: present
