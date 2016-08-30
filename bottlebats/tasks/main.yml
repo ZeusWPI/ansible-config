@@ -1,0 +1,10 @@
+---
+- name: Install common programming languages
+  apt:
+    name: '{{ item }}'
+    state: latest
+  with_items:
+    - openjdk-8-jdk
+    - clang
+    - haskell-platform
+    - lua5.3

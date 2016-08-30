@@ -6,17 +6,7 @@
 
   roles:
 #    - common
-#    - franklinkim.sudo
-#    - users
-#    - logrotate
-#    - kerberos
-#    - mariadb
-#    - iptables
-#    - nginx
-#    - php
-#    - python
-#    - shares
-#    # Email stuff
+#    - bottlebats
 #    - spamassassin
 #    - mail_antivirus
 #    - postfix
