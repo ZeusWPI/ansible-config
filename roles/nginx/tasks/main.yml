@@ -7,13 +7,17 @@
   register: fastcgi_install
 
 - name: Copy default FastCGI config file
-  command: >
-    cp /usr/share/doc/fcgiwrap/examples/nginx.conf /etc/nginx/fcgiwrap.conf
-    creates=/etc/nginx/fcgiwrap.conf
+  copy:
+    src: /usr/share/doc/fcgiwrap/examples/nginx.conf
+    dest: /etc/nginx/fcgiwrap.conf
+    remote_src: yes
+    force: no
   notify: Restart FastCGI
 
 - name: Install a strong DH group
-  command: openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048 creates=/etc/ssl/certs/dhparam.pem
+  command: openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
+  args:
+    creates: /etc/ssl/certs/dhparam.pem
 
 - name: Ensure nginx is running
   service: name=nginx state=started enabled=yes
