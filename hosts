@@ -10,6 +10,7 @@
 #
 # For this to work your SSH-key needs to be added to the host already
 king ansible_ssh_host=zeus.ugent.be ansible_ssh_port=2222 
+adams ansible_ssh_host=157.193.231.163 ansible_ssh_port=2222
 
 [arch]
 verne ansible_ssh_host=verne-beta.kelder.zeus.ugent.be ansible_ssh_port=2222

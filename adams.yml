@@ -1,10 +1,10 @@
 ---
-- name: Set-up adams, the secundary VM
+- name: Set-up adams, the secondary VM
   hosts: adams
   user: root
 
 
   roles:
-    - common
+    #- common
     - sshkeys
 
