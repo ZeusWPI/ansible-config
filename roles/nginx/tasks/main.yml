@@ -11,7 +11,6 @@
     src: /usr/share/doc/fcgiwrap/examples/nginx.conf
     dest: /etc/nginx/fcgiwrap.conf
     remote_src: yes
-    force: no
   notify: Restart FastCGI
 
 - name: Install a strong DH group
