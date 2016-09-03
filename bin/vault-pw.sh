@@ -1,5 +1,5 @@
 #!/bin/bash
 
-PW=$(<~/.vault-pass.txt) || read -p "Please enter vault password: " -s PW
+cat ~/.vault-pass.txt 2> /dev/null || (read -p "Please enter vault password: " -s PW && echo $PW)
 
-echo $PW
+
