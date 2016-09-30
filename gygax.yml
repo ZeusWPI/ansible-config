@@ -1,6 +1,6 @@
 ---
-- name: Set-up verne, a glorified router in our dungeon.
-  hosts: verne
+- name: Set-up gygax, the user entertainment server in our dungeon.
+  hosts: gygax
   user: root
 
 
