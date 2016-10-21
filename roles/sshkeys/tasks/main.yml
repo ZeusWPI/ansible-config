@@ -3,4 +3,6 @@
   copy:
     src: files/authorized_keys
     dest: /root/.ssh/authorized_keys
+    owner: root
+    group: root
     mode: 0600
