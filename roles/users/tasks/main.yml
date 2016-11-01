@@ -1,16 +1,27 @@
 ---
 - name: Add users
-  user: name={{ item.name }}
-        shell=/bin/bash
-        password="{{ item.crypted_password|default(omit) }}"
-        groups={{ item.groups|default(omit) }}
+  user:
+    name: "{{ item.name }}"
+    shell: /bin/bash
+    password: "{{ item.crypted_password|default(omit) }}"
+    groups: "{{ item.groups|default(omit) }}"
+  with_items: users
+
+- name: Set userdir permissions
+  file:
+    path: "/home/{{ item.name }}"
+    group: www-data
+    state: directory
+    mode: u=rwx,g=rx,o=
   with_items: users
 
 - name: Add default folders in home dirs
-  file: path=/home/{{ item[0].name }}/{{ item[1] }}
-        owner={{ item[0].name }}
-        group={{ item[0].name }}
-        state=directory
+  file:
+    path: "/home/{{ item[0].name }}/{{ item[1] }}"
+    owner: "{{ item[0].name }}"
+    group: www-data
+    mode: u=rwx,g=rx,o=
+    state: directory
   with_nested:
     - users
     - ['log', 'public']
