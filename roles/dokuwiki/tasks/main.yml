@@ -21,12 +21,11 @@
    with_fileglob:
      - /var/tmp/dokuwiki*/*
 
- - name: Fix permissions
-   file: path={{item}} recursive=yes owner=dokuwiki:dokuwiki
-   notify: restart nginx
-   when: not st.stat.exists
-   with_items:
-     - /home/dokuwiki/dokuwiki/conf
-     - /home/dokuwiki/dokuwiki/data
-     - /home/dokuwiki/dokuwiki/lib/plugin
-     - /home/dokuwiki/dokuwiki/lib/tpl
+# - name: Fix permissions
+#   file:
+#    path: "/home/dokuwiki"
+#    recurse: yes
+#    owner: dokuwiki
+#    group: www-data
+#    mode: u=rwx,g=rwx,o=
+#   notify: restart nginx
