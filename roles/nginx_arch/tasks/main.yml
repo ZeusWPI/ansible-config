@@ -1,0 +1,26 @@
+---
+- name: Install nginx
+  pacman: name=nginx-mainline state=latest
+
+- name: Create vhost directoris
+  file:
+    dest: "/etc/nginx/{{ item }}"
+    state: directory
+  with_items:
+    - sites-enabled
+    - sites-available
+
+- name: Copy nginx config
+  copy:
+    src: nginx.conf
+    dest: /etc/nginx/nginx.conf
+  notify: Restart nginx
+
+- name: Ensure nginx is enabled
+  service:
+    name: nginx
+    enabled: yes
+
+- name: Ensure nginx configuration is correct
+  command: /usr/bin/nginx -t
+
