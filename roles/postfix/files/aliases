@@ -14,7 +14,7 @@ noc: root
 security: root
 clamav: root
 list-admin: root
-bestuur: werthenlorin@gmail.com maertensrien@gmail.com jeroen.declerck@ugent.be feliciaan@depalmenaer.eu eloise.piret@ugent.be wout.schellaert@ugent.be isaura.claeys@ugent.be
+bestuur: werthenlorin@gmail.com, maertensrien@gmail.com, jeroen.declerck@ugent.be, feliciaan@depalmenaer.eu, eloise.piret@ugent.be, wout.schellaert@ugent.be, isaura.claeys@ugent.be
 
 # use spam@zeus.ugent.be to learn about new spam
 spam: spam@spam.spam
