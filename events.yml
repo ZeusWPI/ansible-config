@@ -6,8 +6,10 @@
   roles:
     # - users
     # - nginx
-     - nginx_configs
+    # - nginx_configs
     # - mariadb
+    # - fail2ban
+    # - ntp
     # User configs and stuff
     # - mysql_configs
     # - nginx_sites_events
@@ -19,7 +21,7 @@
     # - common-rails
     # - passenger
     # Letsencrypt thingies
-     - ansible-letsencrypt # Walktrough: https://github.com/ZeusWPI/ansible-config/wiki/Steps-for-LetsEncrypt
+    # - ansible-letsencrypt # Walktrough: https://github.com/ZeusWPI/ansible-config/wiki/Steps-for-LetsEncrypt
 
   vars_files:
     - vars/secrets_events.yml
