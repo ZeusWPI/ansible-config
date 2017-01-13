@@ -13,4 +13,4 @@ king ansible_ssh_host=zeus.ugent.be ansible_ssh_port=2222 ansible_ssh_user=root
 
 verne ansible_ssh_host=verne-beta.kelder.zeus.ugent.be ansible_ssh_user=root ansible_python_interpreter=/bin/python2
 
-events ansible_ssh_host=events.ugent.be ansible_ssh_port=2222 ansible_ssh_user=administrator
+events ansible_ssh_host=events.ugent.be ansible_ssh_port=2222 ansible_ssh_user=root

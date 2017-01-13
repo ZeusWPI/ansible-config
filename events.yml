@@ -1,11 +1,24 @@
 ---
 - name: Set-up events, events.ugent.be
   hosts: events
-  user: administrator
-
+  user: root
 
   roles:
     - users
+    - nginx
+    - nginx_configs
+    - mariadb
+    # User configs and stuff
+    - mysql_configs
+    - nginx_sites_events
+    # Monitoring goodies
+    - pgolm.monit
+    # Ruby, rails, passenger stuff
+    - zzet.rbenv
+    - bundler # enable this when installing a new rbenv version using zzet.rbenv
+    - common-rails
+    - passenger
 
   vars_files:
     - vars/secrets_events.yml
+    - vars/monit_events.yml

@@ -1,0 +1,7 @@
+---
+dependencies:
+  - { role: nginx }
+  - { role: nginx_configs }
+  - { role: users }
+  - { role: passenger }
+  - { role: mailman }
