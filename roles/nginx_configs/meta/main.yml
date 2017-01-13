@@ -3,5 +3,3 @@ dependencies:
   - { role: nginx }
   - { role: users }
   - { role: passenger }
-  - { role: php }
-  - { role: mailman }
