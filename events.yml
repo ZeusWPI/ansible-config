@@ -1,0 +1,11 @@
+---
+- name: Set-up events, events.ugent.be
+  hosts: events
+  user: administrator
+
+
+  roles:
+    - users
+
+  vars_files:
+    - vars/secrets_events.yml
