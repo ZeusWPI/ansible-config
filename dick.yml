@@ -1,0 +1,9 @@
+---
+- name: Set-up dick.
+  hosts: dick
+  user: root
+
+
+  roles:
+    - common
+    - sshkeys

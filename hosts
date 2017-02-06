@@ -9,6 +9,10 @@
 #   - A hostname/ip can be a member of multiple groups
 #
 # For this to work your SSH-key needs to be added to the host already
+[centos]
+dick ansible_Ssh_host=dick.kelder.zeus.ugent.be
+
+[debian]
 king ansible_ssh_host=zeus.ugent.be ansible_ssh_port=2222
 adams ansible_ssh_host=adams.ugent.be ansible_ssh_port=2222
 
