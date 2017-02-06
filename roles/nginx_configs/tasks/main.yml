@@ -1,28 +1,4 @@
 ---
-# This and the next action should be integrated, but even Ansible mods
-# on their freenode channel had no idea, so I'm leaving it this way.
-- name: Copy SSL certificate keys into place
-  copy:
-    content: "{{ item.contents.key }}"
-    dest: "/etc/nginx/ssl/{{ item.name }}.key"
-    owner: root
-    group: root
-    mode: 0600
-  with_items: ssl
-  notify:
-    - Restart nginx
-
-- name: Copy SSL certificate pems into place
-  copy:
-    content: "{{ item.contents.pem }}"
-    dest: "/etc/nginx/ssl/{{ item.name }}.pem"
-    owner: root
-    group: root
-    mode: 0600
-  with_items: ssl
-  notify:
-    - Restart nginx
-
 - name: Copy socket configs
   copy: src=pools/ dest=/etc/php5/fpm/pool.d/
   notify:

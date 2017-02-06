@@ -1,11 +1,15 @@
 ---
+
+- debug:
+    var: users
+
 - name: Add users
   user:
     name: "{{ item.name }}"
     shell: /bin/bash
     password: "{{ item.crypted_password|default(omit) }}"
     groups: "{{ item.groups|default(omit) }}"
-  with_items: users
+  with_items: "{{ users }}"
 
 - name: Set userdir permissions
   file:
@@ -13,7 +17,7 @@
     group: www-data
     state: directory
     mode: u=rwx,g=rx,o=
-  with_items: users
+  with_items: "{{ users }}"
 
 - name: Add default folders in home dirs
   file:
@@ -23,5 +27,5 @@
     mode: u=rwx,g=rx,o=
     state: directory
   with_nested:
-    - users
+    - "{{ users }}"
     - ['log', 'public']

@@ -15,6 +15,17 @@ security: root
 clamav: root
 list-admin: root
 
+# Temp fix for downtime
+bestuur: voorzitter, secretaris, penning, admin, project, event
+
+event: eloise.piret@ugent.be
+admin: maertensrien@gmail.com, werthenlorin@gmail.com
+voorzitter: wout.schellaert@ugent.be
+secretaris: isaura.claeys@ugent.be
+project: feliciaan@de-palmenaer.eu
+penning: jeroen.declerck@ugent.be
+
+
 # use spam@zeus.ugent.be to learn about new spam
 spam: spam@spam.spam
 
