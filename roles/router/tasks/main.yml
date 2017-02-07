@@ -5,7 +5,7 @@
 
 # Configuring the network is not really a smart idea when running over SSH
 - include: "network.yml"
-  when: "{{ ansible_connection }}" == "local"
+  when: ansible_connection == "local"
 
 #- include: "dnsmasq.yml"
 #- include: "firewall.yml"
