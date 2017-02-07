@@ -9,5 +9,5 @@
     - sshkeys
     - router
 
-  include_vars:
-    - firewall_rules
+  vars_files:
+    - vars/firewall_rules.yml
