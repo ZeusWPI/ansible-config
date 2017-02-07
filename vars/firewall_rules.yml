@@ -1,6 +1,9 @@
 ---
 ufw_rules:
-  - { port: 80, rule: allow }
+  - { port: 67, rule: allow, proto: udp }
+  - { port: 68, rule: allow, proto: udp }
 
 ufw_applications:
-  - ssh
+  - SSH
+  - WWW Full
+  - DNS

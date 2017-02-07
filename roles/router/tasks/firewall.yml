@@ -7,8 +7,14 @@
 
 - name: Copy ufw defaults
   copy:
-    src: firewall/ufw.default
+    src: firewall/default/ufw.conf
     dest: /etc/default/ufw.conf
+  notify: 'reset firewall'
+
+- name: Copy ufw configurations
+  copy:
+    src: firewall/ufw/
+    dest: /etc/ufw/
   notify: 'reset firewall'
 
 - name: Stop and disable firewalld
@@ -58,9 +64,4 @@
     name: ufw
     state: started
     enabled: yes
-
-
-
-
-
 
