@@ -8,4 +8,4 @@
   when: ansible_connection == "local"
 
 - include: "dnsmasq.yml"
-#- include: "firewall.yml"
+- include: "firewall.yml"
