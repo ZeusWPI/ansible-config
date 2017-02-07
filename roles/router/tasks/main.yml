@@ -7,5 +7,5 @@
 - include: "network.yml"
   when: ansible_connection == "local"
 
-#- include: "dnsmasq.yml"
+- include: "dnsmasq.yml"
 #- include: "firewall.yml"
