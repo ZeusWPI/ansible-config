@@ -1,5 +1,5 @@
 ---
-- name: Set-up dick.
+- name: Raise dick.
   hosts: dick
   user: root
 
@@ -7,3 +7,7 @@
   roles:
     - common
     - sshkeys
+    - router
+
+  include_vars:
+    - firewall_rules

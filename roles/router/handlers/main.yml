@@ -1,0 +1,11 @@
+---
+- name: Restart dnsmasq
+  service:
+    name: dnsmasq
+    state: restarted
+  listen: 'Restart dnsmasq'
+
+- name: Restart ufw
+  ufw:
+    state: reloaded
+  listen: 'Restart firewall'

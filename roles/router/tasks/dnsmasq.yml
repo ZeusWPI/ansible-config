@@ -1,0 +1,20 @@
+---
+- name: Install dnsmasq
+  yum:
+    name: dnsmasq
+    state: latest
+    update_cache: yes
+
+- name: Copy dnsmasq configuration
+  copy:
+    src: dnsmasq/
+    dest: /etc/dnsmasq.d/
+  notify: 'Restart dnsmasq'
+
+- name: Enable dnsmasq
+  service:
+    name: dnsmasq
+    state: started
+    enabled: yes
+
+

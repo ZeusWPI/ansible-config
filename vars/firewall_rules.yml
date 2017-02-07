@@ -1,0 +1,6 @@
+---
+ufw_rules:
+  - { port: 80, rule: allow }
+
+ufw_applications:
+  - ssh

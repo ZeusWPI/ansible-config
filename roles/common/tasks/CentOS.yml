@@ -20,6 +20,7 @@
     state: installed
   with_items:
     - '@development'
+    - ansible
     - bc
     - cifs-utils
     - cmake
