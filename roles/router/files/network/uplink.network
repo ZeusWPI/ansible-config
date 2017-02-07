@@ -1,0 +1,11 @@
+[Match]
+Name=enp2s0
+
+[Network]
+Address=157.193.55.1/24
+Gateway=157.193.55.254
+DNS=157.193.40.42
+DNS=157.193.71.1
+DNS=8.8.8.8
+DNS=8.8.4.4
+IPForward=yes
