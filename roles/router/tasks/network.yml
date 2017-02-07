@@ -1,4 +1,10 @@
 ---
+- name: Install systemd-networkd
+  yum:
+    name: systemd-networkd
+    state: latest
+    update_cache: yes
+
 - name: Copy configuration files
   copy:
     src: network/
