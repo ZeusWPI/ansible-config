@@ -7,6 +7,18 @@
   roles:
 #    - common
 #    - bottlebats
+#    - franklinkim.sudo
+#    - users
+#    - logrotate
+#    - kerberos
+#    - mariadb
+#    - iptables
+#    - nginx
+#    - nginx_configs
+#    - php
+#    - python
+#    - shares
+#    # Email stuff
 #    - spamassassin
 #    - mail_antivirus
 #    - postfix
@@ -26,7 +38,7 @@
 #    - common-nodejs
 #    # User configs and stuff
 #    - mysql_configs
-#    - nginx_configs
+#    - nginx_sites_king
 #    - django
 #    - user_configs
 #    - uwsgi
@@ -43,4 +55,4 @@
     - vars/ruby.yml
     - vars/matrix.yml
     - vars/monit.yml
-    - vars/letsencrypt.yml
+    - vars/letsencrypt_king.yml

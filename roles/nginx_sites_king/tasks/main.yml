@@ -1,0 +1,22 @@
+---
+- name: Copy socket configs
+  copy: src=pools/ dest=/etc/php5/fpm/pool.d/
+  notify:
+    - Restart FastCGI
+    - Restart nginx
+
+- name: Copy website configs
+  copy: src=sites-enabled/ dest=/etc/nginx/sites-available/
+  notify:
+    - Restart nginx
+
+- name: Link the configs
+  file: src=/etc/nginx/sites-available/{{item | basename}} dest=/etc/nginx/sites-enabled/{{ item | basename }} state=link
+  with_fileglob:
+    - sites-enabled/*conf
+  notify:
+    - Restart FastCGI
+    - Restart nginx
+
+- name: Check the configuration file syntax
+  command: /usr/sbin/nginx -t

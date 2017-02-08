@@ -1,7 +1,7 @@
 monit_cycle: 60
 monit_webinterface_enabled: false
 monit_mail_enabled: true
-monit_alert_address: admin@zeus.ugent.be
+monit_alert_addresses: admin@zeus.ugent.be
 monit_services:
   - name: fk-enrolment-delayed_job
     type: process

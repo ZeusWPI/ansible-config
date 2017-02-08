@@ -15,6 +15,7 @@ dick ansible_Ssh_host=dick.kelder.zeus.ugent.be
 [debian]
 king ansible_ssh_host=zeus.ugent.be ansible_ssh_port=2222
 adams ansible_ssh_host=adams.ugent.be ansible_ssh_port=2222
+events ansible_ssh_host=events.ugent.be ansible_ssh_port=2222
 
 [arch]
 verne ansible_ssh_host=verne-beta.kelder.zeus.ugent.be ansible_ssh_port=2222
@@ -24,4 +25,3 @@ gygax ansible_ssh_host=gygax.kelder.zeus.ugent.be
 ansible_ssh_user=root
 [arch:vars]
 ansible_python_interpreter=/bin/python2
-
