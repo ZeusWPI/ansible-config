@@ -19,7 +19,7 @@
 
 - name: Firewall configuration should be private
   file:
-    src: '{{ item }}'
+    path: '{{ item }}'
     mode: 'o-rwx,g-xw'
     recurse: yes
   with_items:
@@ -37,8 +37,8 @@
   ufw:
     state: "{{ item }}"
   with_items:
-    - enabled
     - reset
+    - enabled
 
 # Specify the rules in vars/firewall_rules.yml
 - name: Configuring port/protocol/network rules
@@ -59,14 +59,14 @@
     to_ip: "{{ item.to_ip | default(omit) }}"
     to_port: "{{ item.to_port | default(omit) }}"
   with_items: "{{ ufw_rules }}"
-  notify: 'restart firewall'
+  notify: 'Restart firewall'
 
 - name: Configuring application rules
   ufw:
     name: "{{ item.name }}"
     rule: "{{ item.rule if item.rule is defined else 'allow' }}"
   with_items: "{{ ufw_applications }}"
-  notify: 'restart firewall'
+  notify: 'Restart firewall'
 
 - name: Enable and start ufw service
   service:

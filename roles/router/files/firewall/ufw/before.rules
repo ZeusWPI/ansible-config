@@ -8,6 +8,15 @@
 #   ufw-before-forward
 #
 
+# NAT table rules
+*nat
+:POSTROUTING ACCEPT [0:0]
+
+# Forward traffic through eth0 - Change to match you out-interface
+-A POSTROUTING -s 10.0.0.0/24 -o enp2s0 -j MASQUERADE
+COMMIT
+
+
 # Don't delete these required lines, otherwise there will be errors
 *filter
 :ufw-before-input - [0:0]
@@ -65,12 +74,6 @@
 -A ufw-not-local -m limit --limit 3/min --limit-burst 10 -j ufw-logging-deny
 -A ufw-not-local -j DROP
 
-# NAT table rules
-*nat
-:POSTROUTING ACCEPT [0:0]
-
-# Forward traffic through eth0 - Change to match you out-interface
--A POSTROUTING -s 10.0.0.0/24 -o enp2s0 -j MASQUERADE
 
 # don't delete the 'COMMIT' line or these rules won't be processed
 COMMIT
