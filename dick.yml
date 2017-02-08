@@ -7,7 +7,7 @@
   roles:
     - common
     - sshkeys
-    - {role: router, tags: ['network', 'firewall', 'dns']}
+    - router
 
   vars_files:
     - vars/firewall_rules.yml

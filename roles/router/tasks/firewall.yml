@@ -7,8 +7,8 @@
 
 - name: Copy ufw defaults
   copy:
-    src: firewall/default/ufw.conf
-    dest: /etc/default/ufw.conf
+    src: firewall/default/ufw
+    dest: /etc/default/ufw
   notify: 'reset firewall'
 
 - name: Copy ufw configurations
