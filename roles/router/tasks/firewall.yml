@@ -9,13 +9,13 @@
   copy:
     src: firewall/default/ufw
     dest: /etc/default/ufw
-  notify: 'reset firewall'
+  notify: 'Restart firewall'
 
 - name: Copy ufw configurations
   copy:
     src: firewall/ufw/
     dest: /etc/ufw/
-  notify: 'reset firewall'
+  notify: 'Restart firewall'
 
 - name: Stop and disable firewalld
   service:
