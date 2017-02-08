@@ -13,7 +13,7 @@
 # DHCP & DNS
 - include: "dnsmasq.yml"
   tags:
-    - dnsmasq
+    - dns
 
 # Firewally stuff & NAT
 - include: "firewall.yml"
