@@ -17,6 +17,15 @@
     dest: /etc/ufw/
   notify: 'Restart firewall'
 
+- name: Firewall configuration should be private
+  file:
+    src: '{{ item }}'
+    mode: 'o-rwx,g-xw'
+    recurse: yes
+  with_items:
+    - /etc/ufw
+    - /var/lib/ufw
+
 - name: Stop and disable firewalld
   service:
     name: firewalld
