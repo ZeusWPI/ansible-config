@@ -3,7 +3,7 @@
   yum:
     pkg: "{{ item }}"
     state: latest
-    with_items:
+  with_items:
       - epel-release
       - nginx
 
@@ -14,3 +14,6 @@
   with_items:
     - sites-enabled
     - sites-available
+
+- set_fact:
+    nginx_user: nginx

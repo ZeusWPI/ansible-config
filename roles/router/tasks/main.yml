@@ -2,6 +2,8 @@
 - fail:
     msg: "Not running CentOS"
   when: not "{{ ansible_distribution }}" == "CentOS"
+  tags:
+    - always
 
 # Network configuration
 - include: "network.yml"

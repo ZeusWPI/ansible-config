@@ -1,3 +1,6 @@
 ---
 - name: Install nginx package
   apt: name=nginx state=present
+
+- set_fact:
+    nginx_user: www-data
