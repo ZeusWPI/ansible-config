@@ -14,7 +14,7 @@
   args:
     creates: /etc/ssl/certs/dhparam.pem
 
-- name: Ensure nginx is running
+- name: Ensure nginx is enabled & running
   service:
     name: nginx
     state: started
