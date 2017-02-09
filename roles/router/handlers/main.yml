@@ -3,7 +3,7 @@
   service:
     name: dnsmasq
     state: restarted
-  listen: 'Restart dnsmasq'
+  listen: 'Restart dns'
 
 - name: Restart ufw
   ufw:

@@ -1,0 +1,5 @@
+---
+dependencies:
+  - role: nginx_vhost
+    nginx_vhost_file: 'kelder.conf'
+    nginx_vhost_location: 'roles/router/files/nginx'
