@@ -1,6 +1,5 @@
 ---
 dependencies:
-  - { role: nginx }
-  - { role: nginx_configs }
+  - { role: nginx_base }
   - { role: users }
   - { role: passenger }

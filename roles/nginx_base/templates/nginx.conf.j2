@@ -1,6 +1,6 @@
 {% if ansible_distribution != "Archlinux" %}
 # Arch Linux complains with these
-user {{ nginx_ user }};
+user {{ nginx_user }};
 pid /run/nginx.pid;
 {% endif %}
 

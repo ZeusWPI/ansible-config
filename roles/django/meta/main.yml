@@ -1,4 +1,4 @@
 ---
 dependencies:
   - role: fastcgiwrap
-  - role: nginx
+  - role: nginx_base
