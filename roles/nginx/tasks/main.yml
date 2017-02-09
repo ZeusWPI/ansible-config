@@ -1,10 +1,6 @@
 ---
-- name: Install nginx package
-  apt: name=nginx state=present
-
-- name: Install FastCGI package for nginx
-  apt: name=fcgiwrap state=present
-  register: fastcgi_install
+- name: Distro specific installation
+  include: "{{ ansible_distribution }}.yml"
 
 - name: Copy default FastCGI config file
   copy:
