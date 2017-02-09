@@ -1,0 +1,14 @@
+---
+- name: Copy vhost file (optionally fill in variables)
+  template:
+    src: "{{nginx_vhost_location }}/{{ nginx_vhost_file }}"
+    dest: "/etc/nginx/sites-available/{{ nginx_vhost_file }}"
+  notify: "Restart webserver"
+
+- name: Symlink the file
+  file:
+    src: "/etc/nginx/sites-available/{{ nginx_vhost_file }}"
+    dest: "/etc/nginx/sites-enabled/{{ nginx_vhost_file }}"
+    state: link
+  notify: "Restart webserver"
+

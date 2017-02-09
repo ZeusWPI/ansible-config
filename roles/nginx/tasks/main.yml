@@ -2,6 +2,13 @@
 - name: Distro specific installation
   include: "{{ ansible_distribution }}.yml"
 
+- name: Copy conf.d configs
+  copy:
+    src: conf.d/
+    dest: /etc/nginx/conf.d/
+  notify:
+    - Restart nginx
+
 - name: Install a strong DH group
   command: openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
   args:

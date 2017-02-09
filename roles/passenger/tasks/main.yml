@@ -4,7 +4,8 @@
            id=561F9B9CAC40B2F7
 
 - name: Ensure HTTPS support for APT is installed
-  apt: pkg={{ item }}
+  apt:
+    pkg: "{{ item }}"
   with_items:
     - apt-transport-https
     - ca-certificates
@@ -14,7 +15,9 @@
     repo: 'deb https://oss-binaries.phusionpassenger.com/apt/passenger jessie main'
 
 - name: Install nginx-extras and Passenger
-  apt: name={{ item }} state=present
+  apt:
+    name: "{{ item }}"
+    state: present
   with_items:
     - nginx-extras
     - passenger
