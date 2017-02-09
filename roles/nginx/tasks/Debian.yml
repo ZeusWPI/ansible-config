@@ -1,7 +1,3 @@
 ---
 - name: Install nginx package
   apt: name=nginx state=present
-
-- name: Install FastCGI package for nginx
-  apt: name=fcgiwrap state=present
-  register: fastcgi_install

@@ -2,17 +2,13 @@
 - name: Distro specific installation
   include: "{{ ansible_distribution }}.yml"
 
-- name: Copy default FastCGI config file
-  copy:
-    src: /usr/share/doc/fcgiwrap/examples/nginx.conf
-    dest: /etc/nginx/fcgiwrap.conf
-    remote_src: yes
-  notify: Restart FastCGI
-
 - name: Install a strong DH group
   command: openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
   args:
     creates: /etc/ssl/certs/dhparam.pem
 
 - name: Ensure nginx is running
-  service: name=nginx state=started enabled=yes
+  service:
+    name: nginx
+    state: started
+    enabled: yes

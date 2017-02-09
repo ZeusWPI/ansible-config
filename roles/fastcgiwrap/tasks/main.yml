@@ -1,0 +1,16 @@
+---
+- fail:
+    msg: "This role currently only supports Debian"
+  when: not ansible_distribution == "Debian"
+
+- name: Install FastCGI package for nginx
+  apt: name=fcgiwrap state=present
+  register: fastcgi_install
+
+- name: Copy default FastCGI config file
+  copy:
+    src: /usr/share/doc/fcgiwrap/examples/nginx.conf
+    dest: /etc/nginx/fcgiwrap.conf
+    remote_src: yes
+  notify: Restart FastCGI
+
