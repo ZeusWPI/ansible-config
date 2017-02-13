@@ -1,4 +1,9 @@
 ---
+
+- debug:
+    msg: The Kerberos realm itself is not configured in this role. When creating or migrating a Kerberos realm you have to do some manual initialisation.
+
+
 - name: Install kerberos packages
   apt:
     pkg: '{{ item }}'
@@ -15,6 +20,7 @@
     - krb5.conf
     - krb5kdc/kdc.conf
     - krb5kdc/kadm5.acl
+  notify: Restart kerberos
 
 - name: Copy systemd unit extension
   copy:
