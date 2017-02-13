@@ -10,7 +10,7 @@
 #    - franklinkim.sudo
 #    - users
 #    - logrotate
-#    - kerberos
+#    - kerberos_client
 #    - mariadb
 #    - iptables
 #    - nginx
