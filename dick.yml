@@ -8,6 +8,10 @@
     - common
     - sshkeys
     - router
+    - role: sshtunnel
+      sshtunnel_remote_host: adams
+      sshtunnel_remote_url: adams.ugent.be
+      tags: sshtunnel
 
   vars_files:
     - vars/firewall_rules.yml

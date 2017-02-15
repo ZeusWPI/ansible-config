@@ -1,0 +1,7 @@
+---
+- name: Install SSH
+  yum:
+    pkg: openssh
+    state: latest
+    update_cache: yes
+

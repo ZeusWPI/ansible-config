@@ -1,0 +1,11 @@
+[Unit]
+Description=SSH Tunnel to {{ sshtunnel_remote_host }}
+After=network.target
+
+[Service]
+User={{ sshtunnel_local_user }}
+Restart=always
+ExecStart={{ '/usr/bin/sudo ' if sshtunnel_priviliged }}{{ sshtunnel_command }}
+
+[Install]
+WantedBy=multi-user.target
