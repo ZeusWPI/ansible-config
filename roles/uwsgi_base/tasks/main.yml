@@ -1,12 +1,14 @@
 ---
-- name: Install uwsgi package
-  pip:
-    name: uwsgi
+- name: Distro specific installation
+  include: "{{ ansible_distribution }}.yml"
+  tags: install
 
-- name: Create socket directory
-  file:
-    path: /etc/uwsgi/pools.d/
-    state: directory
+- name: Install uwsgi & virtualenv package
+  pip:
+    name: "{{ item }}"
+  with_items:
+    - uwsgi
+    - virtualenv
 
 - name: Copy uwsgi params for nginx
   copy:

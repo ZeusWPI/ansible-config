@@ -1,0 +1,29 @@
+---
+- name: Create app user
+  user:
+    name: "{{ uwsgi_app_user }}"
+    home: "{{ uwsgi_app_home }}"
+    createhome: yes
+    system: yes
+
+- name: Create local systemd dir
+  file:
+    path: "{{ uswgi_app_home }}/.config/systemd/user/"
+    owner: "{{ uswgi_app_user }}"
+    group: "{{ uswgi_app_user }}"
+
+- name: Copy systemd unit
+  template:
+    src: app.service
+    dest: "{{ uwsgi_app_home }}/.config/systemd/user/{{ uwsgi_app_name }}.service"
+    owner: "{{ uwsgi_app_user }}"
+    group: "{{ uswgi_app_user }}"
+
+- name: Copy uwsgi ini file
+  template:
+    src: app.ini
+    dest: "{{ uwsgi_app_home }}/{{ uwsgi_app_name }}.ini"
+    owner: "{{ uwsgi_app_user }}"
+    group: "{{ uswgi_app_user }}"
+
+
