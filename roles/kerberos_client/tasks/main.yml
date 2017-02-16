@@ -1,0 +1,7 @@
+---
+- name: Install
+  include: "{{ ansible_distribution }}.yml"
+  tags: install
+
+- name: Copy config file
+  template: src=krb5.conf dest=/etc/krb5.conf

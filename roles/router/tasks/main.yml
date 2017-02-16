@@ -1,0 +1,23 @@
+---
+- fail:
+    msg: "Not running CentOS"
+  when: not "{{ ansible_distribution }}" == "CentOS"
+  tags:
+    - always
+
+# Network configuration
+- include: "network.yml"
+  # Configuring the network is not really a smart idea when running over SSH
+  when: ansible_connection == "local"
+  tags:
+    - network
+
+# DHCP & DNS
+- include: "dnsmasq.yml"
+  tags:
+    - dns
+
+# Firewally stuff & NAT
+- include: "firewall.yml"
+  tags:
+    - firewall

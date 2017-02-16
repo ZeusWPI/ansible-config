@@ -1,0 +1,3 @@
+[submodule "submodules/openldap_server"]
+	path = submodules/openldap_server
+	url = git@github.com:ZeusWPI/openldap_server.git

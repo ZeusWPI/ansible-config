@@ -1,6 +1,0 @@
----
-- name: Install Kerberos
-  apt: name=krb5-user state=present
-
-- name: Copy config file
-  copy: src=krb5.conf dest=/etc/krb5.conf

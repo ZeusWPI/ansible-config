@@ -1,5 +1,5 @@
 ---
-- name: Set-up adams, the secundary VM
+- name: Set-up adams, the secondary VM
   hosts: adams
   user: root
 
@@ -7,4 +7,8 @@
   roles:
     - common
     - sshkeys
+    - ansible-letsencrypt
+    - role: kerberos_server
+      tags:
+        - kerberos_server
 

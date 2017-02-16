@@ -1,0 +1,32 @@
+---
+# TODO: this does not actually fork FIXME
+- name: Install  dnsmasq
+  pacman:
+    name: dnsmasq
+    state: latest
+
+- name: Ensure dnsmasq.d exists
+  file:
+    path: /etc/dnsmasq.d
+    state: directory
+
+- name: Copy dnsmasq configuration
+  copy:
+    src: zeusnet.conf
+    dest: /etc/dnsmasq.d/zeusnet.conf
+  notify: Restart dnsmasq
+
+- name: Verify dnsmasq configuration
+  command: /usr/bin/dnsmasq --test
+
+- name: Register localhost in resolvconf
+  lineinfile:
+    dest: /etc/resolvconf.conf
+    line: 'name_servers=127.0.0.1'
+  notify: Restart dhcpcd
+
+- name: Enable and start dnsmasq
+  service:
+    name: dnsmasq
+    enabled: yes
+    state: started

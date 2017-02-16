@@ -1,9 +1,20 @@
 ---
 
+- name: Maria db 10 1 apt
+  apt_repository:
+    repo: deb [arch=amd64,i386] http://mariadb.cu.be/repo/10.1/debian jessie main
+    state: present
+
 - name: Import MariaDB Keys
   apt_key:
     keyserver: keyserver.ubuntu.com
-    id: 0xcbcb082a1bb943db
+    id: '0xcbcb082a1bb943db'
+
+- name: Add the mariadb repo to the apt file
+  lineinfile:
+    dest: /etc/apt/sources.list
+    line: >
+      'deb [arch=amd64,i386] http://mariadb.cu.be/repo/10.1/debian jessie main'
 
 - name: Install MariaDB package
   apt: name={{ item }} state=present
@@ -21,9 +32,13 @@
 - name: Ensure MariaDB is running
   service: name=mariadb state=started enabled=yes
 
+- name: Install the Python MySQLB module (otherwise, it crashes  while setting the root account password)
+  apt:
+    name: python-mysqldb
+
 - name: Set a password for the root account
-  mysql_user: 
-    name: root 
+  mysql_user:
+    name: root
     password: '{{ mysql_root_password }}'
 
 - name: Create .my.cnf for root

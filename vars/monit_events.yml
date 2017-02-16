@@ -1,0 +1,11 @@
+monit_cycle: 60
+monit_webinterface_enabled: false
+monit_mail_enabled: true
+monit_alert_addresses: admin@events.ugent.be
+monit_services:
+  - name: events-delayed_job
+    type: process
+    user: events
+    target: /home/events/production/current/tmp/pids/delayed_job.pid
+    start: "/bin/sh -c 'cd /home/evens/production/current; RAILS_ENV=production PATH=bin:/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH delayed_job start'"
+    stop:  "/bin/sh -c 'cd /home/events/production/current; RAILS_ENV=production PATH=bin:/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH delayed_job stop'"

@@ -1,0 +1,6 @@
+[Match]
+MACAddress=b8:ac:6f:4a:ec:7d
+
+[Link]
+#MACAddress=84:2b:2b:4f:89:4f temp because verne is still alive
+MACAddress=84:2b:2b:4f:89:4e

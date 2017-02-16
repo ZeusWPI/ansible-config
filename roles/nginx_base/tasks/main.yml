@@ -1,0 +1,28 @@
+---
+- name: Distro specific installation
+  include: "{{ ansible_distribution }}.yml"
+
+- name: Copy conf.d configs
+  copy:
+    src: conf.d/
+    dest: /etc/nginx/conf.d/
+  notify:
+    - Restart nginx
+
+- name: Install nginx.conf
+  template:
+    src: nginx.conf.j2
+    dest: /etc/nginx/nginx.conf
+  notify:
+    - Restart nginx
+
+- name: Install a strong DH group
+  command: openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
+  args:
+    creates: /etc/ssl/certs/dhparam.pem
+
+- name: Ensure nginx is enabled & running
+  service:
+    name: nginx
+    state: started
+    enabled: yes

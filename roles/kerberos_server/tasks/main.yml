@@ -1,0 +1,51 @@
+---
+
+- debug:
+    msg: The Kerberos realm itself is not configured in this role. When creating or migrating a Kerberos realm you have to do some manual initialisation.
+
+
+- name: Install kerberos packages
+  apt:
+    pkg: '{{ item }}'
+    state: latest
+  with_items:
+    - krb5-admin-server
+    - krb5-kdc
+
+- name: Copy configuration files
+  copy:
+    src: "{{ item }}"
+    dest: "/etc/{{ item }}"
+  with_items:
+    - krb5.conf
+    - krb5kdc/kdc.conf
+    - krb5kdc/kadm5.acl
+  notify: Restart kerberos
+
+- name: Copy systemd unit extension
+  copy:
+    src: log_permissions.conf
+    dest: "{{ item }}"
+  register: unit_extension
+  with_items:
+    - /etc/systemd/system/krb5-kdc.service.d/
+    - /etc/systemd/system/krb5-admin-server.service.d/
+
+
+- name: Reload systemd if needed
+  command: systemctl daemon-reload
+  when: unit_extension.changed
+
+- name: Make log directory
+  file:
+    path: /var/log/krb5
+    state: directory
+
+- name: Start kadmin & kdc
+  service:
+    name: "{{ item }}"
+    state: started
+    enabled: yes
+  with_items:
+    - krb5-admin-server
+    - krb5-kdc

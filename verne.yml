@@ -5,4 +5,10 @@
 
 
   roles:
-    - sshkeys
+    #- common
+    #- sshkeys
+    #- netctl
+    # These do not work (yet):
+    #! - dnsmasq
+    #! - ufw
+

@@ -1,0 +1,9 @@
+---
+- name: Set-up gygax, the user entertainment server in our dungeon.
+  hosts: gygax
+  user: root
+
+
+  roles:
+    - common
+    - sshkeys

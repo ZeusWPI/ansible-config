@@ -1,0 +1,55 @@
+---
+- name: Upgrade all packages
+  yum:
+    name: "*"
+    state: latest
+
+- name: Install IUS (needed for python3)
+  yum:
+    name: "https://centos7.iuscommunity.org/ius-release.rpm"
+    state: present
+
+- name: Download neovim repo
+  get_url:
+    url: "https://copr.fedorainfracloud.org/coprs/dperson/neovim/repo/epel-7/dperson-neovim-epel-7.repo"
+    dest: "/etc/yum.repos.d/dperson-neovim-epel-7.repo"
+
+- name: Install essential packages.
+  yum:
+    name: "{{ item }}"
+    state: installed
+  with_items:
+    - '@development'
+    - ansible
+    - bc
+    - cifs-utils
+    - cmake
+    - curl
+    - dos2unix
+    - etckeeper
+    - git
+    - hdparm
+    - htop
+    - httpie
+    - lsof
+    - neovim
+    - nmap
+    - nodejs
+    - openssh
+    - openssl
+    - python-pip
+    - python35u
+    - python35u-pip
+    - smartmontools
+    - tmux
+    - tree
+    - unzip
+    - yum-utils
+    - zsh
+
+- name: Install pip packages
+  pip:
+    name: speedtest-cli
+
+- name: Symlink neovim to vim
+  file: src=/bin/nvim dest=/bin/vim state=link

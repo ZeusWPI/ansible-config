@@ -1,0 +1,19 @@
+---
+- name: Install nginx
+  yum:
+    pkg: "{{ item }}"
+    state: latest
+  with_items:
+      - epel-release
+      - nginx
+
+- name: Create vhost directories
+  file:
+    dest: "/etc/nginx/{{ item }}"
+    state: directory
+  with_items:
+    - sites-enabled
+    - sites-available
+
+- set_fact:
+    nginx_user: nginx

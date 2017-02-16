@@ -6,10 +6,11 @@
 
   roles:
 #    - common
+#    - bottlebats
 #    - franklinkim.sudo
-    - users
+#    - users
 #    - logrotate
-#    - kerberos
+#    - {role: kerberos_client, kerberos_client_kdc: zeusgw.ugent.be, kerberos_client_kadmin: zeusgw.ugent.be }
 #    - mariadb
 #    - iptables
 #    - nginx
@@ -36,22 +37,21 @@
 #    - common-nodejs
 #    # User configs and stuff
 #    - mysql_configs
-#    - nginx_configs
+#    - nginx_sites_king
 #    - django
 #    - user_configs
 #    - uwsgi
-    - dokuwiki
+#    - dokuwiki
 #    # Letsencrypt thingies
-#     - ansible-letsencrypt # Walktrough: https://github.com/ZeusWPI/ansible-config/wiki/Steps-for-LetsEncrypt
+#    - ansible-letsencrypt # Walktrough: https://github.com/ZeusWPI/ansible-config/wiki/Steps-for-LetsEncrypt
 #    # Matrix
 #    - matrix
 #    # Monitoring goodies
 #    - ansible-playbook-monit
-#    - sshkeys
 
   vars_files:
     - vars/passwords.yml
     - vars/ruby.yml
     - vars/matrix.yml
     - vars/monit.yml
-    - vars/letsencrypt.yml
+    - vars/letsencrypt_king.yml
