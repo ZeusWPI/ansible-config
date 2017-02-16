@@ -10,7 +10,7 @@
 #    - franklinkim.sudo
 #    - users
 #    - logrotate
-#    - kerberos_client
+#    - {role: kerberos_client, kerberos_client_kdc: zeusgw.ugent.be, kerberos_client_kadmin: zeusgw.ugent.be }
 #    - mariadb
 #    - iptables
 #    - nginx

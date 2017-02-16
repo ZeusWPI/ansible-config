@@ -1,0 +1,9 @@
+---
+- name: Install kerberos client
+  yum:
+    pkg: "{{ item }}"
+    state: latest
+    update_cache: yes
+  with_items:
+    - krb5-workstation
+    - krb5-libs

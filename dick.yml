@@ -12,6 +12,10 @@
       sshtunnel_remote_host: adams
       sshtunnel_remote_url: adams.ugent.be
       tags: sshtunnel
+    - role: kerberos_client
+      kerberos_client_kdc: 127.0.0.1
+      kerberos_client_kadmin: 127.0.0.1
+      tags: kerberos_client
 
   vars_files:
     - vars/firewall_rules.yml

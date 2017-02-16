@@ -1,6 +1,7 @@
 ---
-- name: Install Kerberos
-  apt: name=krb5-user state=present
+- name: Install
+  include: "{{ ansible_distribution }}.yml"
+  tags: install
 
 - name: Copy config file
-  copy: src=krb5.conf dest=/etc/krb5.conf
+  template: src=krb5.conf dest=/etc/krb5.conf
