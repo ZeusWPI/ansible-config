@@ -1,0 +1,8 @@
+---
+- name: Copy pool config
+  template:
+    src: "{{ uwsgi_pool_file }}"
+    dest: /etc/uwsgi/pools.d/
+  notify:
+    - Restart nginx
+

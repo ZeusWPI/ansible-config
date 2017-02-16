@@ -1,0 +1,4 @@
+---
+dependencies:
+  - uwsgi_base
+
