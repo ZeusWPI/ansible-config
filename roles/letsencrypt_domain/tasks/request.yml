@@ -1,0 +1,36 @@
+---
+- name: Check if nginx is installed
+  command: /usr/sbin/nginx -v
+  ignore_errors: true
+  register: nginx_installed
+
+- name: Make sure nginx configuration is correct before shutting it down
+  command: /usr/sbin/nginx -t
+  when: nginx_installed.rc == 0
+
+- name: Stop nginx
+  service:
+    name: nginx
+    state: stopped
+  register: nginx_service
+  when: nginx_installed.rc == 0
+
+- name: Request letsencrypt certificate
+  command: 'certbot certonly -tn
+    --agree-tos
+    --email {{ letsencrypt_email }}
+    --standalone
+    --domain {{ letsencrypt_domain }}'
+  register: request
+  ignore_errors: true # We'll handle failure next, first start nginx again
+
+- name: Restart nginx if it was running before
+  service:
+    name: nginx
+    state: started
+  when: nginx_service.state is defined and nginx_service.state == "stopped"
+
+- fail:
+    msg: "Error obtaining certificate."
+  when: not request.rc == 0
+

@@ -1,0 +1,51 @@
+---
+- name: Select distro for installation
+  include: "{{ ansible_distribution }}.yml"
+  tags:
+    - install
+
+- name: Generate strong Diffie-Hellman group
+  command: /usr/bin/openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
+  args:
+    creates: "/etc/ssl/certs/dhparam.pem"
+
+- name: Ensure well-known folder exists
+  file:
+    name: "/var/lib/letsencrypt/"
+    state: directory
+    owner: "{{ letsencrypt_web_user }}"
+    group: "{{ letsencrypt_web_user }}"
+    recurse: yes
+
+
+- name: Create letsencrypt group
+  group:
+    name: letsencrypt
+    state: present
+
+- name: Create letsencrypt directory and make it accessible for group
+  file:
+    path: /etc/letsencrypt
+    state: directory
+    group: letsencrypt
+    mode: "u=rwx,g=rx,o="
+    recurse: yes
+
+- name: Copy systemd unit and timer files
+  copy:
+    src: "{{ item }}"
+    dest: "/usr/lib/systemd/system/{{ item }}"
+  with_items:
+    - "certbot.service"
+    - "certbot.timer"
+  register: letsencrypt_systemd_files
+
+- name: Reload systemd daemon if unit or timer file changed
+  command: /usr/bin/systemctl daemon-reload
+  when: letsencrypt_systemd_files.changed
+
+- name: Start and enable systemd timer
+  service:
+    name: certbot.timer
+    state: restarted
+    enabled: yes

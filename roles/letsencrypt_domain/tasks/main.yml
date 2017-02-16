@@ -1,0 +1,10 @@
+---
+- name: Check if certificate already exists
+  stat:
+    path: "/etc/letsencrypt/live/{{ letsencrypt_domain }}"
+  register: domain_folder
+
+- name: Do request if it does not exist
+  include: "request.yml"
+  when: not domain_folder.stat.exists
+

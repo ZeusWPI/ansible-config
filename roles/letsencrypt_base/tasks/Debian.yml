@@ -1,0 +1,9 @@
+---
+- name: Install certbot
+  apt:
+    pkg: "{{ item }}"
+    state: latest
+    update_cache: yes
+  with_items:
+    - certbot
+    - openssl
