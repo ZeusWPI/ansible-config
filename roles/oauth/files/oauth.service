@@ -1,0 +1,10 @@
+[Unit]
+Description=uWSGI instance to serve oauth
+After=network.target
+
+[Service]
+User=oauth
+Group=www-data
+WorkingDirectory=/srv/oauth/oauth
+Environment="PATH=/srv/oauth/.venv/bin"
+ExecStart=/srv/oauth/.venv/bin/uwsgi --ini /srv/oauth/oauth.ini

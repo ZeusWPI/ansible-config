@@ -1,8 +1,0 @@
----
-uwsgi_app_name:
-
-uwsgi_app_user: "{{ usgwi_app_name }}"
-uwsgi_app_home: "/srv/{{ uwsgi_app_name }}"
-uwsgi_app_venv: "{{ uwsgi_app_home }}/.venv"
-uwsgi_app_socket: "/var/run/{{ uwsgi_app_name }}.socket"
-uwsgi_web_user: "{{ 'www-data' if ansible_distribution == 'Debian' else 'http' }}"

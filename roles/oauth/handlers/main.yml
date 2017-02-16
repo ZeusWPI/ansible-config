@@ -1,0 +1,6 @@
+---
+- name: Restart oauth
+  service:
+    name: oauth
+    state: restarted
+  notify: Restart nginx

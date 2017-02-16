@@ -1,0 +1,60 @@
+---
+- name: Create user
+  user:
+    name: oauth
+    home: /srv/oauth
+    createhome: yes
+    system: yes
+
+- name: Clone Git repo
+  git:
+    repo: git@github.com:ZeusWPI/oauth.git
+    dest: /srv/oauth/
+    accept_hostkey: yes
+  notify: Restart oauth
+
+- name: Set secret key
+  lineinfile:
+    path: /srv/oauth/oauth/settings.py
+    regexp: "SECRET_KEY ="
+    line: "SECRET_KEY = '{{ oauth_secret_key }}'"
+
+- name: Make sure we're not running debug mode
+  lineinfile:
+    path: /srv/oauth/oauth/settings.py
+    regexp: "DEBUG ="
+    line: "DEBUG = False"
+
+- name: Fix permissions
+  file:
+    path: /srv/oauth/
+    owner: oauth
+    group: oauth
+    recurse: yes
+    mode: "u=rwx,g=rx,o="
+
+- name: Manage pip & virtualenv
+  pip:
+    chdir: /srv/oauth/
+    requirements: /srv/oauth/requirements.txt
+    virtualenv: /srv/oauth/.venv
+  notify: Restart oauth
+
+
+- name: Copy systemd unit
+  template:
+    src: oauth.service
+    dest: /etc/systemd/system/
+  register: oauth_unit
+
+- name: Reload systemd-daemon when needed
+  command: systemctl daemon-reload
+  when: oauth_unit.changed
+
+- name: Start & enable service
+  service:
+    name: oauth
+    state: started
+    enabled: yes
+
+

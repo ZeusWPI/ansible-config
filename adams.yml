@@ -12,3 +12,6 @@
       tags:
         - kerberos_server
 
+    - role: oauth
+      tags: oauth
+
