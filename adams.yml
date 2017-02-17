@@ -7,7 +7,6 @@
   roles:
     - common
     - sshkeys
-    - ansible-letsencrypt
     - role: kerberos_server
       tags:
         - kerberos_server

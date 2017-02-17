@@ -6,6 +6,6 @@ dependencies:
     letsencrypt_email: 'root@zeus.ugent.be'
 
   - role: nginx_vhost
-    nginx_vhost_location: 'roles/oauth/files'
+    nginx_vhost_location: 'roles/oauth/files/nginx'
     nginx_vhost_file: 'oauth'
 

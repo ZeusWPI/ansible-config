@@ -13,17 +13,10 @@
     accept_hostkey: yes
   notify: Restart oauth
 
-- name: Set secret key
-  lineinfile:
-    path: /srv/oauth/oauth/settings.py
-    regexp: "SECRET_KEY ="
-    line: "SECRET_KEY = '{{ oauth_secret_key }}'"
-
-- name: Make sure we're not running debug mode
-  lineinfile:
-    path: /srv/oauth/oauth/settings.py
-    regexp: "DEBUG ="
-    line: "DEBUG = False"
+- name: Copy (and fill in secrets) local_settings.py
+  template:
+    src: local_settings.py
+    dest: /srv/oauth/oauth/local_settings.py
 
 - name: Fix permissions
   file:
@@ -40,10 +33,16 @@
     virtualenv: /srv/oauth/.venv
   notify: Restart oauth
 
+- name: Run collactstatic command
+  command: '/srv/oauth/.venv/bin/python2.7 manage.py collectstatic'
+  args:
+    chdir: /srv/oauth/
+  become_user: oauth
+  become: yes
 
 - name: Copy systemd unit
   template:
-    src: oauth.service
+    src: systemd/oauth.service
     dest: /etc/systemd/system/
   register: oauth_unit
 
@@ -51,10 +50,18 @@
   command: systemctl daemon-reload
   when: oauth_unit.changed
 
+- name: Check if database is present
+  find:
+    path: /srv/oauth/db.sqlite3
+  register: oauth_db
+
+- name: Allow to place a database if there isn't one present
+  pause:
+    prompt: 'No database file found. If you want, you can copy a backup to /srv/oauth/db.sqlite3. Hit enter when you are ready.'
+
 - name: Start & enable service
   service:
     name: oauth
     state: started
     enabled: yes
-
 
