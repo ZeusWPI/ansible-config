@@ -1,0 +1,2 @@
+---
+letsencrypt_web_user: "{{ 'www-data' if ansible_distribution == 'Debian' else 'http' }}"

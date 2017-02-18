@@ -34,14 +34,14 @@
 - name: Copy systemd unit and timer files
   copy:
     src: "{{ item }}"
-    dest: "/usr/lib/systemd/system/{{ item }}"
+    dest: "/etc/systemd/system/{{ item }}"
   with_items:
-    - "certbot.service"
-    - "certbot.timer"
+    - certbot.service
+    - certbot.timer
   register: letsencrypt_systemd_files
 
 - name: Reload systemd daemon if unit or timer file changed
-  command: /usr/bin/systemctl daemon-reload
+  command: systemctl daemon-reload
   when: letsencrypt_systemd_files.changed
 
 - name: Start and enable systemd timer

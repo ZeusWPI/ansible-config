@@ -24,14 +24,14 @@ server {
     ## OAuth
     # Static media
     location ^~ /oauth/static/ {
-        alias /srv/oauth/static/;
+        alias /srv/oauth/app/static/;
     }
 
     # Real app
     location ~ /oauth/.+ {
         include uwsgi_params;
 
-        uwsgi_pass unix://var/run/oauth.sock;
+        uwsgi_pass unix://srv/oauth/oauth.sock;
         uwsgi_param SCRIPT_NAME /oauth;
         uwsgi_modifier1 30;
     }

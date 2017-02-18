@@ -2,12 +2,12 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-SECRET_KEY = '{{ oauth_secret_key_local }}'
+SECRET_KEY = '{{ oauth_secret_key }}'
 
-STATIC_URL = '/static/'
+STATIC_URL = '/oauth/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static/")
-FORCE_SCRIPT_NAME = '/'
-LOGIN_URL = '/accounts/login/'
+FORCE_SCRIPT_NAME = '/oauth'
+LOGIN_URL = '/oauth/accounts/login/'
 
 DEBUG = False
 

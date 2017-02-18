@@ -8,7 +8,7 @@
 - name: Import MariaDB Keys
   apt_key:
     keyserver: keyserver.ubuntu.com
-    id: '0xcbcb082a1bb943db'
+    id: '0xCBCB082A1BB943DB'
 
 - name: Add the mariadb repo to the apt file
   lineinfile:

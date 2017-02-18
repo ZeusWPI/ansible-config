@@ -1,9 +1,18 @@
 ---
+- name: Add jessie-backports repository
+  apt_repository:
+    repo: deb http://ftp.debian.org/debian jessie-backports main
+    state: present
+
 - name: Install certbot
   apt:
-    pkg: "{{ item }}"
+    pkg: certbot
+    state: latest
+    default_release: jessie-backports
+    update_cache: yes
+
+- name: Install openssl
+  apt:
+    pkg: openssl
     state: latest
     update_cache: yes
-  with_items:
-    - certbot
-    - openssl
