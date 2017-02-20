@@ -5,3 +5,14 @@ dependencies:
     nginx_vhost_location: 'roles/router/files/nginx'
     tags:
       - nginx
+
+  - role: ufw_rule
+    ufw_applications:
+      - "WWW Full"
+      - "DNS"
+    ufw_rules:
+      # DHCP
+      - rule: allow
+        port: "67:68"
+        proto: udp
+

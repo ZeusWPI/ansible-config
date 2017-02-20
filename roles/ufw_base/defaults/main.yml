@@ -1,0 +1,11 @@
+---
+ufw_ipv6: false
+ufw_ssh_port: 22
+ufw_nat: false
+ufw_nat_local_network: "10.0.0.0/24"
+ufw_nat_uplink_device: "enp2s0"
+ufw_nat_forwards: [] # list of forwarding rules
+# Example:
+# - port: 2222
+#   proto: tcp
+#   dest: 10.0.0.2

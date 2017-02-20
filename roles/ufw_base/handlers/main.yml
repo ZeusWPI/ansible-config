@@ -1,0 +1,16 @@
+---
+- name: Restart ufw
+  ufw:
+    state: disabled
+  notify: Start ufw
+  listen: 'Restart firewall'
+
+- name: Start ufw
+  ufw:
+    state: enabled
+
+- name: Reload ufw
+  ufw:
+    state: reloaded
+  listen: 'Reload firewall'
+

@@ -1,44 +1,11 @@
 ---
-- name: Install ufw (Uncomplicated FireWall)
-  yum:
-    name: ufw
-    state: latest
-    update_cache: yes
-
-- name: Copy ufw defaults
-  copy:
-    src: firewall/default/ufw
-    dest: /etc/default/ufw
-  notify: 'Restart firewall'
-
-- name: Copy ufw configurations
-  copy:
-    src: firewall/ufw/
-    dest: /etc/ufw/
-  notify: 'Restart firewall'
-
-- name: Firewall configuration should be private
-  file:
-    path: '{{ item }}'
-    mode: 'o-rwx,g-xw'
-    recurse: yes
-  with_items:
-    - /etc/ufw
-    - /var/lib/ufw
-
-- name: Stop and disable firewalld
-  service:
-    name: firewalld
-    state: stopped
-    enabled: no
-
-# Reset to delete old, removed rules
-- name: Enable and reset ufw
-  ufw:
-    state: "{{ item }}"
-  with_items:
-    - reset
-    - enabled
+- name: Copy application files
+  template:
+    src: "{{ item }}"
+    dest: /etc/ufw/applications.d/
+  when: ufw_application_files is not defined
+  with_items: ufw_application_files
+  notify: Reload ufw
 
 # Specify the rules in vars/firewall_rules.yml
 - name: Configuring port/protocol/network rules
@@ -59,18 +26,11 @@
     to_ip: "{{ item.to_ip | default(omit) }}"
     to_port: "{{ item.to_port | default(omit) }}"
   with_items: "{{ ufw_rules }}"
-  notify: 'Restart firewall'
+  notify: Reload ufw
 
 - name: Configuring application rules
   ufw:
     name: "{{ item.name }}"
     rule: "{{ item.rule if item.rule is defined else 'allow' }}"
   with_items: "{{ ufw_applications }}"
-  notify: 'Restart firewall'
-
-- name: Enable and start ufw service
-  service:
-    name: ufw
-    state: started
-    enabled: yes
-
+  notify: Reload ufw

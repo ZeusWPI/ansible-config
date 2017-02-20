@@ -16,8 +16,3 @@
 - include: "dnsmasq.yml"
   tags:
     - dns
-
-# Firewally stuff & NAT
-- include: "firewall.yml"
-  tags:
-    - firewall

@@ -1,0 +1,12 @@
+---
+- name: Install ufw (Uncomplicated FireWall)
+  yum:
+    name: ufw
+    state: latest
+    update_cache: yes
+
+- name: Stop and disable firewalld (default on CentOS)
+  service:
+    name: firewalld
+    state: stopped
+    enabled: no

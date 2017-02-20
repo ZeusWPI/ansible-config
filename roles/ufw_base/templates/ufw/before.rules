@@ -8,13 +8,21 @@
 #   ufw-before-forward
 #
 
+{% if ufw_nat %}
 # NAT table rules
 *nat
+:PREROUTING ACCEPT [0:0]
 :POSTROUTING ACCEPT [0:0]
 
+# Port Forwardings
+{% for item in ufw_nat_forwards %}
+-A PREROUTING -i {{ ufw_nat_uplink_device }} -p {{ item.proto }} --dport {{ item.port }} -j DNAT --to-destination {{ item.dest }}
+{% endfor %}
+
 # Forward traffic through eth0 - Change to match you out-interface
--A POSTROUTING -s 10.0.0.0/24 -o enp2s0 -j MASQUERADE
+-A POSTROUTING -s {{ ufw_nat_local_network }} -o {{ ufw_nat_uplink_device }} -j MASQUERADE
 COMMIT
+{% endif %}
 
 
 # Don't delete these required lines, otherwise there will be errors
