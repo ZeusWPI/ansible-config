@@ -1,9 +1,9 @@
 ---
 dependencies:
-  - { role: nginx_base }
-  - { role: users }
-  - { role: passenger }
-  - { role: mailman }
-  - { role: uwsgi_pool,
-      uwgsi_pool_file: 'roles/nginx_sites_king/files/ceneka.ini' }
+   - role: nginx_base
+  - role: users
+  - role: passenger
+  - role: mailman
+  - role: uwsgi_pool
+    uwgsi_pool_file: 'roles/nginx_sites_king/files/ceneka.ini'
 

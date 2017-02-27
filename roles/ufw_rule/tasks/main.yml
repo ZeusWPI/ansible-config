@@ -3,7 +3,7 @@
   template:
     src: "{{ item }}"
     dest: /etc/ufw/applications.d/
-  when: ufw_application_files is not defined
+  when: ufw_application_files is defined
   with_items: ufw_application_files
   notify: Reload ufw
 

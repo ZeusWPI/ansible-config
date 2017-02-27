@@ -10,10 +10,13 @@
   notify: Restart ufw
 
 - name: Copy ufw configurations
-  copy:
-    src: ufw/
-    dest: /etc/ufw/
+  template:
+    src: "ufw/{{ item }}"
+    dest: "/etc/ufw/{{ item }}"
   notify: Restart ufw
+  with_items:
+    - sysctl.conf
+    - before.rules
 
 - name: Firewall configuration should be private
   file:
@@ -32,8 +35,7 @@
 - name: Add SSH rule(s), so we don't lose connection
   ufw:
     rule: allow
-    port: "{{ item }}"
-  with_items: ufw_ssh_ports
+    port: "{{ ufw_ssh_port }}"
 
 - name: Enable ufw
   ufw:
