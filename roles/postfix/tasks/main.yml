@@ -1,23 +1,42 @@
 ---
 - name: Install Postfix
-  apt: name=postfix state=present
+  apt:
+    name: postfix
+    state: present
   notify: Reload Postfix
 
 - name: Set mail hostname
-  copy: src=mailname dest=/etc/mailname
+  template:
+    src: mailname
+    dest: /etc/mailname
   notify: Reload Postfix
 
 - name: Copy the configuration file
-  copy: src=postfix/main.cf dest=/etc/postfix/main.cf
+  template:
+    src: postfix/main.cf
+    dest: /etc/postfix/main.cf
   notify: Reload Postfix
 
 - name: Copy the master file
-  copy: src=postfix/master.cf dest=/etc/postfix/master.cf
+  template:
+    src: postfix/master.cf
+    dest: /etc/postfix/master.cf
+  notify: Reload Postfix
+
+
+- name: Copy the ldap file
+  template:
+    src: postfix/ldap-users.cf
+    dest: /etc/postfix/ldap-users.cf
   notify: Reload Postfix
 
 - name: Set aliases
-  copy: src=aliases dest=/etc/aliases
+  template:
+    src: "{{ postfix_alias_file }}"
+    dest: /etc/aliases
   notify: Reload aliases
 
 - name: Install mailx
-  apt: name=bsd-mailx state=present
+  apt:
+    name: bsd-mailx
+    state: present

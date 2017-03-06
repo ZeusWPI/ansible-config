@@ -27,24 +27,26 @@ smtp_tls_session_cache_database = btree:${data_directory}/smtp_scache
 # See /usr/share/doc/postfix/TLS_README.gz in the postfix-doc package for
 # information on enabling SSL in the smtp client.
 
-myhostname = zeus.ugent.be
-alias_maps = hash:/etc/aliases,
-    hash:/var/lib/mailman/data/aliases
+myhostname = {{ postfix_hostname }}
+alias_maps = {{ postfix_alias_maps | join(', ') }}
 alias_database = hash:/etc/aliases
-mydestination = zeus.ugent.be, localhost
+mydestination = {{ postfix_destinations| join(', ') }}
 relayhost = smtp.ugent.be
 mynetworks = 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128
 mailbox_command = procmail -a "$EXTENSION"
 mailbox_size_limit = 0
 recipient_delimiter = +
 inet_interfaces = all
+inet_protocols = all
 
 # Filter spam and virusses with Amavis
 content_filter = smtp-amavis:[127.0.0.1]:10024
 
-# Fallback to mailing kelder.zeus.ugent.be
+{% if postfix_fallback is defined %}
+# If we don't know the destination, forward to this
 local_recipient_maps =
-fallback_transport = smtp:kelder.zeus.ugent.be
+fallback_transport = {{ postfix_fallback }}
+{% endif %}
 
 # Allow bigger messages
 message_size_limit = 20480000

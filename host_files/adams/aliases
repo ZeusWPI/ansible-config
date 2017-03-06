@@ -1,0 +1,118 @@
+# See man 5 aliases for format
+root: admin
+
+bestuur: voorzitter, penning, secretaris, projecten, admin, event
+ereleden: javache, silox, relix, jens, jasper, gilj, michilus, flashyoshi, thoge, stijns
+#kernleden: shmetta, julien, caroline, silox, timodw, basho, benji, dexagod
+
+# Bestuur-adressen:
+voorzitter: destro
+vice: isaura
+penning: iepoev
+projecten: feliciaan
+admin: don, rienspy
+event: elo
+
+events: event
+secretaris: vice
+ouwezak: silox
+project: projecten
+
+# yolo
+sesamopenu: jens
+senior: procrat
+ilion: iasoon
+dickbot: iasoon
+masseur: nielsdg
+kenneth: tleilaxu
+timodw: timpy
+kat: elo
+kerstman: sinterklaas
+sinterklaas: gilj
+tomnaessens: silox
+lambdamaster: jasper
+wouter: wpinnoo
+
+tetten: isaura, elo, caroline, iepoev
+
+### Forwards voor oudleden
+procrat: stijns
+steven: steven@blackadder.be
+olivier: olivier.biot@siemens.atea.be
+katrien: katrien@xssass.be
+ann: ann@xssass.be
+philippe: philippe@openminds.be
+fab: fab@pandora.be
+tim.vanvossole: creslin
+creslin: creslin@wol.be
+alcola: zeus@schellebelle.be
+joachim: joachim.vandenbogaert@telenet.be
+kristof: arwoi@pandora.be
+roeland: forgotten@hollowman.org
+bernard: bernard@grymonpon.be
+michiel: michiel.detailleur@student.hogent.be
+roan: rembrech@vub.ac.be
+dries: Dries.Kimpe@wis.kuleuven.ac.be
+
+fk: fkzeus@fkserv.ugent.be
+mc: massacantus@fkserv.ugent.be
+
+# Algemene adressen
+zeus: bestuur
+info: bestuur
+# voor als er iets misloopt en mensen klagen
+bib: bestuur
+# over de zeus-bibliotheek
+lessen: bestuur
+# voor mensen die info willen over zeus lessen
+cultuur: bestuur
+register: bestuur
+
+webmaster: admin
+
+# Projecten
+ghentfpg-org: bestuur, jasper, javache, kenneth.hoste@gmail.com, jejansse@gmail.com, itkovian@gmail.com, tom.schrijvers@ugent.be
+12urenloop: ict@12urenloop.be, michilus, bestuur, silox, benji
+
+# logcheck notices voor alle geinteresseerden
+logcheck: flashyoshi
+
+# systeem-zaken naar admin, zeus-zaken naar bestuur
+mailman: admin
+mailman-owner: admin
+wwwadm: admin
+mirror: admin
+mirrors: mirror
+hermes: admin
+rc5: admin
+rc5log: admin
+
+# ircslackrelay
+ircslackrelay: admin
+
+glms: glms-hackers@nongnu.org
+key-submit: rudy
+
+# systeem
+postmaster: admin
+daemon: root
+bin: root
+sys: root
+sync: root
+games: root
+man: root
+lp: root
+mail: root
+news: root
+uucp: root
+proxy: root
+postgres: root
+www-data: root
+backup: root
+msql: root
+operator: root
+list: root
+irc: root
+gnats: root
+nobody: root
+mailer-daemon: postmaster

@@ -1,0 +1,15 @@
+---
+postfix_mailname: zeus.ugent.be
+postfix_hostname: zeus.ugent.be
+
+postfix_alias_file: "host_files/{{ ansible_hostname }}/aliases"
+
+postfix_alias_maps:
+  - "hash:/etc/aliases"
+  - "hash:/var/lib/mailman/data/aliases"
+
+postfix_destinations:
+  - zeus.ugent.be
+  - localhost
+
+postfix_fallback: "smtp:kelder.zeus.ugent.be"

@@ -1,4 +1,4 @@
 ---
 dependencies:
-  - { role: spamassassin }
-  - { role: mail_antivirus }
+  - role: spamassassin
+  - role: mail_antivirus
