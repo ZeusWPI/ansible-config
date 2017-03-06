@@ -12,4 +12,4 @@ postfix_destinations:
   - zeus.ugent.be
   - localhost
 
-postfix_fallback: "smtp:kelder.zeus.ugent.be"
+postfix_fallback: "smtp:adams.ugent.be"
