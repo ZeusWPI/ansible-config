@@ -12,3 +12,4 @@ letsencrypt_cert_domains:
   #- 12urenloop.be
   #- registratie.fkgent.be
   #- event.fkgent.be
+  #- blok.ugent.be
