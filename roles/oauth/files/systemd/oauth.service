@@ -8,3 +8,8 @@ Group=www-data
 WorkingDirectory=/srv/oauth/app
 Environment="PATH=/srv/oauth/app/env/bin"
 ExecStart=/srv/oauth/app/env/bin/uwsgi --ini /srv/oauth/app/oauth.ini
+
+[Install]
+WantedBy=multi-user.target
+
+
