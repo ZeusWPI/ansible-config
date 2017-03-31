@@ -7,11 +7,13 @@
   roles:
     - common
     - sshkeys
-    - router
+    - role: router
+      tags: router
     - role: sshtunnel
       sshtunnel_remote_host: adams
       sshtunnel_remote_url: adams.ugent.be
       sshtunnel_forwards:
+        # Kerberos
         - local_port: 88
           remote_port: 88
         - local_port: 543
@@ -41,6 +43,7 @@
       ufw_ssh_ports:
         - 22
         - 2222
+        - 2223
       ufw_nat: true
       ufw_ipv6: false
       ufw_nat_local_network: "10.0.0.0/24"

@@ -6,7 +6,6 @@
 #   ufw-before-input
 #   ufw-before-output
 #   ufw-before-forward
-#
 
 {% if ufw_nat %}
 # NAT table rules

@@ -9,6 +9,13 @@
   args:
     creates: "/etc/ssl/certs/dhparam.pem"
 
+- name: "Ensure {{ letsencrypt_web_user }} exists"
+  user:
+    name: "{{ letsencrypt_web_user }}"
+    home: /var/lib/nginx
+    system: yes
+    shell: /sbin/nologin
+
 - name: Ensure well-known folder exists
   file:
     name: "/var/lib/letsencrypt/"

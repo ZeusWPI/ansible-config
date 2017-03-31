@@ -10,7 +10,7 @@
 #
 # For this to work your SSH-key needs to be added to the host already
 [centos]
-dick ansible_ssh_host=dickens.kelder.zeus.ugent.be
+dick ansible_ssh_host=10.0.0.1
 
 [debian]
 king ansible_ssh_host=zeus.ugent.be ansible_ssh_port=2222
