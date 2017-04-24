@@ -13,7 +13,7 @@
 #    - {role: kerberos_client, kerberos_client_kdc: zeusgw.ugent.be, kerberos_client_kadmin: zeusgw.ugent.be }
 #    - mariadb
 #    - iptables
-#    - nginx
+    - nginx_base
 #    - php
 #    - python
 #    - shares
