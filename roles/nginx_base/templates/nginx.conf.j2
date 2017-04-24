@@ -18,6 +18,11 @@ http {
         listen 80 default_server;
         server_name _;
         deny all;
+
+
+        # But still serve the letsencrypt directory, so we can request certificates
+        # without having a site for it yet
+        include snippets/letsencrypt.conf;
     }
 
     include       mime.types;
