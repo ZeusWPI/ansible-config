@@ -16,6 +16,7 @@
 # Port Forwardings
 {% for item in ufw_nat_forwards %}
 -A PREROUTING -i {{ ufw_nat_uplink_device }} -p {{ item.proto }} --dport {{ item.port }} -j DNAT --to-destination {{ item.dest }}
+
 {% endfor %}
 
 # Forward traffic through eth0 - Change to match you out-interface

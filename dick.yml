@@ -49,10 +49,10 @@
       ufw_nat_local_network: "10.0.0.0/24"
       ufw_nat_uplink_device: "enp2s0"
       ufw_nat_forwards:
-        # Example: wells
+        # Redirect port 2223 to fles's ssh port
         - port: "2223"
           proto: tcp
-          dest: "10.0.0.2"
+          dest: "10.0.0.9"
       tags: ufw
 
   vars_files:
