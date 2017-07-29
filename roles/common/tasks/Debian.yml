@@ -5,6 +5,8 @@
 - name: Update apt
   apt: update_cache=yes
 
+- apt_key: url=https://dl.yarnpkg.com/debian/pubkey.gpg
+
 - name: Install packages that don't need configuration
   apt: name={{ item }} state=latest
   with_items:
@@ -21,6 +23,7 @@
     - git-core
     - drush
     - nodejs
+    - yarn
     - cmake
     - cifs-utils  # share stuff
     - speedtest-cli
