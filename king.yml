@@ -5,6 +5,7 @@
 
 
   roles:
+     - sshkeys
 #    - common
 #    - bottlebats
 #    - franklinkim.sudo
@@ -13,7 +14,7 @@
 #    - {role: kerberos_client, kerberos_client_kdc: zeusgw.ugent.be, kerberos_client_kadmin: zeusgw.ugent.be }
 #    - mariadb
 #    - iptables
-    - nginx_base
+#    - nginx_base
 #    - php
 #    - python
 #    - shares
@@ -37,7 +38,7 @@
 #    - common-nodejs
 #    # User configs and stuff
 #    - mysql_configs
-    - nginx_sites_king
+#    - nginx_sites_king
 #    - django
 #    - user_configs
 #    - uwsgi
@@ -48,10 +49,10 @@
 #    - matrix
 #    # Monitoring goodies
 #    - ansible-playbook-monit
+#    - matrix
 
   vars_files:
     - vars/passwords.yml
     - vars/ruby.yml
-    - vars/matrix.yml
     - vars/monit.yml
     - vars/letsencrypt_king.yml
