@@ -11,8 +11,8 @@
       tags:
         - kerberos_server
 
-    - role: oauth
-      tags: oauth
+#    - role: oauth
+#      tags: oauth
 
     - role: postfix
       postfix_mailname: adams.ugent.be

@@ -1,24 +1,9 @@
 # See man 5 aliases for format
 root: admin
 
-bestuur: voorzitter, penning, secretaris, projecten, admin, event
 ereleden: javache, silox, relix, jens, jasper, gilj, michilus, flashyoshi, thoge, stijns
 #kernleden: shmetta, julien, caroline, silox, timodw, basho, benji, dexagod
-
-# Bestuur-adressen:
-voorzitter: destro
-vice: isaura
-penning: iepoev
-projecten: feliciaan
-admin: don, rienspy
-event: elo
-
-events: event
-secretaris: vice
-ouwezak: silox
-project: projecten
-
-# yolo
+ouwezak: destro
 sesamopenu: jens
 senior: procrat
 ilion: iasoon

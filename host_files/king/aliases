@@ -16,14 +16,15 @@ clamav: root
 list-admin: root
 
 # Temp fix for downtime
-bestuur: voorzitter, secretaris, penning, admin, project, event
+bestuur: voorzitter, secretaris, penning, admin, project, assisterend
 
-event: eloise.piret@ugent.be
-admin: maertensrien@gmail.com, werthenlorin@gmail.com
-voorzitter: wout.schellaert@ugent.be
+event: bestuur
+admin: maertensrien@gmail.com, werthenlorin@gmail.com, jonathan.poelman@gmail.com, tibo.dhondt@telenet.be, ziggymoens@hotmail.com
+voorzitter: maertensrien@gmail.com
+assisterend: werthenlorin@gmail.com, jeroen.declerck@ugent.be, laurens.dhooge@ugent.be
 secretaris: isaura.claeys@ugent.be
-project: feliciaan@de-palmenaer.eu
-penning: jeroen.declerck@ugent.be
+project: wout.schellaert@ugent.be, ilion.beyst@gmail.com
+penning: timo.dewaele@ugent.be
 
 
 # use spam@zeus.ugent.be to learn about new spam
