@@ -18,13 +18,6 @@
     - Restart FastCGI
     - Restart nginx
 
-- name: Ceneka uwsgi
-  copy:
-    src: cenekasite.ini
-    dest: /home/ceneka/
-    owner: ceneka
-    group: ceneka
-
 
 - name: Check the configuration file syntax
   command: /usr/sbin/nginx -t
