@@ -1,4 +1,3 @@
----
 - name: Distro specific installation
   include: "{{ ansible_distribution }}.yml"
 
