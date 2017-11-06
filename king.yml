@@ -38,9 +38,9 @@
 #    - common-nodejs
 #    # User configs and stuff
 #    - mysql_configs
-    - nginx_sites_king
+#    - nginx_sites_king
 #    - django
-    - user_configs
+#    - user_configs
 #    - uwsgi
 #    - dokuwiki
 #    # Letsencrypt thingies
