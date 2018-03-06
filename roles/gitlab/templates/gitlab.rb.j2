@@ -1,9 +1,9 @@
 # The URL through which GitLab will be accessed.
-external_url "http://git.zeuswpi.org"
+external_url "https://git.zeuswpi.org"
 
 nginx['enable'] = false
 unicorn['enable'] = false
-gitlab_rails['internal_api_url'] = 'http://git.zeuswpi.org'
+gitlab_rails['internal_api_url'] = 'https://git.zeuswpi.org'
 web_server['external_users'] = ['www-data']
 
 gitlab_rails['omniauth_enabled'] = true
