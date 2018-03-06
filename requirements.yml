@@ -2,3 +2,4 @@
 - src: franklinkim.sudo
 - src: https://github.com/thefinn93/ansible-letsencrypt
 - src: pgolm.monit
+- src: geerlingguy.gitlab
