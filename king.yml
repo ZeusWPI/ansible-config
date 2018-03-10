@@ -50,6 +50,7 @@
 #    # Monitoring goodies
 #    - ansible-playbook-monit
 #    - matrix
+#    - gitlab
 
   vars_files:
     - vars/passwords.yml
