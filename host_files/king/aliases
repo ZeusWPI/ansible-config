@@ -38,6 +38,7 @@ fysica: cursuscruisen-fysica
 # common app renames to match their users
 enrolment: fk-enrolment
 blokmap: bloklocaties
+bottlebats-dev: bottlebats
 
 ## mailman mailing list
 mailman:              "|/var/lib/mailman/mail/mailman post mailman"
