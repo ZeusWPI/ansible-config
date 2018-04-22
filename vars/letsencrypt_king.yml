@@ -10,6 +10,5 @@ letsencrypt_cert_domains:
   #- materiaal.12urenloop.be
   #- live.12urenloop.be
   #- 12urenloop.be
-  #- registratie.fkgent.be
   #- event.fkgent.be
   #- blok.ugent.be
