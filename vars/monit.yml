@@ -15,8 +15,3 @@ monit_services:
     target: /home/tap/production/current/tmp/pids/delayed_job.pid
     start: "/bin/sh -c 'cd /home/tap/production/current; RAILS_ENV=production PATH=bin:/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH delayed_job start'"
     stop:  "/bin/sh -c 'cd /home/tap/production/current; RAILS_ENV=production PATH=bin:/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH delayed_job stop'"
-  - name: battlebots-ranker
-    type: process
-    user: battlebots
-    target: /home/battlebots/production/ranker.pid
-    start: "/bin/sh -c 'cd /home/battlebots; HOME=/home/battlebots ./deploy-ranker.sh'"
