@@ -20,10 +20,7 @@
     # - bundler # enable this when installing a new rbenv version using zzet.rbenv
     # - common-rails
     # - passenger
-    # Letsencrypt thingies
-    # - ansible-letsencrypt # Walktrough: https://github.com/ZeusWPI/ansible-config/wiki/Steps-for-LetsEncrypt
 
   vars_files:
     - vars/secrets_events.yml
     - vars/monit_events.yml
-    - vars/letsencrypt_events.yml

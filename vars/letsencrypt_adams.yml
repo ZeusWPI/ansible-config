@@ -1,8 +1,0 @@
-# Walktrough: https://github.com/ZeusWPI/ansible-config/wiki/Steps-for-LetsEncrypt
-letsencrypt_webroot_path: /var/www/letsencrypt
-letsencrypt_email: admin@zeus.ugent.be
-# IMPORTANT! (by Silox)
-# Only enable one of these underneath. Enabling multiple will work, but the domain name will be the first entry.
-# This works and is OK as SSL does not rely on the domain name, but it is neater :)
-letsencrypt_cert_domains:
-  - adams.ugent.be
