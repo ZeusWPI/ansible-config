@@ -26,6 +26,8 @@ secretaris: isaura.claeys@ugent.be
 project: wout.schellaert@ugent.be, ilion.beyst@gmail.com
 penning: timo.dewaele@ugent.be
 
+# Slack owner
+slack: admin
 
 # use spam@zeus.ugent.be to learn about new spam
 spam: spam@spam.spam
