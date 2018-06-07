@@ -19,11 +19,11 @@ list-admin: root
 bestuur: voorzitter, secretaris, penning, admin, project, assisterend
 
 event: bestuur
-admin: maertensrien@gmail.com, werthenlorin@gmail.com, jonathan.poelman@gmail.com, tibo.dhondt@telenet.be, ziggymoens@hotmail.com, redfast00+zeusadmin@gmail.com
-voorzitter: maertensrien@gmail.com
-assisterend: werthenlorin@gmail.com, jeroen.declerck@ugent.be, laurens.dhooge@ugent.be
+admin: maertensrien@gmail.com, werthenlorin@gmail.com, redfast00+zeusadmin@gmail.com
+voorzitter: maertensrien@gmail.com, robbevanherck1@gmail.com
+assisterend: werthenlorin@gmail.com, jeroen.declerck@ugent.be
 secretaris: isaura.claeys@ugent.be
-project: wout.schellaert@ugent.be, ilion.beyst@gmail.com
+project: wout.schellaert@ugent.be, ilion.beyst@gmail.com, arnebertrand@gmail.com
 penning: timo.dewaele@ugent.be
 
 # Slack owner
