@@ -2,3 +2,5 @@
 - src: franklinkim.sudo
 - src: pgolm.monit
 - src: geerlingguy.gitlab
+- src: https://github.com/isometry/Rocket.Chat.Ansible.git
+  version: debian9

@@ -3,3 +3,14 @@
   hosts: herbert
   user: root
 
+  vars:
+      rocket_chat_automatic_upgrades: true
+      rocket_chat_include_nginx: false
+      rocket_chat_include_mongodb: false
+
+  roles:
+    #    - common
+    #    - nginx_base
+    #    - nginx_vhost
+    #    - mongodb
+    #    - Rocket.Chat.Ansible
