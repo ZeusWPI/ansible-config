@@ -1,0 +1,5 @@
+---
+- name: Set-up Herbert, the best VM
+  hosts: herbert
+  user: root
+
