@@ -5,14 +5,13 @@
 
 
   roles:
-    #    - common
+    #- common
     - nginx_sites_herbert
-    #    - mongodb
-    - role: nodejs
-      nodejs_version: 10.x
-    - role: Rocket.Chat.Ansible
-      rocket_chat_service_host: chat.zeus.gent
-      rocket_chat_automatic_upgrades: true
-      rocket_chat_include_nginx: false
-      rocket_chat_include_mongodb: false
+    #- mongodb
+    #- role: nodejs
+    #  nodejs_version: 10.x
+    #- role: Rocket.Chat.Ansible
+    #  rocket_chat_service_host: chat.zeus.gent
+    #  rocket_chat_automatic_upgrades: true
+    #  rocket_chat_include_nginx: false
 
