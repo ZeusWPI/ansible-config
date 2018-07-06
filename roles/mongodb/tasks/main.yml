@@ -5,6 +5,8 @@
     - mongodb
 
 - name: run mongodb
-  service: name=mongod state=started enabled=yes
-  tags: mongodb
-
+  service:
+    name: mongodb
+    state: started
+    enabled: yes
+    daemon_reload: yes

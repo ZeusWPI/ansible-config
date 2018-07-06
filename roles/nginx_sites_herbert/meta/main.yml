@@ -1,0 +1,9 @@
+---
+dependencies:
+  - role: nginx_vhost
+    nginx_vhost_file: 'herbert.conf'
+    nginx_vhost_location: 'roles/nginx_sites_herbert/files/sites-enabled'
+    tags:
+      - nginx
+
+
