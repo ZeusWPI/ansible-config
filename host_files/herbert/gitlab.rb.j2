@@ -1,0 +1,73 @@
+# The URL through which GitLab will be accessed.
+external_url "https://git.zeus.gent"
+
+nginx['enable'] = false
+unicorn['enable'] = true
+gitlab_rails['internal_api_url'] = 'https://git.zeus.gent'
+web_server['external_users'] = ['www-data']
+
+gitlab_rails['gitlab_shell_ssh_port'] = 2222
+
+gitlab_rails['omniauth_enabled'] = true
+gitlab_rails['omniauth_allow_single_sign_on'] = ['saml', 'github']
+gitlab_rails['omniauth_auto_link_ldap_user'] = true
+gitlab_rails['omniauth_block_auto_created_users'] = false
+gitlab_rails['omniauth_providers'] = [
+    {
+        "name"          => "github",
+        "app_id"        => "{{ github_app_id }}",
+        "app_secret"    => "{{ github_app_secret }}",
+        "url"           => "https://github.com",
+        "verify_ssl"    => false,
+        "args"          => { "scope" => "user:email" }
+    }
+]
+
+# gitlab.yml configuration
+gitlab_rails['time_zone'] = "UTC"
+gitlab_rails['backup_keep_time'] = 604800
+gitlab_rails['gitlab_email_enabled'] = true
+
+# Whether to redirect http to https.
+nginx['redirect_http_to_https'] = false
+nginx['ssl_certificate'] = "/etc/gitlab/ssl/gitlab.crt"
+nginx['ssl_certificate_key'] = "/etc/gitlab/ssl/gitlab.key"
+
+# The directory where Gitlab backups will be stored
+# gitlab_rails['backup_path'] = "/mnt/repos/backups"
+
+# These settings are documented in more detail at
+# https://gitlab.com/gitlab-org/gitlab-ce/blob/master/config/gitlab.yml.example#L118
+gitlab_rails['ldap_enabled'] = false
+gitlab_rails['ldap_host'] = 'example.com'
+gitlab_rails['ldap_port'] = 389
+gitlab_rails['ldap_uid'] = 'sAMAccountName'
+gitlab_rails['ldap_method'] = 'plain' # 'ssl' or 'plain'
+gitlab_rails['ldap_bind_dn'] = 'CN=Username,CN=Users,DC=example,DC=com'
+gitlab_rails['ldap_password'] = 'password'
+gitlab_rails['ldap_allow_username_or_email_login'] = true
+gitlab_rails['ldap_base'] = 'DC=example,DC=com'
+
+# GitLab Nginx
+## See https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/doc/settings/nginx.md
+
+# Use smtp instead of sendmail/postfix
+# More details and example configuration at
+# https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/doc/settings/smtp.md
+gitlab_rails['smtp_enable'] = false
+gitlab_rails['smtp_address'] = 'smtp.server'
+gitlab_rails['smtp_port'] = 465
+gitlab_rails['smtp_user_name'] = 'smtp user'
+gitlab_rails['smtp_password'] = 'smtp password'
+gitlab_rails['smtp_domain'] = 'example.com'
+gitlab_rails['smtp_authentication'] = 'login'
+gitlab_rails['smtp_enable_starttls_auto'] = true
+gitlab_rails['smtp_tls'] = false
+gitlab_rails['smtp_openssl_verify_mode'] = 'none'
+gitlab_rails['smtp_ca_path'] = '/etc/ssl/certs'
+gitlab_rails['smtp_ca_file'] = '/etc/ssl/certs/ca-certificates.crt'
+
+# 2-way SSL Client Authentication.
+
+# To change other settings, see:
+# https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/README.md#changing-gitlab-yml-settings

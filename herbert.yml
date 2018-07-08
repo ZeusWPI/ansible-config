@@ -2,6 +2,11 @@
 - name: Set-up Herbert, the best VM
   hosts: herbert
   user: root
+  vars:
+    gitlab_config_template: 'host_files/herbert/gitlab.rb.j2'
+
+  vars_files:
+    - vars/herbert_secrets.yml
 
   tasks:
     - name: Update system
@@ -27,7 +32,6 @@
         - git-core
         - nodejs
         - yarn
-        - cifs-utils  # share stuff
         - speedtest-cli
         - nmap
         - sudo
@@ -35,6 +39,40 @@
   roles:
     - role: sshkeys
       tags: sshkeys
+
+    ##########################
+    # git.zeus.gent (GitLab) #
+    ##########################
+
+    # This installs the GitLab Omnibus package
+    - role: geerlingguy.gitlab
+      github_app_secret: "{{ gitlab.github_app_secret }}"
+      github_app_id: "{{ gitlab.github_app_id }}"
+      gitlab_config_template: 'host_files/herbert/gitlab.rb.j2'
+      gitlab_create_self_signed_cert: false
+      tags:
+        - gitlab
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'git.zeus.gent'
+      tags:
+        - nginx
+        - gitlab
+
+# Share won't mount on debian 9 somehow...
+#    - role: cifs_share
+#      share:
+#        name: battlebots-data # We're re-using an old share
+#        dest: /var/opt/gitlab/git-data/repositories
+#        username: "{{ gitlab.share_username }}"
+#        password: "{{ gitlab.share_password }}"
+#        owner: git
+#        dir_mode: 02770
+#        file_mode: 02660
+#      tags:
+#        - shares
+#        - gitlab
+
 
     ###############################
     # chat.zeus.gent (Rocketchat) #
