@@ -9,17 +9,35 @@ web_server['external_users'] = ['www-data']
 gitlab_rails['gitlab_shell_ssh_port'] = 2222
 
 gitlab_rails['omniauth_enabled'] = true
-gitlab_rails['omniauth_allow_single_sign_on'] = ['saml', 'github']
+gitlab_rails['omniauth_allow_single_sign_on'] = ['github', 'Zeus']
 gitlab_rails['omniauth_auto_link_ldap_user'] = true
 gitlab_rails['omniauth_block_auto_created_users'] = false
 gitlab_rails['omniauth_providers'] = [
     {
-        "name"          => "github",
-        "app_id"        => "{{ github_app_id }}",
-        "app_secret"    => "{{ github_app_secret }}",
-        "url"           => "https://github.com",
-        "verify_ssl"    => false,
-        "args"          => { "scope" => "user:email" }
+        'name'          => 'github',
+        'app_id'        => '{{ github_app_id }}',
+        'app_secret'    => '{{ github_app_secret }}',
+        'url'           => 'https://github.com',
+        'verify_ssl'    => false,
+        'args'          => { 'scope' => 'user:email' }
+    },
+    {
+        'name' => 'oauth2_generic',
+        'app_id' => 'vqzxp5hRNpfCdRvGNcaPNLCakDHaBlys5x2inocj',
+        'app_secret' => 'H9qV7c5jjkuh5wBif2Y3MOxoBivAIrHhH9xDXXbsR4ImD7qgkVTzJbE6lRzdURzyendwJtAFV1CtMOOHHWx7OhuM3ctklJUgVszMZdZsvPTvdQZTJB6eYYl46QmOyC2Q',
+        'args' => {
+                name: 'Zeus',
+                client_options: {
+                        site:          'https://adams.ugent.be',
+                        authorize_url: '/oauth/oauth2/authorize/',
+                        token_url:     '/oauth/oauth2/token/',
+                        user_info_url: '/oauth/api/current_user/'
+                },
+                user_response_structure: {
+                        attributes: { nickname: 'username' }
+                },
+                strategy_class: 'OmniAuth::Strategies::OAuth2Generic'
+        }
     }
 ]
 

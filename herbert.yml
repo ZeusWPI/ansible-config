@@ -48,6 +48,8 @@
     - role: geerlingguy.gitlab
       github_app_secret: "{{ gitlab.github_app_secret }}"
       github_app_id: "{{ gitlab.github_app_id }}"
+      zeus_app_secret: "{{ gitlab.zeus_app_secret }}"
+      zeus_app_id: "{{ gitlab.zeus_app_id }}"
       gitlab_config_template: 'host_files/herbert/gitlab.rb.j2'
       gitlab_create_self_signed_cert: false
       tags:
