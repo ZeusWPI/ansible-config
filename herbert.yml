@@ -72,7 +72,9 @@
       # automatic upgrades does not mean that rocket.chat will update itself,
       # when ansible runs and the version changes, the ansible role will
       # migrate to the newest version
-      rocket_chat_automatic_upgrades: true
+      # ! Only set this to true when an upgrade has to be done, otherwise
+      # it will always perform the (slow) steps to upgrade
+      rocket_chat_automatic_upgrades: false
       rocket_chat_include_nginx: false
       tags:
         - rocketchat
