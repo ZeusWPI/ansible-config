@@ -1,0 +1,15 @@
+server {
+    listen 80;
+    server_name ~^(?<pr>\d+)\.pr\.zeus\.gent$;
+
+    location / {
+        root   /home/zeuspr/public/$pr;
+    }
+}
+
+server {
+    listen 443;
+    server_name ~^(?<pr>\d+)\.pr\.zeus\.gent$;
+
+    return 302 http://$pr.zeus.gent;
+}
