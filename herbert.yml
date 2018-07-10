@@ -61,19 +61,21 @@
         - nginx
         - gitlab
 
-# Share won't mount on debian 9 somehow...
-#    - role: cifs_share
-#      share:
-#        name: battlebots-data # We're re-using an old share
-#        dest: /var/opt/gitlab/git-data/repositories
-#        username: "{{ gitlab.share_username }}"
-#        password: "{{ gitlab.share_password }}"
-#        owner: git
-#        dir_mode: 02770
-#        file_mode: 02660
-#      tags:
-#        - shares
-#        - gitlab
+    # gitlab uses symlinks, which CIFS does not support
+    # so we just mount it
+    - role: cifs_share
+      share:
+        name: battlebots-data
+        dest: /mnt/battlebots
+        username: "{{ gitlab.share_username }}"
+        password: "{{ gitlab.share_password }}"
+        owner: root
+        group: root
+        dir_mode: '0770'
+        file_mode: '0660'
+      tags:
+        - shares
+        - gitlab
 
 
     ###############################

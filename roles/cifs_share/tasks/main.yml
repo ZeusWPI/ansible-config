@@ -13,7 +13,7 @@
 - name: Mount defined shares
   mount:
     name: "{{ share.dest }}"
-    src: "//files.ugent.be/{{ share.username }}/shares/{{ share.name }}"
+    src: "//gokar.ugent.be/{{ share.name }}"
     fstype: cifs
     opts: "credentials=/root/.smbcredentials-{{ share.name }},iocharset=utf8,sec=ntlmssp,uid={{ share.owner }},gid={{ share.owner }},dir_mode={{ share.dir_mode }},file_mode={{ share.file_mode }}"
     state: mounted
