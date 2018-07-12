@@ -8,7 +8,7 @@
   vars_files:
     - vars/herbert_secrets.yml
 
-  tasks:
+  pre_tasks:
     - name: Update system
       apt:
         update_cache: yes
@@ -83,7 +83,7 @@
     ###############################
 
     # NodeJS global
-    # (rocketchat will install a local version, but the global version is 
+    # (rocketchat will install a local version, but the global version is
     # needed to install  the N version manager)
     - role: nodejs
       nodejs_version: 10.x
@@ -106,7 +106,7 @@
         - rocketchat
 
     # The actual Rocket.Chat role (https://github.com/RocketChat/Rocket.Chat.Ansible)
-    # Currently a fork which supports debian 9: 
+    # Currently a fork which supports debian 9:
     # https://github.com/RocketChat/Rocket.Chat.Ansible/pull/89
     # TODO: use the normal role when PR is merged
     - role: Rocket.Chat.Ansible
@@ -144,3 +144,17 @@
         - nginx
         - pr
 
+    ###########
+    # postfix #
+    ###########
+
+    - role: postfix
+      postfix_mailname: herbert.ugent.be
+      postfix_hostname: herbert.ugent.be
+      postfix_alias_maps:
+        - "hash:/etc/aliases"
+      postfix_destinations:
+        - localhost
+        - herbert.ugent.be
+      postfix_fallback: #Geen
+      tags: postfix
