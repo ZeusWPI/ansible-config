@@ -17,11 +17,13 @@ king ansible_ssh_host=zeus.ugent.be ansible_ssh_port=2222
 adams ansible_ssh_host=adams.ugent.be ansible_ssh_port=2222
 events ansible_ssh_host=events.ugent.be ansible_ssh_port=2222
 herbert ansible_ssh_host=herbert.ugent.be ansible_ssh_port=2222
-tolkien ansible_ssh_host=10.0.0.9 ansible_ssh_port=22
 
 [arch]
 verne ansible_ssh_host=verne-beta.kelder.zeus.ugent.be ansible_ssh_port=2222
 gygax ansible_ssh_host=gygax.kelder.zeus.ugent.be
+
+[alpine]
+tolkien ansible_ssh_host=10.0.0.9 ansible_ssh_port=22
 
 [all:vars]
 ansible_ssh_user=root
