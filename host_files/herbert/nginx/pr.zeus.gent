@@ -11,5 +11,5 @@ server {
     listen 443;
     server_name ~^(?<pr>\d+)\.pr\.zeus\.gent$;
 
-    return 302 http://$pr.zeus.gent;
+    return 302 http://$pr.pr.zeus.gent;
 }
