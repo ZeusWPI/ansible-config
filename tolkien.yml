@@ -1,0 +1,54 @@
+---
+- name: Tolkien, our container park
+  hosts: tolkien
+  user: root
+
+  pre_tasks:
+    - name: Update system
+      apt:
+        update_cache: yes
+      tags: update
+
+    - name: Install utilities
+      apt:
+        name: "{{ item }}"
+        state: latest
+      with_items:
+        - ack-grep
+        - vim
+        - zsh
+        - tmux
+        - htop
+        - tree
+        - curl
+        - unrar-free
+        - unzip
+        - etckeeper
+        - git-core
+        - nodejs
+        - yarn
+        - speedtest-cli
+        - nmap
+        - sudo
+        - python-pip
+
+  roles:
+    - role: sshkeys
+      tags: sshkeys
+
+    - role: postfix
+      postfix_mailname: kelder.zeus.ugent.be
+      postfix_hostname: kelder.zeus.ugent.be
+      postfix_alias_maps:
+        - "hash:/etc/aliases"
+      postfix_destinations:
+        - localhost
+        - kelder.zeus.ugent.be
+      tags: postfix
+
+    - role: fail2ban
+      tags: fail2ban
+
+    # Remove if another nginx role is added, apparently fail2ban needs nginx
+    - role: nginx_base
+      tags: nginx
