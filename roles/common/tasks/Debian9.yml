@@ -1,0 +1,29 @@
+---
+- name: Update apt
+  apt: update_cache=yes
+
+- name: Install packages that don't need configuration
+  apt: name={{ item }} state=latest
+  with_items:
+    - ack-grep
+    - vim
+    - zsh
+    - tmux
+    - htop
+    - tree
+    - curl
+    - unrar
+    - unzip
+    - etckeeper
+    - git-core
+    - nodejs
+    - yarn
+    - cifs-utils  # share stuff
+    - speedtest-cli
+    - nmap
+    - sudo
+
+- name: Remove packages we don't want
+  apt: name={{ item }} state=absent purge=yes
+  with_items:
+    - apache2

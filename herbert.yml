@@ -1,0 +1,160 @@
+---
+- name: Set-up Herbert, the best VM
+  hosts: herbert
+  user: root
+  vars:
+    gitlab_config_template: 'host_files/herbert/gitlab.rb.j2'
+
+  vars_files:
+    - vars/herbert_secrets.yml
+
+  pre_tasks:
+    - name: Update system
+      apt:
+        update_cache: yes
+      tags: update
+
+    - name: Install utilities
+      apt:
+        name: "{{ item }}"
+        state: latest
+      with_items:
+        - ack-grep
+        - vim
+        - zsh
+        - tmux
+        - htop
+        - tree
+        - curl
+        - unrar
+        - unzip
+        - etckeeper
+        - git-core
+        - nodejs
+        - yarn
+        - speedtest-cli
+        - nmap
+        - sudo
+
+  roles:
+    - role: sshkeys
+      tags: sshkeys
+
+    ##########################
+    # git.zeus.gent (GitLab) #
+    ##########################
+
+    # This installs the GitLab Omnibus package
+    - role: geerlingguy.gitlab
+      github_app_secret: "{{ gitlab.github_app_secret }}"
+      github_app_id: "{{ gitlab.github_app_id }}"
+      zeus_app_secret: "{{ gitlab.zeus_app_secret }}"
+      zeus_app_id: "{{ gitlab.zeus_app_id }}"
+      gitlab_config_template: 'host_files/herbert/gitlab.rb.j2'
+      gitlab_create_self_signed_cert: false
+      tags:
+        - gitlab
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'git.zeus.gent'
+      tags:
+        - nginx
+        - gitlab
+
+    # gitlab uses symlinks, which CIFS does not support
+    # so we just mount it
+    - role: cifs_share
+      share:
+        name: battlebots-data
+        dest: /mnt/battlebots
+        username: "{{ gitlab.share_username }}"
+        password: "{{ gitlab.share_password }}"
+        owner: root
+        group: root
+        dir_mode: '0770'
+        file_mode: '0660'
+      tags:
+        - shares
+        - gitlab
+
+
+    ###############################
+    # chat.zeus.gent (Rocketchat) #
+    ###############################
+
+    # NodeJS global
+    # (rocketchat will install a local version, but the global version is
+    # needed to install  the N version manager)
+    - role: nodejs
+      nodejs_version: 10.x
+      tags:
+        - rocketchat
+
+    # Database: MongoDB
+    # TODO: currently a custom mongoDB version is provided by
+    #       the rocketchat role, but we want our own role for that
+    # - role: mongodb
+    #  tags:
+    #    - mongodb
+    #    - rocketchat
+
+    # vhost file for our reverse proxy
+    - role: nginx_vhost
+      nginx_vhost_file: 'chat.zeus.gent'
+      tags:
+        - nginx
+        - rocketchat
+
+    # The actual Rocket.Chat role (https://github.com/RocketChat/Rocket.Chat.Ansible)
+    # Currently a fork which supports debian 9:
+    # https://github.com/RocketChat/Rocket.Chat.Ansible/pull/89
+    # TODO: use the normal role when PR is merged
+    - role: Rocket.Chat.Ansible
+      rocket_chat_service_host: chat.zeus.gent
+      # automatic upgrades does not mean that rocket.chat will update itself,
+      # when ansible runs and the version changes, the ansible role will
+      # migrate to the newest version
+      # ! Only set this to true when an upgrade has to be done, otherwise
+      # it will always perform the (slow) steps to upgrade
+      rocket_chat_automatic_upgrades: false
+      rocket_chat_include_nginx: false
+      tags:
+        - rocketchat
+
+    ################
+    # pr.zeus.gent #
+    ################
+
+    - role: user
+      user_name: zeuspr
+      user_shell: /bin/sh
+      user_directories:
+        - directory: 'public'
+          mode: '0755'
+          group: 'www-data'
+      user_authorized_keys:
+        - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC1XoPJu+IeqcjDHmzDCwPbRll50sc89eEM/jxGqf/oRLC3i+Iy5HrnMyC01IvMWkMxKkU6aS3yieh+TQvI3+vb3j3wCgsE7YKwWon8Bzya/IW8xUHFXIKINqf6JOoaDMhSZnamuSzSCLzQrrQW9wF+Hk2dSPLIkHBJoXkoNKyruTEdtaFiows9fzj14K0ONOsEyRqYZtkda29Z8Q2JKbGqNZrJzT8walwJt7Sjphxb3wovhRzF6Y9h4lgRQREAxekTbBwT9+SM+DEKMSMMS8xFeCYRYbdi6GJdpl/A6XVnJ15hdSUvbUZ7cFp0bo2Ji3jdwiojyHkHRJo2tA14HuGN13yc7fvkDAPEWncf155kFlUEzJkcELagSwNKHVDGMQmNsmoje3raWAdFDvcZ2qZ3wId7eKi3Onml9QC4vIUGz8AAUw5Oo1HQDKdc0s6PTHByDWWE7L7lhpjpMS0wcRu+Zpd28D9YAyDxccDxC68jPloYi66Wx7tDpVaGpY5OFqRr49VL800QKvgkJAodDWBqbOtw6MgTAgzfOh88YNPeQwx3AZxDfxuLl6ekb93agNMqd7N1rf7zUIyE89Ddyyjl2/sW8kaktwlFEYGaPH8Emsv4kp1s8xtVgTUinQ2KQDK5TJANqLR3CyWFHabRUt8YGddKZnPSjCY73HsdBTuFIQ=='
+      tags:
+        - pr
+        - user
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'pr.zeus.gent'
+      tags:
+        - nginx
+        - pr
+
+    ###########
+    # postfix #
+    ###########
+
+    - role: postfix
+      postfix_mailname: herbert.ugent.be
+      postfix_hostname: herbert.ugent.be
+      postfix_alias_maps:
+        - "hash:/etc/aliases"
+      postfix_destinations:
+        - localhost
+        - herbert.ugent.be
+      postfix_fallback: #Geen
+      tags: postfix

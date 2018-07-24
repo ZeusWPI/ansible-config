@@ -1,0 +1,22 @@
+---
+- name: Create user
+  user:
+    name: "{{ user_name }}"
+    shell: "{{ user_shell }}"
+  register: user
+
+- name: Create directies
+  file:
+    path: "{{ user.home }}/{{ item.directory }}"
+    mode: "{{ item.mode }}"
+    owner: "{{ item.owner | default(user.name) }}"
+    group: "{{ item.group | default(user.name) }}"
+    state: directory
+  with_items: "{{ user_directories }}"
+
+- name: Install authorized keys
+  authorized_key:
+    user: "{{ user.name }}"
+    key: "{{ item }}"
+  with_items: "{{ user_authorized_keys }}"
+

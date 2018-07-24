@@ -1,0 +1,55 @@
+upstream gitlab-workhorse {
+  server unix://var/opt/gitlab/gitlab-workhorse/socket fail_timeout=0;
+}
+
+server {
+  listen 80;
+  server_name git.zeus.gent;
+
+  if ($request_method = GET) {
+    return 301 https://$server_name$request_uri;
+  }
+
+  return 308 https://$server_name$request_uri;
+
+  include snippets/letsencrypt.conf;
+}
+
+server {
+  listen 443 ssl http2;
+  server_name git.zeus.gent;
+
+  include snippets/ssl_options.conf;
+  include snippets/letsencrypt.conf;
+
+  ssl_certificate /etc/letsencrypt/live/git.zeus.gent/fullchain.pem;
+  ssl_certificate_key /etc/letsencrypt/live/git.zeus.gent/privkey.pem;
+
+  server_tokens off;
+  root /opt/gitlab/embedded/service/gitlab-rails/public;
+
+  client_max_body_size 250m;
+
+  access_log  /var/log/gitlab/nginx/gitlab_access.log;
+  error_log   /var/log/gitlab/nginx/gitlab_error.log;
+
+
+  location / {
+    gzip off;
+
+    ## https://github.com/gitlabhq/gitlabhq/issues/694
+    ## Some requests take more than 30 seconds.
+    proxy_read_timeout      300;
+    proxy_connect_timeout   300;
+    proxy_redirect          off;
+
+    proxy_http_version 1.1;
+
+    proxy_set_header    Host                $http_host;
+    proxy_set_header    X-Real-IP           $remote_addr;
+    proxy_set_header    X-Forwarded-For     $proxy_add_x_forwarded_for;
+    proxy_set_header    X-Forwarded-Proto   $scheme;
+
+    proxy_pass http://gitlab-workhorse;
+  }
+}

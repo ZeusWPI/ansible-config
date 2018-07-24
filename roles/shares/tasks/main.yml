@@ -6,7 +6,7 @@
     mode: 0600
   with_items: "{{ shares }}"
 
-- name: Mount defined shares
+- name: Mount share
   mount:
     name: "{{ item.dest }}"
     src: "//files.ugent.be/{{ item.username }}/shares/{{ item.name }}"
@@ -14,3 +14,4 @@
     opts: "credentials=/root/.smbcredentials-{{ item.name }},iocharset=utf8,sec=ntlmssp,uid={{ item.owner }},gid={{ item.owner }}"
     state: mounted
   with_items: "{{ shares }}"
+

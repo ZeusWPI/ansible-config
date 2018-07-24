@@ -1,26 +1,44 @@
 # The URL through which GitLab will be accessed.
-external_url "https://git.zeuswpi.org"
+external_url "https://git.zeus.gent"
 
 nginx['enable'] = false
-unicorn['enable'] = false
-gitlab_rails['internal_api_url'] = 'https://git.zeuswpi.org'
+unicorn['enable'] = true
+gitlab_rails['internal_api_url'] = 'https://git.zeus.gent'
 web_server['external_users'] = ['www-data']
 
 gitlab_rails['gitlab_shell_ssh_port'] = 2222
 
 gitlab_rails['omniauth_enabled'] = true
-gitlab_rails['omniauth_allow_single_sign_on'] = ['saml', 'github']
+gitlab_rails['omniauth_allow_single_sign_on'] = ['github', 'Zeus']
 gitlab_rails['omniauth_auto_link_ldap_user'] = true
 gitlab_rails['omniauth_block_auto_created_users'] = false
 gitlab_rails['omniauth_providers'] = [
-	{
-		"name" => "github",
-		"app_id" => "{{ github.app_id }}",
-		"app_secret" => "{{ github.app_secret }}",
-    "url" => "https://github.com",
-    "verify_ssl" => false,
-		"args" => { "scope" => "user:email" }
-	}
+    {
+        'name'          => 'github',
+        'app_id'        => '{{ github_app_id }}',
+        'app_secret'    => '{{ github_app_secret }}',
+        'url'           => 'https://github.com',
+        'verify_ssl'    => false,
+        'args'          => { 'scope' => 'user:email' }
+    },
+    {
+        'name' => 'oauth2_generic',
+        'app_id' => '{{ zeus_app_id }}',
+        'app_secret' => '{{ zeus_app_secret }}',
+        'args' => {
+                name: 'Zeus',
+                client_options: {
+                        site:          'https://adams.ugent.be',
+                        authorize_url: '/oauth/oauth2/authorize/',
+                        token_url:     '/oauth/oauth2/token/',
+                        user_info_url: '/oauth/api/current_user/'
+                },
+                user_response_structure: {
+                        attributes: { nickname: 'username' }
+                },
+                strategy_class: 'OmniAuth::Strategies::OAuth2Generic'
+        }
+    }
 ]
 
 # gitlab.yml configuration
@@ -33,11 +51,8 @@ nginx['redirect_http_to_https'] = false
 nginx['ssl_certificate'] = "/etc/gitlab/ssl/gitlab.crt"
 nginx['ssl_certificate_key'] = "/etc/gitlab/ssl/gitlab.key"
 
-# The directory where Git repositories will be stored.
-git_data_dirs({"default" => "/mnt/matches/gitlab"})
-
 # The directory where Gitlab backups will be stored
-gitlab_rails['backup_path'] = "/mnt/matches/backups"
+# gitlab_rails['backup_path'] = "/mnt/repos/backups"
 
 # These settings are documented in more detail at
 # https://gitlab.com/gitlab-org/gitlab-ce/blob/master/config/gitlab.yml.example#L118

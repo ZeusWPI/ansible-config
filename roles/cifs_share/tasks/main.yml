@@ -1,0 +1,19 @@
+---
+- name: Install cifs
+  apt:
+    name: cifs-utils
+    state: present
+
+- name: Copy smbcredentials
+  template:
+    src: smbcredentials.yml.j2
+    dest: "/root/.smbcredentials-{{ share.name }}"
+    mode: 0600
+
+- name: Mount defined shares
+  mount:
+    name: "{{ share.dest }}"
+    src: "//gokar.ugent.be/{{ share.name }}"
+    fstype: cifs
+    opts: "credentials=/root/.smbcredentials-{{ share.name }},iocharset=utf8,sec=ntlmssp,uid={{ share.owner }},gid={{ share.owner }},dir_mode={{ share.dir_mode }},file_mode={{ share.file_mode }}"
+    state: mounted
