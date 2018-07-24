@@ -4,7 +4,7 @@
   register: fail2ban_install
 
 - name: Copy jail.local
-  copy: src=jail.local dest=/etc/fail2ban/jail.local
+  copy: src={{ fail2ban_config_location }}/jail.local dest=/etc/fail2ban/jail.local
   notify:
     - Restart fail2ban
 
@@ -22,4 +22,3 @@
   copy: src=filter.d/ dest=/etc/fail2ban/filter.d/
   notify:
     - Restart fail2ban
-

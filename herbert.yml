@@ -156,3 +156,6 @@
         - herbert.ugent.be
       postfix_fallback: #Geen
       tags: postfix
+
+    - role: fail2ban
+      tags: fail2ban

@@ -14,4 +14,3 @@
 
 - name: Check configuration
   command: /usr/sbin/nginx -t
-
