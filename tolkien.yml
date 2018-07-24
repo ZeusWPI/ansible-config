@@ -52,3 +52,6 @@
     # Remove if another nginx role is added, apparently fail2ban needs nginx
     - role: nginx_base
       tags: nginx
+
+  vars_files:
+    - vars/authorized_keys.yml
