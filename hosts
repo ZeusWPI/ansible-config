@@ -19,11 +19,5 @@ events ansible_ssh_host=events.ugent.be ansible_ssh_port=2222
 herbert ansible_ssh_host=herbert.ugent.be ansible_ssh_port=2222
 tolkien ansible_ssh_host=10.0.0.9 ansible_ssh_port=22
 
-[arch]
-verne ansible_ssh_host=verne-beta.kelder.zeus.ugent.be ansible_ssh_port=2222
-gygax ansible_ssh_host=gygax.kelder.zeus.ugent.be
-
 [all:vars]
 ansible_ssh_user=root
-[arch:vars]
-ansible_python_interpreter=/bin/python2
