@@ -2,8 +2,6 @@
 - name: Set-up Herbert, the best VM
   hosts: herbert
   user: root
-  vars:
-    gitlab_config_template: 'host_files/herbert/gitlab.rb.j2'
 
   vars_files:
     - vars/herbert_secrets.yml
