@@ -54,3 +54,4 @@
     - vars/passwords.yml
     - vars/ruby.yml
     - vars/monit.yml
+    - vars/authorized_keys.yml
