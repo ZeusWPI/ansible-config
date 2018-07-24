@@ -3,6 +3,9 @@
   hosts: tolkien
   user: root
 
+  vars_files:
+    - vars/authorized_keys.yml
+
   pre_tasks:
     - name: Update system
       apk:

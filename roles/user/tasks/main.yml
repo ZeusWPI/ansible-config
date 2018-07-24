@@ -17,6 +17,5 @@
 - name: Install authorized keys
   authorized_key:
     user: "{{ user.name }}"
-    key: "{{ item }}"
-  with_items: "{{ user_authorized_keys }}"
-
+    key: "{{ user_authorized_keys }}"
+    exclusive: False

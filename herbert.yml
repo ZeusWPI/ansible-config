@@ -5,6 +5,7 @@
 
   vars_files:
     - vars/herbert_secrets.yml
+    - vars/authorized_keys.yml
 
   pre_tasks:
     - name: Update system
@@ -130,8 +131,7 @@
         - directory: 'public'
           mode: '0755'
           group: 'www-data'
-      user_authorized_keys:
-        - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC1XoPJu+IeqcjDHmzDCwPbRll50sc89eEM/jxGqf/oRLC3i+Iy5HrnMyC01IvMWkMxKkU6aS3yieh+TQvI3+vb3j3wCgsE7YKwWon8Bzya/IW8xUHFXIKINqf6JOoaDMhSZnamuSzSCLzQrrQW9wF+Hk2dSPLIkHBJoXkoNKyruTEdtaFiows9fzj14K0ONOsEyRqYZtkda29Z8Q2JKbGqNZrJzT8walwJt7Sjphxb3wovhRzF6Y9h4lgRQREAxekTbBwT9+SM+DEKMSMMS8xFeCYRYbdi6GJdpl/A6XVnJ15hdSUvbUZ7cFp0bo2Ji3jdwiojyHkHRJo2tA14HuGN13yc7fvkDAPEWncf155kFlUEzJkcELagSwNKHVDGMQmNsmoje3raWAdFDvcZ2qZ3wId7eKi3Onml9QC4vIUGz8AAUw5Oo1HQDKdc0s6PTHByDWWE7L7lhpjpMS0wcRu+Zpd28D9YAyDxccDxC68jPloYi66Wx7tDpVaGpY5OFqRr49VL800QKvgkJAodDWBqbOtw6MgTAgzfOh88YNPeQwx3AZxDfxuLl6ekb93agNMqd7N1rf7zUIyE89Ddyyjl2/sW8kaktwlFEYGaPH8Emsv4kp1s8xtVgTUinQ2KQDK5TJANqLR3CyWFHabRUt8YGddKZnPSjCY73HsdBTuFIQ=='
+      user_authorized_keys: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC1XoPJu+IeqcjDHmzDCwPbRll50sc89eEM/jxGqf/oRLC3i+Iy5HrnMyC01IvMWkMxKkU6aS3yieh+TQvI3+vb3j3wCgsE7YKwWon8Bzya/IW8xUHFXIKINqf6JOoaDMhSZnamuSzSCLzQrrQW9wF+Hk2dSPLIkHBJoXkoNKyruTEdtaFiows9fzj14K0ONOsEyRqYZtkda29Z8Q2JKbGqNZrJzT8walwJt7Sjphxb3wovhRzF6Y9h4lgRQREAxekTbBwT9+SM+DEKMSMMS8xFeCYRYbdi6GJdpl/A6XVnJ15hdSUvbUZ7cFp0bo2Ji3jdwiojyHkHRJo2tA14HuGN13yc7fvkDAPEWncf155kFlUEzJkcELagSwNKHVDGMQmNsmoje3raWAdFDvcZ2qZ3wId7eKi3Onml9QC4vIUGz8AAUw5Oo1HQDKdc0s6PTHByDWWE7L7lhpjpMS0wcRu+Zpd28D9YAyDxccDxC68jPloYi66Wx7tDpVaGpY5OFqRr49VL800QKvgkJAodDWBqbOtw6MgTAgzfOh88YNPeQwx3AZxDfxuLl6ekb93agNMqd7N1rf7zUIyE89Ddyyjl2/sW8kaktwlFEYGaPH8Emsv4kp1s8xtVgTUinQ2KQDK5TJANqLR3CyWFHabRUt8YGddKZnPSjCY73HsdBTuFIQ=='
       tags:
         - pr
         - user
@@ -157,5 +157,12 @@
       postfix_fallback: #Geen
       tags: postfix
 
-    - role: fail2ban
-      tags: fail2ban
+      #######
+      # tab #
+      #######
+
+    - role: user
+      user_name: tab
+      tags:
+        - tab
+        - user

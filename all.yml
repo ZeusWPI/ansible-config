@@ -1,5 +1,7 @@
 ---
 - name: Configure all the servers!
   hosts: all
+  vars_files:
+    - vars/authorized_keys.yml
   roles:
     - sshkeys

@@ -57,3 +57,4 @@
 
   vars_files:
     - vars/firewall_rules.yml
+    - vars/authorized_keys.yml

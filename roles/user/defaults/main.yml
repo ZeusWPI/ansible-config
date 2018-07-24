@@ -1,0 +1,3 @@
+user_authorized_keys: "{{ authorized_keys }}"
+user_directories: []
+user_shell: "/bin/bash"
