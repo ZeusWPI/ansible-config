@@ -39,6 +39,10 @@
     - role: sshkeys
       tags: sshkeys
 
+    - role: geerlingguy.mysql
+      tags: db
+    - role: mysql_configs
+      tags: db
     ##########################
     # git.zeus.gent (GitLab) #
     ##########################
