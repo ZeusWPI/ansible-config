@@ -170,3 +170,9 @@
       tags:
         - tab
         - user
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'tab.zeus.gent'
+      tags:
+        - nginx
+        - tab
