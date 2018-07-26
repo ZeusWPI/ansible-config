@@ -1,7 +1,7 @@
 # ansible-config
 
 Ansible is the system that automatically installs the Zeus servers (King, Adams, Dickens, Herbert and Tolkien).
-see https://docs.ansible.com
+See also https://docs.ansible.com.
 
 ## Setup
 
