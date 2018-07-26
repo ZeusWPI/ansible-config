@@ -14,6 +14,5 @@ see https://docs.ansible.com
 
 You can run `ansible-playbook site.yml` to deploy a whole playbook. This will probably be pretty slow when developing, so you can also run `ansible-playbook site.yml --tags db` for example to only deploy the tasks tagged with `db`.
 
-The passwords are saved in `vars/passwords.yml` and `vars/herbert_secrets.yml`. This file can be edited
-by issuing the command `ansible-vault edit passwords.yml` when in the same
-directory.
+The passwords are saved in `vars/passwords.yml` and `vars/herbert_secrets.yml`. These files can be edited
+by issuing the command `ansible-vault edit vars/passwords.yml`.
