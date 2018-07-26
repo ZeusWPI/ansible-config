@@ -1,11 +1,19 @@
-ansible-config
-==============
+# ansible-config
 
-Ansible is the system that automatically installs the Zeus servers (specifically Abyss and King).
+Ansible is the system that automatically installs the Zeus servers (King, Adams, Dickens, Herbert and Tolkien).
 see https://docs.ansible.com
 
-To run ansible install ansible (`brew install ansible` on OS X), clone this repository and and run the following command: `ansible-playbook --ask-vault-pass site.yml -i hosts`
+## Setup
 
-The passwords are saved in vars/passwords.yml. This file can be edited
+1. Install Ansible (`brew install ansible` on OS X)
+2. Clone this repository
+3. Set the server password in `~/.vault-pass.txt`
+4. Ask current sysadmins to add your SSH key to `vars/authorized_keys.yml`
+
+## Deploy
+
+You can run `ansible-playbook site.yml` to deploy a whole playbook. This will probably be pretty slow when developing, so you can also run `ansible-playbook site.yml --tags db` for example to only deploy the tasks tagged with `db`.
+
+The passwords are saved in `vars/passwords.yml` and `vars/herbert_secrets.yml`. This file can be edited
 by issuing the command `ansible-vault edit passwords.yml` when in the same
-directory. The password used to encrypt this is the general zeus root password that is used for everyting.
+directory.
