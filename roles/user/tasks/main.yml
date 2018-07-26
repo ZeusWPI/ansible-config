@@ -8,7 +8,7 @@
 - name: Create directies
   file:
     path: "{{ user.home }}/{{ item.directory }}"
-    mode: "{{ item.mode }}"
+    mode: "{{ item.mode | default('0755')}}"
     owner: "{{ item.owner | default(user.name) }}"
     group: "{{ item.group | default(user.name) }}"
     state: directory
