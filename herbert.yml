@@ -39,6 +39,13 @@
     - role: sshkeys
       tags: sshkeys
 
+    # Install database server
+    - role: geerlingguy.mysql
+      tags: db
+
+    # Add users
+    - role: mysql_configs
+      tags: db
     ##########################
     # git.zeus.gent (GitLab) #
     ##########################
@@ -129,7 +136,6 @@
       user_shell: /bin/sh
       user_directories:
         - directory: 'public'
-          mode: '0755'
           group: 'www-data'
       user_authorized_keys: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC1XoPJu+IeqcjDHmzDCwPbRll50sc89eEM/jxGqf/oRLC3i+Iy5HrnMyC01IvMWkMxKkU6aS3yieh+TQvI3+vb3j3wCgsE7YKwWon8Bzya/IW8xUHFXIKINqf6JOoaDMhSZnamuSzSCLzQrrQW9wF+Hk2dSPLIkHBJoXkoNKyruTEdtaFiows9fzj14K0ONOsEyRqYZtkda29Z8Q2JKbGqNZrJzT8walwJt7Sjphxb3wovhRzF6Y9h4lgRQREAxekTbBwT9+SM+DEKMSMMS8xFeCYRYbdi6GJdpl/A6XVnJ15hdSUvbUZ7cFp0bo2Ji3jdwiojyHkHRJo2tA14HuGN13yc7fvkDAPEWncf155kFlUEzJkcELagSwNKHVDGMQmNsmoje3raWAdFDvcZ2qZ3wId7eKi3Onml9QC4vIUGz8AAUw5Oo1HQDKdc0s6PTHByDWWE7L7lhpjpMS0wcRu+Zpd28D9YAyDxccDxC68jPloYi66Wx7tDpVaGpY5OFqRr49VL800QKvgkJAodDWBqbOtw6MgTAgzfOh88YNPeQwx3AZxDfxuLl6ekb93agNMqd7N1rf7zUIyE89Ddyyjl2/sW8kaktwlFEYGaPH8Emsv4kp1s8xtVgTUinQ2KQDK5TJANqLR3CyWFHabRUt8YGddKZnPSjCY73HsdBTuFIQ=='
       tags:
@@ -163,6 +169,34 @@
 
     - role: user
       user_name: tab
+      user_directories:
+        - directory: 'log'
       tags:
         - tab
         - user
+
+    # TODO automate capistrano deploy
+    - role: nginx_vhost
+      nginx_vhost_file: 'tab.zeus.gent'
+      tags:
+        - nginx
+        - tab
+
+    #######
+    # tap #
+    #######
+
+    - role: user
+      user_name: tap
+      user_directories:
+        - directory: 'log'
+      tags:
+        - tap
+        - user
+
+    # TODO automate capistrano deploy
+    - role: nginx_vhost
+      nginx_vhost_file: 'tap.zeus.gent'
+      tags:
+        - nginx
+        - tap

@@ -16,7 +16,7 @@ clamav: root
 list-admin: root
 
 # Temp fix for downtime
-bestuur: voorzitter, secretaris, penning, admin, project, assisterend
+bestuur: voorzitter, penning, admin, project
 
 event: bestuur
 admin: maertensrien@gmail.com, redfast00+zeusadmin@gmail.com
