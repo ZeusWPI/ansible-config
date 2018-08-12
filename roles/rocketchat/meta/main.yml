@@ -1,8 +1,0 @@
----
-dependencies:
-  - role: nginx_vhost
-    nginx_vhost_file: 'chat.zeus.gent'
-    nginx_vhost_location: 'roles/rocketchat/files/nginx'
-    tags:
-      - nginx
-
