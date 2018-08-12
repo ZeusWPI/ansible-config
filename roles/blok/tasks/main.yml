@@ -1,0 +1,20 @@
+---
+- name: Cloning blok repo
+  git:
+    repo: 'https://github.com/ZeusWPI/blokmap.git'
+    dest: /home/blok/public
+    update: no
+  become_user: blok
+
+- name: Update to latest release
+  shell: ./deploy.sh
+  args:
+    chdir: /home/blok/public
+  become_user: blok
+  register: blok_update
+  changed_when: 'blok_update.rc != 20'
+  failed_when: 'blok_update.rc != 20 and blok_update.rc != 0'
+
+
+- debug:
+    msg: '{{ blok_update }}'

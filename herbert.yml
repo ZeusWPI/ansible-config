@@ -200,3 +200,26 @@
       tags:
         - nginx
         - tap
+
+    ###########
+    # blokmap #
+    ###########
+
+    - role: user
+      user_name: blok
+      user_directories:
+          - directory: 'log'
+          - directory: 'public'
+      tags:
+          - blok
+          - user
+
+    # This git clones and updates the version of blokmap on the server
+    - role: blok
+      tags: blok
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'blok.ugent.be'
+      tags:
+          - nginx
+          - blok
