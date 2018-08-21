@@ -223,3 +223,20 @@
       tags:
           - nginx
           - blok
+
+    # ZINC
+
+    - role: user
+      user_name: zinc
+      user_directories:
+          - directory: 'log'
+          - directory: 'public'
+      tags:
+          - zinc
+          - user
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'zinc.zeus.gent'
+      tags:
+          - nginx
+          - zinc
