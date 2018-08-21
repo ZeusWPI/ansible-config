@@ -7,9 +7,6 @@ server {
     }
 
     return 308 https://$server_name$request_uri;
-
-    access_log /home/tap/log/access.log;
-    error_log  /home/tap/log/error.log;
 }
 
 server {
@@ -25,11 +22,10 @@ server {
         passenger_app_root      /home/tap/production/current;
         passenger_document_root /home/tap/production/current/public;
     }
-    include snippets/ssl_options.conf;
-    include snippets/letsencrypt.conf;
 
-    ssl_certificate /etc/letsencrypt/live/tap.zeus.gent/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/tap.zeus.gent/privkey.pem;
+    ssl_certificate     /root/.acme.sh/*.zeus.gent/fullchain.cer;
+    ssl_certificate_key /root/.acme.sh/*.zeus.gent/*.zeus.gent.key;
+    include snippets/ssl_options.conf;
 
     access_log /home/tap/log/access.log;
     error_log  /home/tap/log/error.log;
