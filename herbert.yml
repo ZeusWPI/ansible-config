@@ -240,3 +240,20 @@
       tags:
           - nginx
           - zinc
+
+    # Haldis
+
+    - role: user
+      user_name: haldis
+      user_directories:
+          - directory: 'log'
+          - directory: 'public'
+      tags:
+          - haldis
+          - user
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'haldis.zeus.gent'
+      tags:
+        - nginx
+        - haldis
