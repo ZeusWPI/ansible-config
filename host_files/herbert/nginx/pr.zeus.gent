@@ -3,10 +3,10 @@ server {
     server_name ~^(?<pr>\d+)\.pr\.zeus\.gent$;
 
     if ($request_method = GET) {
-        return 301 https://$server_name$request_uri;
+        return 301 https://$pr.pr.zeus.gent$request_uri;
     }
 
-    return 308 https://$server_name$request_uri;
+    return 308 https://$pr.pr.zeus.gent$request_uri;
 }
 
 server {
