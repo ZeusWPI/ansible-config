@@ -25,6 +25,8 @@ server {
     expires 31536000s;
     add_header Pragma "public";
     add_header Cache-Control "max-age=31536000, public, must-revalidate, proxy-revalidate";
+    include snippets/securityheaders.conf;
+
     log_not_found off;
 
     ssl_certificate     /root/.acme.sh/*.zeus.gent/fullchain.cer;
