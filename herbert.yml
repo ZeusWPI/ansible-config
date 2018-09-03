@@ -274,3 +274,17 @@
       tags:
         - nginx
         - sadstatus
+
+    # mattermost
+
+    - role: user
+      user_name: mattermost
+      tags:
+          - mattermost
+          - user
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'mattermost.zeus.gent'
+      tags:
+        - nginx
+        - mattermost
