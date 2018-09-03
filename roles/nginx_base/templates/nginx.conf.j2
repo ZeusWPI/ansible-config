@@ -45,9 +45,6 @@ http {
     keepalive_timeout   10;
     types_hash_max_size 2048;
 
-    # Security headers
-    include       snippets/securityheaders.conf;
-
     # vhosts
     include       sites-enabled/*;
 
