@@ -14,7 +14,3 @@
   register: blok_update
   changed_when: 'blok_update.rc != 20'
   failed_when: 'blok_update.rc != 20 and blok_update.rc != 0'
-
-
-- debug:
-    msg: '{{ blok_update }}'

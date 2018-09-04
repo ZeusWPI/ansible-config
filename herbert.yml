@@ -223,3 +223,68 @@
       tags:
           - nginx
           - blok
+
+    # ZINC
+
+    - role: user
+      user_name: zinc
+      user_directories:
+          - directory: 'log'
+          - directory: 'public'
+      tags:
+          - zinc
+          - user
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'zinc.zeus.gent'
+      tags:
+          - nginx
+          - zinc
+
+    # Haldis
+
+    - role: user
+      user_name: haldis
+      user_directories:
+          - directory: 'log'
+          - directory: 'public'
+      tags:
+          - haldis
+          - user
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'haldis.zeus.gent'
+      tags:
+        - nginx
+        - haldis
+
+    # Sadstatus
+
+    - role: user
+      user_name: sadstatus
+      user_directories:
+          - directory: 'log'
+          - directory: 'public'
+      tags:
+          - sadstatus
+          - user
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'sad.zeus.gent'
+      tags:
+        - nginx
+        - sadstatus
+
+    # mattermost
+
+    - role: user
+      user_name: mattermost
+      tags:
+          - mattermost
+          - user
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'mattermost.zeus.gent'
+      tags:
+        - nginx
+        - mattermost

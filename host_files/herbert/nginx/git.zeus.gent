@@ -11,19 +11,15 @@ server {
   }
 
   return 308 https://$server_name$request_uri;
-
-  include snippets/letsencrypt.conf;
 }
 
 server {
   listen 443 ssl http2;
   server_name git.zeus.gent;
 
+  ssl_certificate     /root/.acme.sh/*.zeus.gent/fullchain.cer;
+  ssl_certificate_key /root/.acme.sh/*.zeus.gent/*.zeus.gent.key;
   include snippets/ssl_options.conf;
-  include snippets/letsencrypt.conf;
-
-  ssl_certificate /etc/letsencrypt/live/git.zeus.gent/fullchain.pem;
-  ssl_certificate_key /etc/letsencrypt/live/git.zeus.gent/privkey.pem;
 
   server_tokens off;
   root /opt/gitlab/embedded/service/gitlab-rails/public;

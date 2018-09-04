@@ -14,3 +14,4 @@
 
 - name: Check configuration
   command: /usr/sbin/nginx -t
+  changed_when: False

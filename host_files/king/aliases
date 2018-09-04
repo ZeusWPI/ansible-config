@@ -16,7 +16,7 @@ clamav: root
 list-admin: root
 
 # Temp fix for downtime
-bestuur: voorzitter, penning, admin, project
+bestuur: voorzitter, penning, admin, project, pr
 
 event: bestuur
 admin: maertensrien@gmail.com, redfast00+zeusadmin@gmail.com
@@ -24,8 +24,10 @@ voorzitter: maertensrien@gmail.com, robbevanherck1@gmail.com
 # Assisterend en secretaris bestaan niet meer
 assisterend: bestuur
 secretaris: bestuur
-project: wout.schellaert@ugent.be, arnebertrand@gmail.com
+project:  arnebertrand@gmail.com
+pr: wout.schellaert@ugent.be
 penning: timo.dewaele@ugent.be
+
 
 # Slack owner
 slack: admin

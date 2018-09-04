@@ -22,8 +22,8 @@ server {
     ####################
     include snippets/letsencrypt.conf;
     include snippets/ssl_options.conf;
-    ssl_certificate /etc/letsencrypt/live/blok.ugent.be/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/blok.ugent.be/privkey.pem;
+    ssl_certificate     /root/.acme.sh/blok.ugent.be/fullchain.cer;
+    ssl_certificate_key /root/.acme.sh/blok.ugent.be/blok.ugent.be.key;
 
     ####################
     # DEFAULT LOG PATHS
