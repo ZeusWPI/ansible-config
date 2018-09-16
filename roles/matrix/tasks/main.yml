@@ -4,14 +4,28 @@
     url: https://matrix.org/packages/debian/repo-key.asc
     id: AD0592FE47F0DF61
 
+- name: Add riot.im repo key
+  apt_key:
+    url: https://riot.im/packages/debian/repo-key.asc
+    id: E019645248E8F4A1
+
 - name: Add matrix repository
   apt_repository:
     repo: deb https://matrix.org/packages/debian/ stretch main
     state: present
 
-- name: Install matrix synapse
+- name: Add riot.im repository
+  apt_repository:
+    repo: deb https://riot.im/packages/debian/ stretch main
+    state: present
+
+- name: Install matrix synapse and web client
   apt:
-    pkg: matrix-synapse
+    pkg: "{{ item }}"
+  with_items:
+    - matrix-synapse
+    - matrix-synapse-angular-client
+    - riot-web
   notify: restart matrix
 
 - name: Copy homeserver config

@@ -293,3 +293,9 @@
     - role: matrix
       tags: matrix
 
+    - role: nginx_vhost
+      nginx_vhost_file: 'matrix.zeus.gent'
+      tags:
+        - nginx
+        - matrix
+
