@@ -288,3 +288,8 @@
       tags:
         - nginx
         - mattermost
+
+    # matrix
+    - role: matrix
+      tags: matrix
+

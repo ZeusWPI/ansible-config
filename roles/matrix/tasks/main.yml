@@ -1,0 +1,28 @@
+---
+- name: Add matrix repo key
+  apt_key: 
+    url: https://matrix.org/packages/debian/repo-key.asc
+    id: AD0592FE47F0DF61
+
+- name: Add matrix repository
+  apt_repository:
+    repo: deb https://matrix.org/packages/debian/ stretch main
+    state: present
+
+- name: Install matrix synapse
+  apt:
+    pkg: matrix-synapse
+  notify: restart matrix
+
+- name: Copy homeserver config
+  template:
+    src: homeserver.yaml.j2
+    dest: /etc/matrix-synapse/homeserver.yaml
+  notify: restart matrix
+
+- name: Start and enable matrix
+  service:
+    name: matrix-synapse
+    state: started
+    enabled: yes
+

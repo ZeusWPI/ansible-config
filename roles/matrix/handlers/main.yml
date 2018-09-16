@@ -1,0 +1,5 @@
+---
+- name: 'restart matrix'
+  service:
+    name: matrix-synapse
+    state: restarted
