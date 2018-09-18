@@ -64,3 +64,26 @@ server {
        proxy_pass http://mattermost;
    }
 }
+
+# redirect
+server {
+    listen 443 ssl http2;
+    server_name chat.zeus.gent;
+
+    ####################
+    # SSL OPTIONS
+    ####################
+
+    ssl_certificate     /root/.acme.sh/*.zeus.gent/fullchain.cer;
+    ssl_certificate_key /root/.acme.sh/*.zeus.gent/*.zeus.gent.key;
+    include snippets/ssl_options.conf;
+
+    return 302 https://mattermost.zeus.gent$request_uri;
+}
+
+server {
+    listen 80;
+    server_name chat.zeus.gent;
+
+    return 302 https://mattermost.zeus.gent$request_uri;
+}
