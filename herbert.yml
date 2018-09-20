@@ -245,13 +245,10 @@
         - nginx
         - mattermost
 
-    # matrix
-    - role: matrix
-      tags: matrix
-
-    - role: nginx_vhost
-      nginx_vhost_file: 'matrix.zeus.gent'
-      tags:
-        - nginx
-        - matrix
+    # irc
+    - role: irc
+      irc_name: irc.zeus.gent
+      irc_network_name: zeus.gent
+      irc_network_desc: Zeus WPI's network
+      tags: irc
 
