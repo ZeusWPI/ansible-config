@@ -245,10 +245,18 @@
         - nginx
         - mattermost
 
-    # irc
-    - role: irc
-      irc_name: irc.zeus.gent
-      irc_network_name: zeus.gent
-      irc_network_desc: Zeus WPI's network
-      tags: irc
+    # Mattermore (mattermost integrations)
+    - role: user
+      user_name: mattermore
+      user_directories:
+          - directory: 'log'
+          - directory: 'public'
+      tags:
+          - mattermore
+          - user
 
+    - role: nginx_vhost
+      nginx_vhost_file: 'mattermore.zeus.gent'
+      tags:
+        - nginx
+        - mattermore
