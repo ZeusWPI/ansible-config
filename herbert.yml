@@ -260,3 +260,21 @@
       tags:
         - nginx
         - mattermore
+
+     # Endorsement
+
+    - role: user
+      user_name: endorsement
+      user_directories:
+          - directory: 'log'
+          - directory: 'public'
+      tags:
+          - endorsement
+          - user
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'endorsement.zeus.gent'
+      tags:
+        - nginx
+        - endorsement
+
