@@ -278,3 +278,12 @@
         - nginx
         - endorsement
 
+    - role: user
+      user_name: matterircd
+      user_directories:
+        - directory: 'log'
+        - directory: 'public'
+      tags:
+        - matterircd
+        - user
+
