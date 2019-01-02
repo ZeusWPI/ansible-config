@@ -19,7 +19,7 @@
     - Restart nginx
 
 - name: Install a strong DH group
-  command: openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
+  command: openssl dhparam -out /etc/ssl/certs/dhparam.pem 4096
   args:
     creates: /etc/ssl/certs/dhparam.pem
 
