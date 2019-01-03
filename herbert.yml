@@ -117,6 +117,7 @@
         - localhost
         - herbert.ugent.be
       postfix_fallback: #Geen
+      filter_spam: False
       tags: postfix
 
       #######
@@ -286,4 +287,3 @@
       tags:
         - matterircd
         - user
-
