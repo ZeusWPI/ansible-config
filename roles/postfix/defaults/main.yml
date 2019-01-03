@@ -13,3 +13,4 @@ postfix_destinations:
   - localhost
 
 postfix_fallback: "smtp:adams.ugent.be"
+filter_spam: True

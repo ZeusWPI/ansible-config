@@ -39,8 +39,10 @@ recipient_delimiter = +
 inet_interfaces = all
 inet_protocols = all
 
+{% if filter_spam %}
 # Filter spam and virusses with Amavis
 content_filter = smtp-amavis:[127.0.0.1]:10024
+{% endif %}
 
 {% if postfix_fallback is defined %}
 # If we don't know the destination, forward to this
