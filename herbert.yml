@@ -287,3 +287,11 @@
       tags:
         - matterircd
         - user
+
+    - role: ansible_cat
+      cat_app_port: 3636
+      cat_postgres_db_port: 9187
+      oauth-consumer-key: "{{ cat_oauth-consumer-key }}"
+      oauth-consumer-secret: "{{ cat_oauth-consumer-secret }}"
+      tags:
+        - cat
