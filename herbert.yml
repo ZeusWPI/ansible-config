@@ -287,3 +287,10 @@
       tags:
         - matterircd
         - user
+
+    # ZeusWPI (Zeus Extraordinary Uploading Service With Productive Interface)
+    - role: nginx_vhost
+      nginx_vhost_file: 'pics.zeus.gent'
+      tags:
+       - nginx
+       - pics
