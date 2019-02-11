@@ -288,10 +288,25 @@
         - matterircd
         - user
 
-    - role: ansible_cat
-      cat_app_port: 3636
-      cat_postgres_db_port: 9187
-      oauth-consumer-key: "{{ cat_oauth-consumer-key }}"
-      oauth-consumer-secret: "{{ cat_oauth-consumer-secret }}"
+    - role: user
+      user_name: cat
       tags:
         - cat
+        - user
+
+    - role: ansible_cat
+      cat_app_host: "https://cat.zeus.gent"
+      cat_app_port: 3636
+      oauth_consumer_key: "{{ cat_oauth_consumer_key }}"
+      oauth_consumer_secret: "{{ cat_oauth_consumer_secret }}"
+      mariadb_root_password: "{{ mysql_root_password }}"
+      cat_db_password: "{{ secret_cat_db_password }}"
+      cat_db_user: "{{ secret_cat_db_user }}"
+      tags:
+          - cat
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'cat.zeus.gent'
+      tags:
+          - nginx
+          - cat

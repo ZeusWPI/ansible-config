@@ -5,4 +5,4 @@
 - src: geerlingguy.mysql
   version: debian9
 - src: git+https://git.zeus.gent/ZeusWPI/ansible_cat.git
-  version: 6a420dee0630ef7e514950cec272faceb709a5bb
+  version: d2e8751da9c275f7eb1a6ce4e4b7426cf7deed0cs
