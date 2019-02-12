@@ -294,3 +294,10 @@
       tags:
        - nginx
        - pics
+
+    # HTTPizza/2.0
+    - role: nginx_vhost
+      nginx_vhost_file: 'pizza.zeus.gent'
+      tags:
+       - nginx
+       - httpizza
