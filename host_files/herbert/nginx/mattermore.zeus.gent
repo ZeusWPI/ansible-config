@@ -17,6 +17,7 @@ server {
         alias /home/mattermore/production/app/public;
 
         passenger_app_root      /home/mattermore/production;
+        passenger_restart_dir   /home/mattermore/production;
 
         passenger_document_root /home/mattermore/production/app/public;
         passenger_enabled on;
