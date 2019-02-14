@@ -1,3 +1,4 @@
+passenger_log_file /home/mattermore/log/server.log;
 server {
     listen 80;
     server_name mattermore.zeus.gent;
