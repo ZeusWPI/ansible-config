@@ -1,6 +1,8 @@
 [DEFAULT]
 destemail = admin@zeus.ugent.be
 action = %(action_mwl)s
+# allow kelder
+ignoreip = 127.0.0.1 157.193.55.1
 
 [ssh]
 enabled  = true
@@ -15,7 +17,7 @@ enabled = true
 filter = nginx-auth
 action = iptables-multiport[name=NoAuthFailures, port="http,https"]
 logpath = /var/log/nginx*/*error*.log
-bantime = 600 # 10 minutes
+bantime = 600
 maxretry = 6
 
 # Block anyone failing to authenticate using our application’s log in page
@@ -24,7 +26,7 @@ enabled = true
 filter = nginx-login
 action = iptables-multiport[name=NoLoginFailures, port="http,https"]
 logpath = /var/log/nginx*/*access*.log
-bantime = 600 # 10 minutes
+bantime = 600
 maxretry = 6
 
 # Block bad bots

@@ -39,6 +39,9 @@
     - role: sshkeys
       tags: sshkeys
 
+    - role: fail2ban
+      tags: fail2ban
+
     # Install database server
     - role: geerlingguy.mysql
       tags: db
