@@ -39,6 +39,9 @@
     - role: sshkeys
       tags: sshkeys
 
+    - role: fail2ban
+      tags: fail2ban
+
     # Install database server
     - role: geerlingguy.mysql
       tags: db
@@ -287,6 +290,30 @@
       tags:
         - matterircd
         - user
+
+
+    - role: user
+      user_name: cat
+      tags:
+        - cat
+        - user
+
+    - role: ansible_cat
+      cat_app_host: "https://cat.zeus.gent"
+      cat_app_port: 3636
+      oauth_consumer_key: "{{ cat_oauth_consumer_key }}"
+      oauth_consumer_secret: "{{ cat_oauth_consumer_secret }}"
+      mariadb_root_password: "{{ mysql_root_password }}"
+      cat_db_password: "{{ secret_cat_db_password }}"
+      cat_db_user: "{{ secret_cat_db_user }}"
+      tags:
+          - cat
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'cat.zeus.gent'
+      tags:
+          - nginx
+          - cat
 
     # ZeusWPI (Zeus Extraordinary Uploading Service With Productive Interface)
     - role: nginx_vhost
