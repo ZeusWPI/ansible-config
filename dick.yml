@@ -1,60 +1,41 @@
 ---
-- name: Raise dick.
-  hosts: dick
+- name: Raise dick!
+  hosts: dickens
   user: root
 
+  vars_files:
+    - vars/authorized_keys.yml
+
+  pre_tasks:
+    - name: Update system
+      apt:
+        update_cache: yes
+      tags: update
+
+    - name: Install utilities
+      apt:
+        name:
+          - ack-grep
+          - vim
+          - zsh
+          - tmux
+          - htop
+          - tree
+          - curl
+          - unzip
+          - etckeeper
+          - git-core
+          - nmap
+          - sudo
 
   roles:
-    - common
-    - sshkeys
-    - role: router
-      tags: router
-    - role: sshtunnel
-      sshtunnel_remote_host: adams
-      sshtunnel_remote_url: adams.ugent.be
-      sshtunnel_forwards:
-        # Kerberos
-        - local_port: 88
-          remote_port: 88
-        - local_port: 543
-          remote_port: 543
-        - local_port: 544
-          remote_port: 544
-        - local_port: 749
-          remote_port: 749
-        - local_port: 754
-          remote_port: 754
+    - role: sshkeys
+      tags: sshkeys
 
-      tags: sshtunnel
-    - role: kerberos_client
-      kerberos_client_kdc: 127.0.0.1
-      kerberos_client_kadmin: 127.0.0.1
-      tags: kerberos_client
+    - role: fail2ban
+      tags: fail2ban
 
-    - role: ufw_rule
-      ufw_applications:
-        - name: "WWW Full"
-        - name: "DNS"
-      ufw_rules:
-        # DHCP
-        - rule: allow
-          port: "67:68"
-          proto: udp
-      ufw_ssh_ports:
-        - 22
-        - 2222
-        - 2223
-      ufw_nat: true
-      ufw_ipv6: false
-      ufw_nat_local_network: "10.0.0.0/24"
-      ufw_nat_uplink_device: "enp2s0"
-      ufw_nat_forwards:
-        # Redirect port 2223 to fles's ssh port
-        - port: "2223"
-          proto: tcp
-          dest: "10.0.0.9"
-      tags: ufw
-
-  vars_files:
-    - vars/firewall_rules.yml
-    - vars/authorized_keys.yml
+    - role: nginx_vhost
+      nginx_vhost_file: 'kelder.zeus.ugent.be'
+      tags:
+        - nginx
