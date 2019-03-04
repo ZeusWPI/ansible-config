@@ -1,9 +1,19 @@
 server {
-    listen  80; ## listen for ipv4
-    listen  [::]:80 default ipv6only=on; ## listen for ipv6
-    listen  443 default ssl;
+    listen 80;
+    server_name kelder.zeus.ugent.be zeusgw.ugent.be;
 
-    server_name .kelder.zeus.ugent.be .irc.zeus.ugent.be .zeusgw.ugent.be .endymion.ugent.be clarke;
+    if ($request_method = GET) {
+        return 301 https://$server_name$request_uri;
+    }
+
+    return 308 https://$server_name$request_uri;
+}
+
+server {
+    listen 443 ssl http2;
+    # kelder.zeus.ugent.be irc.zeus.ugent.be zeusgw.ugent.be endymion.ugent.be
+    # all point to here
+    server_name kelder.zeus.ugent.be zeusgw.ugent.be;
 
 
     ###############
@@ -20,7 +30,7 @@ server {
     #############
 
     root   /var/www;
-    index index.php index.html;
+    index index.html;
 
     rewrite ^/$ https://zeus.ugent.be/ permanent;
 
@@ -29,10 +39,18 @@ server {
         alias /var/www/alias;
     }
 
+
     # Webcam
-    location /webcam/ {
+    location ~ ^/webcam/(video/mjpg.cgi)$ {
          #proxy_pass http://cammie.kelder.zeus.ugent.be/;
-         proxy_pass http://10.0.0.7/;
+         proxy_pass http://10.0.0.7/$1$is_args$args;
+         add_header 'Access-Control-Allow-Origin' '*';
+    }
+
+    location ~ ^/webcam/(cgi/ptdc.cgi)$ {
+         #proxy_pass http://cammie.kelder.zeus.ugent.be/;
+         proxy_pass http://10.0.0.7/$1$is_args$args;
+         expires off;
          add_header 'Access-Control-Allow-Origin' '*';
     }
 
