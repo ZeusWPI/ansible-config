@@ -1,4 +1,0 @@
----
-allow_duplicates: yes
-dependencies:
-  - ufw_base
