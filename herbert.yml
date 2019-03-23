@@ -328,3 +328,18 @@
       tags:
        - nginx
        - httpizza
+
+    - role: user
+      user_name: tabbp
+      user_directories:
+        - directory: 'log'
+        - directory: 'public'
+      tags:
+        - tabbp
+        - user
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'tabbp.zeus.gent'
+      tags:
+       - nginx
+       - tabbp

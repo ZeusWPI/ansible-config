@@ -47,6 +47,7 @@ http {
 
     # vhosts
     include       sites-enabled/*;
+    passenger_log_file /var/log/passenger_logs;
 
     # other configurations
     include conf.d/*;

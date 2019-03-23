@@ -1,6 +1,6 @@
 server {
     listen 80;
-    server_name mattermore.zeus.gent;
+    server_name tabbp.zeus.gent;
 
     if ($request_method = GET) {
         return 301 https://$server_name$request_uri;
@@ -11,19 +11,19 @@ server {
 
 server {
     listen 443 ssl http2;
-    server_name mattermore.zeus.gent;
+    server_name tabbp.zeus.gent;
 
     location / {
-        alias /home/mattermore/production/app/public;
+        alias /home/tabbp/production/app/public;
 
-        passenger_app_root      /home/mattermore/production;
-        passenger_restart_dir   /home/mattermore/production;
+        passenger_app_root      /home/tabbp/production;
+        passenger_restart_dir   /home/tabbp/production;
 
-        passenger_document_root /home/mattermore/production/app/public;
+        passenger_document_root /home/tabbp/production/app/public;
         passenger_enabled on;
 
-        access_log /home/mattermore/log/access.log;
-        error_log  /home/mattermore/log/error.log;
+        access_log /home/tabbp/log/access.log;
+        error_log  /home/tabbp/log/error.log;
     }
 
     ssl_certificate     /root/.acme.sh/*.zeus.gent/fullchain.cer;
