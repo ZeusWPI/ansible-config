@@ -6,6 +6,9 @@ unicorn['enable'] = true
 gitlab_rails['internal_api_url'] = 'https://git.zeus.gent'
 web_server['external_users'] = ['www-data']
 
+# Disable prometheus, hogs cpu and memory and we don't use it
+prometheus_monitoring['enable'] = false
+
 gitlab_rails['gitlab_shell_ssh_port'] = 2222
 
 gitlab_rails['omniauth_enabled'] = true
