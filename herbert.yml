@@ -343,3 +343,9 @@
       tags:
        - nginx
        - tabbp
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'wiki.zeus.gent'
+      tags:
+       - nginx
+       - wiki
