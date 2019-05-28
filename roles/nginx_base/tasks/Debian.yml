@@ -2,8 +2,6 @@
 - name: Install nginx package
   apt: name=nginx state=present
 
-- name: Install more-headers
-  apt: name=libnginx-mod-http-headers-more-filter state=present
 
 - set_fact:
     nginx_user: www-data
