@@ -39,3 +39,7 @@
       nginx_vhost_file: 'kelder.zeus.ugent.be'
       tags:
         - nginx
+
+    - role: immobulus
+      immobulus_ssh_public_key: 'ssh-rsa AAAAC3NzaC1lZDI1NTE5AAAAIO6ANUO7C2vNc3BTHqu/n8mVredVn8y2hqQp4SIYrifY'
+      tags: ['immobulus']
