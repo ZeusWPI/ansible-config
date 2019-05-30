@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [ "$#" -ne 1 ]; then
+    echo 'Command must be one of: disable_movement, enable_movement'
+    exit 1
+fi
+
+if [ "$1" == "enable_movement" ]; then
+    rm -f /var/www/immobulus/freeze_camera
+elif [ "$1" == "disable_movement" ]; then
+    touch /var/www/immobulus/freeze_camera
+else
+    echo "Command not recognized"
+fi

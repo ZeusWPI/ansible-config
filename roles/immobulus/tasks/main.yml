@@ -1,0 +1,26 @@
+---
+- name: Add immobulus user
+  user:
+    name: immobulus
+    state: present
+
+- name: Copy over immobulus script
+  template:
+    src: immobulus.sh.j2
+    dest: /home/immobulus/immobulus.sh
+    mode: '1700'
+    owner: 'immobulus'
+
+- name: Create immobulus dir
+  file:
+    path: /var/www/immobulus
+    state: directory
+    mode: '0755'
+    owner: 'immobulus'
+
+- name: Install authorized_keys for immobulus
+  authorized_key:
+    user: immobulus
+    key: "{{ immobulus_ssh_public_key }}"
+    exclusive: True
+    key_options: 'command="./immobulus.sh $SSH_ORIGINAL_COMMAND",no-port-forwarding,no-x11-forwarding,no-agent-forwarding'

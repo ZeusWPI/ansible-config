@@ -48,7 +48,7 @@ server {
 
     location /webcam/cgi/ptdc.cgi {
         add_header 'Access-Control-Allow-Origin' '*';
-        try_files /immobulus @cammie_movement;
+        try_files /immobulus/freeze_camera @cammie_movement;
     }
 
     location @cammie_movement {
