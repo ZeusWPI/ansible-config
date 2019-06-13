@@ -1,5 +1,9 @@
 use strict;
 
+# Disable unchecked mails
+
+$admin_maps_by_ccat{+CC_UNCHECKED} =  undef;
+
 # You can modify this file to re-enable SPAM checking through spamassassin
 # and to re-enable antivirus checking.
 
