@@ -1,8 +1,6 @@
 - src: zzet.rbenv
-- src: franklinkim.sudo
 - src: pgolm.monit
 - src: geerlingguy.gitlab
 - src: geerlingguy.mysql
-  version: debian9
 - src: git+https://git.zeus.gent/ZeusWPI/ansible_cat.git
-  version: d2e8751da9c275f7eb1a6ce4e4b7426cf7deed0cs
+  version: 0d718f3c6378afbf9245eed18e944a16ee6a9a8e
