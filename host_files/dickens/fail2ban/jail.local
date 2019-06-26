@@ -44,7 +44,7 @@ enabled = true
 action = iptables-multiport[name=NoScript, port="http,https"]
 filter = nginx-noscript
 logpath = /var/log/nginx*/*access*.log
-maxretry = 6
+maxretry = 50
 bantime  = 600
 
 # Block anyone trying to use the server as a proxy
