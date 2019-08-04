@@ -41,6 +41,11 @@ server {
         return 301 'https://github.com/ZeusWPI/oauth#oauth';
     }
 
+    # De Account Page
+    location /dap/ {
+        proxy_pass http://127.0.0.1:8088/;
+    }
+
 
     #location /phpmyadmin {
     #    alias /usr/share/phpmyadmin/;
