@@ -1,28 +1,13 @@
 ---
 - name: Install antivirus packages
-  apt: name={{ item }} state=present
-  with_items:
-    - amavisd-new
-    - clamav
+  apt:
+    name: ['amavisd-new', 'clamav']
   notify:
     - Restart amavis
 
 - name: Install optional packages for better virus detection of archives
-  apt: name={{ item }} state=present
-  with_items:
-    - arj
-    - bzip2
-    - cabextract
-    - cpio
-    - file
-    - gzip
-    - nomarch
-    - pax
-    - rar
-    - unrar
-    - unzip
-    - zip
-    - zoo
+  apt:
+    name: ['arj', 'bzip2', 'cabextract', 'cpio', 'file', 'gzip', 'nomarch', 'pax', 'rar', 'unrar', 'unzip', 'zip', 'zoo']
 
 - name: Add clamav user to amavis for scanning access
   user: name=clamav group=amavis state=present append=yes

@@ -1,16 +1,11 @@
 ---
 - name: Install spamassassin packages
-  apt: name={{ item }} state=present
-  with_items:
-    - spamassassin
+  apt: name=spamassassin
   notify: Restart spamassassin
 
 - name: Install optional packages for better spam detection (1)
-  apt: name={{ item }} state=present
-  with_items:
-    - libnet-dns-perl
-    - libmail-spf-perl
-    - razor
+  apt:
+    name: ['libnet-dns-perl', 'libmail-spf-perl', 'razor']
 
 - name: Install optional packages for better spam detection (2)
   pip: name=pyzor state=present
