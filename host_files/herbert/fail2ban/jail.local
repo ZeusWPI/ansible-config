@@ -10,6 +10,7 @@ port     = ssh,2222
 filter   = sshd
 logpath  = /var/log/auth.log
 maxretry = 6
+action=iptables-allports[name=fail2ban]
 
 # Block anyone failing to authenticate using nginx basic authentication
 [nginx-auth]
