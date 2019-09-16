@@ -1,0 +1,25 @@
+---
+- name: Set-up svfs, Subnet Visualisation For Sysadmin
+  hosts: svfs
+  user: root
+
+  vars_files:
+    - vars/authorized_keys.yml
+
+  pre_tasks:
+    - name: Update system
+      apt:
+        update_cache: yes
+      tags: update
+
+  roles:
+    - role: sshkeys
+      tags: sshkeys
+
+    - role: fail2ban
+      tags: fail2ban
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'svfs.kelder.zeus.ugent.be'
+      tags:
+        - nginx
