@@ -364,3 +364,15 @@
       tags:
        - nginx
        - hookermost
+
+    ###########
+    # Strobot #
+    ###########
+  
+    - role: user
+      user_name: strobot
+      tags:
+        - user
+        - strobot
+
+
