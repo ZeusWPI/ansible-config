@@ -21,4 +21,4 @@ svfs ansible_ssh_host=10.0.0.191 ansible_ssh_port=22
 tolkien ansible_ssh_host=10.0.0.9 ansible_ssh_port=22
 
 [all:vars]
-ansible_ssh_user=zeus
+ansible_ssh_user=root

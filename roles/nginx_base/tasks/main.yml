@@ -18,6 +18,11 @@
   notify:
     - Restart nginx
 
+- name: Create /etc/ssl/certs/dhparam.pem
+  file:
+    path: /etc/ssl/certs
+    state: directory
+
 - name: Install a strong DH group
   command: openssl dhparam -out /etc/ssl/certs/dhparam.pem 4096
   args:

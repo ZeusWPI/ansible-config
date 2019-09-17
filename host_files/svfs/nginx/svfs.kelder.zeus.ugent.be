@@ -5,7 +5,7 @@ upstream svfs {
 
 server {
   listen 80;
-  server_name svfs.kelder.zeus.ugent.be;
+  server_name "~.*";
 
   location / {
     client_max_body_size 50M;
