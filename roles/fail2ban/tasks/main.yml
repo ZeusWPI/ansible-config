@@ -3,6 +3,11 @@
   apt: name=fail2ban state=present
   register: fail2ban_install
 
+- name: Touch /var/log/auth.log
+  file:
+    path: "/var/log/auth.log"
+    state: touch
+
 - name: Copy jail.local
   copy: src={{ fail2ban_config_location }}/jail.local dest=/etc/fail2ban/jail.local
   notify:

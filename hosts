@@ -15,6 +15,7 @@ adams ansible_ssh_host=adams.ugent.be ansible_ssh_port=2222
 events ansible_ssh_host=events.ugent.be ansible_ssh_port=2222
 herbert ansible_ssh_host=herbert.ugent.be ansible_ssh_port=2222
 dickens ansible_ssh_host=kelder.zeus.ugent.be ansible_ssh_port=2222
+svfs ansible_ssh_host=10.0.0.191 ansible_ssh_port=22
 
 [alpine]
 tolkien ansible_ssh_host=10.0.0.9 ansible_ssh_port=22

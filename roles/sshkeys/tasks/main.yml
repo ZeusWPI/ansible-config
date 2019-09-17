@@ -2,5 +2,5 @@
 - name: Install authorized_keys for root
   authorized_key:
     user: root
-    key: "{{ authorized_keys }}"
+    key: "{{ authorized_keys }}\n{{ extra_keys }}"
     exclusive: True
