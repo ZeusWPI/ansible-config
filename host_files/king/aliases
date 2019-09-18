@@ -19,7 +19,7 @@ list-admin: root
 bestuur: voorzitter, penning, admin, project, pr
 
 event: bestuur
-admin: jasper.devreker@ugent.be, redfast00+zeusadmin@gmail.com, maxime.bloch@ugent.be
+admin: jasper.devreker@ugent.be, redfast00+zeusadmin@gmail.com, maxime.bloch@ugent.be, strobot
 voorzitter: robbevanherck1@gmail.com, arthur.vercruysse@ugent.be
 # Assisterend en secretaris bestaan niet meer
 assisterend: bestuur

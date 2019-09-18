@@ -14,3 +14,4 @@ postfix_destinations:
 
 postfix_fallback: "smtp:adams.ugent.be"
 filter_spam: True
+postfix_mailbox_command: "procmail -a \"$EXTENSION\""
