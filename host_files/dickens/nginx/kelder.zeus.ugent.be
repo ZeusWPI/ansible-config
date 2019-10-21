@@ -9,11 +9,6 @@ server {
     return 308 https://$server_name$request_uri;
 }
 
-map $http_upgrade $connection_upgrade {
-        default upgrade;
-        '' close;
-  }
-
 server {
     listen 443 ssl http2;
     # kelder.zeus.ugent.be irc.zeus.ugent.be zeusgw.ugent.be endymion.ugent.be
@@ -67,9 +62,19 @@ server {
 
     location /messages {
         proxy_pass http://10.0.0.5:5000/messages;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection $connection_upgrade;
         add_header 'Access-Control-Allow-Origin' '*';
+    }
+
+    location /socket.io/ {
+        proxy_redirect off;
+        proxy_pass_request_headers on;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Forwarded-Host $host;
+        proxy_set_header X-Forwarded-Server $host;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_pass http://10.0.0.5:5000/socket.io/;
     }
 }
