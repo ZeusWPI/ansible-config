@@ -20,8 +20,7 @@ server {
     ####################
     # SSL OPTIONS
     ####################
-    include snippets/letsencrypt.conf;
-    include snippets/ssl_options.conf;
+    include snippets/ssl_options_preload.conf;
     ssl_certificate     /root/.acme.sh/blok.ugent.be/fullchain.cer;
     ssl_certificate_key /root/.acme.sh/blok.ugent.be/blok.ugent.be.key;
 

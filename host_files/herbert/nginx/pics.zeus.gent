@@ -11,7 +11,7 @@ server {
 
     ssl_certificate     /root/.acme.sh/*.pr.zeus.gent/fullchain.cer;
     ssl_certificate_key /root/.acme.sh/*.pr.zeus.gent/*.pr.zeus.gent.key;
-    include snippets/ssl_options.conf;
+    include snippets/ssl_options_preload.conf;
 
     return 302 https://zeus.ugent.be/zeuswpi$request_uri;
 }

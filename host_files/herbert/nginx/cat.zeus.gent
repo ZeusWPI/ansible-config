@@ -20,7 +20,7 @@ server {
 
     ssl_certificate     /root/.acme.sh/*.zeus.gent/fullchain.cer;
     ssl_certificate_key /root/.acme.sh/*.zeus.gent/*.zeus.gent.key;
-    include snippets/ssl_options.conf;
+    include snippets/ssl_options_preload.conf;
 
    location / {
        client_max_body_size 50M;

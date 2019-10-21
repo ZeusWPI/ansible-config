@@ -19,7 +19,8 @@ server {
 
   ssl_certificate     /root/.acme.sh/*.zeus.gent/fullchain.cer;
   ssl_certificate_key /root/.acme.sh/*.zeus.gent/*.zeus.gent.key;
-  include snippets/ssl_options.conf;
+  include snippets/letsencrypt.conf;
+  include snippets/ssl_options_preload.conf;
 
   server_tokens off;
   root /opt/gitlab/embedded/service/gitlab-rails/public;
