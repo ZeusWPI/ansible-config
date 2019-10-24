@@ -14,11 +14,11 @@ server {
     server_name hookermost.zeus.gent;
 
     location / {
-        alias /home/hookermost/production/app/public;
+        alias /home/hookermost/public;
 
-        passenger_app_root      /home/hookermost/production/app;
+        passenger_app_root      /home/hookermost/production/;
 
-        passenger_document_root /home/hookermost/production/app/public;
+        passenger_document_root /home/hookermost/public;
         passenger_enabled on;
 
         access_log /home/hookermost/log/access.log;
