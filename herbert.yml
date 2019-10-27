@@ -368,11 +368,34 @@
     ###########
     # Strobot #
     ###########
-  
+
     - role: user
       user_name: strobot
       tags:
         - user
         - strobot
 
+    ##########
+    # TORGAX #
+    ##########
 
+    - role: user
+      user_name: torgax
+      user_directories:
+          - directory: 'log'
+          - directory: 'public'
+      tags:
+          - torgax
+          - user
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'torgax.zeus.gent'
+      tags:
+        - nginx
+        - torgax
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'passenger_config'
+      tags:
+        - nginx
+        - passenger_logs
