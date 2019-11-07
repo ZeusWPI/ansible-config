@@ -1,0 +1,26 @@
+---
+- name: Create a stopped container
+  lxc_container:
+    name: ${container_name}
+    container_log: true
+    template: debian
+    state: started
+
+
+- name: Run a command in a container and ensure its in a "stopped" state.
+  lxc_container:
+    name: ${container_name}
+    state: stopped
+    container_command: |
+      echo 'hello world.' | tee /opt/stopped
+
+- name: Start a container
+  lxc_container:
+    name: ${container_name}
+    state: started
+
+
+
+    # TODO Retrieve and return the ip adress of the container so it can be used for further development
+
+

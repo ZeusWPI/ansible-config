@@ -1,0 +1,52 @@
+---
+# - name: Install database
+#   become: yes
+#   apt:
+#     name: "{{ item }}"
+#     state: latest
+#   with_items:
+#     - software-properties-common
+
+# - name: Add an apt key by id from a keyserver
+#   become: yes
+#   apt_key:
+#     keyserver: keyserver.ubuntu.com
+#     id: 0xF1656F24C74CD1D8
+
+# - apt_repository:
+#     repo: deb [arch=amd64] http://www.ftp.saix.net/DB/mariadb/repo/10.1/debian stretch main
+#     state: present
+
+
+# - name: Make sure a service is running
+#   become: yes
+#   systemd:
+#     enabled: yes
+#     state: started
+#     name: mariadb
+
+- import_role:
+    name: geerlingguy.mysql
+  vars:
+    mysql_packages:
+      - mariadb-client
+      - mariadb-server
+      - python-mysqldb
+    mysql_enabled_on_startup: true
+    mysql_databases:
+      - name: g2_dev
+    mysql_users:
+      - name: g2_user
+        password: local-pass
+        priv: "g2_dev.*:ALL"
+
+
+
+
+# - name: Create database
+
+# - name: Create user
+
+# - name: Add correct permissions onto database
+
+# - name: Create systemd service

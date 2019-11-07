@@ -1,0 +1,45 @@
+---
+- name: (Create g2 container -> soon tm), Deploy the most recent master build to the container
+  hosts: g2
+  user: zeus
+
+# Container is made manually
+# My ssh key is manually added to the zeus user for the first step.
+# The ansible is ran with my key added as
+
+  vars_files:
+    - vars/authorized_keys.yml
+  
+  pre_tasks:
+    - name: Update system
+      become: yes
+      apt:
+        update_cache: yes
+      tags: update
+
+    - name: Install Packages
+      become: yes
+      apt:
+        name: "{{ item }}"
+        state: latest
+      with_items:
+        - vim
+
+  roles:
+    - role: sshkeys
+      tags: sshkeys
+
+    - role: fail2ban
+      tags: fail2ban
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'g2-dev.kelder.zeus.ugent.be'
+      tags:
+        - nginx
+
+    - role: user
+      user_name: g2
+      user_authorized_keys: "{{ authorized_keys }}\nssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINNS5sbll0vXcSxrpSYC3NAFJbzhMM3UYtHiQHnDaw1n maxime@maxime-xps13"
+      tags:
+        - user
+    - role: g2
