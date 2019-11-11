@@ -1,4 +1,4 @@
-upstream cat {
+upstream sonarqube {
    server 10.1.0.210:9000;
    keepalive 32;
 }
