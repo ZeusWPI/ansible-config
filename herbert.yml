@@ -450,13 +450,3 @@
       tags:
         - nginx
         - passenger_logs
-
-    #############
-    # Sonarqube #
-    #############
-
-    - role: nginx_vhost
-      nginx_vhost_file: 'sonarqube.zeus.gent'
-      tags:
-       - nginx
-       - sonarqube

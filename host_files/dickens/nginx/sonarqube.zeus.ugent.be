@@ -5,7 +5,7 @@ upstream sonarqube {
 
 server {
     listen 80;
-    server_name sonarqube.zeus.gent;
+    server_name sonarqube.zeus.ugent.be;
 
     if ($request_method = GET) {
         return 301 https://$server_name$request_uri;
@@ -16,7 +16,7 @@ server {
 
 server {
     listen 443 ssl http2;
-    server_name sonarqube.zeus.gent;
+    server_name sonarqube.zeus.ugent.be;
 
     ssl_certificate     /root/.acme.sh/*.zeus.gent/fullchain.cer;
     ssl_certificate_key /root/.acme.sh/*.zeus.gent/*.zeus.gent.key;

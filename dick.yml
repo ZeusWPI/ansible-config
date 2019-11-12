@@ -39,3 +39,13 @@
       nginx_vhost_file: 'kelder.zeus.ugent.be'
       tags:
         - nginx
+
+    #############
+    # Sonarqube #
+    #############
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'sonarqube.kelder.zeus.gent'
+      tags:
+       - nginx
+       - sonarqube
