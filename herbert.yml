@@ -184,7 +184,10 @@
           - nginx
           - blok
 
-    # ZINC
+    ########
+    # ZINC #
+    ########
+
 
     - role: user
       user_name: zinc
@@ -201,7 +204,9 @@
           - nginx
           - zinc
 
-    # Haldis
+    ##########
+    # Haldis #
+    ##########
 
     - role: user
       user_name: haldis
@@ -218,7 +223,9 @@
         - nginx
         - haldis
 
-    # Sadstatus
+    #############
+    # Sadstatus #
+    #############
 
     - role: user
       user_name: sadstatus
@@ -235,7 +242,9 @@
         - nginx
         - sadstatus
 
-    # mattermost
+    ##############
+    # Mattermost #
+    ##############
 
     - role: user
       user_name: mattermost
@@ -249,7 +258,13 @@
         - nginx
         - mattermost
 
-    # Mattermore (mattermost integrations)
+    ##############
+    # Mattermore #
+    ##############
+    #
+    # = mattermost integrations
+    #
+
     - role: user
       user_name: mattermore
       user_directories:
@@ -265,7 +280,9 @@
         - nginx
         - mattermore
 
-     # Endorsement
+    ###############
+    # Endorsement #
+    ###############
 
     - role: user
       user_name: endorsement
@@ -292,6 +309,13 @@
         - user
 
 
+    #######
+    # Cat #
+    #######
+    #
+    # : The bestest
+    #
+
     - role: user
       user_name: cat
       tags:
@@ -315,19 +339,35 @@
           - nginx
           - cat
 
-    # ZeusWPI (Zeus Extraordinary Uploading Service With Productive Interface)
+
+    ###########
+    # ZeusWPI #
+    ###########
+    #
+    # = Zeus Extraordinary Uploading Service With Productive Interface
+    #
+    
     - role: nginx_vhost
       nginx_vhost_file: 'pics.zeus.gent'
       tags:
        - nginx
        - pics
 
-    # HTTPizza/2.0
+
+    ################
+    # HTTPizza/2.0 #
+    ################
+    
     - role: nginx_vhost
       nginx_vhost_file: 'pizza.zeus.gent'
       tags:
        - nginx
        - httpizza
+
+
+    #########
+    # Tappb #
+    #########
 
     - role: user
       user_name: tabbp
@@ -344,11 +384,21 @@
        - nginx
        - tabbp
 
+
+    ########
+    # Wiki #
+    ########
+
     - role: nginx_vhost
       nginx_vhost_file: 'wiki.zeus.gent'
       tags:
        - nginx
        - wiki
+
+
+    ##############
+    # Hookermost #
+    ##############
 
     - role: user
       user_name: hookermost
@@ -364,6 +414,7 @@
       tags:
        - nginx
        - hookermost
+
 
     ###########
     # Strobot #
