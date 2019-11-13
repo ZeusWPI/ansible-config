@@ -35,6 +35,9 @@
     - role: fail2ban
       tags: fail2ban
 
+    - role: nginx_base
+      tags: nginx_base
+
     - role: nginx_vhost
       nginx_vhost_file: 'kelder.zeus.ugent.be'
       tags:
