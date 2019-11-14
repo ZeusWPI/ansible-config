@@ -1,5 +1,5 @@
 upstream sonarqube {
-   server 10.1.0.210:9000;
+   server 10.0.20.20:9000;
    keepalive 32;
 }
 
