@@ -10,7 +10,7 @@
 
 - name: Make admin list
   shell: echo | newlist mailman admin@zeus.ugent.be '{{ mailman_password }}'
-  when: mailman_list_exists|failed
+  when: not mailman_list_exists
 
 - name: Copy config file
   copy: src=mm_cfg.py dest=/etc/mailman/mm_cfg.py
