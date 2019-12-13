@@ -8,6 +8,10 @@ postfix_alias_maps:
   - "hash:/etc/aliases"
   - "hash:/var/lib/mailman/data/aliases"
 
+relay_servers_ugent:
+  - relay1.ugent.be
+  - relay2.ugent.be
+
 postfix_destinations:
   - zeus.ugent.be
   - localhost
