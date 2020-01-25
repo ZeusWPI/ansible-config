@@ -42,16 +42,19 @@ server {
 
     # Webcam
     location ~ ^/webcam/(video/mjpg.cgi)$ {
-         #proxy_pass http://cammie.kelder.zeus.ugent.be/;
+         # Cammie video stream
          proxy_pass http://10.0.0.7/$1$is_args$args;
-         add_header 'Access-Control-Allow-Origin' '*';
     }
 
-    location ~ ^/webcam/(cgi/ptdc.cgi)$ {
-         #proxy_pass http://cammie.kelder.zeus.ugent.be/;
-         proxy_pass http://10.0.0.7/$1$is_args$args;
+    location /webcam/cgi/ptdc.cgi {
+        add_header 'Access-Control-Allow-Origin' '*';
+        try_files /tmp/freeze_camera @cammie_movement;
+    }
+
+    location @cammie_movement {
+         # Cammie movement commands
+         proxy_pass http://10.0.0.7/cgi/ptdc.cgi$is_args$args;
          expires off;
-         add_header 'Access-Control-Allow-Origin' '*';
     }
 
     # Slotmachien
