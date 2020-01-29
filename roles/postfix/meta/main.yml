@@ -1,6 +1,4 @@
 ---
 dependencies:
   - role: spamassassin
-    when: filter_spam
   - role: mail_antivirus
-    when: filter_spam

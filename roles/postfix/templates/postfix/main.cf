@@ -27,31 +27,20 @@ smtp_tls_session_cache_database = btree:${data_directory}/smtp_scache
 # See /usr/share/doc/postfix/TLS_README.gz in the postfix-doc package for
 # information on enabling SSL in the smtp client.
 
+smtpd_relay_restrictions = permit_mynetworks permit_sasl_authenticated defer_unauth_destination
 myhostname = {{ postfix_hostname }}
 alias_maps = {{ postfix_alias_maps | join(', ') }}
 alias_database = hash:/etc/aliases
 mydestination = {{ postfix_destinations| join(', ') }}
 relayhost = smtp.ugent.be
-mynetworks = 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128 {{ relay_servers_ugent| join(' ') }} {{ postfix_destinations| join(' ') }}
+mynetworks = 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128
 mailbox_command = {{ postfix_mailbox_command }}
 mailbox_size_limit = 0
 recipient_delimiter = +
 inet_interfaces = all
-inet_protocols = all
-
-{% if filter_spam %}
-# Filter spam and virusses with Amavis
-content_filter = smtp-amavis:[127.0.0.1]:10024
-{% endif %}
 
 {% if postfix_fallback is defined %}
 # If we don't know the destination, forward to this
 local_recipient_maps =
 fallback_transport = {{ postfix_fallback }}
 {% endif %}
-
-# Allow bigger messages
-message_size_limit = 20480000
-
-smtpd_recipient_restrictions=permit_mynetworks,reject
-smtpd_sender_restrictions=permit_mynetworks,defer

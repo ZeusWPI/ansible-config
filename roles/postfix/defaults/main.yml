@@ -17,5 +17,6 @@ postfix_destinations:
   - localhost
 
 postfix_fallback: "smtp:adams.ugent.be"
-filter_spam: True
+
+# Used for strobot
 postfix_mailbox_command: "procmail -a \"$EXTENSION\""

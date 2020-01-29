@@ -1,19 +1,13 @@
 ---
 - name: Install antivirus packages
   apt:
-    name: ['amavisd-new', 'clamav']
+    name: ['amavisd-new']
   notify:
     - Restart amavis
 
 - name: Install optional packages for better virus detection of archives
   apt:
     name: ['arj', 'bzip2', 'cabextract', 'cpio', 'file', 'gzip', 'nomarch', 'pax', 'rar', 'unrar', 'unzip', 'zip', 'zoo']
-
-- name: Add clamav user to amavis for scanning access
-  user: name=clamav group=amavis state=present append=yes
-
-- name: ... and vice versa
-  user: name=amavis group=clamav state=present append=yes
 
 - name: Enable razor (1)
   command: razor-admin -create
@@ -40,8 +34,5 @@
   notify:
     - Restart amavis
 
-- name: Ensure all daemons are running
-  service: name={{ item }} state=started
-  with_items:
-    - amavis
-    - clamav-freshclam
+- name: Ensure Amavis daemon is started
+  service: name=amavis state=started
