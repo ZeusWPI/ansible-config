@@ -16,6 +16,7 @@ clamav: root
 list-admin: root
 
 # Temp fix for downtime
+info: bestuur
 bestuur: voorzitter, penning, admin, project, pr
 
 event: bestuur
