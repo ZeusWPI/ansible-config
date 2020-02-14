@@ -2,7 +2,7 @@
 destemail = admin@zeus.ugent.be
 action = %(action_mwl)s
 # allow kelder
-ignoreip = 127.0.0.1 157.193.55.1 jeremy.kelder.zeus.ugent.be 10.0.0.1
+ignoreip = 127.0.0.1 157.193.55.1 jeremy.kelder.zeus.ugent.be 10.0.0.1 157.193.230.116 herbert.ugent.be king.ugent.be asimov.ugent.be adams.ugent.be
 
 [ssh]
 enabled  = true
