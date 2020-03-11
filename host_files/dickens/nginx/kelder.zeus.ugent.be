@@ -58,10 +58,10 @@ server {
     }
 
     # Slotmachien
-    location /slotmachien {
-        proxy_pass http://10.0.1.5/slotmachien;
-        add_header 'Access-Control-Allow-Origin' '*';
-    }
+    #location /slotmachien {
+    #    proxy_pass http://10.0.1.5/slotmachien;
+    #    add_header 'Access-Control-Allow-Origin' '*';
+    #}
 
     location /messages {
         proxy_pass http://10.0.0.5:5000/messages;
