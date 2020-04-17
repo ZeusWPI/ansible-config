@@ -1,5 +1,0 @@
-Description='Internal Network Interface'
-Interface=enp4s1
-Connection=ethernet
-IP='static'
-Address=('10.1.1.1/24')
