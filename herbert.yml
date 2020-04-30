@@ -346,7 +346,7 @@
     #
     # = Zeus Extraordinary Uploading Service With Productive Interface
     #
-    
+
     - role: nginx_vhost
       nginx_vhost_file: 'pics.zeus.gent'
       tags:
@@ -357,7 +357,7 @@
     ################
     # HTTPizza/2.0 #
     ################
-    
+
     - role: nginx_vhost
       nginx_vhost_file: 'pizza.zeus.gent'
       tags:
@@ -450,3 +450,9 @@
       tags:
         - nginx
         - passenger_logs
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'vote.zeus.ugent.be'
+      tags:
+        - nginx
+        - vote
