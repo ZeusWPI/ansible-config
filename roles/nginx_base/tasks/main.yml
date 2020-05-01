@@ -23,6 +23,11 @@
     path: /etc/ssl/certs
     state: directory
 
+- name: Create /var/www/letsencrypt
+  file:
+    path: /var/www/letsencrypt
+    state: directory
+
 - name: Install a strong DH group
   command: openssl dhparam -out /etc/ssl/certs/dhparam.pem 4096
   args:

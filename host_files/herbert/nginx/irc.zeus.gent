@@ -13,8 +13,7 @@ server {
 
 server {
     listen 443 ssl http2;
-    server_name blok.ugent.be;
-    return 418;
+    server_name irc.zeus.gent;
 
     ####################
     # SSL OPTIONS
