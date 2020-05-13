@@ -456,3 +456,23 @@
       tags:
         - nginx
         - vote
+
+    ############
+    # Blokdata #
+    ############
+
+    - role: user
+      user_name: blokdata
+      user_directories:
+        - directory: 'log'
+        - directory: 'public'
+      tags:
+        - blokdata
+        - user
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'blokdata.zeus.gent'
+      tags:
+        - blokdata
+        - nginx
+
