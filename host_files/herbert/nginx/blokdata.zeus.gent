@@ -14,15 +14,9 @@ server {
     server_name blokdata.zeus.gent;
 
     location / {
-        alias /home/blokdata/public;
-
-        passenger_app_root      /home/blokdata/production/;
-
-        passenger_document_root /home/blokdata/public;
-        passenger_enabled on;
-
-        access_log /home/blokdata/log/access.log;
-        error_log  /home/blokdata/log/error.log;
+    	include uwsgi_params;
+	uwsgi_pass unix:/home/blokdata/production/blokdata.sock;
+	uwsgi_read_timeout 3000;
     }
 
     ssl_certificate     /root/.acme.sh/*.zeus.gent/fullchain.cer;
