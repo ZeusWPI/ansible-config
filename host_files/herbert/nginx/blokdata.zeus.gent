@@ -18,7 +18,7 @@ server {
 
         passenger_app_root      /home/blokdata/production/;
 
-        passenger_document_root /home/blokdata/public;
+        passenger_document_root /home/blokdata/public/;
         passenger_enabled on;
 
         access_log /home/blokdata/log/access.log;
