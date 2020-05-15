@@ -17,17 +17,18 @@ list-admin: root
 
 # Temp fix for downtime
 info: bestuur
-bestuur: voorzitter, penning, admin, project, pr
+bestuur: voorzitter, penning, admin, project, pr, event
 
-event: bestuur
-admin: jasper.devreker@ugent.be, redfast00+zeusadmin@gmail.com, maxime.bloch@ugent.be, strobot
-voorzitter: robbevanherck1@gmail.com, arthur.vercruysse@ugent.be
+event: Ruben.defacq@hotmail.com
+admin: jasper.devreker@ugent.be, redfast00+zeusadmin@gmail.com, Francis.klinck@ugent.be
+voorzitter: robbevanherck1@gmail.com, arthur.vercruysse@ugent.be, maxime.bloch@ugent.be, zeus@delanghe.dev
+project:  arnebertrand@gmail.com, maxime.bloch@ugent.be, arnhoudt@antonkindt.be, hannes.klinckaert@ugent.be
+pr: wout.schellaert@ugent.be, yobogaer.bogaert@ugent.be
+penning: timo.dewaele@ugent.be, pieterjan.cassiman@gmail.com
+
 # Assisterend en secretaris bestaan niet meer
 assisterend: bestuur
 secretaris: bestuur
-project:  arnebertrand@gmail.com, maxime.bloch@ugent.be
-pr: wout.schellaert@ugent.be, yobogaer.bogaert@ugent.be
-penning: timo.dewaele@ugent.be
 
 lanparty: bestuur, zeuslan@antonkindt.be
 
