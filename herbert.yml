@@ -169,6 +169,7 @@
       user_name: blok
       user_directories:
           - directory: 'log'
+          - directory: 'log_blokmap.be'
           - directory: 'public'
       tags:
           - blok
@@ -180,6 +181,12 @@
 
     - role: nginx_vhost
       nginx_vhost_file: 'blok.ugent.be'
+      tags:
+          - nginx
+          - blok
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'blokmap.be'
       tags:
           - nginx
           - blok
