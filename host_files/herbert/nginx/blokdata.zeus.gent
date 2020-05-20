@@ -1,3 +1,5 @@
+proxy_cache_path  /home/blokdata/cache levels=1:2 keys_zone=blokdata:5m max_size=100m inactive=600m;
+
 server {
     listen 80;
     server_name blokdata.zeus.gent;
@@ -20,6 +22,12 @@ server {
 
         passenger_document_root /home/blokdata/public;
         passenger_enabled on;
+        proxy_cache blokdata;
+        proxy_cache_valid  200 5m;
+        proxy_cache_lock on;
+        proxy_cache_use_stale error timeout updating http_500 http_502 http_503 http_504;
+        proxy_ignore_headers Expires Cache-Control;
+        proxy_cache_revalidate off;
 
         access_log /home/blokdata/log/access.log;
         error_log  /home/blokdata/log/error.log;

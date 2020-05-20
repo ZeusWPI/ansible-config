@@ -473,6 +473,7 @@
       user_directories:
         - directory: 'log'
         - directory: 'public'
+        - directory: 'cache'
       tags:
         - blokdata
         - user
