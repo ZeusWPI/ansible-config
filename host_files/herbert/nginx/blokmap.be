@@ -1,6 +1,6 @@
 server {
     listen 80;
-    server_name blokmap.be;
+    server_name blokmap.be www.blokmap.be;
 
     if ($request_method = GET) {
         return 301 https://$server_name$request_uri;
@@ -13,7 +13,7 @@ server {
 
 server {
     listen 443 ssl http2;
-    server_name blokmap.be;
+    server_name blokmap.be www.blokmap.be;
     root /home/blok/public/current/;
     index index.html;
 
