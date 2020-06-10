@@ -27,6 +27,8 @@
         - kelder.zeus.ugent.be
       postfix_fallback: #Geen
       tags: postfix
+    - role: nginx_base
+      tags: nginx
 
   vars_files:
     - vars/authorized_keys.yml
