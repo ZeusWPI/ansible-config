@@ -487,3 +487,9 @@
     - role: nginx_base
       tags:
         - nginx_base
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'kers.zeus.gent'
+      tags:
+        - nginx
+        - kers
