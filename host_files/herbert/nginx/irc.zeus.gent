@@ -23,7 +23,7 @@ server {
     ssl_certificate_key /root/.acme.sh/irc.zeus.gent/irc.zeus.gent.key;
     include snippets/letsencrypt.conf;
 
-    # This doesn't actually host anything, but is just here to for letencrypt to
+    # This doesn't actually host anything, but is just here to for Letsencrypt to
     # get the certificate for the IRC bridge. We don't use the wildcard because we
     # don't want the wildcard certificate to be readable by users other than root.
 }

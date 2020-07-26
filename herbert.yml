@@ -315,6 +315,11 @@
         - matterircd
         - user
 
+    - role: nginx_vhost
+      nginx_vhost_file: 'irc.zeus.gent'
+      tags:
+          - nginx
+          - matterircd
 
     #######
     # Cat #
