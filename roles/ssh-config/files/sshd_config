@@ -1,0 +1,16 @@
+Port 2222
+
+# Allow root user to login
+PermitRootLogin yes
+
+# Allow PubKeyAuthentication
+PubkeyAuthentication yes
+
+# Disable password authentication
+PasswordAuthentication no
+ChallengeResponseAuthentication no
+UsePAM no
+
+PrintMotd no
+AcceptEnv LANG LC_*
+Subsystem	sftp	/usr/lib/openssh/sftp-server
