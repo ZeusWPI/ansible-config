@@ -24,3 +24,6 @@
   roles:
     - role: sshkeys
       tags: sshkeys
+
+    - role: ssh-config
+      tags: ssh-config
