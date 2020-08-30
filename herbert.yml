@@ -498,3 +498,9 @@
       tags:
         - nginx
         - kers
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'moana.zeus.gent'
+      tags:
+        - nginx
+        - moana
