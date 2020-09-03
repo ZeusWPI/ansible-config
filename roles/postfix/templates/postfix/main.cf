@@ -28,7 +28,7 @@ smtp_tls_session_cache_database = btree:${data_directory}/smtp_scache
 # information on enabling SSL in the smtp client.
 
 smtpd_relay_restrictions = permit_mynetworks permit_sasl_authenticated defer_unauth_destination
-smtpd_client_restrictions = reject_rbl_client zen.spamhaus.org permit
+smtpd_client_restrictions = reject_rhsbl_helo dbl.spamhaus.org, reject_rhsbl_reverse_client dbl.spamhaus.org, reject_rhsbl_sender dbl.spamhaus.org, reject_rbl_client zen.spamhaus.org, permit
 myhostname = {{ postfix_hostname }}
 alias_maps = {{ postfix_alias_maps | join(', ') }}
 alias_database = hash:/etc/aliases
