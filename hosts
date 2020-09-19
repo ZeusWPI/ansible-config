@@ -18,6 +18,7 @@ dickens ansible_ssh_host=kelder.zeus.ugent.be ansible_ssh_port=2222
 svfs ansible_ssh_host=10.0.0.191 ansible_ssh_port=22
 clarke ansible_ssh_host=clarke.ugent.be ansible_ssh_port=2222
 asimov ansible_ssh_host=asimov.ugent.be ansible_ssh_port=2222 ansible_python_interpreter=python3
+pratchett ansible_ssh_host=pratchett.ugent.be ansible_ssh_port=2222 ansible_python_interpreter=python3
 
 [alpine]
 tolkien ansible_ssh_host=10.0.0.9 ansible_ssh_port=22

@@ -1,0 +1,41 @@
+---
+- name: Configure Pratchett
+  hosts: pratchett
+  user: root
+
+  vars_files:
+    - vars/authorized_keys.yml
+
+  pre_tasks:
+    - name: Update system
+      apt:
+        update_cache: yes
+      tags: update
+
+    - name: Install utilities
+      apt:
+        name:
+          - ack-grep
+          - vim
+          - zsh
+          - tmux
+          - htop
+          - tree
+          - curl
+          - unzip
+          - etckeeper
+          - git-core
+          - nmap
+          - sudo
+
+  roles:
+    - role: sshkeys
+      tags: sshkeys
+
+    - role: nginx_base
+      tags: nginx_base
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'lucht.zeus.ugent.be'
+      tags:
+        - nginx
