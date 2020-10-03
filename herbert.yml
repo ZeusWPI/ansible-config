@@ -504,3 +504,22 @@
       tags:
         - nginx
         - moana
+        
+    ###########
+    # gandalf #
+    ###########
+
+    - role: user
+      user_name: gandalf
+      user_directories:
+        - directory: 'log'
+      tags:
+        - gandalf
+        - user
+
+    # TODO automate capistrano deploy
+    - role: nginx_vhost
+      nginx_vhost_file: 'gandalf.zeus.gent'
+      tags:
+        - nginx
+        - gandalf
