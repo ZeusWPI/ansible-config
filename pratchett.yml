@@ -39,3 +39,9 @@
       nginx_vhost_file: 'lucht.zeus.ugent.be'
       tags:
         - nginx
+    
+    - role: nginx_vhost
+      nginx_vhost_file: 'codimd.zeus.gent'
+      tags:
+        - nginx
+        - codimd

@@ -1,7 +1,7 @@
 ---
 - name: Install nginx package
   apt:
-    name: ['nginx', 'openssl'] 
+    name: ['nginx', 'nginx-extras', 'openssl'] 
     state: present
 
 - set_fact:
