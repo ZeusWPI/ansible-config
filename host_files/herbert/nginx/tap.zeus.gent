@@ -12,6 +12,7 @@ server {
 server {
     listen 443 ssl http2;
     server_name tap.zeus.gent;
+    client_max_body_size 50M;
 
     location / {
         passenger_enabled on;
