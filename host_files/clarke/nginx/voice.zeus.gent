@@ -15,7 +15,6 @@ server {
 server {
     listen 443 ssl http2;
     server_name voice.zeus.gent;
-    return 418;
 
     ####################
     # SSL OPTIONS
@@ -26,4 +25,6 @@ server {
 
     # This doesn't actually host anything yet, but is just here to for letencrypt to
     # get the certificate for the mumble server.
+
+    root /var/www/mumble;
 }
