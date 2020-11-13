@@ -63,7 +63,7 @@
       tags:
         - nginx
 
-    - role: nginx_vhost_file
+    - role: nginx_vhost
       nginx_vhost_file: 'avatar.pratchett.zeus.gent'
       tags:
         - nginx
