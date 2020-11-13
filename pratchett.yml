@@ -45,3 +45,19 @@
       tags:
         - nginx
         - codimd
+    - role: nginx_vhost
+      nginx_vhost_file: 'g2-api.zeus.gent'
+      tags:
+        - nginx
+        - g2
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'g2.zeus.gent'
+      tags:
+        - nginx
+        - g2
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'verify.pratchett.zeus.gent'
+      tags:
+        - nginx
