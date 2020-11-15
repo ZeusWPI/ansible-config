@@ -68,3 +68,9 @@
       tags:
         - nginx
         - avatar
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'tractor.pratchett.zeus.gent'
+      tags:
+        - nginx
+        - tractor
