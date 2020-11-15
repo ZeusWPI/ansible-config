@@ -18,8 +18,8 @@ server {
     listen 443 ssl http2;
     server_name tractor.pratchett.zeus.gent;
 
-    ssl_certificate     /etc/ssl/private/fullchain.pem;
-    ssl_certificate_key /etc/ssl/private/key.pem;
+    ssl_certificate     /etc/ssl/private/pratchett.zeus.gent.fullchain.pem;
+    ssl_certificate_key /etc/ssl/private/pratchett.zeus.gent.pem;
     include snippets/ssl_options_preload.conf;
 
    location / {
