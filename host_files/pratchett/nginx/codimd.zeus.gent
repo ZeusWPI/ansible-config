@@ -15,7 +15,7 @@ server {
 }
 
 server {
-    listen 443 ssl http2;
+    listen 10443 ssl http2;
     server_name codimd.zeus.gent;
 
     ssl_certificate     /etc/ssl/private/fullchain.pem;

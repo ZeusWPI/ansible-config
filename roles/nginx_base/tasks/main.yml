@@ -11,6 +11,15 @@
     - conf.d/
     - snippets/
 
+- set_fact: more_config_location="host_files/{{ ansible_hostname }}/nginx_more_config/"
+
+- name: Copy more main config
+  copy:
+    src: "{{ more_config_location }}"
+    dest: "/etc/nginx/more_config/"
+  when: more_config_location is directory
+
+
 - name: Install nginx.conf
   template:
     src: nginx.conf.j2

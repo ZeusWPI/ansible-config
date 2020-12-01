@@ -39,13 +39,13 @@
       nginx_vhost_file: 'lucht.zeus.ugent.be'
       tags:
         - nginx
-    
+
     - role: nginx_vhost
       nginx_vhost_file: 'codimd.zeus.gent'
       tags:
         - nginx
         - codimd
-    
+
     - role: nginx_vhost
       nginx_vhost_file: 'g2-api.zeus.gent'
       tags:
@@ -74,3 +74,9 @@
       tags:
         - nginx
         - tractor
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'massacantus'
+      tags:
+        - nginx
+        - massacantus
