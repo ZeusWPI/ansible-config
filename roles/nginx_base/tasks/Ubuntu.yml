@@ -1,0 +1,8 @@
+---
+- name: Install nginx package
+  apt:
+    name: ['nginx', 'nginx-extras', 'openssl']
+    state: present
+
+- set_fact:
+    nginx_user: www-data
