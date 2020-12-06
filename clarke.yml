@@ -39,3 +39,8 @@
       nginx_vhost_file: 'voice.zeus.gent'
       tags:
         - nginx
+    
+    - role: nginx_vhost
+      nginx_vhost_file: 'planetwars.zeus.gent'
+      tags:
+        - nginx
