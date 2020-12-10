@@ -80,3 +80,10 @@
       tags:
         - nginx
         - massacantus
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'factuur.12urenloop.be'
+      tags:
+        - nginx
+        - 12urenloop
+        - factuur
