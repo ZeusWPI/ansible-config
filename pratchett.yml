@@ -87,3 +87,10 @@
         - nginx
         - 12urenloop
         - factuur
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'join.12urenloop.be'
+      tags:
+        - nginx
+        - 12urenloop
+        - join
