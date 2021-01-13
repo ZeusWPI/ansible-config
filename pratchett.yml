@@ -94,3 +94,10 @@
         - nginx
         - 12urenloop
         - join
+
+    - role: nginx_vhost
+      nginx_vhost_file: '12urenloop.be'
+      tags:
+        - nginx
+        - 12urenloop
+        - urenloop-site
