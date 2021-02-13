@@ -38,7 +38,4 @@ server {
     proxy_set_header X-Forwarded-Proto https;
     proxy_redirect off;
   }
-
-	access_log  /tmp/moz_access.log;
-	error_log /tmp/moz_error.log;
 }
