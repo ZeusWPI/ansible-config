@@ -493,14 +493,32 @@
       tags:
         - nginx_base
 
+    ########
+    # Kers #
+    ########
+
     - role: nginx_vhost
       nginx_vhost_file: 'kers.zeus.gent'
       tags:
         - nginx
         - kers
 
+    #########
+    # moana #
+    #########
+
     - role: nginx_vhost
       nginx_vhost_file: 'moana.zeus.gent'
       tags:
         - nginx
         - moana
+    
+    ###############
+    # PlanetWars3 #
+    ###############
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'pw3.zeus.gent'
+      tags:
+        - nginx
+        - pw3
