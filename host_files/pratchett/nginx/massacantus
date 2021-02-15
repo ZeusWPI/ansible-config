@@ -4,7 +4,7 @@ upstream massacantus-http {
 
 server {
     listen 80;
-    server_name massacantus.be;
+    server_name massacantusgent.be massacantus.ugent.be;
 
    location / {
        client_max_body_size 50M;
