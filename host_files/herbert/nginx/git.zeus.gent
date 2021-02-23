@@ -1,5 +1,5 @@
 upstream gitlab-workhorse {
-  server unix://var/opt/gitlab/gitlab-workhorse/socket fail_timeout=0;
+  server unix://var/opt/gitlab/gitlab-workhorse/sockets/socket fail_timeout=0;
 }
 
 server {
