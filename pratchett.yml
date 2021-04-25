@@ -101,3 +101,9 @@
         - nginx
         - 12urenloop
         - urenloop-site
+    
+    - role: nginx_vhost
+      nginx_vhost_file: 'msrs.zeus.gent'
+      tags:
+        - nginx
+        - msrs
