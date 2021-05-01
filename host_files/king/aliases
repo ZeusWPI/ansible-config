@@ -10,27 +10,29 @@ webmaster: root
 www: root
 ftp: root
 abuse: root
+
 noc: root
+
 security: root
 clamav: root
 list-admin: root
 
 # Temp fix for downtime
 info: bestuur
-bestuur: voorzitter, penning, admin, project, pr, event
+bestuur: voorzitter, penning, admin, project, event
 
-event: ruben.defacq@ugent.be
+voorzitter: robbevanherck1@gmail.com, maxime.bloch@ugent.be, sammy.delanghe@ugent.be
 admin: jasper.devreker@ugent.be, Francis.klinck@ugent.be
-voorzitter: robbevanherck1@gmail.com, arthur.vercruysse@ugent.be, maxime.bloch@ugent.be, sammy.delanghe@ugent.be
+penning: voorzitter, pieterjan.cassiman@gmail.com
+event: ruben.defacq@ugent.be
 project: maxime.bloch@ugent.be, hannes.klinckaert@ugent.be
-pr: yobogaer.bogaert@ugent.be
-penning: pieterjan.cassiman@gmail.com
 
 # Assisterend en secretaris bestaan niet meer
 assisterend: bestuur
 secretaris: bestuur
 
-lanparty: bestuur, zeuslan@antonkindt.be
+# Hier kun je specifieke mensen toevoegen die de organisatie doen
+lanparty: bestuur
 
 # Slack owner
 slack: admin
