@@ -30,6 +30,7 @@ project: maxime.bloch@ugent.be, hannes.klinckaert@ugent.be
 # Assisterend en secretaris bestaan niet meer
 assisterend: bestuur
 secretaris: bestuur
+pr: bestuur
 
 # Hier kun je specifieke mensen toevoegen die de organisatie doen
 lanparty: bestuur
