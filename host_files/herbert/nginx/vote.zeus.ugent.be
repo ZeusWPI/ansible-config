@@ -18,6 +18,7 @@ server {
 server {
     listen 443 ssl http2;
     server_name vote.zeus.ugent.be;
+    include snippets/letsencrypt.conf;
 
     ssl_certificate     /root/.acme.sh/vote.zeus.ugent.be/fullchain.cer;
     ssl_certificate_key /root/.acme.sh/vote.zeus.ugent.be/vote.zeus.ugent.be.key;
