@@ -522,3 +522,9 @@
       tags:
         - nginx
         - pw3
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'opkuis.zeus.gent'
+      tags:
+        - nginx
+        - opkuis
