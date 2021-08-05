@@ -17,18 +17,17 @@ security: root
 clamav: root
 list-admin: root
 
-# Temp fix for downtime
 info: bestuur
-bestuur: voorzitter, penning, admin, project, event
+bestuur: voorzitter, admin, penning, assisterend
 
-voorzitter: robbevanherck1@gmail.com, maxime.bloch@ugent.be, sammy.delanghe@ugent.be
-admin: jasper.devreker@ugent.be, Francis.klinck@ugent.be
-penning: voorzitter, pieterjan.cassiman@gmail.com
-event: ruben.defacq@ugent.be
-project: maxime.bloch@ugent.be, hannes.klinckaert@ugent.be
+voorzitter: maxime.bloch@ugent.be, sammy.delanghe@ugent.be, francis.klinck@ugent.be, arthur.werbrouck@ugent.be
+admin: jasper.devreker@ugent.be, francis.klinck@ugent.be
+penning: sammy.delanghe@ugent.be
+assisterend: ruben.defacq@ugent.be, maxime.bloch@ugent.be
 
-# Assisterend en secretaris bestaan niet meer
-assisterend: bestuur
+# niet-ingevulde functies
+event: bestuur
+project: bestuur
 secretaris: bestuur
 pr: bestuur
 
