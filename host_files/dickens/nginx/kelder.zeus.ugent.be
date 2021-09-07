@@ -57,6 +57,10 @@ server {
          expires off;
     }
 
+    location ~ ^/printcam/(mjpg/video.mjpg)$ {
+         proxy_pass http://10.0.0.8/$1;
+    }
+
     # Slotmachien
     #location /slotmachien {
     #    proxy_pass http://10.0.1.5/slotmachien;
