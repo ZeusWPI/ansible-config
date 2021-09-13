@@ -2,11 +2,26 @@ server {
     listen 80;
     server_name mattermore.zeus.gent;
 
-    if ($request_method = GET) {
-        return 301 https://$server_name$request_uri;
+    location /doorkeeper {
+      alias /home/mattermore/production/app/public;
+
+      passenger_app_root      /home/mattermore/production;
+      passenger_restart_dir   /home/mattermore/production;
+
+      passenger_document_root /home/mattermore/production/app/public;
+      passenger_enabled on;
+
+      access_log /home/mattermore/log/access.log;
+      error_log  /home/mattermore/log/error.log;
     }
 
-    return 308 https://$server_name$request_uri;
+    location / {
+      if ($request_method = GET) {
+          return 301 https://$server_name$request_uri;
+      }
+
+      return 308 https://$server_name$request_uri;
+    }
 }
 
 server {
