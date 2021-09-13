@@ -71,6 +71,10 @@ server {
         add_header 'Access-Control-Allow-Origin' '*';
     }
 
+    location /kelderapi/ {
+        proxy_pass http://10.0.0.5:6000/kelderapi/;
+    }
+
     location /socket.io/ {
         proxy_redirect off;
         proxy_pass_request_headers on;
