@@ -10,6 +10,7 @@
       tags:
         - kerberos_server
 
+## TODO remove this once zauth is completely deployed
 #    - role: oauth
 #      tags: oauth
 
@@ -29,6 +30,12 @@
       tags: postfix
     - role: nginx_base
       tags: nginx
+    - role: nginx_vhost
+      nginx_vhost_location: 'roles/oauth/files/nginx'
+      nginx_vhost_file: 'oauth'
+      tags:
+        - oauth
+        - nginx
 
   vars_files:
     - vars/authorized_keys.yml
