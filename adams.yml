@@ -10,10 +10,6 @@
       tags:
         - kerberos_server
 
-## TODO remove this once zauth is completely deployed
-#    - role: oauth
-#      tags: oauth
-
     - role: postfix
       postfix_mailname: adams.ugent.be
       postfix_hostname: adams.ugent.be
@@ -31,7 +27,6 @@
     - role: nginx_base
       tags: nginx
     - role: nginx_vhost
-      nginx_vhost_location: 'roles/oauth/files/nginx'
       nginx_vhost_file: 'oauth'
       tags:
         - oauth
