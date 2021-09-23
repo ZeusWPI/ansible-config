@@ -15,7 +15,7 @@
       postfix_hostname: adams.ugent.be
       postfix_alias_maps:
         - "hash:/etc/aliases"
-        - "ldap:/etc/postfix/ldap-users.cf"
+        - "pgsql:/etc/postfix/zauth"
       postfix_destinations:
         - zeus.ugent.be
         - localhost
@@ -24,8 +24,10 @@
         - kelder.zeus.ugent.be
       postfix_fallback: #Geen
       tags: postfix
+
     - role: nginx_base
       tags: nginx
+
     - role: nginx_vhost
       nginx_vhost_file: 'oauth'
       tags:

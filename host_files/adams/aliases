@@ -53,3 +53,5 @@ irc: admin
 gnats: admin
 nobody: admin
 mailer-daemon: admin
+
+admin: j, fk
