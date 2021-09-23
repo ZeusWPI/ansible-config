@@ -24,12 +24,7 @@
 #    - role: strobot_zijn_haar
 #      endpoint: "http://localhost:8888"
 #
-   - role: postfix
-     postfix_alias_maps:
-       - "hash:/etc/aliases"
-       - "hash:/var/lib/mailman/data/aliases"
-       - "hash:/etc/postfix/adams_aliases"
-     postfix_fallback: #Geen
+#    - role: postfix
 #      postfix_mailbox_command: "/etc/strobot_zijn_haar.sh -a \"$EXTENSION\""
 #    - mailman
 #    - new_relic
@@ -47,7 +42,7 @@
 #    - common-nodejs
 #    # User configs and stuff
 #    - mysql_configs
-#    - nginx_sites_king
+   - nginx_sites_king
 #    - django
 #    - user_configs
 #    - uwsgi
