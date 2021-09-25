@@ -31,10 +31,10 @@ gitlab_rails['omniauth_providers'] = [
         'args' => {
                 name: 'Zeus',
                 client_options: {
-                        site:          'https://adams.ugent.be',
-                        authorize_url: '/oauth/oauth2/authorize/',
-                        token_url:     '/oauth/oauth2/token/',
-                        user_info_url: '/oauth/api/current_user/'
+                        site:          'https://localhost:8080',
+                        authorize_url: '/oauth/authorize/',
+                        token_url:     '/oauth/token/',
+                        user_info_url: '/current_user/'
                 },
                 user_response_structure: {
                         attributes: { nickname: 'username' }
