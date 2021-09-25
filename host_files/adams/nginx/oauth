@@ -23,8 +23,8 @@ server {
     #############
     # LOCATIONS #
     #############
-    rewrite ^/oauth/oauth2/(.*)$ /oauth/$1?$args last;
-    rewrite ^/oauth/api/(.*)$ /$1?$args last;
+    rewrite ^/oauth/oauth2/(.*)$ /oauth/$1 last;
+    rewrite ^/oauth/api/(.*)$ /$1 last;
 
     location / {
         client_max_body_size 50M;
