@@ -557,3 +557,13 @@
       tags:
        - nginx
        - cammie
+
+    ##########
+    # zauth #
+    ##########
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'zauth.zeus.gent'
+      tags:
+       - nginx
+       - zauth
