@@ -1,12 +1,12 @@
 server {
     listen 80;
-    server_name xn--5k8h.zeus.gent xn--vu8h.zeus.gent xn--tu8h.zeus.gent wiki.zeus.gent;
+    server_name xn--5k8h.zeus.gent xn--vu8h.zeus.gent xn--tu8h.zeus.gent cammie.zeus.gent;
     return 302 https://zeus.ugent.be/cammie;
 }
 
 server {
     listen 443;
-    server_name xn--5k8h.zeus.gent xn--vu8h.zeus.gent xn--tu8h.zeus.gent wiki.zeus.gent;
+    server_name xn--5k8h.zeus.gent xn--vu8h.zeus.gent xn--tu8h.zeus.gent cammie.zeus.gent;
 
     ssl_certificate     /root/.acme.sh/*.zeus.gent/fullchain.cer;
     ssl_certificate_key /root/.acme.sh/*.zeus.gent/*.zeus.gent.key;
