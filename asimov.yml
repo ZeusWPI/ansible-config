@@ -27,3 +27,12 @@
 
     - role: ssh-config
       tags: ssh-config
+
+    - role: nginx_base
+      tags: nginx
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'join.12urenloop.be'
+      tags:
+        - join
+        - nginx
