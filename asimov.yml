@@ -24,6 +24,9 @@
   roles:
     - role: sshkeys
       tags: sshkeys
+      extra_keys: |
+        ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDIJV0Lj/w5bBLYTO+Cc9bnRpMhgczS+WB2CbAkCei/qAUNlB16YPH4rFVTcQpMoSrCK9luOSVxXLZtkMoUmxYkkEB6xYgp5eGue+6l7PbnSh/bFUT84whsYTbb25rlVtxlPJZKkPyUEeRDY7C8UcPLqbDwua45pEeOR7hugyeJuJi6SOuMWufxXjYLGj0/pj8XEGlSohdYE+d4tdhPC7OkY9uYYgL3lMmTG2QyJRBNyEQiSizCmjgRIpR+RfcSVV+zBJyLVGOU6ATHDKu5ne8SdTApHBhv6xZJU7jGP/GEE/WJ5/SzDmH87zKieiFDr6LaqAa3XvXimuZ4XkLgzUBAfPySf5QB2oYOQGtyUHLCRLHJV6Fasib7Vph6nBf6GZvTJgZWKyxBsdjqQxqSVefNcCYdMO7IB8rh85CRfiGgWUd8s3pll2+PH7Hgxx41ax91gTVl/H84qqBsZptT8AwT+RNRJd62ZouCafZA00pGEz54G5i0Boo6C1BFAmImEVs= tibo@desktop
+        ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDASVuh/jUVzrUzR7dY4aV7WuQdOr1b2APnxlkLo1AaNKUvUFpouTVecvXSLByaB/isxabFzb7yQc8Rb1Zg0r7b1E09QbzSwyqAU7slbaqMovS+SwYlv69z3cqr3OWF+Dgl6kBX6YHIBBB/qAL4wmZqDbbPsVprpf3it9sAn0CNcFAfN1JWaqJluqIQI+p7n6LZ/MA4rD2Almgnbi/+ciWx2jo2oqHrmvJPYE1oz3ma+tirbA61ntPu+0qdx7xI3T1o5HtS+YUYWa6GQelan1WdoyAn3l4AllaRy/h1I0BSmI8Mc9VUqAyL3bY6foHBNIGz/MJt0p7W+BNd3JJ2/GGI44jsIsSgI7PX1jjkVluDsemQnKinZWkq0iWCCgV4XSND7yviu5hChSKSThEq7wGLdszRX7UKbJccd3iJBAETp2kRLhSD0m/hRsmi4xPwvO1pTXxYYpujogInAXPgfIjZI7NqNQ4iUuStXrwncCdiLmfkepLYVSLE3ep2dh/j+uU= tibo@glacier
 
     - role: ssh-config
       tags: ssh-config
