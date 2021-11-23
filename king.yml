@@ -46,7 +46,6 @@
 #    - django
 #    - user_configs
 #    - uwsgi
-#    - dokuwiki
 #    # Monitoring goodies
 #    - ansible-playbook-monit
 #    - matrix

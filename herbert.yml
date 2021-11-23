@@ -397,17 +397,6 @@
        - tabbp
 
 
-    ########
-    # Wiki #
-    ########
-
-    - role: nginx_vhost
-      nginx_vhost_file: 'wiki.zeus.gent'
-      tags:
-       - nginx
-       - wiki
-
-
     ##############
     # Hookermost #
     ##############
@@ -512,7 +501,7 @@
       tags:
         - nginx
         - moana
-    
+
     ###############
     # PlanetWars3 #
     ###############
@@ -528,7 +517,7 @@
       tags:
         - nginx
         - opkuis
-    
+
     ##############
     # Drive wiki #
     ##############
