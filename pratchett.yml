@@ -113,3 +113,9 @@
       tags:
         - nginx
         - wiki
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'hydra-admin.zeus.gent'
+      tags:
+        - nginx
+        - hydra-admin
