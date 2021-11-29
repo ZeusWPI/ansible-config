@@ -1,20 +1,20 @@
 server {
     listen 80;
     server_name hydra.ugent.be www.hydra.ugent.be;
+    include snippets/letsencrypt.conf;
 
     return 302 https://$server_name$request_uri;
 }
 
 server {
-    listen 443 ssl;
+    listen 10443 ssl http2;
     server_name hydra.ugent.be www.hydra.ugent.be;
 
     include snippets/letsencrypt.conf;
-    include snippets/ssl_options.conf;
-
+    include snippets/ssl_options_preload.conf;
 
     ssl_certificate /etc/ssl/private/hydra.ugent.be.fullchain.pem;
-    ssl_certificate_key /etc/ssl/private/hydra.ugent.be.pem;
+    ssl_certificate_key /etc/ssl/private/hydra.ugent.be.key;
 
     location /api {
         add_header 'Access-Control-Allow-Origin' '*';
