@@ -4,8 +4,6 @@ upstream zauth {
 }
 
 server {
-    listen  80; ## listen for ipv4
-    listen  [::]:80 default ipv6only=on; ## listen for ipv6
     listen  443 default ssl;
 
     server_name adams.ugent.be;
@@ -19,6 +17,8 @@ server {
     include snippets/ssl_options.conf;
     ssl_certificate /etc/letsencrypt/live/adams.ugent.be/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/adams.ugent.be/privkey.pem;
+    
+    add_header Strict-Transport-Security "max-age=31536000" always; 
 
     #############
     # LOCATIONS #
@@ -42,3 +42,14 @@ server {
         proxy_pass http://zauth;
     }
 }
+
+server {
+    if ($host = {{server_name}} ) { 
+        return 301 https://$host$request_uri;
+    }   
+    listen  [::]:80 default ipv6only=on; ## listen for ipv6
+    listen 80; 
+    server_name {{ server_name }}; 
+    return 404; 
+}
+
