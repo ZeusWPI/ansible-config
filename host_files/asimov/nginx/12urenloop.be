@@ -1,5 +1,5 @@
 upstream 12urenloop-site {
-   server localhost:8080;
+   server localhost:3001;
    keepalive 32;
 }
 
