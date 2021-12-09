@@ -1,5 +1,5 @@
-upstream urenloop-site {
-   server localhost:3004;
+upstream 12urenloop-site {
+   server localhost:3001;
    keepalive 32;
 }
 
@@ -15,7 +15,7 @@ server {
 }
 
 server {
-    listen 10443 ssl http2;
+    listen 443 ssl http2;
     server_name 12urenloop.be;
 
     ssl_certificate     /etc/ssl/private/12urenloop.be.fullchain.pem;
@@ -35,6 +35,6 @@ server {
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto $scheme;
         proxy_set_header Host $host;
-        proxy_pass http://urenloop-site;
+        proxy_pass http://12urenloop-site;
     }
 }
