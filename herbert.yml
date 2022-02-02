@@ -351,32 +351,6 @@
           - nginx
           - cat
 
-
-    ###########
-    # ZeusWPI #
-    ###########
-    #
-    # = Zeus Extraordinary Uploading Service With Productive Interface
-    #
-
-    - role: nginx_vhost
-      nginx_vhost_file: 'pics.zeus.gent'
-      tags:
-       - nginx
-       - pics
-
-
-    ################
-    # HTTPizza/2.0 #
-    ################
-
-    - role: nginx_vhost
-      nginx_vhost_file: 'pizza.zeus.gent'
-      tags:
-       - nginx
-       - httpizza
-
-
     #########
     # Tappb #
     #########
@@ -502,22 +476,6 @@
         - nginx
         - moana
 
-    ###############
-    # PlanetWars3 #
-    ###############
-
-    - role: nginx_vhost
-      nginx_vhost_file: 'pw3.zeus.gent'
-      tags:
-        - nginx
-        - pw3
-
-    - role: nginx_vhost
-      nginx_vhost_file: 'opkuis.zeus.gent'
-      tags:
-        - nginx
-        - opkuis
-
     ##############
     # Drive wiki #
     ##############
@@ -537,22 +495,8 @@
         - drive
         - nginx
 
-    ##########
-    # Cammie #
-    ##########
-
     - role: nginx_vhost
-      nginx_vhost_file: 'cammie.zeus.gent'
+      nginx_vhost_file: 'redirects.conf'
       tags:
        - nginx
-       - cammie
-
-    ##########
-    # zauth #
-    ##########
-
-    - role: nginx_vhost
-      nginx_vhost_file: 'zauth.zeus.gent'
-      tags:
-       - nginx
-       - zauth
+       - redirects
