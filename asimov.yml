@@ -45,3 +45,15 @@
       nginx_vhost_file: '12urenloop.be'
       tags:
         - nginx
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'materiaal.12urenloop.be'
+      tags:
+        - saruman
+        - nginx
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'factuur.12urenloop.be'
+      tags:
+        - factuur
+        - nginx
