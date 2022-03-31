@@ -7,11 +7,11 @@ server {
     listen 80;
     server_name live.6urenloop.be;
 
-    if ($request_method = GET) {
-        return 301 https://$server_name$request_uri;
-    }
+    #if ($request_method = GET) {
+    #    return 301 https://$server_name$request_uri;
+    #}
 
-    return 308 https://$server_name$request_uri;
+    #return 308 https://$server_name$request_uri;
 
     include snippets/letsencrypt.conf;
 }
