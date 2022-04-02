@@ -1,4 +1,0 @@
-server_host = localhost
-search_base = ou=leden,dc=kelder,dc=zeus,dc=ugent,dc=be
-query_filter = uid=%s
-result_attribute = mail

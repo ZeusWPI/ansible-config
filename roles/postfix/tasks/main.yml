@@ -23,13 +23,6 @@
     dest: /etc/postfix/master.cf
   notify: Reload Postfix
 
-
-- name: Copy the ldap file
-  template:
-    src: postfix/ldap-users.cf
-    dest: /etc/postfix/ldap-users.cf
-  notify: Reload Postfix
-
 - name: Set aliases
   template:
     src: "{{ postfix_alias_file }}"
