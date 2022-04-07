@@ -23,6 +23,12 @@
     dest: /etc/postfix/master.cf
   notify: Reload Postfix
 
+- name: Copy header checks
+  template:
+    src: postfix/header_checks
+    dest: /etc/postfix/header_checks
+  notify: Reload Postfix
+
 - name: Set aliases
   template:
     src: "{{ postfix_alias_file }}"
