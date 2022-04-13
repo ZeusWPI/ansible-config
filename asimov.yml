@@ -33,7 +33,9 @@
       tags: ssh-config
 
     - role: nginx_base
-      tags: nginx
+      tags:
+          - nginx_base
+          - nginx
 
     - role: nginx_vhost
       nginx_vhost_file: 'join.12urenloop.be'
@@ -69,3 +71,14 @@
         - dataset
         - nginx
 
+    - role: nginx_vhost
+      nginx_vhost_file: 'loxsi.12urenloop.be'
+      tags:
+        - loxsi
+        - nginx
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'live.12urenloop.be'
+      tags:
+        - live
+        - nginx
