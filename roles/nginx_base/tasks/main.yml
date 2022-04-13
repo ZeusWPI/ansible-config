@@ -42,6 +42,11 @@
   args:
     creates: /etc/ssl/certs/dhparam.pem
 
+- name: Create snakeoil ssl certificates
+  command: openssl req -x509 -newkey rsa:4096 -keyout /etc/ssl/snakeoil.key -out /etc/ssl/snakeoil.pem -days 365 -nodes -subj '/CN=localhost'
+  args:
+    creates: /etc/ssl/snakeoil.pem
+
 - name: Remove default vhost
   file:
     path: /etc/nginx/sites-enabled/default
