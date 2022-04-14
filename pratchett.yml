@@ -112,3 +112,14 @@
       tags:
         - nginx
         - hydra
+    
+    - role: user
+      user_name: zeusweb
+      tags:
+        - zeusweb
+    
+    - role: nginx_vhost
+      nginx_vhost_file: 'site.pratchett.zeus.gent'
+      tags:
+        - nginx
+        - zeusweb

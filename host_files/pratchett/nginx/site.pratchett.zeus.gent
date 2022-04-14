@@ -1,0 +1,98 @@
+server {
+    listen 80;
+    server_name site.pratchett.zeus.gent;
+    include snippets/letsencrypt.conf;
+
+    if ($request_method = GET) {
+        return 301 https://$server_name$request_uri;
+    }
+
+    return 308 https://$server_name$request_uri;
+}
+
+server {
+    listen 10443 ssl http2;
+    server_name site.pratchett.zeus.gent;
+
+    ssl_certificate     /etc/ssl/private/pratchett.zeus.gent.fullchain.pem;
+    ssl_certificate_key /etc/ssl/private/pratchett.zeus.gent.pem;
+    include snippets/ssl_options_preload.conf;
+
+    root /var/www/zeusweb;
+    index index.html;
+    error_page 404 /404/index.html;
+
+    # Old Zeussite static files
+    location /wp-content {
+      root /home/zeusweb/public;
+    }
+
+        ####################
+    # FORWARDS & REWRITES
+    ####################
+    # Webcam
+    location ~ ^/webcam(/.*|$) {
+        rewrite ^ http://kelder.zeus.ugent.be/webcam$1;
+    }
+
+    # Zeus Github
+    location ~ ^/git(hub)?/?(?<repo>.*)$ {
+        rewrite ^ https://github.com/ZeusWPI/$repo;
+    }
+
+    # Hydra enquete
+    location /enquete {
+        return 302 https://goo.gl/forms/7UZPTl67BBJCSdfG3;
+    }
+
+    # Bloklocaties
+    location /blok {
+      return http://blok.ugent.be;
+    }
+
+    location /lan {
+        return 302 https://zeus.gent/events/21-22/06_lan/;
+    }
+
+    location /rust {
+        return 302 https://zeus.ugent.be/events/16-17/Rust/;
+    }
+
+    location /httpizza {
+        return 302 https://zeus.ugent.be/events/16-17/httpizza;
+    }
+
+    location /pizza {
+        return 302 https://github.com/ZeusWPI/HTTPizza;
+    }
+
+    location /ledenformulier {
+        return 302 https://adams.ugent.be/register;
+    }
+
+    location /ctf {
+        return 302 https://zeus.ugent.be/events/21-22/11_picoctf/;
+    }
+
+    # This URL is in silkscreen on the OBUS PCBs, so please don't change/remove this
+    location /obus {
+	    return 302 https://github.com/ZeusWPI/OBUS;
+    }
+
+    location /wiki {
+        return 308 https://wiki.zeus.gent;
+    }
+
+    location ~ /tab(/.*|$) {
+        return 302 https://tab.zeus.gent$1;
+    }
+    location ~ /tap(/.*|$) {
+        return 302 https://tap.zeus.gent$1;
+    }
+    location ~ /zinc(/.*|$) {
+        return 302 https://zinc.zeus.gent$1;
+    }
+    location ~ /haldis(/.*|$) {
+        return 302 https://haldis.zeus.gent$1;
+    }
+}
