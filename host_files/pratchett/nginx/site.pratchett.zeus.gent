@@ -27,7 +27,7 @@ server {
       root /home/zeusweb/public;
     }
 
-        ####################
+    ####################
     # FORWARDS & REWRITES
     ####################
     # Webcam
@@ -49,6 +49,11 @@ server {
     location /blok {
       return http://blok.ugent.be;
     }
+
+    location /kelderregels {
+        return 302 https://git.zeus.gent/bestuur/drive/-/blob/master/activiteiten/2021-2022/kelderregels.md;
+    }
+
 
     location /lan {
         return 302 https://zeus.gent/events/21-22/06_lan/;
