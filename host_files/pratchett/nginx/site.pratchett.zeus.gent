@@ -25,7 +25,7 @@ server {
 
     # Old Zeussite static files
     location /wp-content {
-      root /home/zeusweb/public;
+      root /var/www/zeusweb-old-wordpress;
     }
 
     ####################
