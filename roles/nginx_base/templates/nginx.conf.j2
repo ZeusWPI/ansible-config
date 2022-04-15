@@ -51,13 +51,4 @@ http {
 
     # other configurations
     include conf.d/*;
-
-    # We can't use `ssl_reject_handshake` because we're still at NGINX 1.18
-    server {
-        listen 443 ssl default_server;
-        ssl_certificate     /etc/ssl/snakeoil.pem;
-        ssl_certificate_key /etc/ssl/snakeoil.key;
-        server_name _;
-        return 444;
-    }
 }
