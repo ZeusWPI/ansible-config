@@ -123,3 +123,9 @@
       tags:
         - nginx
         - zeusweb
+    
+    - role: nginx_vhost
+      nginx_vhost_file: 'pics.zeus.gent'
+      tags:
+        - nginx
+        - pics
