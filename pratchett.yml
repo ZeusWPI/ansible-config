@@ -129,3 +129,9 @@
       tags:
         - nginx
         - pics
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'gandalf.zeus.gent'
+      tags:
+        - nginx
+        - gandalf
