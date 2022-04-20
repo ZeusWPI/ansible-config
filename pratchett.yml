@@ -135,3 +135,9 @@
       tags:
         - nginx
         - gandalf
+    
+    - role: nginx_vhost
+      nginx_vhost_file: 'zinc.zeus.gent'
+      tags:
+        - nginx
+        - zinc
