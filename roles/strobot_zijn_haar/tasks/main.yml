@@ -1,6 +1,0 @@
----
-- name: Copy strobot script
-  template:
-    src: strobot_zijn_haar.sh
-    dest: /etc/strobot_zijn_haar.sh
-    mode: '0777'

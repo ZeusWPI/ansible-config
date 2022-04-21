@@ -1,3 +1,0 @@
----
-- name: Install Kerberos
-  apt: name=krb5-user state=present
