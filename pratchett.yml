@@ -129,15 +129,21 @@
       tags:
         - nginx
         - pics
-
-    - role: nginx_vhost
-      nginx_vhost_file: 'gandalf.zeus.gent'
-      tags:
-        - nginx
-        - gandalf
     
     - role: nginx_vhost
       nginx_vhost_file: 'zinc.zeus.gent'
       tags:
         - nginx
         - zinc
+    
+    - role: nginx_vhost
+      nginx_vhost_file: 'haldis.student.ugent.be'
+      tags:
+       - nginx
+       - student_haldis
+    
+    - role: nginx_vhost
+      nginx_vhost_file: 'gandalf.student.ugent.be'
+      tags:
+       - nginx
+       - student_gandalf
