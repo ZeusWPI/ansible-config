@@ -82,3 +82,9 @@
       tags:
         - live
         - nginx
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'festibar.12urenloop.be'
+      tags:
+        - festibar
+        - nginx
