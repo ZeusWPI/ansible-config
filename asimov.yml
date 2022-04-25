@@ -59,6 +59,7 @@
       tags:
         - factuur
         - nginx
+
     - role: nginx_vhost
       nginx_vhost_file: 'live.6urenloop.be'
       tags:

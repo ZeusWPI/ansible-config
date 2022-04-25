@@ -20,7 +20,29 @@ server {
 
     ssl_certificate     /etc/ssl/private/12urenloop.be.fullchain.pem;
     ssl_certificate_key /etc/ssl/private/12urenloop.be.pem;
-    include snippets/ssl_options_preload.conf;
+
+    # include snippets/ssl_options_preload.conf;
+
+	### Manually include options_preload to disable X-Frame-Options
+	include snippets/ssl_options_common.conf;
+
+	# HSTS: lets a web site tell browsers that it should only be communicated with
+	#       using HTTPS, instead of using HTTP.
+	more_clear_headers Strict-Transport-Security;
+	add_header Strict-Transport-Security 'max-age=31536000; includeSubDomains; preload';
+
+	# include snippets/securityheaders.conf;
+
+	more_clear_headers Referrer-Policy X-XSS-Protection X-Frame-Options X-Content-Type-Options Expect-CT;
+
+	add_header Referrer-Policy same-origin;
+	add_header X-XSS-Protection "1; mode=block";
+	# add_header X-Frame-Options SAMEORIGIN;
+	add_header X-Content-Type-Options "nosniff";
+	more_clear_headers X-Powered-By Server;
+
+	add_header Permissions-Policy interest-cohort=();
+	###
 
     location / {
         client_max_body_size 50M;
