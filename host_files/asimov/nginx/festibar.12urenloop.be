@@ -27,6 +27,9 @@ server {
     ssl_certificate_key /etc/ssl/private/12urenloop.be.pem;
     include snippets/ssl_options_preload.conf;
 
+    auth_basic           "Festibar (ask Robbe)";
+    auth_basic_user_file /etc/nginx/festibar.passwd;
+
     location /api {
         client_max_body_size 50M;
         proxy_buffers 256 16k;
