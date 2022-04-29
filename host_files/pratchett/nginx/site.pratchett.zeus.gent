@@ -101,4 +101,8 @@ server {
     location ~ /haldis(/.*|$) {
         return 302 https://haldis.zeus.gent$1;
     }
+
+    location ~ /hydra(/.*|$) {
+        return 302 https://hydra.ugent.be$1;
+    }
 }
