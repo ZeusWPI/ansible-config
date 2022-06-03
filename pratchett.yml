@@ -147,3 +147,9 @@
       tags:
        - nginx
        - student_gandalf
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'gamification.pratchett.zeus.gent'
+      tags:
+       - nginx
+       - gamification
