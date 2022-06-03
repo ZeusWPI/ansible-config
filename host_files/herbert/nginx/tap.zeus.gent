@@ -16,10 +16,12 @@ server {
 
     location / {
         passenger_enabled on;
+        passenger_preload_bundler on;
+
         alias /home/tap/production/current/public/;
 
         passenger_base_uri /;
-
+        
         passenger_app_root      /home/tap/production/current;
         passenger_document_root /home/tap/production/current/public;
     }
