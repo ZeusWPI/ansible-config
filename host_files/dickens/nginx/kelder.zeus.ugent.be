@@ -63,7 +63,7 @@ server {
     }
 
     location /messages {
-        proxy_pass http://10.0.0.5:5000/messages;
+        proxy_pass http://10.0.0.11:5000/messages;
         add_header 'Access-Control-Allow-Origin' '*';
     }
 
