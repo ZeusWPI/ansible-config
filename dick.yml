@@ -42,6 +42,7 @@
       nginx_vhost_file: 'kelder.zeus.ugent.be'
       tags:
         - nginx
+        - kelder
 
     #############
     # Sonarqube #

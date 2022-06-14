@@ -68,7 +68,7 @@ server {
     }
 
     location /kelderapi/ {
-        proxy_pass http://10.0.0.5:6000/kelderapi/;
+        proxy_pass http://10.0.0.8:5000/kelderapi/;
     }
 
     location /socket.io/ {
