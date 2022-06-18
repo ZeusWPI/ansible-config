@@ -1,2 +1,3 @@
 /^X-Spam-Flag:(.*)YES(.*)/ REJECT Spam rejected
 /^From: (.*)@beerselect.be/ REJECT You have sent unsolicited email and are now blocked
+/^Subject:(.*)BIO (.*)/ REJECT Spam rejected
