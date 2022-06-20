@@ -46,6 +46,12 @@ server {
          proxy_pass http://10.0.0.7/$1$is_args$args;
     }
 
+    # This uses https://github.com/vvidic/mjpeg-proxy to proxy MJPG cameras so only one stream
+    # per camera is opened
+    location ~ ^/camera/(.*)$ {
+        proxy_pass http://127.0.0.1:8081/$1$is_args$args;
+    }
+
     location /webcam/cgi/ptdc.cgi {
         add_header 'Access-Control-Allow-Origin' '*';
         try_files /tmp/freeze_camera @cammie_movement;
