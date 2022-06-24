@@ -20,6 +20,6 @@ server {
     ssl_certificate_key /etc/ssl/private/haldis.student.ugent.be.key;
     include snippets/letsencrypt.conf;
 
-    return 404;
+    root /var/www/html;
     rewrite_log on;
 }
