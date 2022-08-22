@@ -155,7 +155,7 @@
        - gamification
 
     - role: nginx_vhost
-      nginx_vhost_file: 'zout.pratchett.zeus.gent'
+      nginx_vhost_file: 'zout.zeus.gent'
       tags:
         - nginx
         - zout
