@@ -5,7 +5,7 @@
 
 
   roles:
-#    - sshkeys
+   - sshkeys
 #    - common
 #    - users
 #    - mariadb
@@ -26,7 +26,7 @@
 #    - passenger
 #    # User configs and stuff
 #    - mysql_configs
-   - nginx_sites_king
+  #  - nginx_sites_king
 
   vars_files:
     - vars/passwords.yml
