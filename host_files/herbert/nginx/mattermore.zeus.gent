@@ -2,7 +2,7 @@ server {
     listen 80;
     server_name mattermore.zeus.gent;
 
-    location /doorkeeper {
+    location ~ ^(/doorkeeper|/fingerprint_cb) {
       alias /home/mattermore/production/app/public;
 
       passenger_app_root      /home/mattermore/production;
