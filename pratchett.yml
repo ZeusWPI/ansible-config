@@ -161,7 +161,7 @@
         - zout
 
     - role: nginx_vhost
-      nginx_vhost_file: 'glitchtip.pratchett.zeus.gent'
+      nginx_vhost_file: 'glitchtip.zeus.gent'
       tags:
        - nginx
        - glitchtip
