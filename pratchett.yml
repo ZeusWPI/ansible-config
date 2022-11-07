@@ -108,6 +108,11 @@
         - wiki
 
     - role: nginx_vhost
+      nginx_vhost_file: 'hydra-admin.zeus.gent'
+      tags:
+        - nginx
+        - hydra-admin
+
       nginx_vhost_file: 'hydra.ugent.be'
       tags:
         - nginx
@@ -165,10 +170,9 @@
       tags:
        - nginx
        - glitchtip
-    
+       
     - role: nginx_vhost
       nginx_vhost_file: 'mastodon.zeus.gent'
       tags:
        - nginx
        - mastodon
-
