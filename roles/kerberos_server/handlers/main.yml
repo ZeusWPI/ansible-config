@@ -1,8 +1,0 @@
----
-- name: Restart kerberos
-  service:
-    name: "{{ item }}"
-    state: restarted
-  with_items:
-    - krb5-kdc
-    - krb5-admin-server

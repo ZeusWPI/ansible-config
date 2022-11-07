@@ -23,11 +23,10 @@
     dest: /etc/postfix/master.cf
   notify: Reload Postfix
 
-
-- name: Copy the ldap file
+- name: Copy header checks
   template:
-    src: postfix/ldap-users.cf
-    dest: /etc/postfix/ldap-users.cf
+    src: postfix/header_checks
+    dest: /etc/postfix/header_checks
   notify: Reload Postfix
 
 - name: Set aliases

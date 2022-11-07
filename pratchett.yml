@@ -96,13 +96,6 @@
         - join
 
     - role: nginx_vhost
-      nginx_vhost_file: '12urenloop.be'
-      tags:
-        - nginx
-        - 12urenloop
-        - urenloop-site
-
-    - role: nginx_vhost
       nginx_vhost_file: 'msrs.zeus.gent'
       tags:
         - nginx
@@ -119,3 +112,61 @@
       tags:
         - nginx
         - hydra-admin
+
+      nginx_vhost_file: 'hydra.ugent.be'
+      tags:
+        - nginx
+        - hydra
+
+    - role: user
+      user_name: zeusweb
+      tags:
+        - zeusweb
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'site.pratchett.zeus.gent'
+      tags:
+        - nginx
+        - zeusweb
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'pics.zeus.gent'
+      tags:
+        - nginx
+        - pics
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'zinc.zeus.gent'
+      tags:
+        - nginx
+        - zinc
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'haldis.student.ugent.be'
+      tags:
+       - nginx
+       - student_haldis
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'gandalf.student.ugent.be'
+      tags:
+       - nginx
+       - student_gandalf
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'gamification.pratchett.zeus.gent'
+      tags:
+       - nginx
+       - gamification
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'zout.zeus.gent'
+      tags:
+        - nginx
+        - zout
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'glitchtip.zeus.gent'
+      tags:
+       - nginx
+       - glitchtip

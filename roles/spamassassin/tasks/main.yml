@@ -5,7 +5,7 @@
 
 - name: Install optional packages for better spam detection (1)
   apt:
-    name: ['libnet-dns-perl', 'libmail-spf-perl', 'razor']
+    name: ['libnet-dns-perl', 'libmail-spf-perl', 'razor', 'python3-pip']
 
 - name: Install optional packages for better spam detection (2)
   pip: name=pyzor state=present

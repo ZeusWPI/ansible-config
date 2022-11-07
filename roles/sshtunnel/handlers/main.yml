@@ -1,5 +1,0 @@
----
-- name: Restart sshtunnel
-  service:
-    name: sshtunnel
-    state: restarted

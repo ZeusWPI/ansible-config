@@ -4,7 +4,7 @@ upstream massacantus-http {
 
 server {
     listen 80;
-    server_name massacantusgent.be massacantus.ugent.be dev.massacantus.ugent.be;
+    server_name massacantusgent.be www.massacantusgent.be massacantus.ugent.be dev.massacantus.ugent.be;
 
    location / {
        client_max_body_size 50M;
@@ -16,6 +16,7 @@ server {
        proxy_connect_timeout 90;
        proxy_send_timeout 300;
        proxy_read_timeout 90s;
+       proxy_set_header Host $host;
        proxy_pass http://massacantus-http;
    }
 }

@@ -9,8 +9,8 @@ postfix_alias_maps:
   - "hash:/var/lib/mailman/data/aliases"
 
 relay_servers_ugent:
-  - relay3.ugent.be
-  - relay4.ugent.be
+  - smtpfltrp2.ugent.be
+  - smtpfltrp1.ugent.be
 
 postfix_destinations:
   - zeus.ugent.be

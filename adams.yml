@@ -5,10 +5,8 @@
 
 
   roles:
-    - sshkeys
-    - role: kerberos_server
-      tags:
-        - kerberos_server
+    - role: sshkeys
+      tags: sshkeys
 
     - role: postfix
       postfix_mailname: adams.ugent.be

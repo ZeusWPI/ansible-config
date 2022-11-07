@@ -18,16 +18,16 @@ clamav: root
 list-admin: root
 
 info: bestuur
-bestuur: voorzitter, admin, penning, assisterend
+bestuur: voorzitter, admin, penning, project, ruben.defacq@ugent.be, maxime.bloch@ugent.be
 
-voorzitter: maxime.bloch@ugent.be, sammy.delanghe@ugent.be, francis.klinck@ugent.be, arthur.werbrouck@ugent.be
-admin: jasper.devreker@ugent.be, francis.klinck@ugent.be
-penning: sammy.delanghe@ugent.be
-assisterend: ruben.defacq@ugent.be, maxime.bloch@ugent.be
+voorzitter: maxime.bloch@ugent.be, sammy.delanghe@ugent.be, francis.klinck@ugent.be, ieben.smessaert@ugent.be
+admin: jasper.devreker@ugent.be, francis.klinck@ugent.be, tibo.ulens@ugent.be
+penning: sammy.delanghe@ugent.be, klaas.goethals@ugent.be
+project: jan.lecoutere@ugent.be
 
 # niet-ingevulde functies
 event: bestuur
-project: bestuur
+assisterend: bestuur
 secretaris: bestuur
 pr: bestuur
 

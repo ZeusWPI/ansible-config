@@ -1,5 +1,5 @@
 ---
 authorized_keys: |
   ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGgQgerwZXVnVBCfwtWW6m0wg4P4CsrQ6DkjJ61oC6LJ redfast00@arch
-  ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINNS5sbll0vXcSxrpSYC3NAFJbzhMM3UYtHiQHnDaw1n maxime@maxime-xps13
   ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO3Q+5FksBvYXJQde1onrWgt/IPD/x2hopsFc04F1jLa fklinck@fkmachine
+  ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMI4e631pK/Um/Vo7RK3T2/vz7ouwibDUhNq8SglU4Qc tibo@glacier

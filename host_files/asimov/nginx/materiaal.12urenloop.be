@@ -1,39 +1,26 @@
-upstream zauth {
-   server localhost:8000;
+upstream saruman {
+   server localhost:7730;
    keepalive 32;
 }
 
 server {
     listen 80;
-    server_name adams.ugent.be;
+    server_name materiaal.12urenloop.be;
 
     if ($request_method = GET) {
         return 301 https://$server_name$request_uri;
     }
-    include snippets/letsencrypt.conf;
 
     return 308 https://$server_name$request_uri;
 }
 
 server {
-    listen  443 default ssl;
-    server_name adams.ugent.be;
+    listen 443 ssl http2;
+    server_name materiaal.12urenloop.be;
 
-
-    ###############
-    # SSL OPTIONS #
-    ###############
-
-    include snippets/letsencrypt.conf;
+    ssl_certificate     /etc/ssl/private/12urenloop.be.fullchain.pem;
+    ssl_certificate_key /etc/ssl/private/12urenloop.be.pem;
     include snippets/ssl_options_preload.conf;
-    ssl_certificate /etc/letsencrypt/live/adams.ugent.be/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/adams.ugent.be/privkey.pem;
-
-    #############
-    # LOCATIONS #
-    #############
-    rewrite ^/oauth/oauth2/(.*)$ /oauth/$1 last;
-    rewrite ^/oauth/api/(.*)$ /$1 last;
 
     location / {
         client_max_body_size 50M;
@@ -48,6 +35,6 @@ server {
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto $scheme;
         proxy_set_header Host $host;
-        proxy_pass http://zauth;
+        proxy_pass http://saruman;
     }
 }

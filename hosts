@@ -20,7 +20,7 @@ clarke ansible_ssh_host=clarke.ugent.be ansible_ssh_port=2222
 asimov ansible_ssh_host=asimov.ugent.be ansible_ssh_port=2222 ansible_python_interpreter=python3
 
 [alpine]
-tolkien ansible_ssh_host=10.0.0.9 ansible_ssh_port=22
+tolkien ansible_ssh_host=10.0.20.20 ansible_ssh_port=22
 
 [ubuntu]
 pratchett ansible_ssh_host=pratchett.ugent.be ansible_ssh_port=2222 ansible_python_interpreter=python3
