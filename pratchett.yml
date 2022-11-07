@@ -170,3 +170,9 @@
       tags:
        - nginx
        - glitchtip
+       
+    - role: nginx_vhost
+      nginx_vhost_file: 'mastodon.zeus.gent'
+      tags:
+       - nginx
+       - mastodon
