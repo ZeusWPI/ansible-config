@@ -28,6 +28,10 @@ server {
       root /var/www/zeusweb-old-wordpress;
     }
 
+    location = /.well-known/host-meta {
+       return 301 https://mastodon.zeus.gent$request_uri;
+    }
+
     ####################
     # FORWARDS & REWRITES
     ####################
