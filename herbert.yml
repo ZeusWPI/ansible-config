@@ -210,25 +210,6 @@
         - nginx
         - haldis
 
-    #############
-    # Sadstatus #
-    #############
-
-    - role: user
-      user_name: sadstatus
-      user_directories:
-          - directory: 'log'
-          - directory: 'public'
-      tags:
-          - sadstatus
-          - user
-
-    - role: nginx_vhost
-      nginx_vhost_file: 'sad.zeus.gent'
-      tags:
-        - nginx
-        - sadstatus
-
     ##############
     # Mattermost #
     ##############

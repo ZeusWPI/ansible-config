@@ -10,9 +10,6 @@ server {
 
       passenger_document_root /home/mattermore/production/app/public;
       passenger_enabled on;
-
-      access_log /home/mattermore/log/access.log;
-      error_log  /home/mattermore/log/error.log;
     }
 
     location / {
@@ -36,9 +33,6 @@ server {
 
         passenger_document_root /home/mattermore/production/app/public;
         passenger_enabled on;
-
-        access_log /home/mattermore/log/access.log;
-        error_log  /home/mattermore/log/error.log;
     }
 
     ssl_certificate     /root/.acme.sh/*.zeus.gent/fullchain.cer;
