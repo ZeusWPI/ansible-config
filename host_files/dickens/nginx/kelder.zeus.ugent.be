@@ -68,6 +68,10 @@ server {
         proxy_pass http://10.0.1.5/;
     }
 
+	location /fingerprint {
+		proxy_pass http://10.0.1.15/;
+	}
+
     location /messages {
         proxy_pass http://10.0.0.11:5000/messages;
         add_header 'Access-Control-Allow-Origin' '*';
