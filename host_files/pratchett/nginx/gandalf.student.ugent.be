@@ -1,6 +1,6 @@
 server {
     listen 80;
-    server_name event.student.ugent.be events.student.ugent.be gandalf.student.ugent.be;
+    server_name event.student.ugent.be events.student.ugent.be gandalf.student.ugent.be event.fkgent.be;
 
     if ($request_method = GET) {
         return 301 https://event.student.ugent.be$request_uri;
