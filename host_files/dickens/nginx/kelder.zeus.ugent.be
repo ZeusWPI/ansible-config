@@ -83,6 +83,8 @@ server {
     }
 
     location /socket.io/ {
+        add_header 'Access-Control-Allow-Origin' '*';
+
         proxy_redirect off;
         proxy_pass_request_headers on;
         proxy_set_header X-Real-IP $remote_addr;
