@@ -83,8 +83,6 @@ server {
     }
 
     location /socket.io/ {
-        add_header 'Access-Control-Allow-Origin' '*';
-
         proxy_redirect off;
         proxy_pass_request_headers on;
         proxy_set_header X-Real-IP $remote_addr;
@@ -94,6 +92,6 @@ server {
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_http_version 1.1;
         proxy_set_header Host $host;
-        proxy_pass http://10.0.0.5:5000/socket.io/;
+        proxy_pass http://10.0.0.11:5000/socket.io/;
     }
 }
