@@ -1,3 +1,8 @@
+upstream live-6urenloop {
+    server localhost:6969;
+    keepalive 32;
+}
+
 server {
     listen 80;
     server_name live.6urenloop.be;
