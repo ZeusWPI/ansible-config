@@ -21,4 +21,10 @@ server {
         root /var/www/dataset;
         autoindex on;
     }
+
+    location @notfound {
+        return 404 "Ask other members for the complete URL or look in /var/www/dataset on asimov.ugent.be";
+    }
+
+    error_page 404 @notfound;
 }
