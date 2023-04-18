@@ -3,6 +3,8 @@ upstream zeusss {
     keepalive 32;
 }
 
+proxy_cache_path /var/cache/nginx levels=1:2 keys_zone=zeusss_cache:30s max_size=3g inactive=120m use_temp_path=off;
+
 server {
     listen 80;
     server_name score.vek.be;
@@ -36,6 +38,19 @@ server {
         proxy_set_header X-Forwarded-Proto $scheme;
         proxy_set_header Host $host;
         proxy_pass http://zeusss;
+
+        location /api/poules {
+          proxy_cache zeusss_cache;
+          proxy_cache_valid any 30s;
+        }
+        location /api/teams {
+          proxy_cache zeusss_cache;
+          proxy_cache_valid any 30s;
+        }
+        location /api/bracket {
+          proxy_cache zeusss_cache;
+          proxy_cache_valid any 30s;
+        }
     }
 
     location /admin {
