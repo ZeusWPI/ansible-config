@@ -39,17 +39,13 @@ server {
         proxy_set_header Host $host;
         proxy_pass http://zeusss;
 
-        location /api/poules {
-          proxy_cache zeusss_cache;
-          proxy_cache_valid any 30s;
-        }
-        location /api/teams {
-          proxy_cache zeusss_cache;
-          proxy_cache_valid any 30s;
-        }
-        location /api/bracket {
-          proxy_cache zeusss_cache;
-          proxy_cache_valid any 30s;
+        location /api {
+            proxy_pass http://zeusss/api;
+            proxy_cache zeusss_cache;
+            proxy_cache_valid 200 30s;
+            proxy_cache_methods GET;
+            proxy_ignore_headers Cache-Control;
+            add_header X-Cache-Status $upstream_cache_status;
         }
     }
 
@@ -73,6 +69,7 @@ server {
     }
 
     location /api/admin {
+        proxy_cache off;
         client_max_body_size 50M;
         proxy_buffers 256 16k;
         proxy_buffer_size 16k;
