@@ -9,11 +9,13 @@ server {
     listen 80;
     server_name score.vek.be;
 
-    if ($request_method = GET) {
-        return 301 https://$server_name$request_uri;
+    include snippets/letsencrypt.conf;
+    location / {
+        if ($request_method = GET) {
+            return 301 https://$server_name$request_uri;
+        }
+        return 308 https://$server_name$request_uri;
     }
-
-    return 308 https://$server_name$request_uri;
 }
 
 server {
