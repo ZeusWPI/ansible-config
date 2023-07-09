@@ -1,0 +1,135 @@
+digraph ZeusInfrastructuur {
+
+
+mattermost -> mattermore [dir = both]
+mattermore -> lockbot [dir = both]
+mattermore -> messages_hoek
+hydra_api -> mattermore
+dict_newsfeed -> mattermore
+
+messages_hoek -> ledstrip
+messages_hoek -> TAp
+TAp -> messageos
+
+mattermore -> kelderapi
+kelderapi -> ikea_hub
+kelderapi -> speaker
+
+tap -> tab [dir = both]
+
+
+// inloggen met zauth
+zauth -> tap
+zauth -> tab
+zauth -> haldis
+zauth -> cat
+zauth -> wiki
+zauth -> zeuswpi_image_cdn
+zauth -> endorsement
+zauth -> tabbp
+zauth -> msrs
+zauth -> mordor
+zauth -> codimd
+
+
+codimd -> flynn_zn_syncding
+flynn_zn_syncding -> zeus_gitlab
+
+
+// posts in ~voedsels
+haldis -> mattermost
+
+hydra_android -> hydra_api
+hydra_android -> tab
+hydra_android -> tap
+hydra_android -> mattermore
+hydra_android -> dsa_api
+hydra_android -> urgent_fm
+
+hydra_ios -> hydra_api
+hydra_ios -> urgent_fm
+hydra_ios -> dsa_api
+
+tappb -> tab
+tappb -> tap
+tappb -> tabbp
+tabbp -> tab
+tabbp -> tap
+
+ugent_resto -> hydra_api
+urgent_fm -> hydra_api
+ugent_bib_api -> hydra_api
+ugent_news -> hydra_api
+schamper -> hydra_api
+hydra_api -> zeus_gitlab // archiven van gescrapete data
+
+
+postfix_king -> ugent_smtp
+lists_king -> postfix_king
+postfix_king -> postfix_adams
+zauth -> postfix_adams
+postfix_adams -> ugent_smtp
+
+co2sensor_kelder -> lucht_zeus_database
+co2sensor_wina -> lucht_zeus_database
+lucht_zeus_database -> fetchprogramma
+lucht_zeus_database -> prometheus_co2
+fetchprogramma -> ledstrip
+
+ikea_hub -> lampen
+ikea_hub -> ledstrip
+
+gamification2 -> zeussite
+zeussite -> wina_scherm
+zeussite -> cammie
+zeussite -> zeuswpi_image_cdn
+zeussite -> zinc
+zeussite -> messages_hoek
+zeus_gitlab -> zeussite // de verslagen
+github -> gamification2
+github -> hookermost
+hookermost -> mattermost
+
+
+blokdata -> blokmap
+
+github -> pr_zeussite
+github -> zeussite
+
+torgax -> oasis
+torgax -> ufora
+
+zauth -> zeus_gitlab
+
+// DRIVE posting in bestuur-dev
+zeus_gitlab -> mattermost
+zeus_gitlab -> ugent_smtp
+mattermost -> ugent_smtp
+
+fk_enrolment -> gandalf
+zauth -> gandalf
+
+brandmeister_amateur_dmr -> brandmeister_dmr_sea
+brandmeister_dmr_sea -> mumble
+brandmeister_dmr_sea -> mattermost
+
+dict_newsfeed [color = blue]
+ugent_resto [color = blue]
+ugent_smtp [color = blue]
+dsa_api [color = blue]
+ugent_bib_api [color = blue]
+ugent_news [color = blue]
+urgent_fm [color = blue]
+schamper [color = blue]
+github [color = green]
+brandmeister_amateur_dmr [color = green]
+oasis [color = blue]
+ufora [color = blue]
+fk_enrolment [color = blue]
+ugent_cas [color = blue]
+
+kelderapi [color = red]
+messages_hoek [color = red]
+fetchprogramma [color = red]
+
+}
