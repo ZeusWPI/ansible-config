@@ -18,18 +18,19 @@ clamav: root
 list-admin: root
 
 info: bestuur
-bestuur: voorzitter, admin, penning, project, ruben.defacq@ugent.be, maxime.bloch@ugent.be
+bestuur: voorzitter, admin, penning, event, pr 
 
-voorzitter: maxime.bloch@ugent.be, sammy.delanghe@ugent.be, francis.klinck@ugent.be, ieben.smessaert@ugent.be
-admin: jasper.devreker@ugent.be, francis.klinck@ugent.be, tibo.ulens@ugent.be
-penning: sammy.delanghe@ugent.be, klaas.goethals@ugent.be
-project: jan.lecoutere@ugent.be
+voorzitter: francis.klinck@ugent.be, ieben.smessaert@ugent.be, jan.lecoutere@ugent.be, tibo.ulens@ugent.be
+admin: zeusadmin@devreker.be, francis.klinck@ugent.be, tibo.ulens@ugent.be, xander.bil@ugent.be, laurenz.verherbrugghen@ugent.be
+penning: klagoeth@zeus.ugent.be, vincent.vallaeys@ugent.be
+event: rune.dyselinck@ugent.be
+pr: tybo.verslype@ugent.be
 
+vice: voorzitter
 # niet-ingevulde functies
-event: bestuur
 assisterend: bestuur
 secretaris: bestuur
-pr: bestuur
+project: bestuur
 
 # Hier kun je specifieke mensen toevoegen die de organisatie doen
 lanparty: bestuur
