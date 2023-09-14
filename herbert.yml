@@ -461,3 +461,9 @@
       tags:
        - nginx
        - redirects
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'multiplayer-ruffle-demo.zeus.gent'
+      tags:
+        - nginx
+        - multiplayer-ruffle-demo
