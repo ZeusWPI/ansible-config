@@ -18,6 +18,7 @@ clamav: root
 list-admin: root
 
 info: bestuur
+ski: bestuur
 bestuur: voorzitter, admin, penning, event, pr 
 
 voorzitter: francis.klinck@ugent.be, ieben.smessaert@ugent.be, jan.lecoutere@ugent.be, tibo.ulens@ugent.be
