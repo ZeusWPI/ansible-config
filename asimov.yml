@@ -97,9 +97,16 @@
       tags:
         - loxsi6
         - nginx
+    
+    - role: nginx_vhost
+      nginx_vhost_file: 'score.vek.be'
+      tags:
+        - zeusss
+        - nginx
 
     - role: nginx_vhost
       nginx_vhost_file: 'docs.12urenloop.be'
       tags:
         - docs
         - nginx
+
