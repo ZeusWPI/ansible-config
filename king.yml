@@ -5,7 +5,8 @@
 
 
   roles:
-   - sshkeys
+     - role: sshkeys
+       extra_keys: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP1i4fno93sR9g9Vepd5VGCTSjEzqdwM+X1UXPLQipy9 mathieu@ms-laptop'
 #    - common
 #    - nginx_base
 #    # Email stuff
@@ -17,7 +18,7 @@
 #    - ntp
 #    # User configs and stuff
 #    - mysql_configs
-   - nginx_sites_king
+     - nginx_sites_king
 
   vars_files:
     - vars/ruby.yml
