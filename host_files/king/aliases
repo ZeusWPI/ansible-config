@@ -19,12 +19,11 @@ list-admin: root
 
 info: bestuur
 ski: bestuur
-bestuur: voorzitter, admin, penning, event, pr 
+bestuur: voorzitter, admin, penning, event, pr, jan.lecoutere@ugent.be
 
-voorzitter: francis.klinck@ugent.be, ieben.smessaert@ugent.be, jan.lecoutere@ugent.be, tibo.ulens@ugent.be
+voorzitter: francis.klinck@ugent.be, ieben.smessaert@ugent.be, vincent.vallaeys@ugent.be, tibo.ulens@ugent.be
 admin: zeusadmin@devreker.be, francis.klinck@ugent.be, tibo.ulens@ugent.be, xander.bil@ugent.be, laurenz.verherbrugghen@ugent.be
-penning: klagoeth@zeus.ugent.be, vincent.vallaeys@ugent.be
-event: rune.dyselinck@ugent.be
+penning: klagoeth@zeus.ugent.be, rune.dyselinck@ugent.be
 pr: tybo.verslype@ugent.be
 
 vice: voorzitter
@@ -32,6 +31,7 @@ vice: voorzitter
 assisterend: bestuur
 secretaris: bestuur
 project: bestuur
+event: bestuur
 
 # Hier kun je specifieke mensen toevoegen die de organisatie doen
 lanparty: bestuur
