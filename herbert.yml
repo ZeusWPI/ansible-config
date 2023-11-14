@@ -65,7 +65,7 @@
         - gitlab
 
     - role: nginx_vhost
-      nginx_vhost_file: 'git.zeus.gent'
+      nginx_vhost_file: 'gitlab.zeus.gent'
       tags:
         - nginx
         - gitlab

@@ -82,20 +82,6 @@
         - massacantus
 
     - role: nginx_vhost
-      nginx_vhost_file: 'factuur.12urenloop.be'
-      tags:
-        - nginx
-        - 12urenloop
-        - factuur
-
-    - role: nginx_vhost
-      nginx_vhost_file: 'join.12urenloop.be'
-      tags:
-        - nginx
-        - 12urenloop
-        - join
-
-    - role: nginx_vhost
       nginx_vhost_file: 'msrs.zeus.gent'
       tags:
         - nginx
@@ -177,3 +163,8 @@
       tags:
        - nginx
        - mastodon
+    - role: nginx_vhost
+      nginx_vhost_file: 'git.zeus.gent'
+      tags:
+       - git
+       - nginx
