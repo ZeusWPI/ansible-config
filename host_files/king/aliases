@@ -19,7 +19,7 @@ list-admin: root
 
 info: bestuur
 ski: bestuur
-bestuur: voorzitter, admin, penning, event, pr, jan.lecoutere@ugent.be
+bestuur: voorzitter, admin, penning, event, pr, nutty@zeus.ugent.be
 
 voorzitter: francis.klinck@ugent.be, ieben.smessaert@ugent.be, vincent.vallaeys@ugent.be, tibo.ulens@ugent.be
 admin: zeusadmin@devreker.be, francis.klinck@ugent.be, tibo.ulens@ugent.be, xander.bil@ugent.be, laurenz.verherbrugghen@ugent.be
