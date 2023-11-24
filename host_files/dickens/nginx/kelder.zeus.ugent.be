@@ -73,7 +73,7 @@ server {
 	}
 
     location /messages {
-        proxy_pass http://10.0.0.11:5000/messages;
+        proxy_pass http://10.0.0.8:3000/messages;
         add_header 'Access-Control-Allow-Origin' '*';
         add_header 'Access-Control-Allow-Headers' 'X-Username';
     }
@@ -92,6 +92,6 @@ server {
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_http_version 1.1;
         proxy_set_header Host $host;
-        proxy_pass http://10.0.0.11:5000/socket.io/;
+        proxy_pass http://10.0.0.8:3000/socket.io/;
     }
 }
