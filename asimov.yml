@@ -26,8 +26,7 @@
       tags: sshkeys
       extra_keys: |
         ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDp/z+3QzScADwxD7ryhw9nfr9EoY7Q/DZhBLwg240vX2T1mp96ZAjSYoly2p44dMe4k+ujbQmfcrMfJ1QEO9ns5y9+z1RRp36EE/4YNayhzkx9Fo158z032+H8GBV23c2nG5KWsWYoBpD1pPRO+BXNe9UpehCdU1g1CG3X4aUF13JydHLSHcXoSHxe45hywOy9cB3tUDPQfXPrGHl8rWqTpEMtfxYu+p1Fe0AlqaDCfijbGXuUZCjRrM6vIaC/WYe9fikEX80i43Fe7l1Mmy7eAbKD7LdDeItLOB2PQqV/YJM/1cY67TzmRHIqsXcnezuTl82JpbZqo7iPHgMyu8XOSlsN3IQ896jvy3EEty0H4OqrbIHBo3zjytqfV+pYwBBFlbFrOdo3o3AMOn40SPmTIquzJab8kMXIbCfcg9nAXoo+TgTjPGCpYtXgsS+JaNuc/ql8E10eJ8ekdcXawI+lovUgUuAqNQ1aTzj1JB+Mpk9Hlm7/edWO6KBd5odmwas= robbe@adell
-        ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGhg7F1y22LxKb1XHakXI5q8EqVoemXMlQFGc4bORXUU janle@ROG-ARCH
-        ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJuiiFtiDbyfHB6Oprci+9/5hbzTWruRMfWE2EHY0CqK lv@lv-vivobook
+        ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGhg7F1y22LxKb1XHakXI5q8EqVoemXMlQFGc4bORXUU janle@ROG-ARCH 
         ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBNqubyKWMbJOK1+ooIo3VpUQZeczu4jlkSwXs9njFrJ ieben@MacBook-Pro-van-Ieben
 
     - role: ssh-config
