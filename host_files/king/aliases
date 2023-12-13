@@ -39,6 +39,8 @@ lanparty: bestuur
 # Slack owner
 slack: admin
 
+gandalf: admin, silox@zeus.ugent.be
+
 # use spam@zeus.ugent.be to learn about new spam
 spam: spam@spam.spam
 
