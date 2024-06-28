@@ -10,6 +10,8 @@ server {
 }
 
 server {
+    passenger_ruby /home/tab/.asdf/shims/ruby;
+
     listen 443 ssl http2;
     server_name tab.zeus.gent;
 
