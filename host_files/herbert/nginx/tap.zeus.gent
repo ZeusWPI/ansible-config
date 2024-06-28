@@ -10,6 +10,8 @@ server {
 }
 
 server {
+    passenger_ruby /home/tap/.asdf/shims/ruby;
+
     listen 443 ssl http2;
     server_name tap.zeus.gent;
     client_max_body_size 50M;
