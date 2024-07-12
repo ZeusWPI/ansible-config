@@ -18,20 +18,19 @@ clamav: root
 list-admin: root
 
 info: bestuur
-ski: bestuur
-bestuur: voorzitter, admin, penning, event, pr, nutty@zeus.ugent.be
+bestuur: voorzitter, admin, penning, event, pr, assisterend
 
-voorzitter: francis.klinck@ugent.be, ieben.smessaert@ugent.be, vincent.vallaeys@ugent.be, tibo.ulens@ugent.be
-admin: zeusadmin@devreker.be, francis.klinck@ugent.be, tibo.ulens@ugent.be, xander.bil@ugent.be, laurenz.verherbrugghen@ugent.be
-penning: klagoeth@zeus.ugent.be, rune.dyselinck@ugent.be
+voorzitter: vincent.vallaeys@ugent.be, hannes.klinckaert@ugent.be
+admin: francis.klinck@ugent.be, xander.bil@ugent.be, laurenz.verherbrugghen@ugent.be, mathieu.strypsteen@ugent.be, axel.dezittere@ugent.be
+penning: rune.dyselinck@ugent.be
 pr: tybo.verslype@ugent.be
+event: lander.degeeter@ugent.be
+assisterend: nutty@zeus.ugent.be
 
 vice: voorzitter
 # niet-ingevulde functies
-assisterend: bestuur
 secretaris: bestuur
 project: bestuur
-event: bestuur
 
 # Hier kun je specifieke mensen toevoegen die de organisatie doen
 lanparty: bestuur
