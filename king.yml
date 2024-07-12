@@ -6,7 +6,6 @@
 
   roles:
      - role: sshkeys
-       extra_keys: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP1i4fno93sR9g9Vepd5VGCTSjEzqdwM+X1UXPLQipy9 mathieu@ms-laptop'
 #    - common
 #    - nginx_base
 #    # Email stuff
