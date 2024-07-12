@@ -1,7 +1,8 @@
 ---
 authorized_keys: |
-  ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGgQgerwZXVnVBCfwtWW6m0wg4P4CsrQ6DkjJ61oC6LJ redfast00@arch
   ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO3Q+5FksBvYXJQde1onrWgt/IPD/x2hopsFc04F1jLa fklinck@fkmachine
-  ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMI4e631pK/Um/Vo7RK3T2/vz7ouwibDUhNq8SglU4Qc tibo@glacier
   ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJuiiFtiDbyfHB6Oprci+9/5hbzTWruRMfWE2EHY0CqK lv@lv-vivobook
-  sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIB5ifsYCLU1oP4wjYPKgF0Jc53CzdbJxwiOQdGXFEaUPAAAABHNzaDo= xander@gentoo
+  sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIB5ifsYCLU1oP4wjYPKgF0Jc53CzdbJxwiOQdGXFEaUPAAAABHNzaDo= xander@yubikey
+  sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIIH33pRp93TOK5OyidgYVYtWBNKawKFzUilOA7Nb2NWzAAAABHNzaDo= mathieu@yubikey-c
+  sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIHSZEZAdsx64pSt+2uSHU25K6m3peo2nt2oQJW3jm6i6AAAABHNzaDo= mathieu@yubikey
+  ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJmNiDqNDsSeB7PhzpVmkwB/FuFVk5bUgS4/yNY7V/a6 axel@zoodlekaboodle
