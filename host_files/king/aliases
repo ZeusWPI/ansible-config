@@ -22,10 +22,10 @@ bestuur: voorzitter, admin, penning, event, pr, assisterend
 
 voorzitter: vincent.vallaeys@ugent.be, hannes.klinckaert@ugent.be
 admin: francis.klinck@ugent.be, xander.bil@ugent.be, laurenz.verherbrugghen@ugent.be, mathieu.strypsteen@ugent.be, axel.dezittere@ugent.be, vincent.vallaeys@ugent.be
-penning: rune.dyselinck@ugent.be
-pr: tybo.verslype@ugent.be
-event: lander.degeeter@ugent.be
-assisterend: nutty@zeus.ugent.be
+penning: rune.dyselinck@ugent.be, vincent.vallaeys@ugent.be
+pr: tybo.verslype@ugent.be, vincent.vallaeys@ugent.be
+event: lander.degeeter@ugent.be, vincent.vallaeys@ugent.be
+assisterend: nutty@zeus.ugent.be, vincent.vallaeys@ugent.be
 
 vice: voorzitter
 # niet-ingevulde functies
