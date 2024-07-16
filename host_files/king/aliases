@@ -35,6 +35,8 @@ project: bestuur
 # Hier kun je specifieke mensen toevoegen die de organisatie doen
 lanparty: bestuur
 
+food: bestuur
+
 # Slack owner
 slack: admin
 
