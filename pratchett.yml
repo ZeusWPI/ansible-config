@@ -168,3 +168,8 @@
       tags:
        - git
        - nginx
+    - role: nginx_vhost
+      nginx_vhost_file: 'haldis.zeus.gent'
+      tags:
+       - haldis
+       - nginx
