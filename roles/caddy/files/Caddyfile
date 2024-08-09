@@ -1,0 +1,5 @@
+{
+  admin :9000
+}
+
+import Caddyfile.d/*

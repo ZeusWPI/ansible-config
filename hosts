@@ -1,22 +1,12 @@
-# This is king's ansible 'hosts' file.
-#
-# It should live in /etc/ansible/hosts
-#
-#   - Comments begin with the '#' character
-#   - Blank lines are ignored
-#   - Groups of hosts are delimited by [header] elements
-#   - You can enter hostnames or ip addresses
-#   - A hostname/ip can be a member of multiple groups
-#
-# For this to work your SSH-key needs to be added to the host already
 [debian]
-king ansible_ssh_host=zeus.ugent.be ansible_ssh_port=2222
 adams ansible_ssh_host=adams.ugent.be ansible_ssh_port=2222
 events ansible_ssh_host=events.ugent.be ansible_ssh_port=2222
 herbert ansible_ssh_host=herbert.ugent.be ansible_ssh_port=2222
 dickens ansible_ssh_host=kelder.zeus.ugent.be ansible_ssh_port=2222
 clarke ansible_ssh_host=clarke.ugent.be ansible_ssh_port=2222
 asimov ansible_ssh_host=asimov.ugent.be ansible_ssh_port=2222 ansible_python_interpreter=python3
+
+king ansible_ssh_host=king.ugent.be ansible_ssh_port=2222
 
 [alpine]
 tolkien ansible_ssh_host=10.0.20.20 ansible_ssh_port=22

@@ -1,0 +1,24 @@
+- name: Copy Caddyfile
+  copy:
+    src: "Caddyfile"
+    dest: "/etc/caddy/Caddyfile"
+
+- name: Copy caddy domain files
+  copy:
+    src: "host_files/{{ ansible_hostname }}/caddy/"
+    dest: "/etc/caddy/Caddyfile.d/"
+  changed_when: True
+
+- name: Validate caddy config
+  ansible.builtin.command: "caddy validate --config /etc/caddy/Caddyfile"
+
+- name: Restart caddy
+  service:
+    name: caddy
+    state: restarted
+
+- name: Ensure caddy is enabled & running
+  service:
+    name: caddy
+    state: started
+    enabled: yes

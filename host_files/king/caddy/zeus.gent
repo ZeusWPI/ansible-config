@@ -1,0 +1,5 @@
+zeus.gent {
+  reverse_proxy https://site.pratchett.zeus.gent {
+    header_up Host {upstream_hostport}
+  }
+}
