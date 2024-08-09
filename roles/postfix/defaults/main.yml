@@ -1,22 +1,5 @@
 ---
-postfix_mailname: zeus.ugent.be
-postfix_hostname: zeus.ugent.be
-
 postfix_alias_file: "host_files/{{ ansible_hostname }}/aliases"
 
 postfix_alias_maps:
   - "hash:/etc/aliases"
-  - "hash:/var/lib/mailman/data/aliases"
-
-relay_servers_ugent:
-  - smtpfltrp2.ugent.be
-  - smtpfltrp1.ugent.be
-
-postfix_destinations:
-  - zeus.ugent.be
-  - localhost
-
-postfix_fallback: "smtp:adams.ugent.be"
-
-# Used for strobot
-postfix_mailbox_command: "procmail -a \"$EXTENSION\""

@@ -7,18 +7,8 @@
       - role: sshkeys
       - role: caddy
         tags: caddy
+      - role: postfix
+        tags: postfix
       
-#    - common
-#    - nginx_base
-#    # Email stuff
-#    - spamassassin
-#    - mail_antivirus
-#    - role: postfix
-#    - mailman
-#    - fail2ban
-#    - ntp
-#    # User configs and stuff
-#    - mysql_configs
-
   vars_files:
       - vars/authorized_keys.yml

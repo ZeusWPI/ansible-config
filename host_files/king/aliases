@@ -32,6 +32,9 @@ vice: voorzitter
 secretaris: bestuur
 project: bestuur
 
+hydra: admin, niko@zeus.ugent.be
+gandalf: admin, silox@zeus.ugent.be
+
 # Hier kun je specifieke mensen toevoegen die de organisatie doen
 lanparty: bestuur
 
@@ -39,11 +42,6 @@ food: bestuur
 
 # Slack owner
 slack: admin
-
-gandalf: admin, silox@zeus.ugent.be
-
-# use spam@zeus.ugent.be to learn about new spam
-spam: spam@spam.spam
 
 # renamed these cursuscruisen-users
 biologie: cursuscruisen-biologie
@@ -53,15 +51,3 @@ fysica: cursuscruisen-fysica
 # common app renames to match their users
 enrolment: fk-enrolment
 blokmap: bloklocaties
-
-## mailman mailing list
-mailman:              "|/var/lib/mailman/mail/mailman post mailman"
-mailman-admin:        "|/var/lib/mailman/mail/mailman admin mailman"
-mailman-bounces:      "|/var/lib/mailman/mail/mailman bounces mailman"
-mailman-confirm:      "|/var/lib/mailman/mail/mailman confirm mailman"
-mailman-join:         "|/var/lib/mailman/mail/mailman join mailman"
-mailman-leave:        "|/var/lib/mailman/mail/mailman leave mailman"
-mailman-owner:        "|/var/lib/mailman/mail/mailman owner mailman"
-mailman-request:      "|/var/lib/mailman/mail/mailman request mailman"
-mailman-subscribe:    "|/var/lib/mailman/mail/mailman subscribe mailman"
-mailman-unsubscribe:  "|/var/lib/mailman/mail/mailman unsubscribe mailman"

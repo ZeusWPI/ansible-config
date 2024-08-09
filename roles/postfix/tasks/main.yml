@@ -1,31 +1,13 @@
 ---
-- name: Install Postfix
-  apt:
-    name: postfix
-    state: present
-  notify: Reload Postfix
-
-- name: Set mail hostname
-  template:
-    src: mailname
-    dest: /etc/mailname
-  notify: Reload Postfix
-
 - name: Copy the configuration file
-  template:
-    src: postfix/main.cf
+  copy:
+    src: "host_files/{{ ansible_hostname }}/postfix/main.cf"
     dest: /etc/postfix/main.cf
   notify: Reload Postfix
 
-- name: Copy the master file
-  template:
-    src: postfix/master.cf
-    dest: /etc/postfix/master.cf
-  notify: Reload Postfix
-
 - name: Copy header checks
-  template:
-    src: postfix/header_checks
+  copy:
+    src: "header_checks"
     dest: /etc/postfix/header_checks
   notify: Reload Postfix
 
@@ -35,7 +17,11 @@
     dest: /etc/aliases
   notify: Reload aliases
 
-- name: Install mailx
-  apt:
-    name: bsd-mailx
-    state: present
+- name: Validate postfix config
+  ansible.builtin.command: "postfix check"
+
+- name: Ensure postfix is enabled & running
+  service:
+    name: postfix
+    state: started
+    enabled: yes
