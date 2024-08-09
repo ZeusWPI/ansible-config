@@ -1,0 +1,29 @@
+- name: Create the containers directory
+  file:
+    path: "/etc/containers/systemd"
+    state: directory
+    owner: root
+    group: root
+    mode: '0755'
+
+- name: Copy quadlet files
+  copy:
+    src: "{{ item }}"
+    dest: "/etc/containers/systemd/"
+    owner: root
+    group: root
+    mode: '0644'
+  with_fileglob:
+    - "host_files/{{ ansible_hostname }}/quadlets/{{ container_name }}.*"
+  register: copy
+
+- name: Run daemon reload
+  systemd:
+    daemon-reload: true
+
+- name: Reload the containers
+  systemd:
+    name: "{{ container_name }}"
+    state: restarted
+  when:
+    - copy.changed

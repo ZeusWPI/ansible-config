@@ -1,8 +1,8 @@
 ---
 - name: Copy the configuration file
   copy:
-    src: "host_files/{{ ansible_hostname }}/postfix/main.cf"
-    dest: /etc/postfix/main.cf
+    src: "host_files/{{ ansible_hostname }}/postfix/"
+    dest: "/etc/postfix/"
   notify: Reload Postfix
 
 - name: Copy header checks

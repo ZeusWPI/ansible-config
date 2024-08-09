@@ -1,0 +1,13 @@
+[Unit]
+Requires=postgresql.service
+After=postgresql.service
+[Container]
+ContainerName=zauth
+Image=ghcr.io/zeuswpi/zauth
+Network=zauth.network
+PublishPort=127.0.0.1:8000:8000
+Volume=/var/lib/container-config/Rocket.toml:/usr/src/zauth/Rocket.toml:z,ro
+Volume=keys.volume:/usr/src/zauth/keys:Z
+AutoUpdate=registry
+[Install]
+WantedBy=multi-user.target

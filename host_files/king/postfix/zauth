@@ -1,0 +1,10 @@
+hosts = 127.0.0.1
+
+# The user name and password to log into the pgsql server.
+user=zauth
+password=zauth
+
+# The database name on the servers.
+dbname = zauth
+
+query = select email from postfix_view where username = '%u';

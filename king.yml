@@ -4,11 +4,41 @@
   user: root
 
   roles:
-      - role: sshkeys
-      - role: caddy
-        tags: caddy
-      - role: postfix
-        tags: postfix
+    - role: sshkeys
+    - role: caddy
+      tags: caddy
+    - role: postfix
+      tags: postfix
+
+    - role: quadlet_host
+      container_name: 'postgresql'
+      tags:
+        - quadlet
       
+    - role: quadlet_host
+      container_name: 'rspamd'
+      tags:
+        - quadlet
+
+    - role: quadlet_host
+      container_name: 'unbound'
+      tags:
+        - quadlet
+
+    - role: quadlet_host
+      container_name: 'zauth'
+      tags:
+        - quadlet
+
+    - role: quadlet_host
+      container_name: 'zauth'
+      tags:
+        - quadlet
+
+    - role: quadlet_host
+      container_name: 'postsrsd'
+      tags:
+        - quadlet
+
   vars_files:
       - vars/authorized_keys.yml

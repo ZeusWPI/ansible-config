@@ -1,0 +1,3 @@
+zauth.zeus.gent {
+	reverse_proxy :8000
+}

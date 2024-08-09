@@ -1,0 +1,10 @@
+[Container]
+ContainerName=postgresql
+Image=docker.io/postgres:16-alpine
+Network=zauth.network
+Volume=postgresql.volume:/var/lib/postgresql/data:U,Z
+PublishPort=127.0.0.1:5432:5432
+Secret=POSTGRES_PASSWORD,type=env
+AutoUpdate=registry
+[Install]
+WantedBy=multi-user.target

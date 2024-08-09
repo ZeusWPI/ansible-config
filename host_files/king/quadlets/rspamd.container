@@ -1,0 +1,15 @@
+[Unit]
+Requires=valkey.service
+After=valkey.service
+[Container]
+ContainerName=rspamd
+Image=docker.io/rspamd/rspamd
+Network=mail.network
+Volume=/var/lib/container-config/rspamd:/etc/rspamd/local.d:z,ro
+Volume=/var/lib/container-config/rspamd-override:/etc/rspamd/override.d:z,ro
+Volume=rspamd.volume:/var/lib/rspamd:U,Z
+PublishPort=127.0.0.1:11332:11332
+AutoUpdate=registry
+DNS=10.89.1.40
+[Install]
+WantedBy=multi-user.target
