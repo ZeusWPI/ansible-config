@@ -1,0 +1,30 @@
+---
+- name: Copy borgmatic config
+  copy:
+    src: "common.yaml"
+    dest: "/etc/borgmatic/conf.d/"
+
+- name: Check if extra.yaml exists
+  delegate_to: localhost
+  stat:
+    path: "host_files/{{ ansible_hostname }}/borgmatic/extra.yaml"
+  register: extra
+
+- name: copy borgmatic extra if it exists
+  copy: 
+    src: "host_files/{{ ansible_hostname }}/borgmatic/extra.yaml"
+    dest: "/etc/borgmatic/conf.d/extra.yaml"
+  when: extra.stat.exists
+
+
+- name: Assemble borgmatic config
+  assemble:
+    src: "/etc/borgmatic/conf.d"
+    dest: "/etc/borgmatic/config.yaml"
+    validate: "borgmatic config validate --config %s"
+
+- name: Ensure borgmatic.timer is enabled & running
+  service:
+    name: borgmatic.timer
+    state: started
+    enabled: yes

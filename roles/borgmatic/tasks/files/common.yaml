@@ -1,0 +1,22 @@
+source_directories:
+    - /home
+    - /etc
+    - /var
+
+repositories:
+    - path: ssh://flanagan@kelder.zeus.ugent.be:2222/home/flanagan/borgbackup
+      label: backupserver
+
+exclude_patterns:
+     - '- /home/*/.cache'
+     - '- /var/cache'
+     - '- /var/tmp'
+     - '*.pyc'
+
+encryption_passcommand: cat /root/.borgmatic/passphrase
+
+exclude_caches: true
+
+keep_daily: 7
+keep_weekly: 4
+keep_yearly: 1
