@@ -1,8 +1,3 @@
-upstream zauth {
-   server localhost:8000;
-   keepalive 32;
-}
-
 server {
     listen 80;
     server_name adams.ugent.be;
@@ -16,7 +11,7 @@ server {
 }
 
 server {
-    listen  443 default ssl;
+    listen 443 default ssl;
     server_name adams.ugent.be;
 
 
@@ -35,6 +30,7 @@ server {
     rewrite ^/oauth/oauth2/(.*)$ /oauth/$1 last;
     rewrite ^/oauth/api/(.*)$ /$1 last;
 
+
     location / {
         client_max_body_size 50M;
         proxy_buffers 256 16k;
@@ -47,7 +43,12 @@ server {
         proxy_read_timeout 90s;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto $scheme;
-        proxy_set_header Host $host;
-        proxy_pass http://zauth;
+        proxy_pass https://zauth.zeus.gent;
+        proxy_ssl_server_name on;
+    }
+
+    location /.well-known/ {
+        root /var/www;
+        try_files   $uri =404;
     }
 }
