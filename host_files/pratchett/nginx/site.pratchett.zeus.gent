@@ -21,6 +21,7 @@ server {
     root /var/www/zeusweb;
     index index.html;
     port_in_redirect off;
+    absolute_redirect off;
     error_page 404 /404/index.html;
 
     # Old Zeussite static files
@@ -56,7 +57,7 @@ server {
     }
 
     location /kelderregels {
-        return 302 https://git.zeus.gent/bestuur/drive/-/blob/master/activiteiten/2021-2022/kelderregels.md;
+        return 302 https://git.zeus.gent/ZeusWPI/drive/raw/branch/master/activiteiten/2021-2022/kelderregels.md;
     }
 
 
