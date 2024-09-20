@@ -78,7 +78,7 @@ server {
     }
 
     location /ledenformulier {
-        return 302 https://adams.ugent.be/register;
+        return 302 https://zauth.zeus.gent/register;
     }
 
     location /ctf {
