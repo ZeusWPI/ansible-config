@@ -173,3 +173,7 @@
       tags:
        - haldis
        - nginx
+    - role: nginx_vhost
+      nginx_vhost_file: 'calendar.zeus.gent'
+      tags:
+       - nginx
