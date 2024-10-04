@@ -1,9 +1,9 @@
 [Container]
 ContainerName=postsrsd
-Image=docker.io/fphammerle/postsrsd
-PublishPort=127.0.0.1:10001:10001
-PublishPort=127.0.0.1:10002:10002
+Image=docker.io/ajoergensen/postsrsd
+PublishPort=127.0.0.1:10003:10003
 Environment=SRS_DOMAIN=zeus.ugent.be
+Secret=SRS_SECRET,type=env
 AutoUpdate=registry
 [Install]
 WantedBy=multi-user.target
