@@ -5,7 +5,7 @@ upstream 12urenloop-site {
 
 server {
     listen 80;
-    server_name 12urenloop.be;
+    server_name *.12urenloop.be 12urenloop.be;
 
     if ($request_method = GET) {
         return 301 https://$server_name$request_uri;
@@ -16,7 +16,7 @@ server {
 
 server {
     listen 443 ssl http2;
-    server_name 12urenloop.be;
+    server_name *.12urenloop.be 12urenloop.be;
 
     ssl_certificate     /etc/ssl/private/12urenloop.be.fullchain.pem;
     ssl_certificate_key /etc/ssl/private/12urenloop.be.pem;
