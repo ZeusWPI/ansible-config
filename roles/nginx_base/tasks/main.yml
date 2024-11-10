@@ -1,5 +1,5 @@
-- name: Distro specific installation
-  include: "{{ ansible_distribution }}.yml"
+# - name: Distro specific installation #FIX: include is deprecated
+#   include: "{{ ansible_distribution }}.yml"
 
 - name: Copy conf.d configs and snippets
   copy:

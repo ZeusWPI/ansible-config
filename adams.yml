@@ -32,5 +32,23 @@
         - oauth
         - nginx
 
+    # - role: nginx_vhost #FIX: uses nginx_base, role needs to be updated
+    #   nginx_vhost_file: 'ci.zeus.gent'
+    #   tags:
+    #     - woodpecker
+    #     - nginx
+
+    - role: quadlet_host
+      container_name: 'woodpecker'
+      tags:
+        - quadlet
+        - woodpecker
+
+    - role: quadlet_host
+      container_name: 'woodpecker-agent'
+      tags:
+        - quadlet
+        - woodpecker
+
   vars_files:
     - vars/authorized_keys.yml
