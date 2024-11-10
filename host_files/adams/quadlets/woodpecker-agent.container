@@ -1,0 +1,14 @@
+[Unit]
+Requires=woodpecker.service
+After=woodpecker.service
+[Container]
+ContainerName=woodpecker-agent
+Image=docker.io/woodpeckerci/woodpecker-agent:latest
+Network=woodpecker.network
+Volume=woodpecker-agent-config.volume:/etc/woodpecker:Z
+Volume=/run/podman/podman.sock:/var/run/docker.sock
+Environment=WOODPECKER_SERVER=woodpecker:9000
+Secret=woodpecker_agent_secret,type=env,target=WOODPECKER_AGENT_SECRET
+AutoUpdate=registry
+[Install]
+WantedBy=multi-user.target
