@@ -4,9 +4,46 @@
   user: root
 
   roles:
-      - role: sshkeys
-      - role: borgmatic
-        tags: borgmatic
+    - role: sshkeys
+
+    - role: borgmatic
+      tags: borgmatic
+
+    - role: postfix
+      tags:
+        - postfix
+        - mail
+
+    - role: quadlet_host
+      container_name: 'mailauth'
+      tags:
+        - quadlet
+        - mail
+
+    - role: quadlet_host
+      container_name: 'valkey'
+      tags:
+        - quadlet
+        - mail
+
+    - role: quadlet_host
+      container_name: 'unbound'
+      tags:
+        - quadlet
+        - mail
+
+    - role: quadlet_host
+      container_name: 'rspamd'
+      tags:
+        - quadlet
+        - mail
+
+    - role: quadlet_host
+      container_name: 'roundcube'
+      tags:
+        - quadlet
+        - mail
+
       
   vars_files:
       - vars/authorized_keys.yml

@@ -1,0 +1,50 @@
+compatibility_level = 3.8
+myhostname = flanagan.zeus.gent
+mydestination =
+myorigin = zeus.gent
+virtual_mailbox_domains = zeus.gent
+mynetworks = 127.0.0.1 [::1] 
+virtual_mailbox_maps = sqlite:/etc/postfix/virtual_mailbox_maps.cf
+alias_maps = 
+virtual_alias_maps = texthash:/etc/postfix/virtual_alias_maps.cf
+recipient_delimiter = +
+delay_warning_time = 1h
+tls_ssl_options = NO_RENEGOTIATION
+tls_preempt_cipherlist = yes
+virtual_transport = lmtp:inet:localhost:24
+message_size_limit = 50000000
+
+smtpd_tls_security_level = may
+smtpd_tls_auth_only = yes
+smtpd_tls_cert_file = /etc/letsencrypt/live/flanagan.zeus.gent/fullchain.pem
+smtpd_tls_key_file = /etc/letsencrypt/live/flanagan.zeus.gent/privkey.pem
+smtpd_tls_protocols = >=TLSv1.2
+smtpd_tls_ciphers = high
+smtpd_tls_exclude_ciphers = aNULL CAMELLIA
+smtpd_tls_mandatory_protocols = $smtpd_tls_protocols
+smtpd_tls_mandatory_ciphers = high
+
+smtp_tls_CApath = /etc/ssl/certs
+smtp_tls_security_level = dane
+smtp_dns_support_level = dnssec
+smtp_tls_protocols = $smtpd_tls_protocols
+smtp_tls_ciphers = high
+smtp_tls_exclude_ciphers = $smtpd_tls_exclude_ciphers
+smtp_tls_mandatory_protocols = $smtpd_tls_protocols
+smtp_tls_mandatory_ciphers = high
+
+smtpd_sasl_auth_enable = yes
+smtpd_sasl_type = dovecot
+smtpd_sasl_path = inet:localhost:995
+
+smtpd_relay_restrictions = permit_sasl_authenticated reject_unauth_destination
+smtpd_recipient_restrictions = reject_non_fqdn_recipient reject_unknown_recipient_domain permit_sasl_authenticated reject_unauth_destination
+smtpd_sender_restrictions = reject_non_fqdn_sender reject_unknown_sender_domain
+smtpd_helo_required = yes
+smtpd_helo_restrictions = reject_invalid_helo_hostname permit_sasl_authenticated reject_non_fqdn_helo_hostname reject_unknown_helo_hostname
+smtpd_client_restrictions = permit_sasl_authenticated reject_unknown_reverse_client_hostname
+
+header_checks = regexp:/etc/postfix/header_checks
+smtpd_milters = inet:127.0.0.1:11332
+non_smtpd_milters = $smtpd_milters
+relayhost = localhost:26

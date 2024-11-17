@@ -1,0 +1,16 @@
+[Container]
+ContainerName=roundcube
+Image=docker.io/roundcube/roundcubemail:latest-apache
+Volume=roundcube.volume:/var/roundcube:Z
+Volume=/var/lib/container-config/roundcube/config.inc.php:/var/roundcube/config/config.inc.php:ro
+AutoUpdate=registry
+Environment=ROUNDCUBEMAIL_DB_TYPE=sqlite
+Environment=ROUNDCUBEMAIL_DEFAULT_HOST=ssl://flanagan.zeus.gent
+Environment=ROUNDCUBEMAIL_USERNAME_DOMAIN=zeus.gent
+Environment=ROUNDCUBEMAIL_SMTP_SERVER=ssl://flanagan.zeus.gent
+Environment=ROUNDCUBEMAIL_SMTP_PORT=465
+Environment=ROUNDCUBEMAIL_DEFAULT_PORT=993
+Timezone=local
+PublishPort=127.0.0.1:8000:80
+[Install]
+WantedBy=multi-user.target

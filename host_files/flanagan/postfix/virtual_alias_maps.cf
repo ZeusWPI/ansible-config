@@ -1,0 +1,19 @@
+info bestuur
+bestuur voorzitter, admin, penning, event, pr, assisterend
+
+voorzitter vincent, hannes
+admin fk, xerbalind, lvhb, mstrypst, axdzitte, vincent
+penning runo, vincent
+pr tyboro, vincent
+event landgeet, vincent
+assisterend nutty, vincent
+
+vice voorzitter
+# niet-ingevulde functies
+secretaris bestuur
+project bestuur
+
+# Hier kun je specifieke mensen toevoegen die de organisatie doen
+lanparty bestuur
+
+food bestuur

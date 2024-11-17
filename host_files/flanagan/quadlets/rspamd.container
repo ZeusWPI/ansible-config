@@ -1,0 +1,14 @@
+[Unit]
+Requires=valkey.service unbound.service
+After=valkey.service unbound.service
+[Container]
+Image=docker.io/rspamd/rspamd
+Network=mail.network
+Volume=/var/lib/container-config/rspamd:/etc/rspamd/local.d:z,ro
+Volume=rspamd.volume:/var/lib/rspamd:U,Z
+Secret=dkim.key
+DNS=10.89.0.40
+AutoUpdate=registry
+PublishPort=127.0.0.1:11332:11332
+[Install]
+WantedBy=multi-user.target

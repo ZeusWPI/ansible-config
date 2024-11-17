@@ -1,0 +1,7 @@
+[Container]
+Image=cgr.dev/chainguard/valkey
+Network=mail.network
+Volume=valkey.volume:/data:U,Z
+AutoUpdate=registry
+[Install]
+WantedBy=multi-user.target

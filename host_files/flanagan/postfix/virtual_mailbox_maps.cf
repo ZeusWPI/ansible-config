@@ -1,0 +1,2 @@
+dbpath = /var/lib/mailauth/mailauth.db
+query = SELECT userid from user WHERE userid = '%u'
