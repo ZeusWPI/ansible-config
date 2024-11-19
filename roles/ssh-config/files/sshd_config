@@ -14,3 +14,6 @@ UsePAM no
 PrintMotd no
 AcceptEnv LANG LC_*
 Subsystem	sftp	/usr/lib/openssh/sftp-server
+
+# whitelist DICT scanners https://helpdesk.ugent.be/security/vulnerability-scanning.php
+PerSourcePenaltyExemptList 172.18.1.0/26
