@@ -1,7 +1,7 @@
 [Container]
 ContainerName=mailauth
 Image=git.zeus.gent/zeuswpi/mailauth
-Volume=/var/lib/mailauth/mailauth.db:/mailauth.db
+Volume=/var/lib/mailauth/mailauth.db:/mailauth.db:Z
 AutoUpdate=registry
 Environment=ZAUTH_URL="https://zauth.zeus.gent"
 Environment=ZAUTH_CALLBACK_PATH="https://mailauth.zeus.gent/oauth/callback"
