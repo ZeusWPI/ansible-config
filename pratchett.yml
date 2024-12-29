@@ -177,3 +177,7 @@
       nginx_vhost_file: 'calendar.zeus.gent'
       tags:
        - nginx
+    - role: nginx_vhost
+      nginx_vhost_file: 'haldis-een-prijsje.zeus.gent'
+      tags:
+       - nginx
