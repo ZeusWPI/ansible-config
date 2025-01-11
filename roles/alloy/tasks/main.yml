@@ -1,0 +1,64 @@
+- name: set container variable
+  set_fact:
+    container: "{{ true if ansible_os_family == 'RedHat' else false }}"
+
+- name: add gpg key
+  ansible.builtin.command: "sh -c 'wget -q -O - https://apt.grafana.com/gpg.key | gpg --dearmor > /etc/apt/keyrings/grafana.gpg'"
+  when: ansible_os_family == "Debian" and not container
+
+- name: Add alloy repository
+  apt_repository:
+    repo: 'deb [signed-by=/etc/apt/keyrings/grafana.gpg] https://apt.grafana.com stable main'
+    state: present
+  when: ansible_os_family == "Debian" and not container
+
+- name: Update APT package index
+  apt:
+    update_cache: yes
+  when: ansible_os_family == "Debian" and not container
+
+- name: Install alloy on Debian
+  apt:
+    name: alloy
+    state: present
+  when: ansible_os_family == "Debian" and not container
+
+
+- name: Create the alloy etc directory
+  file:
+    path: "/etc/alloy"
+    state: directory
+    owner: "{{ 'root' if container else 'alloy' }}"
+    group: "{{ 'root' if container else 'alloy' }}"
+    mode: '770'
+
+- name: Set rootfs and udev paths
+  set_fact:
+    rootfs: "/run/host"
+    udev: "/run/host/run/udev/data"
+  when: container
+
+- name: Copy alloy config
+  template:
+    src: "config.alloy.j2"
+    dest: "/etc/alloy/config.alloy"
+    mode: '444'
+
+- name: Install alloy for Container server
+  include_role:
+    name: quadlet_host
+  vars:
+    path: "alloy.container"
+    container_name: "alloy"
+  when: container
+
+- name: Restart alloy
+  service:
+    name: alloy
+    state: restarted
+
+- name: Ensure alloy is enabled & running
+  service:
+    name: alloy
+    state: started
+    enabled: yes

@@ -3,25 +3,16 @@
   hosts: adams
   user: root
 
+  vars_files:
+    - vars/authorized_keys.yml
+    - vars/secrets.yml
 
   roles:
     - role: sshkeys
       tags: sshkeys
 
-    - role: postfix
-      postfix_mailname: adams.ugent.be
-      postfix_hostname: adams.ugent.be
-      postfix_alias_maps:
-        - "hash:/etc/aliases"
-        - "pgsql:/etc/postfix/zauth"
-      postfix_destinations:
-        - zeus.ugent.be
-        - localhost
-        - adams.ugent.be
-        - king.ugent.be
-        - kelder.zeus.ugent.be
-      postfix_fallback: #Geen
-      tags: postfix
+    - role: alloy
+      tags: alloy
 
     - role: nginx_base
       tags: nginx
@@ -32,11 +23,25 @@
         - oauth
         - nginx
 
-    # - role: nginx_vhost #FIX: uses nginx_base, role needs to be updated
-    #   nginx_vhost_file: 'ci.zeus.gent'
-    #   tags:
-    #     - woodpecker
-    #     - nginx
+    - role: nginx_vhost
+      nginx_vhost_file: 'grafana.zeus.gent'
+      tags:
+        - grafana
+        - monitoring
+        - nginx
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'prometheus.zeus.gent'
+      tags:
+        - prometheus
+        - monitoring
+        - nginx
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'ci.zeus.gent'
+      tags:
+        - woodpecker
+        - nginx
 
     - role: quadlet_host
       container_name: 'woodpecker'
@@ -50,5 +55,16 @@
         - quadlet
         - woodpecker
 
-  vars_files:
-    - vars/authorized_keys.yml
+    - role: quadlet_host
+      container_name: 'grafana'
+      tags:
+        - quadlet
+        - grafana
+        - monitoring
+
+    - role: quadlet_host
+      container_name: 'prometheus'
+      tags:
+        - quadlet
+        - prometheus
+        - monitoring

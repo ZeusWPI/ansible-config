@@ -3,7 +3,7 @@ Requires=woodpecker.service
 After=woodpecker.service
 [Container]
 ContainerName=woodpecker-agent
-Image=docker.io/woodpeckerci/woodpecker-agent:latest
+Image=docker.io/woodpeckerci/woodpecker-agent:v3.0.0-rc1
 Network=woodpecker.network
 Volume=woodpecker-agent-config.volume:/etc/woodpecker:Z
 Volume=/run/podman/podman.sock:/var/run/docker.sock

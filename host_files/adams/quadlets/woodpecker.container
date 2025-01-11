@@ -1,6 +1,6 @@
 [Container]
 ContainerName=woodpecker
-Image=docker.io/woodpeckerci/woodpecker-server:latest
+Image=docker.io/woodpeckerci/woodpecker-server:v3.0.0-rc1
 Network=woodpecker.network
 PublishPort=127.0.0.1:8000:8000
 Volume=woodpecker-server-data.volume:/var/lib/woodpecker:Z

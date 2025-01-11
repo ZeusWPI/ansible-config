@@ -4,7 +4,7 @@
   user: root
 
   vars_files:
-    - vars/herbert_secrets.yml
+    - vars/secrets.yml
     - vars/authorized_keys.yml
 
   pre_tasks:
@@ -43,32 +43,16 @@
       tags: fail2ban
 
     # Install database server
-    - role: geerlingguy.mysql
-      tags: db
+    # - role: geerlingguy.mysql
+    #   tags: db
+    
 
     # Add users
     - role: mysql_configs
       tags: db
-    ##########################
-    # git.zeus.gent (GitLab) #
-    ##########################
 
-    # This installs the GitLab Omnibus package
-    - role: geerlingguy.gitlab
-      github_app_secret: "{{ gitlab.github_app_secret }}"
-      github_app_id: "{{ gitlab.github_app_id }}"
-      zeus_app_secret: "{{ gitlab.zeus_app_secret }}"
-      zeus_app_id: "{{ gitlab.zeus_app_id }}"
-      gitlab_config_template: 'host_files/herbert/gitlab.rb.j2'
-      gitlab_create_self_signed_cert: false
-      tags:
-        - gitlab
-
-    - role: nginx_vhost
-      nginx_vhost_file: 'gitlab.zeus.gent'
-      tags:
-        - nginx
-        - gitlab
+    - role: alloy
+      tags: alloy
 
     # gitlab uses symlinks, which CIFS does not support
     # so we just mount it

@@ -1,0 +1,17 @@
+[Container]
+Image=docker.io/grafana/grafana-oss
+Network=grafana.network
+Volume=systemd-grafana:/var/lib/grafana:U,Z
+Environment=GF_ANALYTICS_REPORTING_ENABLED=false
+Environment=GF_DATABASE_WAL=true
+Environment=GF_LOG_LEVEL=warn
+Environment=GF_SERVER_ROOT_URL=https://grafana.zeus.gent
+Environment=GF_SMTP_ENABLED=true
+Environment=GF_SMTP_HOST=king.ugent.be:25
+Environment=GF_SMTP_USER=monitoring
+Environment=GF_SMTP_FROM_ADDRESS=monitoring@zeus.ugent.be
+Environment=GF_SMTP_SKIP_VERIFY=true
+PublishPort=127.0.0.1:3000:3000
+AutoUpdate=registry
+[Install]
+WantedBy=multi-user.target

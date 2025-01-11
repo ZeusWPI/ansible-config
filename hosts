@@ -1,19 +1,15 @@
 [debian]
 adams ansible_ssh_host=adams.ugent.be ansible_ssh_port=2222
-events ansible_ssh_host=events.ugent.be ansible_ssh_port=2222
 herbert ansible_ssh_host=herbert.ugent.be ansible_ssh_port=2222
-dickens ansible_ssh_host=kelder.zeus.ugent.be ansible_ssh_port=2222
 clarke ansible_ssh_host=clarke.ugent.be ansible_ssh_port=2222
 asimov ansible_ssh_host=asimov.ugent.be ansible_ssh_port=2222 ansible_python_interpreter=python3
 
 [coreos]
 king ansible_ssh_host=king.ugent.be ansible_ssh_port=2222
+tolkien ansible_ssh_host=kelder.zeus.ugent.be ansible_ssh_port=2222
 
 [fedora]
 flanagan ansible_ssh_host=flanagan.zeus.gent ansible_ssh_port=22
-
-[alpine]
-tolkien ansible_ssh_host=10.0.20.20 ansible_ssh_port=22
 
 [ubuntu]
 pratchett ansible_ssh_host=pratchett.ugent.be ansible_ssh_port=2222 ansible_python_interpreter=python3

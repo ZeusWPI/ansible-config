@@ -1,0 +1,24 @@
+logging {
+  level = "warn"
+}
+prometheus.exporter.unix "local" {
+  rootfs_path = "{{ rootfs | default('/') }}"
+  udev_data_path = "{{ udev | default('/run/udev/data') }}"
+  enable_collectors = ["systemd", "processes"]
+}
+
+prometheus.scrape "scraper" {
+  targets = prometheus.exporter.unix.local.targets
+  scrape_interval = "30s"
+  forward_to = [prometheus.remote_write.writer.receiver]
+}
+
+prometheus.remote_write "writer" {
+  endpoint {
+    url = "https://prometheus.zeus.gent/api/v1/write"
+    basic_auth {
+      username = "admin"
+      password = "{{ prometheus_password }}"
+    }
+  }
+}

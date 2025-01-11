@@ -5,6 +5,7 @@
 
   vars_files:
     - vars/authorized_keys.yml
+    - vars/secrets.yml
 
   pre_tasks:
     - name: Update system
@@ -44,3 +45,6 @@
       nginx_vhost_file: 'planetwars.zeus.gent'
       tags:
         - nginx
+
+    - role: alloy
+      tags: alloy

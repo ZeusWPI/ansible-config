@@ -1,0 +1,11 @@
+[Container]
+Image=docker.io/prom/prometheus
+Network=grafana.network
+Exec=--web.config.file=/prometheus/web.yml --web.enable-remote-write-receiver
+Volume=/var/lib/container-config/prometheus.yml:/prometheus/prometheus.yml:z,ro
+Volume=/var/lib/container-config/prometheus-web.yml:/prometheus/web.yml:z,ro
+Volume=systemd-prometheus:/prometheus/data:U,Z
+PublishPort=127.0.0.1:9090:9090
+AutoUpdate=registry
+[Install]
+WantedBy=multi-user.target

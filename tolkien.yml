@@ -5,6 +5,7 @@
 
   vars_files:
     - vars/authorized_keys.yml
+    - vars/secrets.yml
 
   pre_tasks:
     - name: Update system
@@ -36,3 +37,6 @@
   roles:
     - role: sshkeys
       tags: sshkeys
+
+    - role: alloy
+      tags: alloy
