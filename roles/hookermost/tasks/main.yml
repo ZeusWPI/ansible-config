@@ -1,0 +1,89 @@
+---
+# Role for setting up hookermost: github -> mattermost 
+# It runs 2 instances:
+#   - Hookermost: send updates to specific mattermost channels
+#   - Matterhook: send updates to the dev channel (+ Hookermost)
+- name: Create the hookermost user
+  include_role: 
+    name: user
+  vars:
+    user_name: hookermost
+    user_directories:
+      - directory: 'hookermost'
+      - directory: 'matterhook'
+
+- name: first clone hookermost
+  become: yes
+  become_user: hookermost
+  git:
+    repo: https://github.com/softdevteam/mattermost-github-integration.git
+    dest: $HOME/hookermost
+
+- name: second clone matterhook
+  become: yes
+  become_user: hookermost
+  git:
+    repo: https://github.com/softdevteam/mattermost-github-integration.git
+    dest: $HOME/matterhook
+
+- name: Create virtualenv and install requirements
+  become: yes
+  become_user: hookermost
+  pip: 
+    requirements: $HOME/hookermost/requirements.txt
+    virtualenv: $HOME/venv
+
+- name: Install gunicorn
+  become: yes
+  become_user: hookermost
+  pip: 
+    name: gunicorn
+    virtualenv: $HOME/venv
+
+- name: Copy hookermost config file 
+  become: yes
+  become_user: hookermost
+  template:
+    src: hookermost_config.py
+    dest: $HOME/hookermost/mattermostgithub/config.py
+  notify: Restart hookermost
+
+- name: Copy matterhook config file 
+  become: yes
+  become_user: hookermost
+  template:
+    src: matterhook_config.py
+    dest: $HOME/matterhook/mattermostgithub/config.py
+  notify: Restart matterhook
+
+- name: Ensure the user service dir exists
+  file:
+    path: /home/hookermost/.config/systemd/user/
+    state: directory
+    owner: hookermost
+    group: hookermost
+
+- name: Copy the hookermost service
+  copy:
+    src: hookermost.service
+    dest: /home/hookermost/.config/systemd/user/hookermost.service
+    owner: hookermost
+    group: hookermost
+  notify: Restart hookermost
+
+- name: Copy the matterhook service
+  copy:
+    src: matterhook.service
+    dest: /home/hookermost/.config/systemd/user/matterhook.service
+    owner: hookermost
+    group: hookermost
+  notify: Restart matterhook
+
+- name: Get user uid
+  command: id -u hookermost
+  register: user_uid
+  changed_when: false
+
+- name: Enable lingering for the user
+  ansible.builtin.command: "loginctl enable-linger hookermost"
+  changed_when: false

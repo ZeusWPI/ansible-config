@@ -13,16 +13,20 @@ server {
     listen 443 ssl http2;
     server_name hookermost.zeus.gent;
 
-    location / {
-        alias /home/hookermost/public;
+    location /hookermost {
+        proxy_pass http://localhost:5875;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
 
-        passenger_app_root      /home/hookermost/production/;
-
-        passenger_document_root /home/hookermost/public;
-        passenger_enabled on;
-
-        access_log /home/hookermost/log/access.log;
-        error_log  /home/hookermost/log/error.log;
+    location /matterhook {
+        proxy_pass http://localhost:5876;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
     }
 
     ssl_certificate     /root/.acme.sh/*.zeus.gent/fullchain.cer;

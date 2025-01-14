@@ -1,0 +1,24 @@
+---
+- name: Restart hookermost
+  become: yes
+  become_user: hookermost
+  systemd:
+    scope: user
+    enabled: yes
+    daemon_reload: true
+    state: restarted
+    name: hookermost
+  environment:
+    XDG_RUNTIME_DIR: "/run/user/{{ user_uid.stdout }}"
+
+- name: Restart matterhook
+  become: yes
+  become_user: hookermost
+  systemd:
+    scope: user
+    enabled: yes
+    daemon_reload: true
+    state: restarted
+    name: matterhook
+  environment:
+    XDG_RUNTIME_DIR: "/run/user/{{ user_uid.stdout }}"

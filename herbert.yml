@@ -301,14 +301,8 @@
     # Hookermost #
     ##############
 
-    - role: user
-      user_name: hookermost
-      user_directories:
-          - directory: 'log'
-          - directory: 'public'
-      tags:
-          - hookermost
-          - user
+    - role: hookermost
+      tags: hookermost
 
     - role: nginx_vhost
       nginx_vhost_file: 'hookermost.zeus.gent'
