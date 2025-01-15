@@ -184,5 +184,11 @@
       tags:
        - nginx
 
+    - role: nginx_vhost
+      nginx_vhost_file: 'county.zeus.gent'
+      tags:
+       - county
+       - nginx
+
     - role: alloy
       tags: alloy
