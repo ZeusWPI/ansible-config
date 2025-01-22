@@ -42,6 +42,7 @@ MATTERMOST_WEBHOOK_URLS = {
     'ZeusWPI/lockbot' : (WEBHOOK, "lockbot"),
     'ZeusWPI/Gandalf': (WEBHOOK, "gandalf-2"),
     'ZeusWPI/ZeSS': (WEBHOOK, "zess-dev"),
+    'ZeusWPI/ZNS': (WEBHOOK, "zns"),
 }
 
 # Ignore specified event actions
