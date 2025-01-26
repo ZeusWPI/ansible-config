@@ -1,0 +1,16 @@
+---
+- name: Copy all files
+  copy:
+    src: "host_files/{{ ansible_hostname }}/etc/{{ directory }}/"
+    dest: "/etc/{{ directory }}/"
+    owner: "{{ owner }}"
+    mode: "444"
+  register: copy
+
+- name: Restart the service
+  systemd:
+    name: "{{ directory }}"
+    state: restarted
+  when:
+    - copy.changed and systemd
+

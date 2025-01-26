@@ -14,6 +14,12 @@
     - role: alloy
       tags: alloy
 
+    - role: etc
+      tags:
+        - etc
+        - prometheus
+      directory: prometheus
+
     - role: nginx_base
       tags: nginx
 
