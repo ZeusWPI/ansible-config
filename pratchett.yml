@@ -190,5 +190,11 @@
        - county
        - nginx
 
+    - role: nginx_vhost
+      nginx_vhost_file: 'overleaf.zeus.gent'
+      tags:
+        - nginx
+        - overleaf
+
     - role: alloy
       tags: alloy
