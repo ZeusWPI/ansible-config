@@ -2,6 +2,6 @@
 - name: Copy ssh config
   copy:
     src: sshd_config
-    dest: /etc/ssh/sshd_config
+    dest: /etc/ssh/sshd_config.d/10-custom-defaults.conf
   notify:
     - restart sshd
