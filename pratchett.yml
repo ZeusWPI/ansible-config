@@ -196,5 +196,11 @@
         - nginx
         - overleaf
 
+    - role: nginx_vhost
+      nginx_vhost_file: 'events.zeus.gent'
+      tags:
+        - nginx
+        - events
+
     - role: alloy
       tags: alloy
