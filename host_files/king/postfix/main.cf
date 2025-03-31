@@ -10,6 +10,7 @@ setgid_group = postdrop
 smtpd_tls_cert_file = /etc/pki/tls/certs/postfix.pem
 smtpd_tls_key_file = /etc/pki/tls/private/postfix.key
 smtpd_tls_security_level = may
+smtpd_tls_protocols = >=TLSv1.2
 smtp_tls_CApath = /etc/pki/tls/certs
 smtp_tls_CAfile = /etc/pki/tls/certs/ca-bundle.crt
 smtp_tls_security_level = may
