@@ -8,6 +8,7 @@ Network=mail.network
 Volume=/var/lib/container-config/rspamd:/etc/rspamd/local.d:z,ro
 Volume=/var/lib/container-config/rspamd-override:/etc/rspamd/override.d:z,ro
 Volume=rspamd.volume:/var/lib/rspamd:U,Z
+Secret=dkim.key
 PublishPort=127.0.0.1:11332:11332
 AutoUpdate=registry
 DNS=10.89.1.40
