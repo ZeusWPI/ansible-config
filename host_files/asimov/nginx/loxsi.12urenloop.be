@@ -1,5 +1,5 @@
 upstream loxsi {
-    server localhost:5200;
+    server localhost:8000;
     keepalive 32;
 }
 

@@ -1,0 +1,7 @@
+---
+- name: Copy a directory
+  copy:
+    src: "host_files/{{ ansible_hostname }}/{{ src }}"
+    dest: "{{ dest }}"
+    owner: "{{ owner }}"
+    mode: "{{ mode }}"

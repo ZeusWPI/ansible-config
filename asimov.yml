@@ -106,3 +106,9 @@
       tags:
         - docs
         - nginx
+    - role: copy
+      src: 'urenloop.be'
+      dest: '/var/www/html'
+      tags:
+        - urenloop
+        - nging

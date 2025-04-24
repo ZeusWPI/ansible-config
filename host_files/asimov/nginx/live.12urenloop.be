@@ -1,5 +1,5 @@
 upstream live-12urenloop {
-    server localhost:4000;
+    server localhost:4040;
     keepalive 32;
 }
 
@@ -31,32 +31,28 @@ server {
 	more_clear_headers Strict-Transport-Security;
 	add_header Strict-Transport-Security 'max-age=31536000; includeSubDomains; preload';
 
-	# include snippets/securityheaders.conf;
-
 	more_clear_headers Referrer-Policy X-XSS-Protection X-Frame-Options X-Content-Type-Options Expect-CT;
 
 	add_header Referrer-Policy same-origin;
 	add_header X-XSS-Protection "1; mode=block";
-	# add_header X-Frame-Options SAMEORIGIN;
 	add_header X-Content-Type-Options "nosniff";
 	more_clear_headers X-Powered-By Server;
 
 	add_header Permissions-Policy interest-cohort=();
-	###
 
-    location / {
-        client_max_body_size 50M;
-        proxy_buffers 256 16k;
-        proxy_buffer_size 16k;
-        client_body_timeout 60;
-        send_timeout 300;
-        lingering_timeout 5;
-        proxy_connect_timeout 90;
-        proxy_send_timeout 300;
-        proxy_read_timeout 90s;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-        proxy_set_header Host $host;
-        proxy_pass http://live-12urenloop;
-    }
+  location / {
+      client_max_body_size 50M;
+      proxy_buffers 256 16k;
+      proxy_buffer_size 16k;
+      client_body_timeout 60;
+      send_timeout 300;
+      lingering_timeout 5;
+      proxy_connect_timeout 90;
+      proxy_send_timeout 300;
+      proxy_read_timeout 90s;
+      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+      proxy_set_header X-Forwarded-Proto $scheme;
+      proxy_set_header Host $host;
+      proxy_pass http://live-12urenloop;
+  }
 }
