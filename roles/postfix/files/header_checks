@@ -1,1 +1,3 @@
 /^X-Spam-Flag:(.*)YES(.*)/ REJECT Spam rejected
+/^Received:/ IGNORE
+/^User-Agent:/ IGNORE
