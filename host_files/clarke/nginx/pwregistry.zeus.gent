@@ -1,14 +1,17 @@
 server {
-  if ($host = planetwars.zeus.gent) {
-        return 301 https://$host$request_uri;
+  if ($host = pwregistry.zeus.gent) {
+      return 301 https://$host$request_uri;
   } # managed by Certbot
 
 
   listen 80;
-  server_name planetwars.zeus.gent;
+  server_name pwregistry.zeus.gent;
 
   location / {
-    grpc_pass localhost:7000;
+    if ($request_method = GET) {
+      return 301 https://$server_name$request_uri;
+    }
+    return 308 https://$server_name$request_uri;
   }
 
 
@@ -16,7 +19,7 @@ server {
 
 server {
   listen 443 ssl http2;
-  server_name planetwars.zeus.gent;
+  server_name pwregistry.zeus.gent;
   ssl_certificate /etc/letsencrypt/live/planetwars.zeus.gent/fullchain.pem; # managed by Certbot
   ssl_certificate_key /etc/letsencrypt/live/planetwars.zeus.gent/privkey.pem; # managed by Certbot
   include snippets/letsencrypt.conf;
@@ -24,23 +27,14 @@ server {
   
   gzip on;
   gzip_types      text/plain application/xml application/json;
-	
+
   location / {
-        client_max_body_size 512M;
-        proxy_pass http://localhost:3334;
+        client_max_body_size 1024M;
+        proxy_pass http://localhost:3336;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto $scheme;
-    }
-
-  location /api {
-      client_max_body_size 512M;
-      proxy_pass http://localhost:3335;
-      proxy_set_header Host $host;
-      proxy_set_header X-Real-IP $remote_addr;
-      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-      proxy_set_header X-Forwarded-Proto $scheme;
   }
 
 }

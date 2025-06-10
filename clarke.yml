@@ -46,5 +46,10 @@
       tags:
         - nginx
 
+    - role: nginx_vhost
+      nginx_vhost_file: 'pwregistry.zeus.gent'
+      tags:
+        - nginx
+
     - role: alloy
       tags: alloy
