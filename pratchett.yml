@@ -202,5 +202,11 @@
         - nginx
         - events
 
+    - role: nginx_vhost
+      nginx_vhost_file: 'rss-gent.zeus.gent'
+      tags:
+        - nginx
+        - rss
+
     - role: alloy
       tags: alloy
