@@ -28,7 +28,7 @@
   file:
     path: "/etc/alloy"
     state: directory
-    owner: "{{ 'root' if container else 'alloy' }}"
+    owner: "root"
     group: "{{ 'root' if container else 'alloy' }}"
     mode: '770'
 
