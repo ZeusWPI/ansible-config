@@ -210,3 +210,9 @@
 
     - role: alloy
       tags: alloy
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'zpi.zeus.gent'
+      tags:
+        - nginx
+        - zpi
