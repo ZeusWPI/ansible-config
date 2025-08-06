@@ -2,5 +2,3 @@
 dependencies:
   - role: nginx_base
   - role: passenger
-  - role: mailman
-

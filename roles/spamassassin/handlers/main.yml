@@ -1,3 +1,0 @@
----
-- name: Restart spamassassin
-  command: /usr/bin/spamassassin --lint && service spamassassin restart
