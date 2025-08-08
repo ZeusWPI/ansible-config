@@ -1,4 +1,4 @@
 zauth.zeus.gent {
         reverse_proxy :8000
-        respond /.well-known/openid-configuration `{"issuer": "https://zauth.zeus.gent", "authorization_endpoint": "https://zauth.zeus.gent/oauth/authorize", "token_endpoint": "https://zauth.zeus.gent/oauth/token", "response_types_supported": ["token"]}`
+        respond /.well-known/openid-configuration `{"issuer": "https://zauth.zeus.gent", "authorization_endpoint": "https://zauth.zeus.gent/oauth/authorize", "token_endpoint": "https://zauth.zeus.gent/oauth/token", "jwks_uri": "https://zauth.zeus.gent/oauth/jwks", "response_types_supported": ["token"]}`
 }
