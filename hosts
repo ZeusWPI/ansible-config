@@ -3,6 +3,7 @@ adams ansible_ssh_host=adams.ugent.be ansible_ssh_port=2222 ansible_python_inter
 herbert ansible_ssh_host=herbert.ugent.be ansible_ssh_port=2222 ansible_python_interpreter=python3
 clarke ansible_ssh_host=clarke.ugent.be ansible_ssh_port=2222 ansible_python_interpreter=python3
 asimov ansible_ssh_host=asimov.ugent.be ansible_ssh_port=2222 ansible_python_interpreter=python3
+dahl ansible_ssh_host=dahl.ugent.be ansible_ssh_port=2222 ansible_python_interpreter=python3
 
 [coreos]
 king ansible_ssh_host=king.ugent.be ansible_ssh_port=2222 ansible_python_interpreter=python3
