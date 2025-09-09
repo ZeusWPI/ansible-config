@@ -216,3 +216,9 @@
       tags:
         - nginx
         - zpi
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'zapp.zeus.gent'
+      tags:
+        - nginx
+        - zapp

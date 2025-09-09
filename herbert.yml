@@ -18,21 +18,16 @@
         name: "{{ item }}"
         state: latest
       with_items:
-        - ack-grep
         - vim
-        - zsh
         - tmux
         - htop
         - tree
         - curl
-        - unrar
         - unzip
         - etckeeper
         - git-core
         - nodejs
         - yarn
-        - speedtest-cli
-        - nmap
         - sudo
 
   roles:
@@ -45,7 +40,7 @@
     # Install database server
     # - role: geerlingguy.mysql
     #   tags: db
-    
+
 
     # Add users
     - role: mysql_configs
@@ -90,22 +85,6 @@
       tags:
         - nginx
         - pr
-
-    ###########
-    # postfix #
-    ###########
-
-    - role: postfix
-      postfix_mailname: herbert.ugent.be
-      postfix_hostname: herbert.ugent.be
-      postfix_alias_maps:
-        - "hash:/etc/aliases"
-      postfix_destinations:
-        - localhost
-        - herbert.ugent.be
-      postfix_fallback: #Geen
-      filter_spam: False
-      tags: postfix
 
       #######
       # tab #
@@ -231,21 +210,6 @@
       tags:
         - nginx
         - endorsement
-
-    - role: user
-      user_name: matterircd
-      user_directories:
-        - directory: 'log'
-        - directory: 'public'
-      tags:
-        - matterircd
-        - user
-
-    - role: nginx_vhost
-      nginx_vhost_file: 'irc.zeus.gent'
-      tags:
-          - nginx
-          - matterircd
 
     #######
     # Cat #
