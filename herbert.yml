@@ -360,25 +360,6 @@
         - nginx
         - moana
 
-    ##############
-    # Drive wiki #
-    ##############
-
-    - role: user
-      user_name: drive
-      user_directories:
-          - directory: 'log'
-          - directory: 'public'
-      tags:
-          - drive
-          - user
-
-    - role: nginx_vhost
-      nginx_vhost_file: 'drive.zeus.gent'
-      tags:
-        - drive
-        - nginx
-
     - role: nginx_vhost
       nginx_vhost_file: 'redirects.conf'
       tags:
