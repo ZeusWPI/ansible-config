@@ -222,3 +222,8 @@
       tags:
         - nginx
         - zapp
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'chat-verification.zeus.gent'
+      tags:
+        - nginx
