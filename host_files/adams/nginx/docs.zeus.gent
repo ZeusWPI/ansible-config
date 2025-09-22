@@ -1,0 +1,32 @@
+server {
+    listen 80;
+    server_name docs.zeus.gent;
+
+    if ($request_method = GET) {
+        return 301 https://$server_name$request_uri;
+    }
+    include snippets/letsencrypt.conf;
+
+    return 308 https://$server_name$request_uri;
+}
+
+server {
+    listen 443 ssl;
+    server_name docs.zeus.gent;
+
+
+    ###############
+    # SSL OPTIONS #
+    ###############
+
+    include snippets/letsencrypt.conf;
+    include snippets/ssl_options_preload.conf;
+    ssl_certificate /etc/letsencrypt/live/docs.zeus.gent/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/docs.zeus.gent/privkey.pem;
+
+    location / {
+        root /var/www/docs;
+        chunked_transfer_encoding off;
+    }
+
+}

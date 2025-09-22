@@ -49,6 +49,12 @@
         - woodpecker
         - nginx
 
+    - role: nginx_vhost
+      nginx_vhost_file: 'docs.zeus.gent'
+      tags:
+        - docs
+        - nginx
+
     - role: quadlet_host
       container_name: 'woodpecker'
       tags:
