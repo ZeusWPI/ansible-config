@@ -62,7 +62,7 @@ server {
 
 
     location /lan {
-        return 302 https://zeus.gent/events/24-25/LAN/;
+        return 302 https://zeus.gent/events/25-26/LAN/;
     }
 
     location /rust {
