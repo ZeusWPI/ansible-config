@@ -1,2 +1,4 @@
 *.retry
 .cache/
+.vault-pass.txt
+
