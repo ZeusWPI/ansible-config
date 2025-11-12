@@ -32,7 +32,7 @@ vice: voorzitter
 # niet-ingevulde functies
 secretaris: bestuur
 
-hydra: admin, niko@zeus.ugent.be, ieben@zeus.ugent.be
+hydra: admin, niko@zeus.ugent.be, ieben@zeus.ugent.be, nutty@zeus.ugent.be
 gandalf: admin, silox@zeus.ugent.be
 
 # Hier kun je specifieke mensen toevoegen die de organisatie doen
