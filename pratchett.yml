@@ -191,12 +191,6 @@
        - nginx
 
     - role: nginx_vhost
-      nginx_vhost_file: 'overleaf.zeus.gent'
-      tags:
-        - nginx
-        - overleaf
-
-    - role: nginx_vhost
       nginx_vhost_file: 'events.zeus.gent'
       tags:
         - nginx
@@ -232,4 +226,3 @@
       nginx_vhost_file: 'immich.zeus.gent'
       tags:
         - nginx
-
