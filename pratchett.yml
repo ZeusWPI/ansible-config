@@ -226,3 +226,8 @@
       nginx_vhost_file: 'immich.zeus.gent'
       tags:
         - nginx
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'photos.zeus.gent'
+      tags:
+        - nginx
