@@ -1,5 +1,72 @@
 digraph ZeusInfrastructuur {
 
+blokdata
+blokmap
+brandmeister_dmr_sea
+cammie
+cat
+co2sensor_kelder
+co2sensor_wina
+codimd
+endorsement
+fetchprogramma [color = red]
+flynn_zn_syncding
+gamification2
+gandalf
+haldis
+hookermost
+hydra_android
+hydra_api
+hydra_ios
+ikea_hub
+kelderapi [color = red]
+lampen
+ledstrip
+lists_king
+lockbot
+lucht_zeus_database
+mattermore
+mattermost
+messageos
+messages_hoek [color = red]
+mordor
+msrs
+mumble
+postfix_adams
+postfix_king
+pr_zeussite
+prometheus_co2
+speaker
+tab
+tabbp
+TAp
+tap
+tappb
+torgax
+wiki
+wina_scherm
+zauth
+zeus_gitlab
+zeussite
+zeuswpi_image_cdn
+zinc
+
+dict_newsfeed [color = blue]
+dsa_api [color = blue]
+fk_enrolment [color = blue]
+oasis [color = blue]
+schamper [color = blue]
+ufora [color = blue]
+ugent_bib_api [color = blue]
+ugent_cas [color = blue]
+ugent_news [color = blue]
+ugent_resto [color = blue]
+ugent_smtp [color = blue]
+urgent_fm [color = blue]
+
+brandmeister_amateur_dmr [color = green]
+github [color = green]
+
 
 mattermost -> mattermore [dir = both]
 mattermore -> lockbot [dir = both]
@@ -112,24 +179,5 @@ zauth -> gandalf
 brandmeister_amateur_dmr -> brandmeister_dmr_sea
 brandmeister_dmr_sea -> mumble
 brandmeister_dmr_sea -> mattermost
-
-dict_newsfeed [color = blue]
-ugent_resto [color = blue]
-ugent_smtp [color = blue]
-dsa_api [color = blue]
-ugent_bib_api [color = blue]
-ugent_news [color = blue]
-urgent_fm [color = blue]
-schamper [color = blue]
-github [color = green]
-brandmeister_amateur_dmr [color = green]
-oasis [color = blue]
-ufora [color = blue]
-fk_enrolment [color = blue]
-ugent_cas [color = blue]
-
-kelderapi [color = red]
-messages_hoek [color = red]
-fetchprogramma [color = red]
 
 }
