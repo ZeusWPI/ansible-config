@@ -4,6 +4,7 @@ herbert ansible_ssh_host=herbert.ugent.be ansible_ssh_port=2222 ansible_python_i
 clarke ansible_ssh_host=clarke.ugent.be ansible_ssh_port=2222 ansible_python_interpreter=python3
 asimov ansible_ssh_host=asimov.ugent.be ansible_ssh_port=2222 ansible_python_interpreter=python3
 dahl ansible_ssh_host=dahl.ugent.be ansible_ssh_port=2222 ansible_python_interpreter=python3
+rochefort-forgejo-runner ansible_ssh_host=forgejo-runner.kelder.local ansible_ssh_port=2222 ansible_python_interpreter=python3 # ansible_ssh_common_args='-J root@kelder.zeus.ugent.be:2222'
 
 [coreos]
 king ansible_ssh_host=king.ugent.be ansible_ssh_port=2222 ansible_python_interpreter=python3
