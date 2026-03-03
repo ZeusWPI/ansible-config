@@ -48,6 +48,12 @@
         - codimd
 
     - role: nginx_vhost
+      nginx_vhost_file: 'notes.zeus.gent'
+      tags:
+        - nginx
+        - codimd
+
+    - role: nginx_vhost
       nginx_vhost_file: 'g2-api.zeus.gent'
       tags:
         - nginx
