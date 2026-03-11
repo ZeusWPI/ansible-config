@@ -1,4 +1,4 @@
-compatibility_level = 3.8
+compatibility_level = 3.10
 myhostname = flanagan.zeus.gent
 mydestination =
 myorigin = zeus.gent
