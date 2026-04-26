@@ -2,7 +2,7 @@ server {
     listen 80;
     server_name docs.12urenloop.be;
     location / {
-        return 302 https://github.com/12urenloop/docs.12urenloop;
+        return 302 https://12urenloop.github.io/docs.12urenloop/;
     }
 }
 
@@ -15,6 +15,6 @@ server {
     include snippets/ssl_options_preload.conf;
 
     location /  {
-        return 302 https://github.com/12urenloop/docs.12urenloop;
+        return 302 https://12urenloop.github.io/docs.12urenloop/;
     }
 }
