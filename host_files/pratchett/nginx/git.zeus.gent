@@ -19,7 +19,17 @@ server {
     listen 10443 ssl http2;
 
     if ($http_user_agent ~* "Scrapy|Chrome/[0-9][0-9]\.|Chrome/112.0.0.0|meta-externalagent") {
-        return 444;
+        return 502;
+    }
+
+    location /api/healthz {
+        proxy_method "GET";
+        client_max_body_size 512M;
+        proxy_pass http://localhost:3007;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
     }
 
     location / {
