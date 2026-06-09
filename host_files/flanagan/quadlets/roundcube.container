@@ -2,7 +2,7 @@
 ContainerName=roundcube
 Image=docker.io/roundcube/roundcubemail:latest-apache
 Volume=roundcube.volume:/var/roundcube:Z
-Volume=/var/lib/container-config/roundcube/config.inc.php:/var/roundcube/config/config.inc.php:ro
+Volume=/var/lib/container-config/roundcube/config.inc.php:/var/roundcube/config/config.inc.php:z,ro
 AutoUpdate=registry
 Environment=ROUNDCUBEMAIL_DB_TYPE=sqlite
 Environment=ROUNDCUBEMAIL_DEFAULT_HOST=ssl://flanagan.zeus.gent

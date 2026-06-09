@@ -1,6 +1,6 @@
 [Container]
 ContainerName=valkey
-Image=cgr.dev/chainguard/valkey
+Image=docker.io/valkey/valkey
 Network=mail.network
 Volume=valkey.volume:/data:U,Z
 AutoUpdate=registry

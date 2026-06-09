@@ -18,7 +18,6 @@ smtpd_tls_exclude_ciphers = aNULL CAMELLIA
 smtpd_tls_mandatory_protocols = $smtpd_tls_protocols
 smtpd_tls_mandatory_ciphers = high
 smtp_tls_CApath = /etc/pki/tls/certs
-smtp_tls_CAfile = /etc/pki/tls/certs/ca-bundle.crt
 smtp_tls_security_level = may
 smtp_tls_protocols = $smtpd_tls_protocols
 smtp_tls_ciphers = high
