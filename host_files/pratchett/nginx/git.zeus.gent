@@ -18,8 +18,25 @@ server {
 
     listen 10443 ssl http2;
 
-    if ($http_user_agent ~* "Scrapy|Chrome/[0-9][0-9]\.|Chrome/112.0.0.0|meta-externalagent") {
+    if ($http_user_agent ~* "Scrapy|Chrome/[0-9][0-9]\.|Chrome/112.0.0.0|meta-") {
         return 502;
+    }
+
+    location /.within.website/ {
+        # Assumption: Anubis is running in the same network namespace as
+        # nginx on localhost TCP port 8923
+        proxy_pass http://localhost:8923;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $http_host;
+        proxy_pass_request_body off;
+        proxy_set_header content-length "";
+        auth_request off;
+    }
+
+    location @redirectToAnubis {
+        return 307 "/.within.website/?redir=$scheme://$host$request_uri";
+        auth_request off;
     }
 
     location /api/healthz {
@@ -33,6 +50,9 @@ server {
     }
 
     location / {
+        auth_request "/.within.website/x/cmd/anubis/api/check";
+        error_page 401 = @redirectToAnubis;
+
         client_max_body_size 512M;
         proxy_pass http://localhost:3007;
         proxy_set_header Host $host;
