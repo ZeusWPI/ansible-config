@@ -33,6 +33,10 @@ server {
        return 301 https://mastodon.zeus.gent$request_uri;
     }
 
+    location = /.well-known/webfinger {
+       return 301 https://mastodon.zeus.gent$request_uri;
+    }
+
     ####################
     # FORWARDS & REWRITES
     ####################
