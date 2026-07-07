@@ -18,15 +18,16 @@ clamav: root
 list-admin: root
 
 info: bestuur
-bestuur: voorzitter, admin, penning, event, pr, project, assisterend, bestuur@zeus.gent
+bestuur: voorzitter, admin, penning, event, pr, project, faciliteit, assisterend, bestuur@zeus.gent
 
-voorzitter: vincent.vallaeys@ugent.be, hannes.klinckaert@ugent.be, xander.bil@ugent.be, voorzitter@zeus.gent
-admin: xander.bil@ugent.be, mathieu.strypsteen@ugent.be, axel.dezittere@ugent.be, vincent.vallaeys@ugent.be, saturn.casaer@ugent.be, admin@zeus.gent
-penning: rune.dyselinck@ugent.be, vincent.vallaeys@ugent.be, penning@zeus.gent
-pr: tybo.verslype@ugent.be, vincent.vallaeys@ugent.be, robin.paret@ugent.be, pr@zeus.gent
-event: lander.degeeter@ugent.be, nathan.onraet@ugent.be, vincent.vallaeys@ugent.be, event@zeus.gent
-assisterend: nutty@zeus.ugent.be, lily.cailliau@ugent.be, vincent.vallaeys@ugent.be, assisterend@zeus.gent
-project: jnms@zeus.ugent.be, project@zeus.gent
+voorzitter: hannes.klinckaert@ugent.be, xander.bil@ugent.be, nathan.onraet@ugent.be, saturn.casaer@ugent.be, voorzitter@zeus.gent
+admin: xander.bil@ugent.be, mathieu.strypsteen@ugent.be, axel.dezittere@ugent.be, saturn.casaer@ugent.be, hannes.klinckaert@ugent.be, nathan.onraet@ugent.be, admin@zeus.gent
+penning: rune.dyselinck@ugent.be, elias.verhelst@ugent.be, penning@zeus.gent
+pr: tybo.verslype@ugent.be, robin.paret@ugent.be, margot.wauters@ugent.be, arnout.depaepe@ugent.be, pr@zeus.gent
+event: lander.degeeter@ugent.be, nathan.onraet@ugent.be, lily.cailliau@ugent.be, event@zeus.gent
+assisterend: lily.cailliau@ugent.be, jasper.degusseme@ugent.be, assisterend@zeus.gent
+project: jnms@zeus.ugent.be, luniya.dewannemaeker@ugent.be, project@zeus.gent
+faciliteit: lucas.debacker@ugent.be, faciliteit@zeus.gent
 
 vice: voorzitter
 # niet-ingevulde functies
