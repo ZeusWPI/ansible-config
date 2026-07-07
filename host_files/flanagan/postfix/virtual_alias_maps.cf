@@ -1,17 +1,17 @@
 info bestuur
-bestuur voorzitter, admin, penning, event, pr, assisterend
+bestuur voorzitter, admin, penning, event, pr, assisterend, event, project, faciliteit
 
-voorzitter vincent, xerbalind, hannes
-admin xerbalind, mstrypst, axdzitte, caturn
-penning runo, vincent, xerbalind
-pr tyboro, vincent
-event landgeet, vincent
-assisterend nutty, vincent
-
+voorzitter nathano, caturn, xerbalind, hannes
+admin xerbalind, mstrypst, axdzitte, caturn, nathano, hannes
+penning runo, purple_cosmic
+pr tyboro, robinp, arnoutdp, hcney
+event landgeet, nathano, lily
+assisterend lily, jasperdg
+project jnms, lunakitpi
+faciliteit slumfie
 vice voorzitter
 # niet-ingevulde functies
 secretaris bestuur
-project jnms
 
 # Hier kun je specifieke mensen toevoegen die de organisatie doen
 lanparty bestuur
