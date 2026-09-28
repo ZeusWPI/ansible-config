@@ -20,8 +20,8 @@ list-admin: root
 info: bestuur
 bestuur: voorzitter, admin, penning, event, pr, project, faciliteit, assisterend, bestuur@zeus.gent
 
-voorzitter: hannes.klinckaert@ugent.be, xerbalind@zeus.ugent.be, nathan.onraet@ugent.be, saturn.casaer@student.hogent.be, voorzitter@zeus.gent
-admin: xerbalind@zeus.ugent.be, mathieu.strypsteen@ugent.be, axel.dezittere@ugent.be, saturn.casaer@student.hogent.be, hannes.klinckaert@ugent.be, nathan.onraet@ugent.be, admin@zeus.gent
+voorzitter: hannes.klinckaert@ugent.be, xerbalind@zeus.ugent.be, nathan.onraet@ugent.be, voorzitter@zeus.gent
+admin: xerbalind@zeus.ugent.be, mathieu.strypsteen@ugent.be, axel.dezittere@ugent.be, hannes.klinckaert@ugent.be, nathan.onraet@ugent.be, admin@zeus.gent
 penning: rune.dyselinck@ugent.be, elias.verhelst@ugent.be, penning@zeus.gent
 pr: tybo.verslype@ugent.be, robin.paret@ugent.be, margot.wauters@ugent.be, arnout.depaepe@ugent.be, pr@zeus.gent
 event: lander.degeeter@ugent.be, nathan.onraet@ugent.be, lily.cailliau@ugent.be, event@zeus.gent
