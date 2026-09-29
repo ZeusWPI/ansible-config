@@ -6,3 +6,4 @@ authorized_keys: |
   ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJmNiDqNDsSeB7PhzpVmkwB/FuFVk5bUgS4/yNY7V/a6 axel@zoodlekaboodle
   ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB1AE/Ej27c/yjDnMOZo0Bl9Fyynr4xhMaEP2hupyl3N saturn@desktop
   ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJKnnnPd5mqvyBXIt68HOI7oZiwQIvUjMAevsgKpSOyB saturn@laptop
+  ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOEPMl3fFGeNzvprnt5kWBfa9dRahnYCsbD8TNM3i0Jf hannes@laptop
