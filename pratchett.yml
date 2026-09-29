@@ -239,6 +239,11 @@
         - nginx
 
     - role: nginx_vhost
+      nginx_vhost_file: 'nextcloud.zeus.gent'
+      tags:
+        - nginx
+
+    - role: nginx_vhost
       nginx_vhost_file: 'drive.zeus.gent'
       tags:
         - nginx
