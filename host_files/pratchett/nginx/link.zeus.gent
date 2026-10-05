@@ -14,7 +14,7 @@ server {
     client_max_body_size 10M;
 
     location /linuxinstall {
-        return 302 https://nextcloud.zeus.gent/s/yezE47t2tsRZdmF
+        return 302 https://nextcloud.zeus.gent/s/yezE47t2tsRZdmF;
     }
 }
 
