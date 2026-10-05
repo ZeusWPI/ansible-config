@@ -249,3 +249,9 @@
         - nginx
         - redirect
 
+    - role: nginx_vhost
+      nginx_vhost_file: 'link.zeus.gent'
+      tags:
+        - nginx
+        - redirect
+
