@@ -1,0 +1,20 @@
+server {
+    listen 80;
+    server_name link.zeus.gent;
+    return 301 https://$server_name$request_uri;
+}
+
+server {
+    listen 10443 ssl http2;
+    server_name link.zeus.gent;
+
+    ssl_certificate     /etc/ssl/private/fullchain.pem;
+    ssl_certificate_key /etc/ssl/private/key.pem;
+    include snippets/ssl_options_preload.conf;
+    client_max_body_size 10M;
+
+    location /linuxinstall {
+        return 302 https://nextcloud.zeus.gent/s/yezE47t2tsRZdmF
+    }
+}
+
