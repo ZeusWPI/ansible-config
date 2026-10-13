@@ -31,6 +31,7 @@ server {
         proxy_set_header Host $http_host;
         proxy_pass_request_body off;
         proxy_set_header content-length "";
+        client_max_body_size 512M;
         auth_request off;
     }
 
