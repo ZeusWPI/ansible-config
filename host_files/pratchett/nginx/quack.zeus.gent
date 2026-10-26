@@ -1,0 +1,41 @@
+upstream quack {
+    server localhost:3825;
+}
+
+server {
+    listen 80;
+    server_name quack.zeus.gent;
+    if ($request_method = GET) {
+        return 301 https://$server_name$request_uri;
+    }
+
+    return 308 https://$server_name$request_uri;
+}
+
+server {
+    listen 10443 ssl http2;
+    server_name quack.zeus.gent;
+
+    ssl_certificate     /etc/ssl/private/fullchain.pem;
+    ssl_certificate_key /etc/ssl/private/key.pem;
+    include snippets/ssl_options_preload.conf;
+    client_max_body_size 10M;
+
+    location / {
+      proxy_http_version 1.1;
+
+      if ($http_authorization != "Bearer verysecretquacksecret") {
+        return 401;
+      }
+
+      proxy_set_header Host $host;
+      proxy_set_header X-Real-IP $remote_addr;
+      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+      proxy_set_header X-Forwarded-Proto $scheme;
+
+      proxy_set_header Upgrade $http_upgrade;
+      proxy_set_header Connection "upgrade";
+      proxy_pass http://quack;
+    }
+}
+

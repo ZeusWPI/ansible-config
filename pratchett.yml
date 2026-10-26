@@ -260,3 +260,9 @@
         - nginx
         - redirect
 
+    - role: nginx_vhost
+      nginx_vhost_file: 'quack.zeus.gent'
+      tags:
+        - nginx
+        - quack
+
