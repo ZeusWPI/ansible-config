@@ -38,6 +38,7 @@ gandalf: admin, silox@zeus.ugent.be
 
 # Hier kun je specifieke mensen toevoegen die de organisatie doen
 lanparty: bestuur
+lan: lanparty
 
 food: bestuur
 
