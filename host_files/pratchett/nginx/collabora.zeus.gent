@@ -1,0 +1,78 @@
+# vi: syntax=nginx
+
+upstream collabora {
+    server localhost:21948;
+    keepalive 32;
+}
+
+server {
+    listen 80;
+    server_name collabora.zeus.gent;
+
+    if ($request_method = GET) {
+          return 301 https://collabora.zeus.gent$request_uri;
+    }
+
+    return 308 https://collabora.zeus.gent$request_uri;
+}
+
+server {
+    listen 10443 ssl http2;
+    server_name collabora.zeus.gent;
+
+    ssl_certificate     /etc/ssl/private/fullchain.pem;
+    ssl_certificate_key /etc/ssl/private/key.pem;
+    include snippets/ssl_options_preload.conf;
+
+
+    # static files
+    location ^~ /browser {
+        proxy_pass https://collabora;
+        proxy_ssl_verify off;
+        proxy_set_header Host $host;
+    }
+
+
+    # WOPI discovery URL
+    location ^~ /hosting/discovery {
+        proxy_pass https://collabora;
+        proxy_ssl_verify off;
+        proxy_set_header Host $host;
+    }
+
+
+    # Capabilities
+    location ^~ /hosting/capabilities {
+        proxy_pass https://collabora;
+        proxy_ssl_verify off;
+        proxy_set_header Host $host;
+    }
+
+
+    # main websocket, download, presentation (legacy svg) and image upload
+    location ^~ /cool/ {
+        proxy_pass https://collabora;
+        proxy_ssl_verify off;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "Upgrade";
+        proxy_set_header Host $host;
+        proxy_read_timeout 36000s;
+    }
+
+
+    # health checks, used since 26.04.3.1 by load balancers and monitoring
+    location ^~ /livez {
+        proxy_pass https://collabora;
+        proxy_ssl_verify off;
+        proxy_set_header Host $host;
+    }
+
+
+    location ^~ /readyz {
+        proxy_pass https://collabora;
+        proxy_ssl_verify off;
+        proxy_set_header Host $host;
+    }
+}
+

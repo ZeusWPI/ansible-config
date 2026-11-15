@@ -242,6 +242,7 @@
       nginx_vhost_file: 'nextcloud.zeus.gent'
       tags:
         - nginx
+        - nextcloud
 
     - role: nginx_vhost
       nginx_vhost_file: 'inventory.zeus.gent'
@@ -265,4 +266,10 @@
       tags:
         - nginx
         - quack
+
+    - role: nginx_vhost
+      nginx_vhost_file: 'collabora.zeus.gent'
+      tags:
+        - nginx
+        - nextcloud
 
