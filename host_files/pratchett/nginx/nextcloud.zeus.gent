@@ -23,7 +23,7 @@ server {
     include snippets/ssl_options_preload.conf;
 
     location / {
-        client_max_body_size 50M;
+        client_max_body_size 200M;
         proxy_buffers 256 16k;
         proxy_buffer_size 16k;
         client_body_timeout 60;
